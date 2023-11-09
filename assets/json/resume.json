@@ -1,18 +1,18 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
+    "name": "Andrea Chiocca",
+    "label": "Assistant professor of machine design",
     "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
+    "email": "andrea.chiocca@unipi.it",
+    "phone": "+39 050-2218036",
+    "url": "https://www.researchgate.net/profile/Andrea-Chiocca",
     "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
+      "address": "L. Lucio Lazzarino",
+      "postalCode": "56123",
+      "city": "Pisa",
+      "countryCode": "IT",
+      "region": "Tuscany"
     },
     "profiles": [
       {
@@ -24,29 +24,31 @@
   },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
+      "name": "Department of Civil and Industrial Engineering, University of Pisa",
+      "position": "Assistant professor of machine design",
+      "url": "https://www.dici.unipi.it/",
+      "startDate": "01-02-2022",
+      "endDate": "Present",
       "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
       "highlights": [
-        "Relativity"
+        "Fatigue damage models", "Structural integrity", "Finite element simulations"
       ]
     }
   ],
   "volunteer": [],
   "education": [
     {
-      "institution": "University of Zurich, Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Software Development",
+      "institution": "University of Pisa, Pisa, Italy",
+      "url": "https://www.unipi.it/",
+      "area": "Industrial Engineering",
       "studyType": "PhD",
-      "startDate": "1905-01-01",
-      "endDate": "1905-01-01",
+      "startDate": "01-11-2018",
+      "endDate": "31-10-2021",
       "score": "",
       "courses": [
-        "Theory of Relativity"
+        "Fatigue of welded structures",
+        "Residual stress analysis",
+        "Finite element simulations"
       ]
     }
   ],
@@ -63,12 +65,16 @@
   "skills": [],
   "languages": [
     {
-      "language": "German",
+      "language": "Italian",
       "fluency": "Native speaker"
     },
     {
       "language": "English",
       "fluency": "Fluent"
+    },
+    {
+      "language": "German",
+      "fluency": "Basic"
     }
   ],
   "interests": [],
