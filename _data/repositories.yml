@@ -1,12 +1,7 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - achiocca1
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - achiocca1/CPOpt-v1.0
+  - achiocca1/FS-SOL
+  - achiocca1/APDL-WB-ssr-v1.0
