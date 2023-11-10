@@ -6,7 +6,6 @@
     "email": "andrea.chiocca@unipi.it",
     "phone": "+39 050-2218036",
     "url": "https://www.researchgate.net/profile/Andrea-Chiocca",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
     "location": {
       "address": "L. Lucio Lazzarino",
       "postalCode": "56123",
@@ -27,36 +26,72 @@
       "name": "Department of Civil and Industrial Engineering, University of Pisa",
       "position": "Assistant professor of machine design",
       "url": "https://www.dici.unipi.it/",
-      "startDate": "01-02-2022",
+      "startDate": "02-2022",
       "endDate": "Present",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
+      "summary": "I teach and do research related to fatigue assessment of mechanical structures.",
       "highlights": [
-        "Fatigue damage models", "Structural integrity", "Finite element simulations"
+        "Fatigue damage models", "Structural integrity", "Finite element simulations", "Weldings", "Additive manufacturing"
+      ]
+    },
+    {
+      "name": "Pierburg Pump Technology, Rheimetall, Livorno",
+      "position": "Research affiliate",
+      "url": "https://www.rheinmetall.com/en/company/subsidiaries/rheinmetall-italia",
+      "startDate": "02-2022",
+      "endDate": "Present",
+      "summary": "I work with the company to develop more sustainable automotive products.",
+      "highlights": [
+        "Fatigue in frequency domain", "Structural integrity of electronic components", "Fatigue damage of polymers"
       ]
     }
   ],
   "volunteer": [],
   "education": [
     {
-      "institution": "University of Pisa, Pisa, Italy",
+      "institution": "Department of Civil and Industrial Engineering, University of Pisa, Pisa, Italy",
       "url": "https://www.unipi.it/",
       "area": "Industrial Engineering",
       "studyType": "PhD",
-      "startDate": "01-11-2018",
-      "endDate": "31-10-2021",
+      "startDate": "11-2018",
+      "endDate": "10-2021",
       "score": "",
       "courses": [
         "Fatigue of welded structures",
         "Residual stress analysis",
         "Finite element simulations"
       ]
+    },
+    {
+      "institution": "University of Pisa, Pisa, Italy",
+      "url": "https://www.unipi.it/",
+      "area": "Mechanical Engineering",
+      "studyType": "Master",
+      "startDate": "09-2015",
+      "endDate": "05-2018",
+      "score": "",
+      "courses": [
+        "Multiple cracks interaction",
+        "Multiple cracks coalescence"
+      ]
     }
   ],
   "awards": [
     {
-      "title": "Nobel Prize in Physics",
-      "date": "1921-11-01",
-      "awarder": "Royal Swedish Academy of Sciences",
+      "title": "Best PhD thesis in Industrial Engineering 2021",
+      "date": "06-2022",
+      "awarder": "University of Pisa",
+      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
+    },
+    {
+      "title": "Best PhD thesis in Industrial Engineering 2021",
+      "date": "06-2022",
+      "awarder": "University of Pisa",
+      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
+    },
+    {
+      "title": "Best PhD thesis in Industrial Engineering 2021",
+      "date": "06-2022",
+      "awarder": "University of Pisa",
       "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
     }
   ],
