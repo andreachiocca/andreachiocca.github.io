@@ -26,8 +26,8 @@
       "name": "Department of Civil and Industrial Engineering, University of Pisa",
       "position": "Assistant professor of machine design",
       "url": "https://www.dici.unipi.it/",
-      "startDate": "02-2022",
-      "endDate": "Present",
+      "startDate": "2022",
+      "endDate": "Pres.",
       "summary": "I teach and do research related to fatigue assessment of mechanical structures.",
       "highlights": [
         "Fatigue damage models", "Structural integrity", "Finite element simulations", "Weldings", "Additive manufacturing"
@@ -37,9 +37,9 @@
       "name": "Pierburg Pump Technology, Rheimetall, Livorno",
       "position": "Research affiliate",
       "url": "https://www.rheinmetall.com/en/company/subsidiaries/rheinmetall-italia",
-      "startDate": "02-2022",
-      "endDate": "Present",
-      "summary": "I work with the company to develop more sustainable automotive products.",
+      "startDate": "2022",
+      "endDate": "Pres.",
+      "summary": "I collaborate with the company to develop more sustainable automotive products.",
       "highlights": [
         "Fatigue in frequency domain", "Structural integrity of electronic components", "Fatigue damage of polymers"
       ]
@@ -52,8 +52,8 @@
       "url": "https://www.unipi.it/",
       "area": "Industrial Engineering",
       "studyType": "PhD",
-      "startDate": "11-2018",
-      "endDate": "10-2021",
+      "startDate": "2018",
+      "endDate": "2021",
       "score": "",
       "courses": [
         "Fatigue of welded structures",
@@ -66,8 +66,8 @@
       "url": "https://www.unipi.it/",
       "area": "Mechanical Engineering",
       "studyType": "Master",
-      "startDate": "09-2015",
-      "endDate": "05-2018",
+      "startDate": "2015",
+      "endDate": "2018",
       "score": "",
       "courses": [
         "Multiple cracks interaction",
@@ -78,21 +78,21 @@
   "awards": [
     {
       "title": "Best PhD thesis in Industrial Engineering 2021",
-      "date": "06-2022",
+      "date": "2022",
       "awarder": "University of Pisa",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
+      "summary": "Award for the best doctoral thesis discussed in the year 2021 in the field of industrial engineering at the University of Pisa.'"
     },
     {
-      "title": "Best PhD thesis in Industrial Engineering 2021",
-      "date": "06-2022",
-      "awarder": "University of Pisa",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
+      "title": "Ansys Hall of Fame 2020 Competition - Finalist: Top 10 Academic",
+      "date": "2020",
+      "awarder": "Ansys",
+      "summary": "The video was selected as one of the top ten finalists in the competition among academic simulations.'"
     },
     {
-      "title": "Best PhD thesis in Industrial Engineering 2021",
-      "date": "06-2022",
-      "awarder": "University of Pisa",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
+      "title": "Software Simulation Award",
+      "date": "2019",
+      "awarder": "AIAS",
+      "summary": "Best Software Simulation Award of the National Conference of the Italian Scientific Society of Mechanical Design and Machine Building, AIAS 2019.'"
     }
   ],
   "certificates": [],
