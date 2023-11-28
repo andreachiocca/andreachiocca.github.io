@@ -6,7 +6,7 @@ subtitle: Assistant professor of Machine Design at the <a href='https://www.dici
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: prof_pic.PNG
   image_circular: true # crops the image to make it circular
   more_info: >
     <p>+39 050 2218036</p>
