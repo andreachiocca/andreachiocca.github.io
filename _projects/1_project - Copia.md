@@ -1,10 +1,11 @@
 ---
 layout: page
 title: project 1
-description: Teaching materials for the course "PROGETTAZIONE MECCANICA COL METODO DEGLI ELEMENTI FINITI"
+description: a project with a background image
 img: assets/img/12.jpg
 importance: 1
-category: Energy Engineering (LM-30)
+category: work
+related_publications: einstein1956investigations, einstein1950meaning
 ---
 
 Every project has a beautiful feature showcase page.

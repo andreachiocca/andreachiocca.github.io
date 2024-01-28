@@ -2,9 +2,9 @@
 layout: page
 permalink: /teaching/
 title: teaching
-description: Materials related to my courses can be downloaded from this page.
+description: Materials related to my courses can be downloaded from this page (course materials are in Italian only).
 nav: true
-display_categories: [work, fun]
+display_categories: [Energy Engineering (LM-30), Aerospace Engineering (LM-20)]
 nav_order: 4
 ---
 
