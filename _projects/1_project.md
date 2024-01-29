@@ -1,7 +1,7 @@
 ---
 layout: page
-title: project 1
-description: Teaching materials for the course "PROGETTAZIONE MECCANICA COL METODO DEGLI ELEMENTI FINITI"
+title: PROGETTAZIONE MECCANICA COL METODO DEGLI ELEMENTI FINITI
+description: Teaching materials
 img: assets/img/12.jpg
 importance: 1
 category: Energy Engineering (LM-30)
