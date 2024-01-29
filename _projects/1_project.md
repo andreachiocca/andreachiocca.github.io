@@ -1,7 +1,7 @@
 ---
 layout: page
-title: PROGETTAZIONE MECCANICA COL METODO DEGLI ELEMENTI FINITI
-description: Teaching materials
+title: 
+description: PROGETTAZIONE MECCANICA COL METODO DEGLI ELEMENTI FINITI
 img: assets/img/FEM_1.png
 importance: 1
 category: Energy Engineering (LM-30)
