@@ -2,12 +2,12 @@
 layout: page
 title: Teaching material
 description: PROGETTAZIONE MECCANICA COL METODO DEGLI ELEMENTI FINITI
-img: assets/img/FEM_1.png
+img: assets/img/FEM_1.jpg
 importance: 1
 category: Energy Engineering (LM-30)
 ---
 <ul>
-    <li>Introduzione al metodo degli elementi finiti <a href="/TeachingMaterial/Ingegneria_Energetica/PMMEF/Introduzione.pdf" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-file-pdf"></i></a></li>
+    <li>Introduzione al metodo degli elementi finiti <a href="/TeachingMaterial/Ingegneria_Energetica/PMMEF/Introduzione_EN.pdf" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-file-pdf"></i></a></li>
     <li>Graphic User Interface (GUI) di Ansys Workbench <a href="/TeachingMaterial/Ingegneria_Energetica/PMMEF/GUI.pdf" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-file-pdf"></i></a></li>
 	<li>Esercitazione: albero con variazione di diametro <a href="/TeachingMaterial/Ingegneria_Energetica/PMMEF/Albero_con_variazione_diametro.zip" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-folder"></i></a></li>
     <li>Esercitazione: lastra con foro <a href="/TeachingMaterial/Ingegneria_Energetica/PMMEF/Lastra_con_foro_CAD.zip" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-folder"></i></a></li>
