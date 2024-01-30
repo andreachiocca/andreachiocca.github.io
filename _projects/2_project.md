@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Teaching material
+title: Materiale
 description: Esercitazioni con codice agli elementi finiti
 img: assets/img/FEM_2.jpg
 importance: 1

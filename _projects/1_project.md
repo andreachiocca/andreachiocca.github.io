@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Teaching material
+title: Materiale
 description: PROGETTAZIONE MECCANICA COL METODO DEGLI ELEMENTI FINITI
 img: assets/img/FEM_1.jpg
 importance: 1
