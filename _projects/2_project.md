@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Aerospace Engineering (LM-20)
-description: Esercitazioni con codice agli elementi finiti
+title: Esercitazioni con codice agli elementi finiti
+description: Aerospace Engineering (LM-20)
 img: assets/img/FEM_2.jpg
 importance: 2
 category: 
