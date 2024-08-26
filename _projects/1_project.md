@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Energy Engineering (LM-30)
-description: PROGETTAZIONE MECCANICA COL METODO DEGLI ELEMENTI FINITI
+description: Progettazione meccanica col metodo degli elementi finiti
 img: assets/img/FEM_1.jpg
 importance: 1
 category: 
