@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Materiale
+title: Aerospace Engineering (LM-20)
 description: Esercitazioni con codice agli elementi finiti
 img: assets/img/FEM_2.jpg
 importance: 1
-category: Aerospace Engineering (LM-20)
+category: 
 ---
 <ul>
     <li>Introduzione al metodo degli elementi finiti <a href="/TeachingMaterial/Ingegneria_Energetica/PMMEF/Introduzione_AE.pdf" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-file-pdf"></i></a></li>

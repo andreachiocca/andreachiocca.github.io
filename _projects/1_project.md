@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Materiale
+title: Energy Engineering (LM-30)
 description: PROGETTAZIONE MECCANICA COL METODO DEGLI ELEMENTI FINITI
 img: assets/img/FEM_1.jpg
 importance: 1
-category: Energy Engineering (LM-30)
+category: 
 ---
 <ul>
     <li>Introduzione al metodo degli elementi finiti <a href="/TeachingMaterial/Ingegneria_Energetica/PMMEF/Introduzione_EN.pdf" target="_blank" rel="noopener noreferrer" class="float-right"><i class="fas fa-file-pdf"></i></a></li>
