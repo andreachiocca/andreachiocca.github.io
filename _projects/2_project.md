@@ -1,6 +1,6 @@
 ---
 layout: page
-title: costruzione di macchine (esercitazioni con codice agli elementi finiti) - 231II
+title: Costruzione di macchine (esercitazioni con codice agli elementi finiti) - 231II
 description: WIA-LM - INGEGNERIA AEROSPAZIALE
 img: assets/img/FEM_2.jpg
 importance: 2
