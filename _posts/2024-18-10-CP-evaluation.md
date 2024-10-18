@@ -29,16 +29,18 @@ toc:
 
 In this post, we present an optimized method for evaluating the Critical Plane (CP) factor and determining CP orientation for fatigue analysis under multiaxial loading conditions. This approach is based on an efficient algorithm that streamlines the identification of the maximum shear strain amplitude and normal stress, aligning with critical plane criteria such as the Fatemi-Socie CP factor. The method is ideal for structural components with complex geometries, such as notched specimens, and significantly reduces calculation time while maintaining accuracy.
 
-The application of this method can be found detailed in some of the author's publications: Chiocca et al. <d-cite key="Chiocca2023"></d-cite>, <d-cite key="Chiocca2023a"></d-cite>,<d-cite key="Chiocca2024c"></d-cite>, <d-cite key="Chiocca2024"></d-cite>, <d-cite key="Chiocca2024c"></d-cite>.
+The application of this method can be found detailed in some of the author's publications: Chiocca et al. <d-cite key="Chiocca2023"></d-cite>, <d-cite key="Chiocca2023a"></d-cite>,<d-cite key="Chiocca2024c"></d-cite>, <d-cite key="Chiocca2024"></d-cite>.
 
 
 
 ## Theoretical Background
 
-The \textit{Fatemi-Socie} CP factor ($FS$) <d-cite key="Fatemi1988"></d-cite> is considered as a reference:
+The Fatemi-Socie CP factor ($FS$) <d-cite key="Fatemi1988"></d-cite> is considered as a reference:
+
 $$
 FS=\frac{\Delta \gamma}{2} \left( 1 + k \frac{\sigma_{n,max}}{S_y} \right)
 $$
+
 where $k$ is the material parameter found by fitting the uniaxial experimental data against the pure torsion data, $\Delta \gamma$ is the shear strain range, $\sigma_{n,max}$ is the normal stress acting on the plane where the shear strain range is evaluated and $S_y$ is the material yield strength.
 
 In fatigue analysis, the stress and strain tensors for the $i-th$ loading condition are defined as follows:
@@ -135,10 +137,10 @@ $$
 
 ### Maximum Normal Stress ($\sigma_{n,\text{max}}$)
 
-The maximum normal stress, $\sigma_{n,\text{max}}$, on the critical plane is calculated by projecting the stress tensor $\mathbf{\sigma}$ onto the normal vector $\mathbf{n}$ of the critical plane. The normal vectors to the critical plane are two in this case represented by $\mathbf{n_1}'=R(:,1)$ or $\mathbf{n_3}'=R(:,3)$. The normal stress is computed as follows:
+The maximum normal stress, $\sigma_{n,\text{max}}$, on the critical plane is calculated by projecting the stress tensor $$\mathbf{\sigma}$$ onto the normal vector $\mathbf{n}$ of the critical plane. The normal vectors to the critical plane are two in this case represented by $$\mathbf{\widetilde{n_1}}=R(:,1)$$ or $$\mathbf{\widetilde{n_3}}=R(:,3)$$. The normal stress is computed as follows:
 
 $$
-\sigma_{n} = \max \left( \mathbf{n_1}'^T \mathbf{\sigma} \mathbf{n_1}',\mathbf{n_3}'^T \mathbf{\sigma} \mathbf{n_3}' \right)
+\sigma_{n} = \max \left( \mathbf{\widetilde{n_1}}^T \mathbf{\sigma} \mathbf{\widetilde{n_1}},\mathbf{\widetilde{n_3}}^T \mathbf{\sigma} \mathbf{\widetilde{n_3}} \right)
 $$
 
 
