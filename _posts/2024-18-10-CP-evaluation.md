@@ -88,9 +88,9 @@ n_{31} & n_{32} & n_{33}\\
 \end{bmatrix}
 $$
 
-- The first column vector, $\mathbf{n}_1 = \begin{bmatrix} n_{11} \\ n_{21} \\ n_{31} \end{bmatrix}$, corresponds to the principal direction associated with the maximum principal strain $\Delta\varepsilon_{1}$.
-- The second column vector, $\mathbf{n}_2 = \begin{bmatrix} n_{12} \\ n_{22} \\ n_{32} \end{bmatrix}$, corresponds to the direction of the intermediate principal strain $\Delta\varepsilon_{2}$.
-- The third column vector, $\mathbf{n}_3 = \begin{bmatrix} n_{13} \\ n_{23} \\ n_{33} \end{bmatrix}$, corresponds to the direction of the minimum principal strain $\Delta\varepsilon_{3}$.
+- The first column vector, $$\mathbf{n}_1 = \begin{bmatrix} n_{11} \\ n_{21} \\ n_{31} \end{bmatrix}$$, corresponds to the principal direction associated with the maximum principal strain $$\Delta\varepsilon_{1}$$.
+- The second column vector, $$\mathbf{n}_2 = \begin{bmatrix} n_{12} \\ n_{22} \\ n_{32} \end{bmatrix}$$, corresponds to the direction of the intermediate principal strain $$\Delta\varepsilon_{2}$$.
+- The third column vector, $$\mathbf{n}_3 = \begin{bmatrix} n_{13} \\ n_{23} \\ n_{33} \end{bmatrix}$$, corresponds to the direction of the minimum principal strain $$\Delta\varepsilon_{3}$$.
 
 These eigenvectors define the orientation of the principal planes (the planes on which no shear strain occurs) and are used to establish the local coordinate system for evaluating the Critical Plane.
 
