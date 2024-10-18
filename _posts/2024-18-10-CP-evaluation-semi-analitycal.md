@@ -29,6 +29,7 @@ toc:
   - name: Principal Reference Frame and Rotations
   - name: Maximum Damage Parameter
 
+---
 ## Novel Semi-Analytical Method
 
 ### Methodology
