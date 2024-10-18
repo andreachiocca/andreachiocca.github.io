@@ -136,5 +136,3 @@ $$
 $$
 
 A more detailed description of the stress paths and Mohr's circles is shown in Figure~\ref{FSMAX}.
-
-***
