@@ -33,31 +33,31 @@ toc:
 
 ### Methodology
 
-Consistent with standard fatigue assessment practices, load-time history is treated as a discrete sequence of peaks and valleys rather than a continuous function over time. The stress and strain tensors for the \( i \)-th loading condition are defined as follows:
+Consistent with standard fatigue assessment practices, load-time history is treated as a discrete sequence of peaks and valleys rather than a continuous function over time. The stress and strain tensors for the $$ i $$-th loading condition are defined as follows:
 
 $$
-\bm{\sigma}^{(i)} =
+\mathbf{\sigma}^i =
 \begin{bmatrix}
-\sigma_{xx} & \tau_{xy} & \tau_{xz} \\
- & \sigma_{yy} & \tau_{yz} \\
- \multicolumn{2}{c}{\text{sym.}} & \sigma_{zz} \\
-\end{bmatrix}^{(i)}, \;
-\bm{\varepsilon}^{(i)} =
+\sigma_{xx}^i & \tau_{xy}^i & \tau_{xz}^i \\
+\tau_{yx}^i & \sigma_{yy}^i & \tau_{yz}^i \\
+\tau_{zx}^i & \tau_{zy}^i & \sigma_{zz}^i \\
+\end{bmatrix}, \;
+\mathbf{\varepsilon}^i =
 \begin{bmatrix}
-\varepsilon_{xx} & \frac{\gamma_{xy}}{2} & \frac{\gamma_{xz}}{2} \\
-& \varepsilon_{yy} & \frac{\gamma_{yz}}{2} \\
-\multicolumn{2}{c}{\text{sym.}} & \varepsilon_{zz} \\
-\end{bmatrix}^{(i)}
+\varepsilon_{xx}^i & \frac{\gamma_{xy}^i}{2} & \frac{\gamma_{xz}^i}{2} \\
+\frac{\gamma_{yx}^i}{2} & \varepsilon_{yy}^i & \frac{\gamma_{yz}^i}{2} \\
+\frac{\gamma_{zx}^i}{2} & \frac{\gamma_{zy}^i}{2} & \varepsilon_{zz}^i \\
+\end{bmatrix}
 $$
 
-During a load cycle, two successive loading conditions are denoted as \( i \) and \( i+1 \).
+During a load cycle, two successive loading conditions are denoted as $$ i $$ and $$ i+1 $$.
 
 ### Stress and Strain Ranges
 
 Tensor quantities, such as stress and strain ranges, are defined as follows:
 
 $$
-\bm{\Delta \sigma} = \bm{\sigma}^{(i)} - \bm{\sigma}^{(i+1)}, \: \bm{\Delta \varepsilon} = \bm{\varepsilon}^{(i)} - \bm{\varepsilon}^{(i+1)}
+\mathbf{\Delta \sigma} = \mathbf{\sigma}^{(i)} - \mathbf{\sigma}^{(i+1)}, \: \mathbf{\Delta \varepsilon} = \mathbf{\varepsilon}^{(i)} - \mathbf{\varepsilon}^{(i+1)}
 $$
 
 All tensor quantities are defined within the same reference frame and can be represented as matrices.
@@ -67,19 +67,19 @@ All tensor quantities are defined within the same reference frame and can be rep
 Through an eigenvalue-eigenvector analysis, principal stress and strain parameters are obtained, along with the principal directions:
 
 $$
-\bm{\bar{n}_1}^k =
+\mathbf{\bar{n}_1}^k =
 \begin{bmatrix}
 n_{11}\\
 n_{21}\\
 n_{31}\\
 \end{bmatrix}^{k}, \;
-\bm{\bar{n}_2}^k =
+\mathbf{\bar{n}_2}^k =
 \begin{bmatrix}
 n_{12}\\
 n_{22}\\
 n_{32}\\
 \end{bmatrix}^{k}, \;
-\bm{\bar{n}_3}^k =
+\mathbf{\bar{n}_3}^k =
 \begin{bmatrix}
 n_{13}\\
 n_{23}\\
@@ -87,7 +87,7 @@ n_{33}\\
 \end{bmatrix}^{k}
 $$
 
-These directions define the principal coordinate system, and the rotation matrix \( R_p^k \) describes the transformation from the global reference frame:
+These directions define the principal coordinate system, and the rotation matrix $$ R_p^k $$ describes the transformation from the global reference frame:
 
 $$
 R_p^{k} =
@@ -100,10 +100,10 @@ $$
 
 ### Rotational Transformation
 
-To describe transformations, such as rotations around the local axes, the rotation matrix \( R_{\bm{\bar{n}_2}} \) is given as:
+To describe transformations, such as rotations around the local axes, the rotation matrix $$ R_{\mathbf{\bar{n}_2}} $$ is given as:
 
 $$
-R_{\bm{\bar{n}_2}} =
+R_{\mathbf{\bar{n}_2}} =
 \begin{bmatrix}
 \cos(\omega) & 0 & \sin(\omega)\\
 0 & 1 & 0\\
@@ -111,10 +111,10 @@ R_{\bm{\bar{n}_2}} =
 \end{bmatrix}
 $$
 
-The final transformation matrix \( R_f^k \) is obtained by multiplying the principal and rotational matrices:
+The final transformation matrix $$ R_f^k $$ is obtained by multiplying the principal and rotational matrices:
 
 $$
-R_f^k = R_p^k R_{\bm{\bar{n}_2}} =
+R_f^k = R_p^k R_{\mathbf{\bar{n}_2}} =
 \begin{bmatrix}
 R_{11} & R_{12} & R_{13}\\
 R_{21} & R_{22} & R_{23}\\
