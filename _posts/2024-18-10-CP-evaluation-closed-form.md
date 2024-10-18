@@ -1,15 +1,22 @@
 ---
 layout: distill
-title: Efficient Method for the Evaluation of CP Factor and CP Orientation
+title: Closed-Form Solution for the Evaluation of CP Factor and CP Orientation
 description: A detailed explanation of an efficient method for evaluating the Critical Plane (CP) factor and orientation.
 tags: fatigue evaluation, critical plane, strain tensor
 giscus_comments: false
-date: 2024-10-18
+date: 2023-03-18
 featured: true
 
 authors:
   - name: Andrea Chiocca
     url: "https://andreachiocca.github.io/"
+    affiliations:
+      name: Department of Civil and Industrial Engineering - University of Pisa
+  - name: Francesco Frendo
+    url: "https://unimap.unipi.it/cercapersone/dettaglio.php?ri=5946"
+    affiliations:
+      name: Department of Civil and Industrial Engineering - University of Pisa
+  - name: Michele Sgamma
     affiliations:
       name: Department of Civil and Industrial Engineering - University of Pisa
 
