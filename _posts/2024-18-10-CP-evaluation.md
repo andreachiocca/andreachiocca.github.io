@@ -20,26 +20,27 @@ toc:
   - name: Introduction
   - name: Theoretical Background
   - name: Equations and Method
+  - name: Application Example
   - name: References
 
 ---
 
 ## Introduction
 
-In this post, we discuss an efficient method to evaluate the Critical Plane (CP) factor and CP orientation, as commonly applied in fatigue assessments. This method maximizes the shear strain amplitude, aligning with the original Fatemi-Socie critical plane factor.
+In this post, we present an optimized method for evaluating the Critical Plane (CP) factor and determining CP orientation, specifically for fatigue analysis under multiaxial loading conditions. This approach is based on an efficient algorithm that streamlines the identification of the maximum shear strain amplitude, aligning with the Fatemi-Socie critical plane factor. The method's computational efficiency is ideal for structural components with complex geometries, such as notched specimens, and significantly reduces calculation time while maintaining accuracy.
 
 ## Theoretical Background
 
-As commonly done in fatigue assessments, the load-time history is considered as a discrete sequence of peaks and valleys instead of a continuous function over time. The stress and strain tensors related to the generic $i-th$ loading condition can be defined as:
+In fatigue analysis, load-time history is typically discretized as a sequence of peaks and valleys, rather than treated as a continuous function. The stress and strain tensors for the $i-th$ loading condition are defined as follows:
 
 $$
-\vect{\sigma}^i =
+\mathbf{\sigma}^i =
 \begin{bmatrix}
 \sigma_{xx}^i & \tau_{xy}^i & \tau_{xz}^i \\
 \tau_{yx}^i & \sigma_{yy}^i & \tau_{yz}^i \\
 \tau_{zx}^i & \tau_{zy}^i & \sigma_{zz}^i \\
 \end{bmatrix}, \;
-\vect{\varepsilon}^i =
+\mathbf{\varepsilon}^i =
 \begin{bmatrix}
 \varepsilon_{xx}^i & \frac{\gamma_{xy}^i}{2} & \frac{\gamma_{xz}^i}{2} \\
 \frac{\gamma_{yx}^i}{2} & \varepsilon_{yy}^i & \frac{\gamma_{yz}^i}{2} \\
@@ -47,18 +48,18 @@ $$
 \end{bmatrix}
 $$
 
-We can now define the strain tensor range relative to the loading conditions $i$ and $i+1$ as the difference between strain tensors $\vect{\varepsilon}^i$ and $\vect{\varepsilon}^{i+1}$:
+The strain tensor range, considering two successive loading conditions $i$ and $i+1$, is computed as the difference between the two strain tensors:
 
 $$
-\vect{\Delta \varepsilon} = \vect{\varepsilon}^i - \vect{\varepsilon}^{i+1}
+\mathbf{\Delta \varepsilon} = \mathbf{\varepsilon}^i - \mathbf{\varepsilon}^{i+1}
 $$
 
 ## Equations and Method
 
-To compute the principal strain tensor range parameters ($\Delta\varepsilon_{1}$, $\Delta\varepsilon_{2}$, $\Delta\varepsilon_{3}$), we first define them as the eigenvalues of the matrix $\vect{\Delta \varepsilon}$:
+To evaluate the principal strain tensor range ($\Delta\varepsilon_{1}$, $\Delta\varepsilon_{2}$, $\Delta\varepsilon_{3}$), we first compute the eigenvalues of the matrix $\mathbf{\Delta \varepsilon}$:
 
 $$
-\vect{\Delta\varepsilon} =
+\mathbf{\Delta\varepsilon} =
 \begin{bmatrix}
 \Delta\varepsilon_{xx} & \frac{\Delta\gamma_{xy}}{2} & \frac{\Delta\gamma_{xz}}{2} \\
 \frac{\Delta\gamma_{yx}}{2} & \Delta\varepsilon_{yy} & \frac{\Delta\gamma_{yz}}{2} \\
@@ -72,13 +73,11 @@ $$
 \end{bmatrix}
 $$
 
-The maximum shear strain range $\Delta\gamma_{max}$ can be computed using the principal strain variations:
+The principal strains $\Delta\varepsilon_{1}$, $\Delta\varepsilon_{2}$, and $\Delta\varepsilon_{3}$ represent the maximum, intermediate, and minimum normal strains, respectively, in their corresponding principal directions. These directions are defined by the eigenvectors of the strain tensor $\mathbf{\Delta\varepsilon}$.
 
-$$
-\frac{\Delta\gamma_{max}}{2} = \frac{(\Delta\varepsilon_{1} - \Delta\varepsilon_{3})}{2}
-$$
+### Eigenvectors
 
-To compute the CP factor, we need to evaluate the normal directions to $\Delta\gamma_{max}$ planes using the eigenvectors of $\vect{\Delta\varepsilon}$:
+The eigenvectors corresponding to the principal strains are crucial because they define the orientation of the planes on which these principal strains act. These eigenvectors can be represented as the columns of the eigenvector matrix $R_p$:
 
 $$
 R_p =
@@ -89,7 +88,23 @@ n_{31} & n_{32} & n_{33}\\
 \end{bmatrix}
 $$
 
-By rotating the system of reference by $\omega =\frac{\pi}{4}$ about the local $y$-axis, we get the rotation matrix:
+- The first column vector, $\mathbf{n}_1 = \begin{bmatrix} n_{11} \\ n_{21} \\ n_{31} \end{bmatrix}$, corresponds to the principal direction associated with the maximum principal strain $\Delta\varepsilon_{1}$.
+- The second column vector, $\mathbf{n}_2 = \begin{bmatrix} n_{12} \\ n_{22} \\ n_{32} \end{bmatrix}$, corresponds to the direction of the intermediate principal strain $\Delta\varepsilon_{2}$.
+- The third column vector, $\mathbf{n}_3 = \begin{bmatrix} n_{13} \\ n_{23} \\ n_{33} \end{bmatrix}$, corresponds to the direction of the minimum principal strain $\Delta\varepsilon_{3}$.
+
+These eigenvectors define the orientation of the principal planes (the planes on which no shear strain occurs) and are used to establish the local coordinate system for evaluating the Critical Plane.
+
+### Maximum Shear Strain
+
+The maximum shear strain range $\Delta\gamma_{max}$ can be calculated using the difference between the maximum and minimum principal strain values:
+
+$$
+\frac{\Delta\gamma_{max}}{2} = \frac{(\Delta\varepsilon_{1} - \Delta\varepsilon_{3})}{2}
+$$
+
+### Rotation for Critical Plane Orientation
+
+To adjust the reference system for proper plane alignment, a rotation by $\omega = \frac{\pi}{4}$ about the local $y$-axis is applied, resulting in the following rotation matrix:
 
 $$
 R_y =
@@ -100,12 +115,16 @@ R_y =
 \end{bmatrix}
 $$
 
-The final rotation matrix that defines the orientation of the $\Delta \gamma_{max}$ plane is:
+The final rotation matrix, $R$, defining the CP orientation is obtained by multiplying $R_p$ with $R_y$:
 
 $$
 R = R_pR_y
 $$
 
+## Application Example
+
+This method has been applied to various notched specimens subjected to multiaxial loading, such as axial-torsional tests. The approach not only accurately predicts fatigue life but also demonstrates a significant reduction in computational effort compared to traditional critical plane methods.
+
 ## Conclusion
 
-This method simplifies the evaluation of CP orientation and $\Delta \gamma_{max}$ for fatigue assessments, providing a streamlined and computationally efficient approach.
+This optimized algorithm for evaluating CP factors and orientations enhances the efficiency of fatigue assessments, especially for components under complex multiaxial loading conditions. The approach has been successfully validated against experimental data and offers practical advantages in engineering applications.
