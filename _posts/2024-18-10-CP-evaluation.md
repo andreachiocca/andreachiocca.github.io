@@ -1,4 +1,3 @@
-Here is the code you can copy and paste into your GitHub website, formatted for a Jekyll-based page with math and content blocks
 ---
 layout: distill
 title: Efficient Method for the Evaluation of CP Factor and CP Orientation
@@ -13,6 +12,8 @@ authors:
     url: "https://andreachiocca.github.io/"
     affiliations:
       name: Department of Civil and Industrial Engineering - University of Pisa
+
+bibliography: 2024-10-18-CP-eval.bib
 
 # Optionally, you can add a table of contents to your post.
 toc:
