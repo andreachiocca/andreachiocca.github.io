@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Laboratorio di progettazione assistita - 2167Z
-description: TMP-L - TECNICHE PER LA MECCANICA E LA PRODUZIONE
+title: Laboratorio di progettazione assistita
+description: TECNICHE PER LA MECCANICA E LA PRODUZIONE - 2167Z
 img: assets/img/FEM_3.jpg
 importance: 3
 category: 

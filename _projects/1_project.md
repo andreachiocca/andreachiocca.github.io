@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Progettazione meccanica col metodo degli elementi finiti - 923II
-description: WIN-LM - INGEGNERIA ENERGETICA
+title: Progettazione meccanica col metodo degli elementi finiti 
+description: INGEGNERIA ENERGETICA - 923II
 img: assets/img/FEM_1.jpg
 importance: 1
 category: 
