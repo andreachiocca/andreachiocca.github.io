@@ -12,6 +12,13 @@ authors:
     url: "https://andreachiocca.github.io/"
     affiliations:
       name: Department of Civil and Industrial Engineering - University of Pisa
+  - name: Francesco Frendo
+    url: "https://unimap.unipi.it/cercapersone/dettaglio.php?ri=5946"
+    affiliations:
+      name: Department of Civil and Industrial Engineering - University of Pisa
+  - name: Michele Sgamma
+    affiliations:
+      name: Department of Civil and Industrial Engineering - University of Pisa
 
 bibliography: 2024-10-18-CP-eval.bib
 
