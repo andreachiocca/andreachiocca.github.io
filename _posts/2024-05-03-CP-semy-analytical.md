@@ -37,7 +37,7 @@ Fatigue assessment remains a crucial concern for designers due to unexpected fai
 
 ## Critical Plane Factors
 
-The proposed method applies to two critical plane factors:
+The proposed method <d-cite key="Sgamma2024a"></d-cite> applies to all critical plane factors that require maximization of the entire formulation. In this case two critical plane factors will be used as examples, the extended Fatemi-Socie critical plane factor $$FS$$ and the Findley critical plane factor $$FI$$:
 
 $$
 FS = \max \left[ \frac{\Delta \gamma}{2} \left( 1 + k_{FS} \frac{\sigma_{n,max}}{\sigma_y} \right) \right]
@@ -48,10 +48,10 @@ FI = \Delta \tau + k_{FI} \sigma_{n,max}
 $$
 
 Where:
-- \( \Delta \gamma \): Shear strain range
-- \( \Delta \tau \): Shear stress range
-- \( \sigma_{n,max} \): Maximum normal stress
-- \( \sigma_y \): Yield strength
+- $$ \Delta \gamma $$: Shear strain range
+- $$ \Delta \tau $$: Shear stress range
+- $$ \sigma_{n,max} $$: Maximum normal stress
+- $$ \sigma_y $$: Yield strength
 
 ## Standard Plane Scanning Method
 
@@ -65,7 +65,7 @@ $$
 
 ## Semi-Analytical Method
 
-This novel semi-analytical method discretizes the load-time history as peaks and valleys, defining stress \( \sigma^{(i)} \) and strain \( \varepsilon^{(i)} \) tensors for each loading condition. Successive load conditions \( i \) and \( i+1 \) allow the calculation of tensor ranges:
+This novel semi-analytical method discretizes the load-time history as peaks and valleys, defining stress $$ \sigma^{(i)} $$ and strain $$ \varepsilon^{(i)} $$ tensors for each loading condition. Successive load conditions $$ i $$ and $$ i+1 $$ allow the calculation of tensor ranges:
 
 $$
 \Delta \sigma = \sigma^{(i)} - \sigma^{(i+1)}, \: \Delta \varepsilon = \varepsilon^{(i)} - \varepsilon^{(i+1)}
@@ -85,13 +85,13 @@ The method evaluates critical plane parameters along predefined paths in three s
 
 Finite element simulations were performed on a notched specimen under proportional and non-proportional loading. The proposed semi-analytical method achieved a 97% reduction in computation time compared to the standard plane scanning method, while maintaining high accuracy (error < 0.5%). The method was validated by comparing it with the standard plane scanning results under different loading conditions.
 
-The performance index \( PI \), defined as:
+The performance index $$ PI $$, defined as:
 
 $$
 PI = \left( 1 - \frac{t_{sa}}{t_{ps}} \right)
 $$
 
-where \( t_{sa} \) is the computation time for the semi-analytical method and \( t_{ps} \) is for the plane scanning method, shows the efficiency of the proposed approach.
+where $$ t_{sa} $$ is the computation time for the semi-analytical method and $$ t_{ps} $$ is for the plane scanning method, shows the efficiency of the proposed approach.
 
 ## Conclusion
 
