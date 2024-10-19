@@ -71,7 +71,7 @@ $$
 \Delta \sigma = \sigma^{(i)} - \sigma^{(i+1)}, \: \Delta \varepsilon = \varepsilon^{(i)} - \varepsilon^{(i+1)}
 $$
 
-Principal stress/strain parameters are obtained via eigenvalue analysis, and critical plane orientations are determined by rotating around the principal axes&#8203;:contentReference[oaicite:3]{index=3}.
+Principal stress/strain parameters are obtained via eigenvalue analysis, and critical plane orientations are determined by rotating around the principal axes.
 
 The rotation matrix for the transformation is:
 
