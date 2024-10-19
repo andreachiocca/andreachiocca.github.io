@@ -42,15 +42,15 @@ The application of this method can be found detailed in some of the author's pub
 
 ## Theoretical Background
 
-The Fatemi-Socie CP factor ($FS$) <d-cite key="Fatemi1988"></d-cite> is considered as a reference:
+The Fatemi-Socie CP factor ($$FS$$) <d-cite key="Fatemi1988"></d-cite> is considered as a reference:
 
 $$
 FS=\frac{\Delta \gamma}{2} \left( 1 + k \frac{\sigma_{n,max}}{S_y} \right)
 $$
 
-where $k$ is the material parameter found by fitting the uniaxial experimental data against the pure torsion data, $\Delta \gamma$ is the shear strain range, $\sigma_{n,max}$ is the normal stress acting on the plane where the shear strain range is evaluated and $S_y$ is the material yield strength.
+where $$k$$ is the material parameter found by fitting the uniaxial experimental data against the pure torsion data, $$\Delta \gamma$$ is the shear strain range, $$\sigma_{n,max}$$ is the normal stress acting on the plane where the shear strain range is evaluated and $$S_y$$ is the material yield strength.
 
-In fatigue analysis, the stress and strain tensors for the $i-th$ loading condition are defined as follows:
+In fatigue analysis, the stress and strain tensors for the $$i-th$$ loading condition are defined as follows:
 
 $$
 \mathbf{\sigma}^i =
@@ -67,7 +67,7 @@ $$
 \end{bmatrix}
 $$
 
-The strain tensor range, considering two successive loading conditions $i$ and $i+1$, is computed as the difference between the two strain tensors:
+The strain tensor range, considering two successive loading conditions $$i$$ and $$i+1$$, is computed as the difference between the two strain tensors:
 
 $$
 \mathbf{\Delta \varepsilon} = \mathbf{\varepsilon}^i - \mathbf{\varepsilon}^{i+1}
@@ -77,7 +77,7 @@ $$
 
 ### Principal Strain Calculation
 
-To evaluate the principal strain tensor range ($\Delta\varepsilon_{1}$, $\Delta\varepsilon_{2}$, $\Delta\varepsilon_{3}$), we compute the eigenvalues of the matrix $\mathbf{\Delta \varepsilon}$:
+To evaluate the principal strain tensor range ($$\Delta\varepsilon_{1}$$, $$\Delta\varepsilon_{2}$$, $$\Delta\varepsilon_{3}$$), we compute the eigenvalues of the matrix $$\mathbf{\Delta \varepsilon}$$:
 
 $$
 \mathbf{\Delta\varepsilon} =
@@ -94,11 +94,11 @@ $$
 \end{bmatrix}
 $$
 
-The principal strains $\Delta\varepsilon_{1}$, $\Delta\varepsilon_{2}$, and $\Delta\varepsilon_{3}$ represent the maximum, intermediate, and minimum normal strains, respectively, in their corresponding principal directions. These directions are defined by the eigenvectors of the strain tensor $\mathbf{\Delta\varepsilon}$.
+The principal strains $$\Delta\varepsilon_{1}$$, $$\Delta\varepsilon_{2}$$, and $$\Delta\varepsilon_{3}$$ represent the maximum, intermediate, and minimum normal strains, respectively, in their corresponding principal directions. These directions are defined by the eigenvectors of the strain tensor $$\mathbf{\Delta\varepsilon}$$.
 
 ### Eigenvectors
 
-The eigenvectors corresponding to the principal strains define the orientation of the planes on which these principal strains act. These eigenvectors are represented as the columns of the eigenvector matrix $R_p$:
+The eigenvectors corresponding to the principal strains define the orientation of the planes on which these principal strains act. These eigenvectors are represented as the columns of the eigenvector matrix $$R_p$$:
 
 $$
 R_p =
@@ -117,7 +117,7 @@ These eigenvectors define the orientation of the principal planes (the planes on
 
 ### Maximum Shear Strain
 
-The maximum shear strain range $\Delta\gamma_{max}$ is calculated as:
+The maximum shear strain range $$\Delta\gamma_{max}$$ is calculated as:
 
 $$
 \frac{\Delta\gamma_{max}}{2} = \frac{(\Delta\varepsilon_{1} - \Delta\varepsilon_{3})}{4}
@@ -125,7 +125,7 @@ $$
 
 ### Rotation for Critical Plane Orientation
 
-To adjust the reference system for proper plane alignment, a rotation by $\omega = \frac{\pi}{4}$ about the local $y$-axis is applied, resulting in the following rotation matrix:
+To adjust the reference system for proper plane alignment, a rotation by $$\omega = \frac{\pi}{4}$$ about the local $$y$$-axis is applied, resulting in the following rotation matrix:
 
 $$
 R_y =
@@ -136,7 +136,7 @@ R_y =
 \end{bmatrix}
 $$
 
-The final rotation matrix, $R$, defining the CP orientation is obtained by multiplying $R_p$ with $R_y$:
+The final rotation matrix, $R$, defining the CP orientation is obtained by multiplying $$R_p$$ with $$R_y$$:
 
 $$
 R = R_pR_y
@@ -144,7 +144,7 @@ $$
 
 ### Maximum Normal Stress ($\sigma_{n,\text{max}}$)
 
-The maximum normal stress, $\sigma_{n,\text{max}}$, on the critical plane is calculated by projecting the stress tensor $$\mathbf{\sigma}$$ onto the normal vector $\mathbf{n}$ of the critical plane. The normal vectors to the critical plane are two in this case represented by $$\mathbf{\widetilde{n_1}}=R(:,1)$$ or $$\mathbf{\widetilde{n_3}}=R(:,3)$$. The normal stress is computed as follows:
+The maximum normal stress, $$\sigma_{n,\text{max}}$$, on the critical plane is calculated by projecting the stress tensor $$\mathbf{\sigma}$$ onto the normal vector $\mathbf{n}$$ of the critical plane. The normal vectors to the critical plane are two in this case represented by $$\mathbf{\widetilde{n_1}}=R(:,1)$$ or $$\mathbf{\widetilde{n_3}}=R(:,3)$$. The normal stress is computed as follows:
 
 $$
 \sigma_{n} = \max \left( \mathbf{\widetilde{n_1}}^T \mathbf{\sigma} \mathbf{\widetilde{n_1}},\mathbf{\widetilde{n_3}}^T \mathbf{\sigma} \mathbf{\widetilde{n_3}} \right)
