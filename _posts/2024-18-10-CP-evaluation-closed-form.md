@@ -159,3 +159,5 @@ This method has been applied to various notched specimens subjected to multiaxia
 ## Conclusion
 
 This optimized algorithm for evaluating CP factors and determining the orientation of critical planes enhances the efficiency of fatigue assessments, especially for components under complex multiaxial loading conditions. The approach has been successfully validated against experimental data and offers practical advantages in engineering applications.
+
+A supplementary Matlab® script implementing the method is available on GitHub: [CPOpt](https://github.com/achiocca1/CPOpt-v1.0).
