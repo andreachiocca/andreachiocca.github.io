@@ -20,7 +20,7 @@ authors:
     affiliations:
       name: Department of Civil and Industrial Engineering - University of Pisa
 
-bibliography: references.bib
+bibliography: 2024-10-18-CP-eval.bib
 
 toc:
   - name: Introduction
