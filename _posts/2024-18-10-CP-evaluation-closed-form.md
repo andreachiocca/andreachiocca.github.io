@@ -144,10 +144,10 @@ $$
 
 ### Maximum Normal Stress ($\sigma_{n,\text{max}}$)
 
-The maximum normal stress, $$\sigma_{n,\text{max}}$$, on the critical plane is calculated by projecting the stress tensor $$\mathbf{\sigma}$$ onto the normal vector $\mathbf{n}$$ of the critical plane. The normal vectors to the critical plane are two in this case represented by $$\mathbf{\widetilde{n_1}}=R(:,1)$$ or $$\mathbf{\widetilde{n_3}}=R(:,3)$$. The normal stress is computed as follows:
+The maximum normal stress, $$\sigma_{n,\text{max}}$$, on the critical plane is calculated by projecting the stress tensor $$\mathbf{\sigma}$$ onto the normal vector $$\mathbf{n}$$ of the critical plane. The normal vectors to the critical plane are two in this case represented by $$\mathbf{\widetilde{n_1}}=R(:,1)$$ or $$\mathbf{\widetilde{n_3}}=R(:,3)$$. The normal stress is computed as follows:
 
 $$
-\sigma_{n} = \max \left( \mathbf{\widetilde{n_1}}^T \mathbf{\sigma} \mathbf{\widetilde{n_1}},\mathbf{\widetilde{n_3}}^T \mathbf{\sigma} \mathbf{\widetilde{n_3}} \right)
+\sigma_{n,\text{max}} = \max \left( \mathbf{\widetilde{n_1}}^T \mathbf{\sigma} \mathbf{\widetilde{n_1}},\mathbf{\widetilde{n_3}}^T \mathbf{\sigma} \mathbf{\widetilde{n_3}} \right)
 $$
 
 
