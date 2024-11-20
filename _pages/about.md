@@ -19,7 +19,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am an Assistant Professor at the University of Pisa, specializing in structural engineering. My research focuses on residual stress analysis and fatigue assessment of welded structures and additive manufactured components, using advanced numerical techniques and efficient algorithms to enhance material application and component safety. I actively contribute to academic conferences, and my work has practical applications in improving the reliability of structural components.
+I am an Assistant Professor at the <a href='https://www.unipi.it/'>University of Pisa</a> (UniPi), specializing in structural engineering. My research focuses on residual stress analysis and fatigue assessment of welded structures and additive manufactured components, using advanced numerical techniques and efficient algorithms to enhance material application and component safety. I actively contribute to academic conferences, and my work has practical applications in improving the reliability of structural components.
 
 As an Assistant Professor at the University of Pisa, I am dedicated to [research](/publications/), [education](/teaching/), and the [dissemination](/repositories/) of knowledge in the field of structural engineering.
 
