@@ -35,7 +35,7 @@
       ]
     },
     {
-      "name": "Pierburg Pump Technology Italy S.p.A., Rheinmetall, Livorno",
+      "name": "Pierburg Pump Technology Italy S.p.A., Rheinmetall",
       "position": "Research affiliate",
       "location": "Livorno, Italy",
       "url": "https://www.rheinmetall.com/en/company/subsidiaries/rheinmetall-italia",
@@ -44,6 +44,18 @@
       "summary": "I collaborate with the company to develop more sustainable automotive products.",
       "highlights": [
         "Fatigue in frequency domain", "Structural integrity of electronic components", "Fatigue assessment of polymers"
+      ]
+    },
+    {
+      "name": "Department of Civil and Industrial Engineering, University of Pisa",
+      "position": "Research fellow",
+      "location": "Pisa, Italy",
+      "url": "https://www.dici.unipi.it/",
+      "startDate": "02/2025",
+      "endDate": "PRES.",
+      "summary": "I assess the static and fatigue properties of metal, composite materials and joints under varying loading conditions and temperatures.",
+      "highlights": [
+       "Thermoplastic", "Thermoset", "SPR Joints"
       ]
     }
   ],
