@@ -31,7 +31,11 @@
       "endDate": "01/25",
       "summary": "I teach and do research related to fatigue assessment of mechanical structures.",
       "highlights": [
-        "Fatigue damage models", "Structural integrity", "Finite element simulations", "Weldings", "Additive manufacturing"
+        "Effective Critical Plane (ECP) approach",
+        "Thermal-structural analysis",
+        "Residual stress evaluation",
+        "Fatigue assessment of welded joints",
+        "Additive manufacturing"
       ]
     },
     {
@@ -43,7 +47,10 @@
       "endDate": "01/25",
       "summary": "I collaborate with the company to develop more sustainable automotive products.",
       "highlights": [
-        "Fatigue in frequency domain", "Structural integrity of electronic components", "Fatigue assessment of polymers"
+        "Polymer composite integrity",
+        "Elastomeric grommets",
+        "PCB assembly assessment",
+        "Fatigue analysis in frequency domain"
       ]
     },
     {
@@ -55,7 +62,11 @@
       "endDate": "PRES.",
       "summary": "I assess the static and fatigue properties of metal, composite materials and joints under varying loading conditions and temperatures.",
       "highlights": [
-       "Thermoplastic", "Thermoset", "SPR Joints"
+       "Thermoplastic composites",
+        "Thermoset composites",
+        "SPR joints",
+        "Static and fatigue testing",
+        "Temperature-dependent analysis"
       ]
     }
   ],
