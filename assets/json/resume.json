@@ -27,8 +27,8 @@
       "position": "Student Intern in the Structural Durability Group",
       "url": "https://www.lbf.fraunhofer.de/en.html",
       "location": "Darmstadt, Germany",
-      "startDate": "12/17",
-      "endDate": "05/18",
+      "startDate": "2017",
+      "endDate": "2018",
       "summary": "I analyzed the interaction and coalescence behaviour of multiple cracks in welded joints using finite element analysis and experimental tests, and implemented the developed models within the IBESS computational algorithm.",
       "highlights": [
         "Crack interaction",
@@ -43,8 +43,8 @@
       "position": "Contract Worker in the Structural Durability Group",
       "url": "https://www.lbf.fraunhofer.de/en.html",
       "location": "Darmstadt, Germany",
-      "startDate": "07/18",
-      "endDate": "10/18",
+      "startDate": "2018",
+      "endDate": "2018",
       "summary": "I studied the cyclic behaviour of additively manufactured specimens produced via the Selective Laser Melting (SLM) process and characterized anisotropic material behaviour through experimental and numerical tests.",
       "highlights": [
         "Cyclic behaviour",
@@ -59,8 +59,8 @@
       "position": "PhD Period Abroad in the Component-Related Material Behavior Group",
       "url": "https://www.lbf.fraunhofer.de/en.html",
       "location": "Darmstadt, Germany",
-      "startDate": "02/21",
-      "endDate": "06/21",
+      "startDate": "2021",
+      "endDate": "2021",
       "summary": "I transferred representative structure elements of additively manufactured components through different scales using analytical approaches and numerical methods.",
       "highlights": [
         "Scale transfer",
@@ -74,8 +74,8 @@
       "position": "Assistant professor of machine design",
       "url": "https://www.dici.unipi.it/",
       "location": "Pisa, Italy",
-      "startDate": "02/22",
-      "endDate": "01/25",
+      "startDate": "2022",
+      "endDate": "2025",
       "summary": "I develop advanced computational methodologies for fatigue analysis—such as the Effective Critical Plane approach—and perform thermal-structural analyses, experimental tests, and residual stress evaluations on welded and additively manufactured structures.",
       "highlights": [
         "Effective Critical Plane (ECP) approach",
@@ -90,8 +90,8 @@
       "position": "Research affiliate",
       "location": "Livorno, Italy",
       "url": "https://www.rheinmetall.com/en/company/subsidiaries/rheinmetall-italia",
-      "startDate": "02/22",
-      "endDate": "01/25",
+      "startDate": "2022",
+      "endDate": "2025",
       "summary": "I collaborate on R&D projects to enhance the structural integrity and fatigue performance of polymer composites, elastomeric grommets, and PCB assemblies, contributing to more sustainable automotive products.",
       "highlights": [
         "Polymer composite integrity",
@@ -105,7 +105,7 @@
       "position": "Research fellow",
       "location": "Pisa, Italy",
       "url": "https://www.dici.unipi.it/",
-      "startDate": "02/25",
+      "startDate": "2025",
       "endDate": "PRES.",
       "summary": "I assess the static and fatigue properties of metal, composite materials and joints under varying loading conditions and temperatures.",
       "highlights": [
