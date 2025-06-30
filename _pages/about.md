@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Assistant professor of Machine Design at the <a href='https://www.dici.unipi.it/'>Department of Civil and Industrial Engineering</a>, <a href='https://www.unipi.it/'>University of Pisa</a>
+subtitle: Research fellow at the <a href='https://www.dici.unipi.it/'>Department of Civil and Industrial Engineering</a>, <a href='https://www.unipi.it/'>University of Pisa</a>
 
 profile:
   align: right
