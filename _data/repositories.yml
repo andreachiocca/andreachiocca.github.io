@@ -8,3 +8,45 @@ github_repos:
   - achiocca1/FI-SOL
   - achiocca1/SeAn-CP
   - achiocca1/APDL-WB-ssr-v1.0
+  
+  # ---Zenodo section---------------------------------------------------
+zenodo_repos:
+  - id: 14198237
+    doi: 10.5281/zenodo.14198237
+    title: >-
+      Dataset for: "Application of the Effective Critical Plane approach for the
+      fatigue assessment of ductile cast iron under multiaxial and
+      non-proportional loading conditions"
+    url:  https://zenodo.org/records/14198237
+    description: >-
+      Raw and processed fatigue data that underpin the International Journal of
+      Fatigue paper on the Effective Critical Plane (ECP) approach for
+      EN-GJS-600-3 ductile cast iron under axial, torsional and non-proportional
+      loading.  :contentReference[oaicite:0]{index=0}
+    badge: https://zenodo.org/badge/DOI/10.5281/zenodo.14198237.svg
+    published: 2024-11-21     # “Published” date shown on Zenodo
+
+  - id: 12721131
+    doi: 10.5281/zenodo.12721131
+    title: >-
+      Dataset for: "Fatigue assessment of structural components through the
+      Effective Critical Plane factor"
+    url:  https://zenodo.org/records/12721131
+    description: >-
+      ECP factors and experimental fatigue lives for notched metallic
+      components subjected to axial, torsional and multiaxial loading; data used
+      in Int. J. Fatigue 189 (2024) 108565.  :contentReference[oaicite:1]{index=1}
+    badge: https://zenodo.org/badge/DOI/10.5281/zenodo.12721131.svg
+    published: 2024-07-11
+
+  - id: 12741922
+    doi: 10.5281/zenodo.12741922
+    title: Tensile tests on PEEL and LAP hybrid self-pierce riveting joints with and without adhesive
+    url:  https://zenodo.org/records/12741922
+    description: >-
+      XLSX files with time-displacement-force curves from tensile tests on PEEL
+      and LAP hybrid self-pierce-riveted joints, with/without adhesive, produced
+      within the NextGenerationEU Sustainable Mobility Centre.  :contentReference[oaicite:2]{index=2}
+    badge: https://zenodo.org/badge/DOI/10.5281/zenodo.12741922.svg
+    published: 2024-07-15
+# ---Zenodo section---------------------------------------------------
