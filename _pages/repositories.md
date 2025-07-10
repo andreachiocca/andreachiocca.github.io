@@ -2,7 +2,7 @@
 layout: page
 permalink: /repositories/
 title: repositories
-description: In the following some of my GitHub repositories containing some projects developed over time.
+description: In the following some of my GitHub and Zenodo repositories containing some projects and data collected over time.
 nav: false
 nav_order: 3
 ---
