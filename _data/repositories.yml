@@ -22,7 +22,7 @@ zenodo_repos:
       Raw and processed fatigue data that underpin the International Journal of
       Fatigue paper on the Effective Critical Plane (ECP) approach for
       EN-GJS-600-3 ductile cast iron under axial, torsional and non-proportional
-      loading.  :contentReference[oaicite:0]{index=0}
+      loading.
     badge: https://zenodo.org/badge/DOI/10.5281/zenodo.14198237.svg
     published: 2024-11-21     # “Published” date shown on Zenodo
 
@@ -35,7 +35,7 @@ zenodo_repos:
     description: >-
       ECP factors and experimental fatigue lives for notched metallic
       components subjected to axial, torsional and multiaxial loading; data used
-      in Int. J. Fatigue 189 (2024) 108565.  :contentReference[oaicite:1]{index=1}
+      in Int. J. Fatigue 189 (2024) 108565.
     badge: https://zenodo.org/badge/DOI/10.5281/zenodo.12721131.svg
     published: 2024-07-11
 
@@ -46,7 +46,7 @@ zenodo_repos:
     description: >-
       XLSX files with time-displacement-force curves from tensile tests on PEEL
       and LAP hybrid self-pierce-riveted joints, with/without adhesive, produced
-      within the NextGenerationEU Sustainable Mobility Centre.  :contentReference[oaicite:2]{index=2}
+      within the NextGenerationEU Sustainable Mobility Centre.
     badge: https://zenodo.org/badge/DOI/10.5281/zenodo.12741922.svg
     published: 2024-07-15
 # ---Zenodo section---------------------------------------------------
