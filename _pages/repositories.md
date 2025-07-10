@@ -14,3 +14,12 @@ nav_order: 3
   {% endfor %}
 </div>
 {% endif %}
+
+{% if site.data.repositories.zenodo_repos %}
+<h2 class="mt-5">Zenodo records</h2>
+<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
+  {% for record in site.data.repositories.zenodo_repos %}
+    {% include repository/zenodo.html record=record %}
+  {% endfor %}
+</div>
+{% endif %}

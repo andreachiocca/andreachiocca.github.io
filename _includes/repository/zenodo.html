@@ -1,0 +1,23 @@
+<div class="repo card my-3" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">
+      <a href="{{ include.record.url }}" target="_blank" rel="noopener">
+        {{ include.record.title }}
+      </a>
+    </h5>
+
+    {% if include.record.doi %}
+      <p class="card-text mb-1">
+        DOI:&nbsp;<a href="https://doi.org/{{ include.record.doi }}">{{ include.record.doi }}</a>
+      </p>
+    {% endif %}
+
+    {% if include.record.description %}
+      <p class="card-text small">{{ include.record.description }}</p>
+    {% endif %}
+
+    {% if include.record.badge %}
+      <img src="{{ include.record.badge }}" alt="Zenodo DOI badge">
+    {% endif %}
+  </div>
+</div>
