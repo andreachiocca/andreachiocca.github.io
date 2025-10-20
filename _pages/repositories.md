@@ -16,7 +16,6 @@ nav_order: 3
 </div>
 {% endif %}
 
-
 {% if site.data.repositories.zenodo_repos %}
 <h2 class="mt-5">Zenodo records</h2>
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
