@@ -11,7 +11,7 @@ profile:
   more_info: >
     <p>+39 050 2218036</p>
     <p>L. Lucio Lazzarino 2</p>
-    <p>56123, Pisa, Italy </p>
+    <p>56123, Pisa, Italy</p>
 
 news: false  # includes a list of news items
 latest_posts: true  # includes a list of the newest posts
