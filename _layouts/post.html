@@ -42,7 +42,7 @@ layout: default
   <article class="post-content">
     {% if page.toc and page.toc.beginning %}
     <div id="table-of-contents">
-      {% toc %}
+      {% include toc.html html=content h_min=2 h_max=3 %}
     </div>
     <hr>
     {% endif %}
