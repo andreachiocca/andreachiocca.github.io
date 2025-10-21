@@ -1,0 +1,76 @@
+name: Build and Deploy Jekyll (with plugins)
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - '**.md'
+      - '**.html'
+      - '**.yml'
+      - '**.yaml'
+      - '**.scss'
+      - '_posts/**'
+      - '_layouts/**'
+      - '_includes/**'
+      - '_data/**'
+      - '_bibliography/**'
+      - 'assets/**'
+      - 'Gemfile*'
+      - '.github/workflows/build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      # 1) Dipendenze di sistema per immagini e (opzionale) pandoc
+      - name: Install system deps (ImageMagick, WebP, Pandoc)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick webp pandoc
+
+      # 2) Python + Jupyter per convertire i notebook .ipynb
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Jupyter
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install jupyter nbconvert
+
+      # 3) Jekyll + plugin Ruby
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - run: bundle install --jobs 4 --retry 3
+      - run: bundle exec jekyll build --trace
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
