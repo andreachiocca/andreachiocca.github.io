@@ -23,4 +23,4 @@ I am a research fellow in the machine design group at the <a href='https://www.u
 
 As a research fellow at the University of Pisa, I am dedicated to [research](/publications/), [education](/teaching/), and the [dissemination](/repositories/) of knowledge in the field of structural engineering.
 
-ThE <a href='http://machinedesign.ing.unipi.it/'>research group</a> expertise extends to vehicle design, multibody dynamics, structural dynamics, and mechanics of materials. We are committed to sharing knowledge and insights through joint collaborations.
+THE <a href='http://machinedesign.ing.unipi.it/'>research group</a> expertise extends to vehicle design, multibody dynamics, structural dynamics, and mechanics of materials. We are committed to sharing knowledge and insights through joint collaborations.
