@@ -229,6 +229,7 @@
           "@id": {{ person_id | jsonify }},
           "name": {{ person_name | jsonify }},
           "url": {{ '/' | absolute_url | jsonify }},
+          "jobTitle": {{ site.data.resume.basics.label | jsonify }},
           "affiliation": {
             "@type": "CollegeOrUniversity",
             "name": "University of Pisa",

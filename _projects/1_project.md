@@ -3,9 +3,14 @@ layout: page
 title: Progettazione meccanica col metodo degli elementi finiti 
 description: INGEGNERIA ENERGETICA - 923II
 img: assets/img/FEM_1.jpg
+teaching_period: 2021–2024
+teaching_role: Course lecturer; 30 lecture hours
 importance: 1
 category: 
 ---
+
+**Teaching period:** 2021–2024. **Role:** Course lecturer; 30 lecture hours.
+
 <ul>
     <li>Introduzione al metodo degli elementi finiti <a href="/TeachingMaterial/Ingegneria_Energetica/PMMEF/Introduzione_EN.pdf" target="_blank" rel="noopener noreferrer" class="float-right" aria-label="Introduzione al metodo degli elementi finiti (PDF)"><i aria-hidden="true" class="fas fa-file-pdf"></i></a></li>
     <li>Graphic User Interface (GUI) di Ansys Workbench <a href="/TeachingMaterial/Ingegneria_Energetica/PMMEF/GUI.pdf" target="_blank" rel="noopener noreferrer" class="float-right" aria-label="Graphic User Interface (GUI) di Ansys Workbench (PDF)"><i aria-hidden="true" class="fas fa-file-pdf"></i></a></li>

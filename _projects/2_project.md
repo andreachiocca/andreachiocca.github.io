@@ -3,9 +3,14 @@ layout: page
 title: esercitazioni con codice agli elementi finiti
 description: INGEGNERIA AEROSPAZIALE - Costruzione di macchine - 231II
 img: assets/img/FEM_2.jpg
+teaching_period: 2018–2026
+teaching_role: Co-teaching; 15 hours of practical sessions
 importance: 2
 category: 
 ---
+
+**Teaching period:** 2018–2026. **Role:** Co-teaching; 15 hours of practical sessions.
+
 <ul>
     <li>Introduzione al metodo degli elementi finiti <a href="/TeachingMaterial/Ingegneria_Energetica/PMMEF/Introduzione_AE.pdf" target="_blank" rel="noopener noreferrer" class="float-right" aria-label="Introduzione al metodo degli elementi finiti (PDF)"><i aria-hidden="true" class="fas fa-file-pdf"></i></a></li>
     <li>Graphic User Interface (GUI) di Ansys Workbench <a href="/TeachingMaterial/Ingegneria_Energetica/PMMEF/GUI.pdf" target="_blank" rel="noopener noreferrer" class="float-right" aria-label="Graphic User Interface (GUI) di Ansys Workbench (PDF)"><i aria-hidden="true" class="fas fa-file-pdf"></i></a></li>

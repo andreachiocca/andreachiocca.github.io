@@ -62,3 +62,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
   html { scroll-behavior: auto !important; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+.research-output { margin: 1.5rem 0 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--global-divider-color); }
+.research-output h3 { font-size: 1.15rem; line-height: 1.5; }

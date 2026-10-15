@@ -285,7 +285,7 @@ display_categories: []
 scholar:
 
   last_name: [Chiocca]
-  first_name: [Andrea]
+  first_name: [Andrea, "A."]
 
   style: apa
   locale: en

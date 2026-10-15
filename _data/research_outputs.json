@@ -1,0 +1,175 @@
+[
+  {
+    "id": "multiaxial-fatigue",
+    "title": "FABER WG4.3 - multiaxial fatigue assessment library",
+    "kind": "software",
+    "type_label": "Research software",
+    "schema_type": "SoftwareSourceCode",
+    "url": "https://github.com/andreachiocca/multiaxial-fatigue",
+    "creators": [],
+    "description": "A collaborative Python library and method catalogue supporting comparison and a scientific review of multiaxial fatigue criteria. Current calculations use single-frequency harmonic stress cycles for plain or smooth geometries, elastic strain estimates, damage parameters, and life fitting where applicable.",
+    "access_label": "Public repository; licence not yet selected",
+    "access_right": "public",
+    "scope_note": "Active development. Some methods are partial or require review; independent validation against published or experimental datasets remains outstanding. Variable-amplitude histories, notch gradients and constitutive plasticity are future work. The review article is in preparation.",
+    "related_publications": []
+  },
+  {
+    "id": "zenodo-21534682",
+    "kind": "benchmark",
+    "title": "FABEST High-Cycle Fatigue Competition: Participant Package for Blind Fatigue-Life Prediction",
+    "type_label": "Benchmark participant package",
+    "schema_type": "Dataset",
+    "registry_type": "Dataset",
+    "creators": [
+      "Chiocca, Andrea",
+      "Papuga, Jan",
+      "Gkantou, Michaela"
+    ],
+    "year": "2026",
+    "date": "2026-07-24",
+    "doi": "10.5281/zenodo.21534682",
+    "url": "https://zenodo.org/records/21534682",
+    "access_right": "open",
+    "access_label": "Open files",
+    "description": "Participant package for blind fatigue-life prediction of 42CrMo4+QT steel under multiaxial high-cycle loading. It includes rules, calibration data, load cases, specimen information and submission templates.",
+    "related_publications": [],
+    "version": "v2.1.0",
+    "earlier_versions": [
+      {
+        "version": "v2.0.0",
+        "doi": "10.5281/zenodo.21166758",
+        "url": "https://zenodo.org/records/21166758"
+      }
+    ]
+  },
+  {
+    "id": "zenodo-21875885",
+    "kind": "data",
+    "title": "Dataset for: \"Fatigue assessment of sharp notches under Mode I and Mode III loading by means of a process volume based critical plane approach\"",
+    "type_label": "Supporting research data",
+    "schema_type": "Dataset",
+    "registry_type": "Dataset",
+    "creators": [
+      "Chiocca, Andrea"
+    ],
+    "year": "2026",
+    "date": "2026-08-10",
+    "doi": "10.5281/zenodo.21875885",
+    "url": "https://zenodo.org/records/21875885",
+    "access_right": "restricted",
+    "access_label": "Restricted files",
+    "description": "Research data associated with sharp-notch fatigue under Mode I and Mode III loading. The record has restricted files; consult the landing page for access information.",
+    "related_publications": [],
+    "version": "v1.0.0"
+  },
+  {
+    "id": "zenodo-18416255",
+    "kind": "data",
+    "title": "Dataset for: \"Fatigue assessment of welded joints subjected to multiaxial loading conditions through the Effective Critical Plane approach\"",
+    "type_label": "Supporting research data",
+    "schema_type": "Dataset",
+    "registry_type": "Journal",
+    "creators": [
+      "Chiocca, Andrea",
+      "Frendo, Francesco"
+    ],
+    "year": "2026",
+    "date": "2026-01-29",
+    "doi": "10.5281/zenodo.18416255",
+    "url": "https://zenodo.org/records/18416255",
+    "access_right": "open",
+    "access_label": "Open files",
+    "description": "Experimental fatigue-life data and ECP predictions for welded joints under uniaxial and multiaxial loading. Individual text files distinguish geometry, loading, treatment and load ratio.",
+    "related_publications": [
+      "Chiocca2026WeldedECP"
+    ],
+    "scope_note": "Supporting data; Zenodo labels this record as Journal. It is listed here separately from the associated journal article."
+  },
+  {
+    "id": "zenodo-14198237",
+    "kind": "data",
+    "title": "Dataset for: \"Application of the Effective Critical Plane approach for the fatigue assessment of ductile cast iron under multiaxial and non-proportional loading conditions\"",
+    "type_label": "Supporting research data",
+    "schema_type": "Dataset",
+    "registry_type": "Data paper",
+    "creators": [
+      "Chiocca, Andrea"
+    ],
+    "year": "2024",
+    "date": "2024-11-21",
+    "doi": "10.5281/zenodo.14198237",
+    "url": "https://zenodo.org/records/14198237",
+    "access_right": "open",
+    "access_label": "Open files",
+    "description": "Raw and processed ductile cast iron fatigue data supporting ECP assessment under multiaxial and non-proportional loading, including experimental life, damage parameter and predicted life.",
+    "related_publications": [
+      "Chiocca2025"
+    ],
+    "scope_note": "Supporting data; Zenodo labels this record as Data paper. It is listed here separately from the associated journal article."
+  },
+  {
+    "id": "zenodo-12721131",
+    "kind": "data",
+    "title": "Dataset for: \"Fatigue assessment of structural components through the Effective Critical Plane factor\"",
+    "type_label": "Supporting research data",
+    "schema_type": "Dataset",
+    "registry_type": "Dataset",
+    "creators": [
+      "Chiocca, Andrea",
+      "Frendo, Francesco"
+    ],
+    "year": "2024",
+    "date": "2024-07-11",
+    "doi": "10.5281/zenodo.12721131",
+    "url": "https://zenodo.org/records/12721131",
+    "access_right": "open",
+    "access_label": "Open files",
+    "description": "ECP post-processing of published En3B low-carbon steel fatigue experiments, supporting the comparison of fatigue predictions for notched components.",
+    "related_publications": [
+      "Chiocca2024b"
+    ]
+  },
+  {
+    "id": "zenodo-12741922",
+    "kind": "data",
+    "title": "Tensile tests on PEEL and LAP hybrid self-pierce riveting joints with and without adhesive",
+    "type_label": "Supporting research data",
+    "schema_type": "Dataset",
+    "registry_type": "Dataset",
+    "creators": [
+      "Chiocca, Andrea",
+      "Frendo, Francesco"
+    ],
+    "year": "2024",
+    "date": "2024-07-15",
+    "doi": "10.5281/zenodo.12741922",
+    "url": "https://zenodo.org/records/12741922",
+    "access_right": "open",
+    "access_label": "Open files",
+    "description": "Experimental time, displacement and force measurements from tensile tests on PEEL and LAP hybrid self-piercing riveted joints, with and without adhesive.",
+    "related_publications": []
+  },
+  {
+    "id": "Moda2022a",
+    "title": "Dataset of dimensionless operating conditions for welding and metal additive manufacturing",
+    "kind": "data",
+    "type_label": "Research dataset",
+    "schema_type": "Dataset",
+    "creators": [
+      "Moda, Mattia",
+      "Chiocca, Andrea",
+      "Macoretta, Giuseppe",
+      "Monelli, Bernardo Disma",
+      "Bertini, Leonardo"
+    ],
+    "year": "2022",
+    "doi": "10.17632/b2437352ky.2",
+    "url": "https://data.mendeley.com/datasets/b2437352ky/2",
+    "access_right": "public",
+    "access_label": "Public record; consult repository for file access",
+    "description": "Dimensionless operating conditions accompanying research on the Rosenthal solution for welding and metal additive manufacturing.",
+    "related_publications": [
+      "Moda2022"
+    ]
+  }
+]

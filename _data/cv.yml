@@ -5,6 +5,8 @@
   contents:
     - name: Full name
       value: Andrea Chiocca
+    - name: Current position
+      value: Researcher in machine design (research contract)
     - name: Affiliation
       value: Department of Civil and Industrial Engineering, University of Pisa
     - name: Email

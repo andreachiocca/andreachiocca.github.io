@@ -1,17 +1,14 @@
 {
   "basics": {
     "name": "Andrea Chiocca",
-    "label": "Research fellow in the machine design group",
+    "label": "Researcher in machine design (research contract)",
     "image": "",
     "email": "andrea.chiocca@unipi.it",
     "phone": "+39 050-2218036",
-    "url": "https://www.researchgate.net/profile/Andrea-Chiocca",
+    "url": "https://andreachiocca.github.io/",
     "location": {
-      "address": "L. Lucio Lazzarino",
-      "postalCode": "56123",
       "city": "Pisa",
-      "countryCode": "IT",
-      "region": "Tuscany"
+      "countryCode": "IT"
     },
     "profiles": [
       {
@@ -24,63 +21,45 @@
         "username": "h6zp4TwAAAAJ",
         "url": "https://scholar.google.com/citations?user=h6zp4TwAAAAJ"
       }
-    ]
+    ],
+    "summary": "Structural integrity and fatigue assessment of notched and welded components, combining computational mechanics, analytical methods and experimental testing."
   },
   "work": [
     {
-      "name": "Fraunhofer LBF",
-      "position": "Student Intern in the Structural Durability Group",
-      "url": "https://www.lbf.fraunhofer.de/en.html",
-      "location": "Darmstadt, Germany",
-      "startDate": "2017",
-      "endDate": "2018",
-      "summary": "I analyzed the interaction and coalescence behaviour of multiple cracks in welded joints using finite element analysis and experimental tests, and implemented the developed models within the IBESS computational algorithm.",
+      "name": "Department of Civil and Industrial Engineering, University of Pisa",
+      "position": "Researcher in machine design (research contract)",
+      "location": "Pisa, Italy",
+      "url": "https://www.dici.unipi.it/",
+      "startDate": "2026-01",
+      "summary": "Research on the structural integrity of notched and welded components.",
       "highlights": [
-        "Crack interaction",
-        "Coalescence models",
-        "Finite element analysis",
-        "Experimental tests",
-        "IBESS algorithm"
-      ]
-    },
-    {
-      "name": "Fraunhofer LBF",
-      "position": "Contract Worker in the Structural Durability Group",
-      "url": "https://www.lbf.fraunhofer.de/en.html",
-      "location": "Darmstadt, Germany",
-      "startDate": "2018",
-      "endDate": "2018",
-      "summary": "I studied the cyclic behaviour of additively manufactured specimens produced via the Selective Laser Melting (SLM) process and characterized anisotropic material behaviour through experimental and numerical tests.",
-      "highlights": [
-        "Cyclic behaviour",
-        "Selective Laser Melting",
-        "Anisotropic behaviour",
-        "Experimental tests",
-        "Numerical tests"
-      ]
-    },
-    {
-      "name": "Fraunhofer LBF",
-      "position": "PhD Period Abroad in the Component-Related Material Behavior Group",
-      "url": "https://www.lbf.fraunhofer.de/en.html",
-      "location": "Darmstadt, Germany",
-      "startDate": "2021",
-      "endDate": "2021",
-      "summary": "I transferred representative structure elements of additively manufactured components through different scales using analytical approaches and numerical methods.",
-      "highlights": [
-        "Scale transfer",
-        "Analytical methods",
-        "Numerical methods",
-        "Additive manufacturing"
+        "Multiaxial fatigue and critical plane methods",
+        "Computational modelling and experimental validation"
       ]
     },
     {
       "name": "Department of Civil and Industrial Engineering, University of Pisa",
-      "position": "Assistant professor of machine design",
+      "position": "Research fellow",
+      "location": "Pisa, Italy",
+      "url": "https://www.dici.unipi.it/",
+      "startDate": "2025-02",
+      "endDate": "2026-01",
+      "summary": "Assessed static and fatigue properties of thermoplastic and thermoset composites at different temperatures, and self-piercing riveted joints.",
+      "highlights": [
+        "Thermoplastic composites",
+        "Thermoset composites",
+        "SPR joints",
+        "Static and fatigue testing",
+        "Temperature-dependent analysis"
+      ]
+    },
+    {
+      "name": "Department of Civil and Industrial Engineering, University of Pisa",
+      "position": "Fixed-term researcher in machine design (RTDa)",
       "url": "https://www.dici.unipi.it/",
       "location": "Pisa, Italy",
-      "startDate": "2022",
-      "endDate": "2025",
+      "startDate": "2022-02",
+      "endDate": "2025-01",
       "summary": "I develop advanced computational methodologies for fatigue analysis—such as the Effective Critical Plane approach—and perform thermal-structural analyses, experimental tests, and residual stress evaluations on welded and additively manufactured structures.",
       "highlights": [
         "Effective Critical Plane (ECP) approach",
@@ -92,11 +71,11 @@
     },
     {
       "name": "Pierburg Pump Technology Italy S.p.A., Rheinmetall",
-      "position": "Research affiliate",
+      "position": "Industrial research collaborator",
       "location": "Livorno, Italy",
       "url": "https://www.rheinmetall.com/en/company/subsidiaries/rheinmetall-italia",
-      "startDate": "2022",
-      "endDate": "2025",
+      "startDate": "2022-02",
+      "endDate": "2025-01",
       "summary": "I collaborate on R&D projects to enhance the structural integrity and fatigue performance of polymer composites, elastomeric grommets, and PCB assemblies, contributing to more sustainable automotive products.",
       "highlights": [
         "Polymer composite integrity",
@@ -106,19 +85,50 @@
       ]
     },
     {
-      "name": "Department of Civil and Industrial Engineering, University of Pisa",
-      "position": "Research fellow",
-      "location": "Pisa, Italy",
-      "url": "https://www.dici.unipi.it/",
-      "startDate": "2025",
-      "endDate": "PRES.",
-      "summary": "I assess the static and fatigue properties of metal, composite materials and joints under varying loading conditions and temperatures.",
+      "name": "Fraunhofer LBF",
+      "position": "Doctoral research visit, Component-Related Material Behavior Group",
+      "url": "https://www.lbf.fraunhofer.de/en.html",
+      "location": "Darmstadt, Germany",
+      "startDate": "2021-02",
+      "endDate": "2021-06",
+      "summary": "I transferred representative structure elements of additively manufactured components through different scales using analytical approaches and numerical methods.",
       "highlights": [
-        "Thermoplastic composites",
-        "Thermoset composites",
-        "SPR joints",
-        "Static and fatigue testing",
-        "Temperature-dependent analysis"
+        "Scale transfer",
+        "Analytical methods",
+        "Numerical methods",
+        "Additive manufacturing"
+      ]
+    },
+    {
+      "name": "Fraunhofer LBF",
+      "position": "Junior research assistant, Structural Durability Group",
+      "url": "https://www.lbf.fraunhofer.de/en.html",
+      "location": "Darmstadt, Germany",
+      "startDate": "2018-07",
+      "endDate": "2018-09",
+      "summary": "I studied the cyclic behaviour of additively manufactured specimens produced via the Selective Laser Melting (SLM) process and characterized anisotropic material behaviour through experimental and numerical tests.",
+      "highlights": [
+        "Cyclic behaviour",
+        "Selective Laser Melting",
+        "Anisotropic behaviour",
+        "Experimental tests",
+        "Numerical tests"
+      ]
+    },
+    {
+      "name": "Fraunhofer LBF",
+      "position": "Student Intern in the Structural Durability Group",
+      "url": "https://www.lbf.fraunhofer.de/en.html",
+      "location": "Darmstadt, Germany",
+      "startDate": "2017-12",
+      "endDate": "2018-05",
+      "summary": "I analyzed the interaction and coalescence behaviour of multiple cracks in welded joints using finite element analysis and experimental tests, and implemented the developed models within the IBESS computational algorithm.",
+      "highlights": [
+        "Crack interaction",
+        "Coalescence models",
+        "Finite element analysis",
+        "Experimental tests",
+        "IBESS algorithm"
       ]
     }
   ],
@@ -130,15 +140,11 @@
       "area": "Industrial Engineering",
       "studyType": "PhD",
       "startDate": "2018",
-      "endDate": "2021",
+      "endDate": "2021-11-03",
       "location": "Pisa, Italy",
       "score": "",
       "courses": [
-        "Fatigue of welded structures",
-        "Residual stresses evaluation",
-        "Thermal-mechanical numerical simulations",
-        "Experimental testing",
-        "Analytical models development"
+        "Doctoral thesis: Influence of residual stresses on the fatigue life of welded joints."
       ]
     },
     {
@@ -147,22 +153,30 @@
       "area": "Mechanical Engineering",
       "studyType": "Master",
       "startDate": "2015",
-      "endDate": "2018",
+      "endDate": "2018-06-01",
       "location": "Pisa, Italy",
       "score": "",
       "courses": [
         "Multiple cracks interaction",
         "Multiple cracks coalescence"
       ]
+    },
+    {
+      "institution": "University of Pisa",
+      "url": "https://www.unipi.it/",
+      "area": "Mechanical Engineering",
+      "studyType": "Bachelor’s degree",
+      "endDate": "2015-12-09",
+      "courses": []
     }
   ],
   "awards": [
     {
-      "title": "AIAS Award - topic area: modeling",
-      "date": "2024",
+      "title": "AIAS Award - Modelling",
+      "date": "2024-09",
       "awarder": "AIAS",
       "url": "https://www.aiasnet.it/aiasnet.it/premi.html",
-      "summary": "Recognition of the best scientific paper presented as part of the AIAS conference 2023."
+      "summary": "Recognition at the 53rd AIAS National Conference for modelling applied to fatigue assessment using critical plane approaches."
     },
     {
       "title": "Best PhD thesis in Industrial Engineering 2021",
@@ -176,7 +190,7 @@
       "date": "2020",
       "url": "https://www.ansys.com/experiences/hall-of-fame",
       "awarder": "Ansys",
-      "summary": "The video was selected as one of the top ten finalists in the competition among academic simulations."
+      "summary": "Academic finalist in the Ansys Hall of Fame 2020 competition for a transient thermo-mechanical finite element model of a welded tube-to-plate joint."
     },
     {
       "title": "Software Simulation Award",
@@ -186,7 +200,20 @@
       "summary": "Best Software Simulation Award of the National Conference of the Italian Scientific Society of Mechanical Design and Machine Building, AIAS 2019."
     }
   ],
-  "certificates": [],
+  "certificates": [
+    {
+      "name": "Italian National Scientific Qualification for associate-professor functions, sector 09/A3",
+      "issuer": "Italian Ministry of Universities and Research",
+      "date": "2024-11",
+      "url": "https://asn21.cineca.it/"
+    },
+    {
+      "name": "Qualification to practise as an industrial engineer",
+      "issuer": "University of Pisa",
+      "date": "2018-12",
+      "url": "https://www.unipi.it/"
+    }
+  ],
   "publications": [],
   "skills": [],
   "languages": [
@@ -205,5 +232,20 @@
   ],
   "interests": [],
   "references": [],
-  "projects": []
+  "projects": [
+    {
+      "name": "Hybrid joints for lightweight vehicle structures (PRIN PNRR 2022)",
+      "startDate": "2025",
+      "endDate": "2025",
+      "summary": "Project team member: experimental characterisation, theoretical modelling and CAE simulation of joints between dissimilar metals.",
+      "highlights": []
+    },
+    {
+      "name": "Extrusion-based additive manufacturing of metal and ceramic components (PRA 2022)",
+      "startDate": "2022",
+      "endDate": "2024",
+      "summary": "Project co-lead. University of Pisa research project on additive manufacturing process optimisation.",
+      "highlights": []
+    }
+  ]
 }
