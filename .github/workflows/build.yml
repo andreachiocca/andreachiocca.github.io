@@ -46,12 +46,27 @@ jobs:
 
       - name: Check stylesheet cache invalidation
         run: bundle exec ruby scripts/check_cache_bust.rb
+      - name: Test catalogue discovery and snapshot safety
+        run: python -m unittest discover -s tests -v
       - name: Build site
         run: bundle exec jekyll build --trace
       - name: Verify pages, local links, metadata and sitemap
         id: verify
         shell: bash
         run: python scripts/verify_site.py _site 2>&1 | tee verification.log
+
+      - name: Save catalogue preview for review
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: catalogue-preview
+          retention-days: 7
+          path: |
+            _site/repositories
+            _site/assets/css
+            _site/assets/js
+            _site/assets/fonts
+            _site/assets/webfonts
 
       - name: Audit resolved Ruby dependencies
         id: ruby_audit

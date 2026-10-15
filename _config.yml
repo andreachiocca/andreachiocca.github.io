@@ -10,7 +10,7 @@ email: andrea.chiocca@unipi.it
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Andrea Chiocca, University of Pisa: research in machine design, multiaxial fatigue, residual stresses, welded joints, and additively manufactured components. Publications, academic CV, and teaching materials.
 footer_text: 
-keywords: Andrea Chiocca, Unipi, Research, University, Website, Pisa, Università, Sito  # add your own keywords or leave empty
+keywords: Andrea Chiocca, Unipi, Research, University, Website, Pisa, UniversitÃƒÂ , Sito  # add your own keywords or leave empty
 
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: UnipiLogo.png  # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
@@ -23,14 +23,6 @@ impressum_path:  # set to path to include impressum link in the footer, use the 
 # -----------------------------------------------------------------------------
 # Theme
 # -----------------------------------------------------------------------------
-
-# repo color theme
-repo_theme_light: vs       # https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md
-repo_theme_dark: monokai   # https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md
-repo_trophies:
-  enabled: true
-  theme_light: flat        # https://github.com/ryo-ma/github-profile-trophy
-  theme_dark: gitdimmed    # https://github.com/ryo-ma/github-profile-trophy
 
 # -----------------------------------------------------------------------------
 # RSS Feed
@@ -196,6 +188,7 @@ exclude:
   - vendor
   - docs
   - scripts
+  - tests
   - README.md
   - CONTRIBUTING.md
   - CUSTOMIZE.md

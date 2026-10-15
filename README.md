@@ -1,4 +1,4 @@
-# Andrea Chiocca — academic website
+# Andrea Chiocca â€” academic website
 
 Personal academic website at [andreachiocca.github.io](https://andreachiocca.github.io), built with Jekyll and the al-folio theme. The site presents publications, research, academic experience, and teaching materials.
 
@@ -75,12 +75,28 @@ Bootstrap Table loads only on pages with `table: true` in front matter. Native H
 
 See [the audit and verification record](docs/ACADEMIC_SITE_AUDIT.md) for findings and remaining recommendations. The [original theme README](docs/THEME_README.md), [customization guide](CUSTOMIZE.md), and [theme project](https://github.com/alshedivat/al-folio) remain available.
 
-## Research outputs
+## Repositories and research outputs
 
-Add or update a record in `_data/research_outputs.json`. Preserve the repository's official title, creator order, date, DOI, record type and access status. `related_publications` contains stable BibTeX keys. A restricted record must say `access_right: restricted` and link to its landing page, never to a purported open download. Use `earlier_versions` for deposits of the same work rather than duplicating catalogue entries.
+`_data/research_outputs.json` is the single content catalogue. Jekyll renders every card and link at `/repositories/` without contacting GitHub or Zenodo. Category buttons progressively enhance the static page; with JavaScript disabled every record remains visible. No preview-image service is used.
 
-The catalogue retains the `/repositories/` URL. Current software scope and licensing limitations must remain explicit. FABER WG3 co-leadership and WG4.3 software activity are distinct.
+To discover new public repositories and deposits, using Python 3.11 or later:
 
-The generated-site checker also checks local fragments and, when Chrome plus the existing websocket client are available, six core pages at mobile, tablet and desktop widths, native keyboard controls and the publication filter. An unavailable browser is reported as a skipped check.
+```sh
+python scripts/sync_research_outputs.py           # report discovery; no writes
+python scripts/sync_research_outputs.py --write   # refresh the snapshot
+python -m unittest discover -s tests -v
+```
 
-Content provenance and documented source discrepancies are recorded in [academic content sources](docs/ACADEMIC_CONTENT_SOURCES.md).
+Review the resulting diff and commit it on a branch. The refresh preserves reviewed descriptions, topic labels, scientific caveats, bibliography keys and existing anchors. New entries are marked `needs_review`: inspect the README/deposit, write a concise description and remove that flag. Use `display_title` for a short card heading while retaining the official `title`. `featured` gives a small number of current research activities first position. `kind` is `software`, `data`, `benchmark` or `other`; benchmarks share the dataset filter. Forks retain upstream attribution.
+
+The script paginates both APIs (Zenodo anonymous page size 25), verifies deposits by ORCID or the verified owner plus exact creator name, groups versions by concept record, and refreshes dates, access, language and fork/archive metadata. A conflicting ORCID is rejected. It keeps missing historical entries for review rather than silently deleting them. GitHub dates are latest default-branch commit dates, not evidence of validation or an undertaking to maintain software. API failures or incomplete searches stop before replacing the content snapshot. `_data/catalogue_status.json` records discovery coverage and identity exclusions; it is refreshed by the same command.
+
+No token is required. An optional `GITHUB_TOKEN` environment variable increases GitHub rate limits and is sent only to `api.github.com`; never commit it. Refreshes are intentionally separate from website builds and require reviewing scientific descriptions. A scheduled workflow is unnecessary for this small catalogue and would risk publishing unreviewed scientific claims.
+
+Preserve the restricted access label on deposit 21875885. Two older supporting-data deposits have publication-type labels in Zenodo: retain their official metadata and the explanatory notes. Do not infer a software archive from a DOI for a related journal article, or attach an upstream project's DOI to a personal fork. When a verified Zenodo software archive represents exactly the same GitHub project, consolidate its identifiers into the existing software card after checking provenance; keep independently useful datasets separate. The card component accepts GitHub and Zenodo links together. The refresh does not guess such cross-source equivalence from similar titles.
+
+`earlier_versions` keeps the DOI and record URL of each version; `doi` identifies the displayed version and `concept_doi` links all versions. Keep `related_publications` as stable BibTeX keys. FABER WG3 co-leadership, WG4.3 software and the upstream FatPy WG6 activity are distinct.
+
+PR builds run catalogue unit checks, the Jekyll build and generated-site/browser checks. They retain a seven-day `catalogue-preview` artifact containing the built catalogue and its CSS, scripts and fonts for review. This artifact does not deploy the site. The existing Pages deployment remains limited to `master`.
+
+See [the catalogue audit](docs/REPOSITORIES_UPDATE.md) for the coverage inventory and implementation decisions.

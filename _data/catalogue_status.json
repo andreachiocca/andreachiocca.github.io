@@ -1,0 +1,44 @@
+{
+  "verified_on": "2026-10-15",
+  "github_accounts": [
+    "achiocca1",
+    "andreachiocca"
+  ],
+  "github_full_names": [
+    "achiocca1/APDL-WB-ssr-v1.0",
+    "achiocca1/Awesome-CV",
+    "achiocca1/CPOpt-v1.0",
+    "achiocca1/ECP",
+    "achiocca1/FI-Sol",
+    "achiocca1/FS-Sol",
+    "achiocca1/SeAn-CP",
+    "andreachiocca/FatPy",
+    "andreachiocca/andreachiocca.github.io",
+    "andreachiocca/moloch",
+    "andreachiocca/multiaxial-fatigue"
+  ],
+  "github_repositories": 11,
+  "zenodo_record_ids": [
+    "12721131",
+    "12734069",
+    "12741922",
+    "14198237",
+    "18416255",
+    "20934798",
+    "21010662",
+    "21166758",
+    "21534682",
+    "21875885"
+  ],
+  "zenodo_records": 10,
+  "zenodo_resources": 6,
+  "excluded_zenodo_ids": [
+    "14302835",
+    "14323405",
+    "14416230",
+    "19891746",
+    "2608559",
+    "8214402"
+  ],
+  "total_cards": 18
+}
