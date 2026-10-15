@@ -28,7 +28,7 @@ toc:
   - name: Theoretical Background
   - name: Equations and Method
   - name: Application Example
-  - name: References
+  - name: Conclusion
 
 ---
 
