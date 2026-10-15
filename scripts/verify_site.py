@@ -133,6 +133,26 @@ required = {"multiaxial-fatigue", "zenodo-21875885", "zenodo-21534682", "zenodo-
 output_page = pages.get(ROOT / "repositories/index.html")
 if not output_page or not required.issubset(output_page.ids):
     errors.append("Requested scientific resources are missing from the generated output catalogue")
+from sync_research_outputs import validate_catalogue
+catalogue_status = json.loads(Path("_data/catalogue_status.json").read_text(encoding="utf8"))
+try:
+    validate_catalogue(outputs, catalogue_status["github_full_names"], catalogue_status["zenodo_record_ids"])
+except ValueError as exc:
+    errors.append(str(exc))
+if output_page:
+    expected_ids = {item["id"] for item in outputs}
+    if not expected_ids.issubset(output_page.ids):
+        errors.append("A catalogue card is absent from the generated page")
+    expected_urls = {"https://github.com/" + name for name in catalogue_status["github_full_names"]}
+    expected_urls.update("https://zenodo.org/records/" + record_id for record_id in catalogue_status["zenodo_record_ids"])
+    if not expected_urls.issubset(set(output_page.links)):
+        errors.append("A discovered repository or Zenodo version link is missing")
+    catalogue_html = (ROOT / "repositories/index.html").read_text(encoding="utf8")
+    if any(marker in catalogue_html for marker in ("Â·", "â€”", "�")):
+        errors.append("Catalogue text encoding is corrupted")
+    if any(service in catalogue_html for service in ("github-readme-stats", "github-profile-trophy", "<iframe", "<img")):
+        errors.append("The catalogue still depends on image previews or embeds")
+
 restricted = next(item for item in outputs if item["id"] == "zenodo-21875885")
 if restricted["access_right"] != "restricted":
     errors.append("Restricted Zenodo record is incorrectly classified")

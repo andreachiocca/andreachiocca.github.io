@@ -9,3 +9,7 @@ _site
 Gemfile.lock
 vendor
 
+
+# Local Python verification caches
+__pycache__/
+*.py[cod]

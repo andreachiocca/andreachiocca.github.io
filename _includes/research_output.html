@@ -1,16 +1,39 @@
-<article class="research-output" id="{{ output.id }}">
-  <h3><a href="{{ output.url | escape }}">{{ output.title | escape }}</a></h3>
-  <p class="post-meta">{{ output.type_label }}{% if output.year %} · {{ output.year }}{% endif %}{% if output.version %} · {{ output.version }}{% endif %} · {{ output.access_label }}</p>
-  {% if output.creators.size > 0 %}<p>{{ output.creators | join: '; ' | escape }}</p>{% endif %}
-  <p>{{ output.description | escape }}</p>
-  {% if output.scope_note %}<p><small>{{ output.scope_note | escape }}</small></p>{% endif %}
-  {% if output.doi %}<p><a href="https://doi.org/{{ output.doi | escape }}">DOI: {{ output.doi }}</a></p>{% endif %}
-  {% if output.related_publications.size > 0 %}
-  <p>Related publication{% if output.related_publications.size > 1 %}s{% endif %}:
-    {% for key in output.related_publications %}<a href="{{ '/publications/' | relative_url }}#{{ key }}">view bibliography entry</a>{% unless forloop.last %}; {% endunless %}{% endfor %}.
+{% assign category = output.kind %}{% if category == 'benchmark' %}{% assign category = 'data' %}{% endif %}
+<article class="research-output" id="{{ output.id }}" data-category="{{ category }}" aria-labelledby="{{ output.id }}-title">
+  <p class="output-source">
+    {% if output.source == 'GitHub' %}<i class="fab fa-github" aria-hidden="true"></i>{% elsif output.source == 'Zenodo' %}<i class="ai ai-zenodo" aria-hidden="true"></i>{% else %}<i class="ai ai-mendeley" aria-hidden="true"></i>{% endif %}
+    {{ output.source }}{% if output.github_url and output.zenodo_record_id %} · GitHub archive{% endif %}{% if output.featured %}<span class="output-featured">Selected research</span>{% endif %}
   </p>
-  {% endif %}
-  {% for version in output.earlier_versions %}<p>Earlier deposit: <a href="{{ version.url }}">{{ version.version }} ({{ version.doi }})</a>. This is a version of the same participant package.</p>{% endfor %}
+  <h2 id="{{ output.id }}-title"><a href="{{ output.url | escape }}">{{ output.display_title | default: output.title | escape }}</a></h2>
+  <p class="output-meta">{{ output.type_label | escape }}{% if output.language %} · {{ output.language | escape }}{% endif %}{% if output.year %} · {{ output.year }}{% endif %}{% if output.fork %} · Fork{% endif %}{% if output.archived %} · Archived{% endif %}{% if output.mirror_url %} · Mirror{% endif %}</p>
+  <p class="output-description">{{ output.description | escape }}</p>
+  {% if output.topic %}<p class="output-topic">{{ output.topic | escape }}</p>{% endif %}
+  {% if output.development_note %}<p class="output-notice">{{ output.development_note | escape }}</p>{% endif %}
+  {% if output.access_right == 'restricted' or output.access_right == 'closed' or output.access_right == 'embargoed' %}<p class="output-notice">{{ output.access_label | escape }} — see the record for access conditions.</p>{% endif %}
+  {% if output.last_code_update %}<p class="output-date">Latest commit: <time datetime="{{ output.last_code_update }}">{{ output.last_code_update }}</time></p>{% elsif output.date %}<p class="output-date">Published: <time datetime="{{ output.date }}">{{ output.date }}</time>{% if output.version %} · {{ output.version | escape }}{% endif %} · {{ output.access_label | escape }}</p>{% endif %}
+  {% if output.needs_review %}<p class="output-notice">New resource; description awaiting review.</p>{% endif %}
+  <ul class="output-links" aria-label="Access {{ output.display_title | default: output.title | escape }}">
+    {% if output.github_url %}<li><a href="{{ output.github_url | escape }}">GitHub<span class="sr-only">: {{ output.title | escape }}</span></a></li>{% endif %}
+    {% if output.zenodo_record_id %}<li><a href="{{ output.url | escape }}">Zenodo<span class="sr-only">: {{ output.title | escape }}</span></a></li>{% elsif output.source == 'Mendeley' %}<li><a href="{{ output.url | escape }}">Mendeley<span class="sr-only">: {{ output.title | escape }}</span></a></li>{% endif %}
+    {% if output.doi %}<li><a href="https://doi.org/{{ output.doi | escape }}">DOI<span class="sr-only">: {{ output.doi }}</span></a></li>{% endif %}
+    {% if output.documentation_url %}<li><a href="{{ output.documentation_url | escape }}">Documentation<span class="sr-only">: {{ output.title | escape }}</span></a></li>{% endif %}
+    {% if output.research_anchor %}<li><a href="{{ '/research/' | relative_url }}#{{ output.research_anchor }}">Research context</a></li>{% endif %}
+  </ul>
+  <details class="output-details">
+    <summary>Record details<span class="sr-only">: {{ output.display_title | default: output.title | escape }}</span></summary>
+    {% if output.display_title %}<p><strong>Official title:</strong> {{ output.title | escape }}</p>{% endif %}
+    {% if output.creators.size > 0 %}<p><strong>Creators:</strong> {{ output.creators | join: '; ' | escape }}</p>{% endif %}
+    {% if output.access_label %}<p><strong>Access:</strong> {{ output.access_label | escape }}</p>{% endif %}
+    {% if output.github_full_name %}<p><strong>Repository:</strong> {{ output.github_full_name | escape }}</p>{% endif %}
+    {% if output.github_url %}<p><strong>Repository status:</strong> {% if output.archived %}Archived{% else %}Not archived{% endif %}.</p>{% endif %}
+    {% if output.upstream_url %}<p>Fork of <a href="{{ output.upstream_url | escape }}">{{ output.upstream_url | remove: 'https://github.com/' | escape }}</a>. Upstream authorship is retained.</p>{% endif %}
+    {% if output.mirror_url %}<p>Mirror of <a href="{{ output.mirror_url | escape }}">{{ output.mirror_url | escape }}</a>.</p>{% endif %}
+    {% if output.scope_note %}<p>{{ output.scope_note | escape }}</p>{% endif %}
+    {% if output.related_publications.size > 0 %}<p>Related publication{% if output.related_publications.size > 1 %}s{% endif %}: {% for key in output.related_publications %}<a href="{{ '/publications/' | relative_url }}#{{ key }}">bibliography entry {{ forloop.index }}</a>{% unless forloop.last %}; {% endunless %}{% endfor %}.</p>{% endif %}
+    {% if output.doi %}<p><strong>Version DOI:</strong> <a href="https://doi.org/{{ output.doi | escape }}">{{ output.doi }}</a></p>{% endif %}
+    {% if output.concept_doi %}<p><strong>All versions:</strong> <a href="https://doi.org/{{ output.concept_doi | escape }}">{{ output.concept_doi }}</a></p>{% endif %}
+    {% if output.earlier_versions.size > 0 %}<p>Earlier versions of this resource:</p><ul>{% for version in output.earlier_versions %}<li><a href="{{ version.url | escape }}">{{ version.version | escape }}</a> · <a href="https://doi.org/{{ version.doi | escape }}">{{ version.doi }}</a></li>{% endfor %}</ul>{% endif %}
+  </details>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -19,9 +42,13 @@
     "description": {{ output.description | jsonify }},
     "url": {{ output.url | jsonify }}{% if output.doi %},
     "identifier": {{ output.doi | jsonify }}{% endif %}{% if output.date %},
-    "datePublished": {{ output.date | jsonify }}{% endif %}{% if output.kind != 'software' %},
-    "creator": [{% for name in output.creators %}{"@type":"Person","name":{{ name | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}],
-    "isAccessibleForFree": {% if output.access_right == 'restricted' %}false{% else %}true{% endif %}{% endif %}
+    "datePublished": {{ output.date | jsonify }}{% endif %}{% if output.last_code_update %},
+    "dateModified": {{ output.last_code_update | jsonify }}{% endif %}{% if output.language %},
+    "programmingLanguage": {{ output.language | jsonify }}{% endif %}{% if output.github_url %},
+    "codeRepository": {{ output.github_url | jsonify }}{% endif %}{% if output.creators.size > 0 %},
+    "creator": [{% for name in output.creators %}{"@type":"Person","name":{{ name | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endif %}{% if output.access_right == 'open' %},
+    "isAccessibleForFree": true{% elsif output.access_right == 'restricted' or output.access_right == 'closed' or output.access_right == 'embargoed' %},
+    "isAccessibleForFree": false{% endif %}
   }
   </script>
 </article>
