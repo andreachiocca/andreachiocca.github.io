@@ -1,6 +1,6 @@
 # Repositories and research outputs: targeted update
 
-Scope: existing branch `codex/academic-site-audit-2026-10-15`, PR #14; preserve the previous CV, bibliography, research and teaching work. No merge or production deployment is authorized by this update.
+Scope: existing branch `codex/academic-site-audit-2026-10-15`, follow-up PR #20 (PR #14 was already merged before this update); preserve the previous CV, bibliography, research and teaching work. No merge or production deployment is authorized by this update.
 
 ## Original implementation and diagnosis
 
@@ -18,21 +18,21 @@ Zenodo discovery searched ORCID `0000-0002-1472-4398`, creator surname and verif
 
 The five requested deposits are included, plus the verified SPR tensile-test deposit. The former single FABEST earlier-version link is expanded to all three preceding versions; the earlier SPR deposit is also retained. Four FABEST records become one card, and two SPR records become one card. Each version retains its own record URL/DOI; the concept DOI is separately labelled. There is no verified duplicate software archive across the discovered GitHub and Zenodo resources. Journal-article DOIs in GitHub READMEs identify related papers, not software deposits; an upstream theme's DOI is not assigned to a personal fork.
 
-The existing Mendeley welding/additive-manufacturing dataset remains a separate additional resource. Total: 18 cards â€” eight Software, seven Datasets & benchmarks and three Other outputs. The FatPy fork remains under Software with fork/upstream attribution; academic template forks and this website are Other outputs.
+The existing Mendeley welding/additive-manufacturing dataset remains a separate additional resource. Total: 18 cards — eight Software, seven Datasets & benchmarks and three Other outputs. The FatPy fork remains under Software with fork/upstream attribution; academic template forks and this website are Other outputs.
 
 ### Included GitHub repositories
 
 - [andreachiocca/multiaxial-fatigue](https://github.com/andreachiocca/multiaxial-fatigue)
 - [andreachiocca/andreachiocca.github.io](https://github.com/andreachiocca/andreachiocca.github.io)
-- [andreachiocca/moloch](https://github.com/andreachiocca/moloch) â€” fork of https://github.com/jolars/moloch
+- [andreachiocca/moloch](https://github.com/andreachiocca/moloch) — fork of https://github.com/jolars/moloch
 - [achiocca1/ECP](https://github.com/achiocca1/ECP)
-- [andreachiocca/FatPy](https://github.com/andreachiocca/FatPy) â€” fork of https://github.com/faberorg/FatPy
+- [andreachiocca/FatPy](https://github.com/andreachiocca/FatPy) — fork of https://github.com/faberorg/FatPy
 - [achiocca1/CPOpt-v1.0](https://github.com/achiocca1/CPOpt-v1.0)
 - [achiocca1/FI-Sol](https://github.com/achiocca1/FI-Sol)
 - [achiocca1/SeAn-CP](https://github.com/achiocca1/SeAn-CP)
 - [achiocca1/FS-Sol](https://github.com/achiocca1/FS-Sol)
 - [achiocca1/APDL-WB-ssr-v1.0](https://github.com/achiocca1/APDL-WB-ssr-v1.0)
-- [achiocca1/Awesome-CV](https://github.com/achiocca1/Awesome-CV) â€” fork of https://github.com/aminmkhan/Awesome-CV
+- [achiocca1/Awesome-CV](https://github.com/achiocca1/Awesome-CV) — fork of https://github.com/aminmkhan/Awesome-CV
 
 ### Included Zenodo records
 

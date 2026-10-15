@@ -148,6 +148,8 @@ if output_page:
     if not expected_urls.issubset(set(output_page.links)):
         errors.append("A discovered repository or Zenodo version link is missing")
     catalogue_html = (ROOT / "repositories/index.html").read_text(encoding="utf8")
+    if any(marker in catalogue_html for marker in ("Â·", "â€”", "�")):
+        errors.append("Catalogue text encoding is corrupted")
     if any(service in catalogue_html for service in ("github-readme-stats", "github-profile-trophy", "<iframe", "<img")):
         errors.append("The catalogue still depends on image previews or embeds")
 

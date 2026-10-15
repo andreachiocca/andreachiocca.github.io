@@ -1,4 +1,4 @@
-# Andrea Chiocca â€” academic website
+# Andrea Chiocca — academic website
 
 Personal academic website at [andreachiocca.github.io](https://andreachiocca.github.io), built with Jekyll and the al-folio theme. The site presents publications, research, academic experience, and teaching materials.
 

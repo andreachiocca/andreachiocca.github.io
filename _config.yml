@@ -10,7 +10,7 @@ email: andrea.chiocca@unipi.it
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Andrea Chiocca, University of Pisa: research in machine design, multiaxial fatigue, residual stresses, welded joints, and additively manufactured components. Publications, academic CV, and teaching materials.
 footer_text: 
-keywords: Andrea Chiocca, Unipi, Research, University, Website, Pisa, UniversitÃƒÂ , Sito  # add your own keywords or leave empty
+keywords: Andrea Chiocca, Unipi, Research, University, Website, Pisa, Università, Sito  # add your own keywords or leave empty
 
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: UnipiLogo.png  # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
