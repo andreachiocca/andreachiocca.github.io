@@ -42,7 +42,7 @@
 {%- endif %}
 
 {%- assign is_blog_post = false -%}
-{%- if page.url != '/blog/index.html' and page.url contains '/blog/' -%}
+{%- if page.layout == 'distill' or page.layout == 'post' -%}
     {%- unless page.url contains '/tag/' or page.url contains '/category/' -%}
         {%- assign is_blog_post = true -%}
     {%- endunless -%}

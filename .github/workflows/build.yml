@@ -18,6 +18,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    permissions:
+      contents: read
+      checks: write
     env:
       JEKYLL_ENV: production
     steps:
@@ -46,7 +49,19 @@ jobs:
       - name: Build site
         run: bundle exec jekyll build --trace
       - name: Verify pages, local links, metadata and sitemap
-        run: python scripts/verify_site.py _site
+        id: verify
+        run: python scripts/verify_site.py _site 2>&1 | tee verification.log
+
+      - name: Record verification details
+        if: always() && steps.verify.outcome != 'skipped' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CHECK_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          CHECK_RESULT: ${{ steps.verify.outcome }}
+        run: |
+          jq -n --arg sha "$CHECK_SHA" --arg result "$CHECK_RESULT" --rawfile report verification.log --rawfile lock Gemfile.lock \
+            '{name: "Generated site verification", head_sha: $sha, status: "completed", conclusion: $result, output: {title: "Generated site verification", summary: $report, text: $lock}}' > verification-check.json
+          gh api --method POST "repos/$GITHUB_REPOSITORY/check-runs" --input verification-check.json > /dev/null
 
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'

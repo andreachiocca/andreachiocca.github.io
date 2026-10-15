@@ -59,7 +59,7 @@ Keep existing post dates and public URLs stable, even when a filename has a hist
 
 Google Analytics, Cronitor, publication badge widgets, and the decorative reading progress bar are disabled by default. Existing integration settings remain available in `_config.yml`. Review privacy requirements before enabling analytics or third-party widgets; this configuration is not a legal compliance certification. Google Fonts and some script libraries still use third-party hosts.
 
-Bootstrap Table loads only on pages with `table: true` in front matter. Native HTML tables do not need it.
+Bootstrap Table loads only on pages with `table: true` in front matter. Native HTML tables do not need it. MathJax loads on research-note (Distill) pages or pages with `math: true`. Masonry is disabled because the teaching overview now uses a plain list.
 
 ## Maintenance priorities
 
