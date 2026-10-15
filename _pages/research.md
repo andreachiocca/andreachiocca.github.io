@@ -31,5 +31,7 @@ I study how materials and components respond to repeated loads, combining analyt
 <p>The FABER WG3 responsibility above is separate from the <a href="{{ '/repositories/' | relative_url }}#multiaxial-fatigue">WG4.3 multiaxial fatigue software and review activity</a>. Research exchanges also connect my work with European universities and research institutes.</p>
 <details class="context-details"><summary>Research visits</summary><p>Czech Technical University in Prague (FABER WG6, June 2026); Aarhus University (Circle U., January 2026); NTNU (Erasmus+, July 2024); Fraunhofer LBF (doctoral research, February–June 2021).</p></details>
 
+<ul class="inline-links"><li><a href="{{ '/laboratory/' | relative_url }}">Laboratory and experimental capabilities</a></li><li><a href="{{ '/thesis/' | relative_url }}">Thesis opportunities for students</a></li></ul>
+
 <h2 id="research-environment">Research environment</h2>
 <p>I work in the machine design group at the <a href="https://www.dici.unipi.it/">Department of Civil and Industrial Engineering</a>, <a href="https://www.unipi.it/">University of Pisa</a>. For shared research questions, methodological work or industrial challenges, <a href="mailto:andrea.chiocca@unipi.it">contact me</a>.</p>

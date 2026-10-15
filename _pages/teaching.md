@@ -2,12 +2,14 @@
 layout: page
 permalink: /teaching/
 title: Teaching
-description: University of Pisa courses, lecture materials, exercises and supplementary technical reading. Public materials are in Italian.
+description: University of Pisa courses, public teaching materials and thesis opportunities in computational and experimental mechanics. Public course materials are in Italian.
 nav: true
 nav_order: 4
 ---
 
 Find your course below for slides, notes, exercises and tutorials. These resources complement the [official course catalogue](https://unipi.coursecatalogue.cineca.it/) and [Engineering e-learning platform](https://elearn.ing.unipi.it/).
+
+<section class="collaboration-panel" aria-labelledby="teaching-thesis-title"><h2 id="teaching-thesis-title">Looking for a thesis topic?</h2><p>Explore five research directions, from welded structures and multiaxial fatigue to polymers, PCB reliability and prospective AI applications. Choose numerical, experimental or combined work and discuss possibilities in Pisa or abroad.</p><a class="contact-link" href="{{ '/thesis/' | relative_url }}">Explore thesis opportunities <span aria-hidden="true">→</span></a></section>
 
 ## Recent teaching
 
@@ -30,12 +32,6 @@ The latest documented teaching periods extend through 2026; current academic-yea
 {% endfor %}
 </div>
 {% endfor %}
-
-## Supplementary technical reading
-
-My research notes explain critical plane fatigue methods and may be useful for related projects or theses. They supplement the course material above.
-
-<ul class="reading-list">{% for note in site.posts %}<li><a href="{{ note.url | relative_url }}">{{ note.short_title | default: note.title }}</a></li>{% endfor %}</ul>
 
 ## Supervision and research mentoring
 

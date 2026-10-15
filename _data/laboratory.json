@@ -1,0 +1,15 @@
+{
+  "capabilities": [
+    {"id": "fatigue-durability", "title": "Fatigue and durability", "icon": "fa-chart-line", "description": "Investigate behaviour under repeated loading, characterise fatigue response and compare life predictions with experimental results.", "links": [{"label": "Fatigue research", "url": "/research/#multiaxial-fatigue-and-critical-plane-methods"}, {"label": "Fatigue datasets", "url": "/repositories/#zenodo-18416255"}]},
+    {"id": "mechanical-characterisation", "title": "Mechanical characterisation", "icon": "fa-ruler-combined", "description": "Study the mechanical response of engineering materials and components. Previous research includes polymer composites, hybrid joints and the influence of temperature on material behaviour.", "links": [{"label": "Materials and components", "url": "/research/#component-testing-and-industrial-applications"}, {"label": "Composite study", "url": "/publications/#Chiocca2025ab"}]},
+    {"id": "joints-structures", "title": "Joints and structural integrity", "icon": "fa-tools", "description": "Connect measurements and computational analysis to assess welded components and mechanical joints, including residual stresses and fatigue response.", "links": [{"label": "Welded structures", "url": "/research/#residual-stresses-and-welded-structures"}, {"label": "Hybrid-joint data", "url": "/repositories/#zenodo-12741922"}]},
+    {"id": "model-validation", "title": "Numerical–experimental validation", "icon": "fa-project-diagram", "description": "Combine finite element analysis with mechanical measurements to examine model predictions. Research experience includes strain, vibration and temperature measurements and component-level correlation.", "links": [{"label": "PCB dynamics study", "url": "/publications/#Fontana2023"}, {"label": "Related publications", "url": "/publications/"}]},
+    {"id": "engineering-analysis", "title": "Engineering data and methods", "icon": "fa-code", "description": "Process experimental data, develop scientific software and compare analytical or computational methods. Reproducible datasets and documented algorithms support interpretation and model validation.", "links": [{"label": "Software and datasets", "url": "/repositories/"}]}
+  ],
+  "measurement_context": [
+    {"title": "Material and joint response", "description": "Previous studies document static and fatigue characterisation of materials and joints. The specimen, loading conditions and required measurements define the feasibility of a new campaign."},
+    {"title": "Strain, vibration and temperature", "description": "These measurement categories feature in existing research. Sensors, acquisition settings, operating ranges and facility access must be confirmed for each investigation."},
+    {"title": "Model correlation and data processing", "description": "Experimental results can be compared with finite element and analytical models, using scientific programming to evaluate predictions and document the analysis."}
+  ],
+  "equipment": []
+}

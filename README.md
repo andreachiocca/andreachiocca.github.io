@@ -16,7 +16,9 @@ Personal academic website at [andreachiocca.github.io](https://andreachiocca.git
 | Teaching overview | `_pages/teaching.md` |
 | Course pages | `_projects/*.md` |
 | Teaching downloads | `TeachingMaterial/` |
-| Research notes | `_posts/` |
+| Thesis directions, approaches and international contacts | `_data/thesis_opportunities.json` |
+| Laboratory expertise, measurement context and future equipment | `_data/laboratory.json` |
+| Retired Notes source (unpublished) | `docs/retired-notes/` |
 | Site identity and optional features | `_config.yml` |
 | Targeted visual refinements | `_sass/_academic.scss` |
 
@@ -69,7 +71,7 @@ Bootstrap Table loads only on pages with `table: true` in front matter. Native H
 
 - Keep `Gemfile.lock` committed. It records the dependency set resolved by the verified GitHub build. Update it deliberately and rerun the build and advisory checks.
 - Review Dependabot updates and periodically audit both the resolved Ruby dependency set and `package-lock.json`.
-- Test keyboard navigation, narrow screens, light/dark contrast, and representative research notes before merging visual changes.
+- Test keyboard navigation, narrow screens, light/dark contrast, and the thesis and laboratory pages before merging visual changes.
 - Measure the actual deployed site with Lighthouse and field Core Web Vitals. Historical theme reports are not measurements of this website.
 - Preserve documents and download URLs when considering future asset cleanup.
 
@@ -103,14 +105,22 @@ See [the catalogue audit](docs/REPOSITORIES_UPDATE.md) for the coverage inventor
 
 ## Navigation, research and student resources
 
-`_data/navigation.yml` is the single ordered menu for desktop and mobile. Keep a short label and a stable URL for each section. Teaching course pages retain Teaching as their parent; scientific articles and archives retain Notes. The shared navigation controller handles focus, Escape, background interaction and header spacing on every layout.
+`_data/navigation.yml` is the single ordered menu for desktop and mobile. Keep a short label and a stable URL for each section. Teaching course pages and Thesis Opportunities retain Teaching as their parent. Laboratory is a direct navigation entry. The shared navigation controller handles focus, Escape, background interaction and header spacing on every layout.
 
-Edit `_data/research_areas.json` for the brief research summaries (40–70 words), methods and evidence links. Preserve the existing `id` values: datasets and other pages link to these anchors. Detailed scientific explanations stay in Notes and publications. Project records live in `assets/json/resume.json` and render consistently on Research and CV. `periodLabel` can distinguish an Action's overall lifetime from a person's role dates. Do not infer appointment dates from an Action's duration. A one-year project is displayed as one year.
+Edit `_data/research_areas.json` for the brief research summaries (40–70 words), methods and evidence links. Preserve the existing `id` values: datasets and other pages link to these anchors. Publications provide the detailed scientific evidence. Project records live in `assets/json/resume.json` and render consistently on Research and CV. `periodLabel` can distinguish an Action's overall lifetime from a person's role dates. Do not infer appointment dates from an Action's duration. A one-year project is displayed as one year.
 
 Public educational resources live in `_data/teaching_materials.json`, keyed by the existing course filename. Each entry has `title`, `url`, `format`, `type` and optional `academic_year`. Add an approved public PDF/ZIP to the existing `TeachingMaterial/` directory (or an authorized external repository URL), then add its entry. Course pages automatically group by academic year, when known, and material type. Leave `academic_year` null when the source does not identify it; do not infer a material's year from the teaching appointment. Existing shared resources have no fabricated year labels. Keep restricted materials on the official university platform.
 
 The course front matter identifies `materials_key`, `teaching_period`, `teaching_role` and `teaching_group` (`recent` or `previous`). Verify a new academic-year appointment before extending these periods. The present overview reports documented teaching through 2026 and links current requirements to official university platforms. No new placeholder courses are needed.
 
-Notes use the existing posts and stable URLs. Optional `short_title` improves card headings while preserving the full article title. The listing shows each note once and retains pagination. Scientific article layouts keep equations and code at readable sizes with local horizontal scrolling where needed; tables receive a scroll container. Keep descriptive figure alternatives and captions when adding figures.
+### Thesis opportunities and laboratory capabilities
+
+`_pages/thesis.md` presents potential directions, not current vacancies. Edit `directions`, `approaches` and `international_contacts` in `_data/thesis_opportunities.json`. The `projects` array stays empty until a specific proposal is confirmed. Each future project can use `id`, `title`, `description`, `activities`, `mode`, `level`, `status`, `supervisors`, `host`, `location`, `links`, and optional image fields. Use `links` for supporting papers, repositories, official opportunities or a verified contact. Keep availability accurate and retain the international-placement qualifications. No empty project section is rendered.
+
+`_pages/laboratory.md` distinguishes documented research expertise from facilities that need feasibility and access checks. Edit `capabilities` and `measurement_context` in `_data/laboratory.json`. The `equipment` array stays empty until an inventory is verified. Each future instrument uses `id`, `title`, `description`, optional `image`, `image_alt`, `image_width`, `image_height`, supporting `links` and a `specifications` array of `{ "label": "…", "value": "…" }` pairs. Add only confirmed manufacturer/model, force/torque, loading modes, static/cyclic/dynamic capability, frequency, specimen limits, environmental conditions, sensors and acquisition details; omit unknown fields. Record provenance in a `verification_source` field. Do not infer standards, accreditation or commercial service availability. The equipment heading and cards are omitted when the array is empty.
+
+Both pages share `_includes/resource_card.html`. Approved photographs belong in `assets/img/`; give their relative path, descriptive alternative text and actual pixel dimensions. The component reserves image proportions and adapts to one mobile column or two wider columns. Do not add placeholder images or unverified proposals to demonstrate the layout.
+
+Notes are retired. Three unchanged source articles remain in the excluded `docs/retired-notes/` directory; none is published in posts, archives or the feed. `_data/retired_notes_urls.json` records 16 former catalogue, archive and article routes. `_plugins/retired-notes.rb` and `_layouts/retired-notes.html` provide immediate lightweight redirects to Research, with a canonical destination, `noindex` and a manual link. These routes stay out of the sitemap. The RSS icon and Notes-only interface code are removed; the legacy feed is empty for existing subscribers. Restoring an article requires a separate editorial decision.
 
 PR builds retain a seven-day `website-preview` artifact containing generated HTML, styles, scripts, fonts, bibliography and the profile image for visual review. This replaces the narrower catalogue-only preview; deployment remains master-only.

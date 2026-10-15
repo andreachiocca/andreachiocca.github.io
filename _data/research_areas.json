@@ -34,10 +34,6 @@
       {
         "label": "Ductile cast iron data",
         "url": "/repositories/#zenodo-14198237"
-      },
-      {
-        "label": "Technical notes",
-        "url": "/blog/"
       }
     ]
   },
@@ -54,6 +50,10 @@
       {
         "label": "Welded-joint fatigue data",
         "url": "/repositories/#zenodo-18416255"
+      },
+      {
+        "label": "Experimental capabilities",
+        "url": "/laboratory/"
       }
     ],
     "further": [
@@ -106,6 +106,10 @@
       {
         "label": "Hybrid-joint tensile data",
         "url": "/repositories/#zenodo-12741922"
+      },
+      {
+        "label": "Experimental capabilities",
+        "url": "/laboratory/"
       }
     ],
     "further": [

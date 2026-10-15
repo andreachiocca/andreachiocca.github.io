@@ -10,9 +10,8 @@
           {% for item in site.data.navigation %}
             {% assign current_section = false %}
             {% if page.url == item.url %}{% assign current_section = true %}{% endif %}
-            {% if item.section == 'notes' and page.url contains '/blog/' %}{% assign current_section = true %}{% endif %}
-            {% if item.section == 'notes' and page.layout == 'distill' %}{% assign current_section = true %}{% endif %}
             {% if item.section == 'teaching' and page.collection == 'projects' %}{% assign current_section = true %}{% endif %}
+            {% if item.section == 'teaching' and page.section == 'teaching' %}{% assign current_section = true %}{% endif %}
             <li class="nav-item{% if current_section %} active{% endif %}"><a class="nav-link" href="{{ item.url | relative_url }}"{% if current_section %} aria-current="{% if page.url == item.url %}page{% else %}location{% endif %}"{% endif %}>{{ item.title }}</a></li>
           {% endfor %}
           {% if site.enable_darkmode %}<li class="toggle-container"><button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"><i aria-hidden="true" class="fas fa-moon"></i><i aria-hidden="true" class="fas fa-sun"></i></button></li>{% endif %}

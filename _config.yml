@@ -30,7 +30,7 @@ impressum_path:  # set to path to include impressum link in the footer, use the 
 # will use title and url fields
 # Take a look to https://github.com/jekyll/jekyll-feed for more customization
 
-rss_icon: true
+rss_icon: false
 
 # -----------------------------------------------------------------------------
 # Layout
@@ -107,7 +107,7 @@ bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
 
 # Pagination
 pagination:
-  enabled: true
+  enabled: false
 
 related_blog_posts:
   enabled: false
@@ -258,7 +258,7 @@ jekyll-minifier:
 # -----------------------------------------------------------------------------
 
 jekyll-archives:
-  enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
+  enabled: [] # Notes are retired; keep legacy URLs as non-indexed redirects.
   layouts:
     year: archive-year
     tag: archive-tag
@@ -426,6 +426,3 @@ jsonresume:
 
 # Publication filtering uses a small local script; all entries remain readable without JavaScript.
 bib_search: true
-blog_name: Notes
-blog_nav_title: Notes
-blog_description: Notes on fatigue assessment, residual stresses, and computational methods.

@@ -1,0 +1,61 @@
+{
+  "directions": [
+    {
+      "id": "welded-structures",
+      "title": "Welded structures",
+      "icon": "fa-tools",
+      "mode": "Numerical + experimental",
+      "description": "Explore how welding affects the stresses and fatigue life of a component. A thesis can connect process simulations with measurements and tests on welded joints.",
+      "activities": "Welding simulation; thermomechanical finite element models; residual stress evaluation; fatigue testing and numerical–experimental comparison.",
+      "links": [{"label": "Related research", "url": "/research/#residual-stresses-and-welded-structures"}]
+    },
+    {
+      "id": "multiaxial-fatigue",
+      "title": "Multiaxial fatigue of metals",
+      "icon": "fa-chart-line",
+      "mode": "Numerical / computational",
+      "description": "Study how metals accumulate fatigue damage when loads act in several directions. Develop and compare assessment methods, with opportunities for students interested in mechanics, programming and scientific computing.",
+      "activities": "Critical-plane criteria; efficient algorithms; model benchmarking; validation against experimental datasets; Python-based scientific software.",
+      "links": [{"label": "Multiaxial fatigue software", "url": "https://github.com/andreachiocca/multiaxial-fatigue"}, {"label": "Related research", "url": "/research/#multiaxial-fatigue-and-critical-plane-methods"}]
+    },
+    {
+      "id": "polymer-fatigue",
+      "title": "Fatigue behaviour of polymers",
+      "icon": "fa-flask",
+      "mode": "Experimental + numerical",
+      "description": "Investigate how polymeric materials behave under repeated loading and how to predict the life of polymer components. The balance between testing and modelling can follow your interests and the agreed project.",
+      "activities": "Mechanical and cyclic characterisation; constitutive and fatigue-life models; component simulations; experimental validation. Temperature effects may be considered where feasible.",
+      "links": [{"label": "Materials research", "url": "/research/#component-testing-and-industrial-applications"}]
+    },
+    {
+      "id": "pcb-reliability",
+      "title": "PCB fatigue and reliability",
+      "icon": "fa-microchip",
+      "mode": "Numerical + experimental",
+      "description": "Explore the mechanical reliability of printed circuit boards and electronic assemblies. Potential applications include components exposed to cyclic or vibration loading in automotive and other engineering environments.",
+      "activities": "Finite element models of boards and components; mechanical response and failure mechanisms; fatigue-life estimation; comparison with measurements.",
+      "links": [{"label": "PCB dynamics study", "url": "/publications/#Fontana2023"}]
+    },
+    {
+      "id": "ai-structural-integrity",
+      "title": "AI for structural integrity",
+      "icon": "fa-brain",
+      "mode": "Numerical / computational · exploratory",
+      "description": "Explore whether data-driven methods can support fatigue prediction and structural assessment. Specific AI projects depend on suitable datasets, research collaborators and agreed thesis objectives; these are potential directions, not claims of established or validated tools.",
+      "activities": "Machine-learning benchmarks; physics-based and data-driven models; surrogate modelling; interpretation of experimental data against reference results.",
+      "links": [{"label": "Available research outputs", "url": "/repositories/"}]
+    }
+  ],
+  "approaches": [
+    {"title": "Numerical / computational", "description": "Finite element simulations, analytical methods, programming and algorithm development. Compare models and check their predictions against reference data."},
+    {"title": "Experimental", "description": "Laboratory testing, specimen characterisation, measurements and data acquisition. Interpret results to understand material and component behaviour."},
+    {"title": "Combined", "description": "Build a numerical model and support it with experiments. Correlate simulations with measurements and validate structural or fatigue assessment methods."}
+  ],
+  "international_contacts": [
+    {"name": "Aarhus University", "location": "Denmark", "url": "https://www.au.dk/en/"},
+    {"name": "Fraunhofer LBF", "location": "Darmstadt, Germany", "detail": "Institute for Structural Durability and System Reliability", "url": "https://www.lbf.fraunhofer.de/"},
+    {"name": "Czech Technical University in Prague", "location": "Czech Republic", "url": "https://www.cvut.cz/en"},
+    {"name": "NTNU", "location": "Norway", "detail": "Norwegian University of Science and Technology", "url": "https://www.ntnu.edu/"}
+  ],
+  "projects": []
+}
