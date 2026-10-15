@@ -31,4 +31,6 @@ The existing Google Drive tutorial folder returned HTTP 404 to anonymous access.
 
 Recovery verification found that pagination emits an index-file URL while Notes metadata uses the directory URL; the custom sitemap now normalizes index paths to canonical directory URLs. Scientific articles also had front-matter markup before the body, which let HTML minification discard body attributes. Front matter now sits inside the body, and dated article URLs retain the Notes active state.
 
-Rendered landscape testing found legacy Sass arithmetic corrupting CSS variable names inside calc(), removing the menu height bound. Those expressions are now emitted literally, with a landscape regression check. Distill’s injected root font and floating contents are overridden locally to keep the shared readable type scale and full-width contents.
+Rendered landscape testing found legacy Sass arithmetic corrupting CSS variable names inside calc(), removing the menu height bound. The shared navigation controller now measures available viewport space and anchor offsets directly, avoiding that CSS arithmetic, with a landscape regression check. Distill’s injected root font and floating contents are overridden locally to keep the shared readable type scale and full-width contents.
+
+The final link recheck found the optional moloch.ink documentation URL returning 404; it now links the verified upstream GitHub documentation. The Mendeley landing page/DOI intermittently returns HTTP 502; its existing scientific identifier is retained, pending service recovery.

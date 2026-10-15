@@ -49,9 +49,15 @@
   });
   mobile.addEventListener('change', () => setOpen(false, false));
   function reserveSpace() {
-    if (document.body.classList.contains('fixed-top-nav')) document.documentElement.style.setProperty('--navigation-height', `${Math.ceil(nav.getBoundingClientRect().height)}px`);
+    const height = Math.ceil(nav.getBoundingClientRect().height);
+    const viewport = window.visualViewport?.height || window.innerHeight;
+    const style = document.documentElement.style;
+    if (document.body.classList.contains('fixed-top-nav')) style.setProperty('--navigation-height', `${height}px`);
+    style.setProperty('--navigation-offset', `${height + 16}px`);
+    style.setProperty('--navigation-available-height', `${Math.max(0, Math.floor(viewport - height))}px`);
   }
   reserveSpace();
   if ('ResizeObserver' in window) new ResizeObserver(reserveSpace).observe(nav);
-  else window.addEventListener('resize', reserveSpace);
+  window.addEventListener('resize', reserveSpace);
+  window.visualViewport?.addEventListener('resize', reserveSpace);
 })();

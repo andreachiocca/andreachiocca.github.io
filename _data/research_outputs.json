@@ -146,7 +146,7 @@
     "last_code_update": "2026-02-17",
     "upstream_url": "https://github.com/jolars/moloch",
     "topic": "Academic tools",
-    "documentation_url": "https://moloch.ink/",
+    "documentation_url": "https://github.com/jolars/moloch/tree/main/docs",
     "access_right": "public",
     "access_label": "Public repository"
   },
