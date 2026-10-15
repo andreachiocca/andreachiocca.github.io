@@ -17,12 +17,12 @@ The default branch is `master`; `gh-pages` also exists. Neither branch was repor
 | Essential | Two course pages reference nonexistent `Lastra_con_foro_CAD.zip` | Correct both to the existing `Lastra_con_foro.zip`. |
 | Essential | Build workflow has Pages write and OIDC permissions at workflow scope, no PR checks, and path filters omit standalone teaching-download updates | Restrict write permissions to deploy, validate PRs, and build all master pushes. |
 | Essential | Ruby 3.2 is beyond upstream support in October 2026 | Move the workflow to Ruby 3.3 and require the build to validate compatibility. |
-| Recommended | Ruby gems are unversioned and no `Gemfile.lock` is committed | A prior successful build does not make the next resolution reproducible. Commit a reviewed lockfile after resolving and building. A real lockfile was subsequently captured from the successful GitHub build and committed. |
+| Recommended | Ruby gems are unversioned and no `Gemfile.lock` is committed | A prior successful build did not make the next resolution reproducible. A real lockfile was captured from the successful GitHub build, committed, rebuilt, and checked against Ruby advisories. |
 | Recommended | Actions use movable major tags | Pin the existing action families to commit SHAs resolved from their official repositories; configure monthly update proposals. |
 | Recommended | Large theme README dominates project documentation | Provide a website-specific README and preserve the original in `docs/THEME_README.md`. |
 | Recommended | Template assets, example data and historical reports remain | Exclude documentation and known template pages from deployment; retain files until references and external uses can be verified. |
 
-Dependency assessment at baseline was **incomplete**: no resolved Ruby lockfile was available and local package/audit commands could not run in this session. The review branch now includes the real lockfile from the successful hosted build and Ruby/npm advisory checks. No claim is made that all dependencies are vulnerability-free. npm contains formatting tools rather than an application runtime bundle. Bootstrap, MDB, jQuery, MathJax and Distill remain part of the existing theme. Remove or upgrade these incrementally only with representative rendering checks. The dormant external-feed plugin and its gems remain because removing them without a successful dependency/build evaluation is premature.
+Dependency assessment at baseline was **incomplete**: no resolved Ruby lockfile was available and local package/audit commands could not run in this session. The review branch now includes the real lockfile from the successful hosted build and Ruby/npm advisory checks. Ruby advisory and npm audit checks subsequently reported no known vulnerabilities for the committed dependency sets. This does not certify vendored/CDN browser libraries or all possible vulnerabilities. npm contains formatting tools rather than an application runtime bundle. Bootstrap, MDB, jQuery, MathJax and Distill remain part of the existing theme. Remove or upgrade these incrementally only with representative rendering checks. The dormant external-feed plugin and its gems remain because removing them without a successful dependency/build evaluation is premature.
 
 Exact duplicate blobs include the introductory teaching PDF at `assets/pdf/_0_Introduzione.pdf` and `TeachingMaterial/Ingegneria_Energetica/PMMEF/Introduzione_EN.pdf`, a theme screenshot, and two report badges. None is deleted because download URLs and historical references may still matter.
 
@@ -115,6 +115,7 @@ Files added or modified:
 - `.github/dependabot.yml`
 - `docs/THEME_README.md`
 - `README.md`
+- `Gemfile.lock`
 - `docs/ACADEMIC_SITE_AUDIT.md`
 
 ## D. Verification record
@@ -123,15 +124,15 @@ Files added or modified:
 - Bibliography source checks: 25 uniquely keyed records; no duplicate field names after the targeted correction; every local publication PDF reference exists in the source manifest.
 - Teaching source checks: all 28 local download references across the three populated course pages resolve to existing source files after the two corrections.
 - Live home, publications and CV pages were readable through web retrieval. Some other routes returned retrieval/cache errors; these are inconclusive and are not labelled as confirmed website 404s.
-- Jekyll compilation and the stylesheet cache regression check passed on the review branch. Generated-site checks exposed six broken tag/category shortcuts inherited from theme examples; these are removed. Final verification and dependency advisory results are pending.
+- Jekyll compilation and the stylesheet cache regression check passed on the review branch. Generated-site checks exposed six broken tag/category shortcuts inherited from theme examples; these are removed. Final generated-site verification passed: 28 HTML pages and 774 local references; core metadata, publication JSON-LD and sitemap checks passed. Ruby advisory checks (database updated 10 October 2026, commit a6847b0651a702488f5844081e848dd1ec9dbf1d) and npm audit both reported no known vulnerabilities.
 - New CI checks cover Ruby/npm advisory audits, stylesheet fingerprint changes, Jekyll compilation, generated local file references, core metadata/landmarks, publication JSON-LD, and sitemap entries.
-- Local command execution and interactive browser inspection failed because the available host processes could not start. Consequently local build/lint, viewport screenshots, keyboard interaction, assistive-technology testing, automated browser accessibility scans, Lighthouse, and field performance measurements are not completed.
+- Local command execution and interactive browser inspection failed because the available host processes could not start. Hosted Jekyll compilation and automated site/advisory checks passed. Local lint, viewport screenshots, keyboard interaction, assistive-technology testing, automated browser accessibility scans, Lighthouse, and field performance measurements are not completed.
 - External DOI/publisher/profile endpoints can deny automated requests. Sample bibliographic corrections were verified with primary sources; a complete external-link status audit is not claimed.
 - The PR remains separate from production. A successful PR build establishes compilation and the included checks, not comprehensive WCAG conformance or production deployment success.
 
 ## E. Remaining recommendations
 
-**Essential before merging:** obtain a green build; inspect desktop/tablet/mobile and keyboard behavior on the built result; confirm the role/current-affiliation content and bibliographic corrections. Review generated structured data and the new sitemap. Retain the production deployment until review is complete.
+**Essential before merging:** inspect desktop/tablet/mobile and keyboard behavior on the built result; confirm the role/current-affiliation content and bibliographic corrections. Review generated structured data and the new sitemap. Retain the production deployment until review is complete.
 
 **Recommended next:** review ongoing dependency advisory results and vendored browser dependencies; measure actual Lighthouse and field Core Web Vitals; review publication PDF sharing rights; synchronize the PDF and web CV; add teaching years and confirmed research projects; enable branch protection with required checks through repository settings.
 
@@ -151,3 +152,9 @@ Files added or modified:
 ### Additional verification evidence
 
 Source-based contrast calculations: original cyan on white 3.34:1; revised accent on white 6.04:1; revised secondary text on white 6.10:1; dark accent on the existing dark background 8.73:1. These are selected color-pair measurements, not a complete WCAG audit. Six publication-filter behavior checks passed in an isolated JavaScript harness (initial count, progressive reveal, combined year/text matching, empty groups, no matches, and reset); actual browser interaction remains outstanding.
+
+### Final hosted verification
+
+[GitHub Actions run 38719041748](https://github.com/andreachiocca/andreachiocca.github.io/actions/runs/38719041748) checked code commit `50c735a8b663bc46b37a68ec1ba981814033b030`. Jekyll build, cache regression checks, generated-site validation, Ruby advisory audit, and npm audit passed. Production deployment was intentionally skipped for the pull request. The final follow-up commit changes only this excluded audit document.
+
+The vendored Bootstrap files identify version 4.6.2, which is an end-of-life major series ([upstream status](https://getbootstrap.com/docs/4.6/end-of-life/)). They remain a maintenance concern outside Ruby/npm coverage. The unused local MDB JavaScript identifies MDB5 6.4.0 while active includes use CDN MDB 4.20.0; this reinforces the need to review references before attempting asset deduplication or library substitution.
