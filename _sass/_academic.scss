@@ -63,7 +63,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 
-// Shared fixed navigation must reserve its real height, including an open menu.
+// Shared fixed navigation reserves the header height; its menu is a separate layer.
 body.fixed-top-nav { padding-top: var(--navigation-height, 64px); }
 html { scroll-padding-top: calc(var(--navigation-height, 64px) + 1rem); }
 body h1, body h2, body h3, body h4, body h5, body h6, .research-output {
@@ -127,3 +127,86 @@ body h1, body h2, body h3, body h4, body h5, body h6, .research-output {
 .output-details p { margin: .5rem 0; }
 .output-details li a { display: inline-block; padding: .45rem 0; }
 .catalogue-footnote { margin-top: 1.5rem; color: var(--global-text-color-light); }
+
+// Shared hierarchy: restrained headings and readable, consistent body text.
+html { scrollbar-gutter: stable; }
+.post-title { font-size: clamp(1.75rem, 4vw, 2.5rem); line-height: 1.2; }
+:where(.post) h2 { font-size: 1.5rem; line-height: 1.35; margin-top: 1.75rem; }
+:where(.post) h3 { font-size: 1.15rem; line-height: 1.4; }
+.post-description { line-height: 1.6; }
+#navbar { opacity: 1; }
+.navigation-backdrop { position: fixed; inset: var(--navigation-height, 64px) 0 0; background: rgba(0,0,0,.28); z-index: 1025; }
+@media (max-width: 991.98px) {
+  #navbar .navbar-brand { max-width: calc(100% - 60px); white-space: normal; line-height: 1.25; }
+  #navbarNav { position: absolute; top: 100%; left: 0; right: 0; background: var(--global-bg-color); border-bottom: 1px solid var(--global-divider-color); max-height: calc(100vh - var(--navigation-height, 64px)); max-height: calc(100dvh - var(--navigation-height, 64px)); overflow-y: auto; overscroll-behavior: contain; padding: .5rem 0; }
+  #navbarNav .navbar-nav { max-width: 800px; width: 100%; padding: 0 1rem; margin: 0 auto; }
+  #navbar .nav-link { justify-content: flex-start; padding: .65rem .5rem; }
+  #navbar .toggle-container { padding: .25rem 0; }
+}
+#navbar .nav-link[aria-current] { font-weight: 500; text-decoration: underline; text-underline-offset: .3em; }
+.inline-links { display: flex; flex-wrap: wrap; gap: .25rem 1rem; list-style: none; padding: 0; margin: .5rem 0; }
+.inline-links a, .contact-link, .course-material-link { display: inline-flex; align-items: center; min-height: 44px; }
+.context-details { margin: .5rem 0 1rem; font-size: .9rem; }
+.context-details summary { color: var(--global-theme-color); cursor: pointer; min-height: 44px; padding: .55rem 0; }
+.context-details li { margin: .25rem 0; }
+.research-area { padding: 0 0 1rem; border-bottom: 1px solid var(--global-divider-color); }
+.research-area h2 { margin-top: 1.5rem; }
+.research-summary { margin-bottom: .75rem; }
+.research-methods { font-size: .9rem; }
+.research-project { padding: 1rem 0; border-bottom: 1px solid var(--global-divider-color); }
+.research-project h3 { margin: 0 0 .35rem; font-size: 1.1rem; line-height: 1.4; }
+.research-project p { margin-bottom: .5rem; line-height: 1.6; }
+.project-meta, .course-programme { color: var(--global-text-color-light); font-size: .85rem; }
+.project-role { font-weight: 500; font-size: .95rem; }
+.previous-projects .research-project:last-child { border-bottom: 0; }
+.home-introduction { display: grid; grid-template-columns: minmax(0,1fr); gap: 1rem; align-items: start; }
+.home-summary { min-width: 0; line-height: 1.7; }
+.home-page .profile { width: 140px; max-width: 100%; margin: 0 auto 1rem !important; float: none; }
+.home-page .profile figure { margin: 0; }
+.home-page .profile img { width: 100%; height: auto; }
+.office-contact { font-size: .8rem; }
+.office-contact p { margin: .25rem 0; }
+@media (min-width: 700px) {
+  .home-introduction { grid-template-columns: minmax(0,1fr) 200px; gap: 1.5rem; }
+  .home-page .profile { width: 200px; }
+}
+.home-project { border-top: 1px solid var(--global-divider-color); padding-top: .25rem; }
+.home-project h3 { font-size: 1.1rem; }
+.collaboration-panel { border-left: 3px solid var(--global-theme-color); padding: .25rem 0 .25rem 1rem; margin: 1.5rem 0; }
+.collaboration-panel h2 { margin-top: .5rem; }
+.course-summary { padding: 1rem 0; border-bottom: 1px solid var(--global-divider-color); }
+.course-summary h3 { margin: 0 0 .5rem; }
+.course-summary p { margin-bottom: .5rem; }
+.course-availability { color: var(--global-text-color-light); font-size: .9rem; }
+.material-list { list-style: none; padding: 0; }
+.material-list li { border-bottom: 1px solid var(--global-divider-color); }
+.material-list a { display: block; min-height: 44px; padding: .6rem 0; }
+.material-format { color: var(--global-text-color-light); font-size: .85rem; white-space: nowrap; }
+.teaching-material-group h3 { font-size: 1.1rem; margin: 1.25rem 0 .5rem; }
+.notes-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 1rem; align-items: start; }
+@media (min-width: 700px) { .notes-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+.note-card { border: 1px solid var(--global-divider-color); border-radius: .4rem; padding: 1rem; min-width: 0; overflow-wrap: break-word; word-break: normal; }
+.note-card h2 { font-size: 1.15rem; line-height: 1.4; margin: .5rem 0 .75rem; }
+.note-card p { font-size: .95rem; line-height: 1.6; margin-bottom: .5rem; }
+.note-card .note-meta { font-size: .8rem; color: var(--global-text-color-light); }
+.note-read-link { display: inline-flex; align-items: center; min-height: 44px; }
+// Distill supplies citations and equations; shared readable geometry replaces its wide grid.
+.post.distill { max-width: 800px; margin: 1.5rem auto 0; padding: 0 15px; min-width: 0; }
+.post.distill d-title, .post.distill d-byline, .post.distill d-article, .post.distill d-appendix { display: block; padding: 0; margin: 0; min-width: 0; max-width: 100%; }
+.post.distill d-title h1 { font-size: clamp(1.75rem,4vw,2.5rem); line-height: 1.2; margin: 0 0 1rem; }
+.post.distill d-title p { font-size: 1rem; line-height: 1.6; margin: 0 0 1.25rem; }
+.post.distill d-article { font-size: 1rem; line-height: 1.7; }
+.post.distill d-article p, .post.distill d-article li { font-size: 1rem; line-height: 1.7; }
+.post.distill d-article h2 { font-size: 1.45rem; line-height: 1.35; margin: 1.75rem 0 .75rem; }
+.post.distill d-article h3 { font-size: 1.15rem; line-height: 1.4; }
+.post.distill d-article d-contents { display: block; width: auto; margin: 1rem 0; padding: 1rem; }
+.post.distill d-article d-contents nav { display: block; }
+.post.distill d-article d-contents nav div { margin-bottom: .35rem; font-weight: 400; }
+.post.distill d-byline { margin-bottom: 1rem; }
+.post.distill d-article img, .post.distill d-article svg, .post.distill d-article video { max-width: 100%; height: auto; }
+.post.distill d-article figure { max-width: 100%; margin: 1rem 0; }
+.post.distill d-article pre, .post.distill .scientific-scroll, .post.distill mjx-container[display='true'] { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+.post.distill d-article pre { white-space: pre; padding: .75rem; }
+.post.distill d-article table { min-width: min-content; font-size: .9rem; }
+.post.distill mjx-container[display='true'] { display: block; padding: .5rem 0; }
+.scientific-scroll:focus-visible, .post.distill pre:focus-visible, .post.distill mjx-container:focus-visible { outline: 3px solid var(--global-theme-color); outline-offset: 2px; }

@@ -234,17 +234,46 @@
   "references": [],
   "projects": [
     {
-      "name": "Hybrid joints for lightweight vehicle structures (PRIN PNRR 2022)",
-      "startDate": "2025",
-      "endDate": "2025",
-      "summary": "Project team member: experimental characterisation, theoretical modelling and CAE simulation of joints between dissimilar metals.",
+      "id": "faber",
+      "name": "FABER — Fatigue Benchmark Repository",
+      "programme": "COST Action CA23109 · International research network",
+      "role": "Co-Leader of WG3 — Fatigue Estimation Competition",
+      "periodLabel": "Action period: 2024–2028",
+      "actionStartDate": "2024-09-25",
+      "actionEndDate": "2028-09-24",
+      "summary": "An international network developing accessible fatigue datasets, benchmark sets and tools for comparing fatigue-life predictions. WG3 focuses on the fatigue estimation competition.",
+      "url": "https://www.cost.eu/actions/CA23109/",
+      "project_url": "https://faber-cost.eu/",
+      "output_url": "/repositories/#zenodo-21534682",
+      "output_label": "FABEST participant package",
       "highlights": []
     },
     {
-      "name": "Extrusion-based additive manufacturing of metal and ceramic components (PRA 2022)",
+      "name": "Hybrid joints for lightweight vehicle structures",
+      "startDate": "2025",
+      "endDate": "2025",
+      "summary": "Experimental characterisation, theoretical modelling and CAE simulation of joints between dissimilar metals.",
+      "highlights": [],
+      "programme": "PRIN PNRR 2022",
+      "role": "Project team member"
+    },
+    {
+      "name": "Extrusion-based additive manufacturing",
       "startDate": "2022",
       "endDate": "2024",
-      "summary": "Project co-lead. University of Pisa research project on additive manufacturing process optimisation.",
+      "summary": "Research on process optimisation for extrusion-based additive manufacturing of metal and ceramic components.",
+      "highlights": [],
+      "programme": "PRA 2022 · University of Pisa",
+      "role": "Project co-lead"
+    },
+    {
+      "id": "pon-automotive",
+      "name": "Structural integrity in automotive applications",
+      "programme": "PON 2014–2020",
+      "role": "Research contribution with Pierburg Pump Technology Italy / Rheinmetall",
+      "startDate": "2022",
+      "endDate": "2025",
+      "summary": "Research on polymer composites, elastomeric components and PCB assemblies, combining experimental assessment with computational modelling.",
       "highlights": []
     }
   ]

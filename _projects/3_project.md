@@ -7,11 +7,8 @@ teaching_period: 2024–2026
 teaching_role: Co-teaching; 24 lecture hours
 importance: 3
 category: 
+materials_key: 3_project
+teaching_group: recent
 ---
 
-**Teaching period:** 2024–2026. **Role:** Co-teaching; 24 lecture hours.
-
-
-<strong>UNDER MAINTENANCE</strong>
-
-<!--icons:https://www.w3schools.com/icons/icons_reference.asp-->
+{% include teaching_materials.html %}

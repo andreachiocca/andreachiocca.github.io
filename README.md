@@ -100,3 +100,17 @@ Preserve the restricted access label on deposit 21875885. Two older supporting-d
 PR builds run catalogue unit checks, the Jekyll build and generated-site/browser checks. They retain a seven-day `catalogue-preview` artifact containing the built catalogue and its CSS, scripts and fonts for review. This artifact does not deploy the site. The existing Pages deployment remains limited to `master`.
 
 See [the catalogue audit](docs/REPOSITORIES_UPDATE.md) for the coverage inventory and implementation decisions.
+
+## Navigation, research and student resources
+
+`_data/navigation.yml` is the single ordered menu for desktop and mobile. Keep a short label and a stable URL for each section. Teaching course pages retain Teaching as their parent; scientific articles and archives retain Notes. The shared navigation controller handles focus, Escape, background interaction and header spacing on every layout.
+
+Edit `_data/research_areas.json` for the brief research summaries (40–70 words), methods and evidence links. Preserve the existing `id` values: datasets and other pages link to these anchors. Detailed scientific explanations stay in Notes and publications. Project records live in `assets/json/resume.json` and render consistently on Research and CV. `periodLabel` can distinguish an Action's overall lifetime from a person's role dates. Do not infer appointment dates from an Action's duration. A one-year project is displayed as one year.
+
+Public educational resources live in `_data/teaching_materials.json`, keyed by the existing course filename. Each entry has `title`, `url`, `format`, `type` and optional `academic_year`. Add an approved public PDF/ZIP to the existing `TeachingMaterial/` directory (or an authorized external repository URL), then add its entry. Course pages automatically group by academic year, when known, and material type. Leave `academic_year` null when the source does not identify it; do not infer a material's year from the teaching appointment. Existing shared resources have no fabricated year labels. Keep restricted materials on the official university platform.
+
+The course front matter identifies `materials_key`, `teaching_period`, `teaching_role` and `teaching_group` (`recent` or `previous`). Verify a new academic-year appointment before extending these periods. The present overview reports documented teaching through 2026 and links current requirements to official university platforms. No new placeholder courses are needed.
+
+Notes use the existing posts and stable URLs. Optional `short_title` improves card headings while preserving the full article title. The listing shows each note once and retains pagination. Scientific article layouts keep equations and code at readable sizes with local horizontal scrolling where needed; tables receive a scroll container. Keep descriptive figure alternatives and captions when adding figures.
+
+PR builds retain a seven-day `website-preview` artifact containing generated HTML, styles, scripts, fonts, bibliography and the profile image for visual review. This replaces the narrower catalogue-only preview; deployment remains master-only.

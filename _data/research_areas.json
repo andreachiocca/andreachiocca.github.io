@@ -1,0 +1,126 @@
+[
+  {
+    "id": "multiaxial-fatigue-and-critical-plane-methods",
+    "title": "Fatigue assessment",
+    "summary": "I study how repeated loading damages engineering components, especially when forces act in several directions. My work develops and compares critical plane methods that connect local stresses and strains to fatigue life. The aim is to make assessments of notched and welded components more practical and reproducible.",
+    "methods": "Analytical and semi-analytical models; finite element post-processing; comparison with fatigue tests.",
+    "links": [
+      {
+        "label": "ECP study",
+        "url": "/publications/#Chiocca2024b"
+      },
+      {
+        "label": "ECP software",
+        "url": "/repositories/#github-achiocca1-ECP"
+      }
+    ],
+    "further": [
+      {
+        "label": "Findley closed-form solution",
+        "url": "/publications/#Chiocca2024a"
+      },
+      {
+        "label": "Efficient critical plane algorithm",
+        "url": "/publications/#Chiocca2023"
+      },
+      {
+        "label": "Ductile cast iron study",
+        "url": "/publications/#Chiocca2025"
+      },
+      {
+        "label": "Notched-component perspective",
+        "url": "/publications/#Frendo2025"
+      },
+      {
+        "label": "Ductile cast iron data",
+        "url": "/repositories/#zenodo-14198237"
+      },
+      {
+        "label": "Technical notes",
+        "url": "/blog/"
+      }
+    ]
+  },
+  {
+    "id": "residual-stresses-and-welded-structures",
+    "title": "Welded structures and residual stresses",
+    "summary": "Welding leaves stresses in a component even before it enters service. I investigate how these residual stresses interact with applied loads and affect fatigue life. My work combines simulations and measurements to study welded joints and to relate manufacturing conditions to their structural response.",
+    "methods": "Thermal–structural finite element analysis; residual stress evaluation; experimental fatigue testing.",
+    "links": [
+      {
+        "label": "Residual stress and fatigue study",
+        "url": "/publications/#Chiocca2022"
+      },
+      {
+        "label": "Welded-joint fatigue data",
+        "url": "/repositories/#zenodo-18416255"
+      }
+    ],
+    "further": [
+      {
+        "label": "Pipe-to-plate residual stresses",
+        "url": "/publications/#Chiocca2021"
+      },
+      {
+        "label": "Multiaxial welded-joints study",
+        "url": "/publications/#Chiocca2026WeldedECP"
+      }
+    ]
+  },
+  {
+    "id": "additive-manufacturing-and-material-behaviour",
+    "title": "Additive manufacturing",
+    "summary": "I investigate the mechanical behaviour of additively manufactured structures and the thermal effects of manufacturing processes. My work includes representative structure elements for fatigue assessment and analytical descriptions of welding and metal additive manufacturing. These approaches connect process conditions, material behaviour and component-scale analysis.",
+    "methods": "Analytical heat-flow models; finite element analysis; experimental characterisation.",
+    "links": [
+      {
+        "label": "Rosenthal-solution study",
+        "url": "/publications/#Moda2022"
+      },
+      {
+        "label": "Operating-condition dataset",
+        "url": "/repositories/#Moda2022a"
+      }
+    ],
+    "further": [
+      {
+        "label": "Representative structure elements",
+        "url": "/publications/#Wagener2021"
+      },
+      {
+        "label": "Fatigue of coated FDM lattices",
+        "url": "/publications/#Chiocca2022a"
+      }
+    ]
+  },
+  {
+    "id": "component-testing-and-industrial-applications",
+    "title": "Materials and component testing",
+    "summary": "I characterise how materials and joints respond to static and repeated loads, including changes in temperature. Applications include polymer composites, hybrid riveted joints, automotive components and printed circuit board assemblies. The work links laboratory measurements with computational models to understand structural behaviour in engineering applications.",
+    "methods": "Static and fatigue tests; strain, vibration and temperature measurements; computational modelling.",
+    "links": [
+      {
+        "label": "Composite temperature study",
+        "url": "/publications/#Chiocca2025ab"
+      },
+      {
+        "label": "Hybrid-joint tensile data",
+        "url": "/repositories/#zenodo-12741922"
+      }
+    ],
+    "further": [
+      {
+        "label": "PCB dynamics study",
+        "url": "/publications/#Fontana2023"
+      },
+      {
+        "label": "Formula SAE upright assessment",
+        "url": "/publications/#Chiocca2024"
+      },
+      {
+        "label": "Experience and collaborations",
+        "url": "/cv/"
+      }
+    ]
+  }
+]

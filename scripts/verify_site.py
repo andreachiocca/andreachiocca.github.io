@@ -71,7 +71,7 @@ for path in ROOT.rglob("*.html"):
     pages[path] = Page(path.read_text(encoding="utf-8"))
 
 for name in ("index.html", "publications/index.html", "research/index.html",
-             "teaching/index.html", "cv/index.html", "repositories/index.html"):
+             "teaching/index.html", "cv/index.html", "repositories/index.html", "blog/index.html"):
     path = ROOT / name
     if path not in pages:
         errors.append("Missing core page: " + name)
@@ -156,6 +156,21 @@ if output_page:
 restricted = next(item for item in outputs if item["id"] == "zenodo-21875885")
 if restricted["access_right"] != "restricted":
     errors.append("Restricted Zenodo record is incorrectly classified")
+# Required navigation and source-grounded content must survive rendering.
+expected_navigation = [('Home', '/'), ('Research', '/research/'), ('Publications', '/publications/'), ('Repositories', '/repositories/'), ('Teaching', '/teaching/'), ('Notes', '/blog/'), ('CV', '/cv/')]
+for label, url in expected_navigation:
+    if ORIGIN + url not in locations:
+        errors.append('Missing navigation destination in sitemap: ' + label)
+areas = json.loads(Path('_data/research_areas.json').read_text(encoding='utf8'))
+if any(not 40 <= len(area['summary'].split()) <= 70 for area in areas):
+    errors.append('Research summaries exceed the agreed brief scope')
+materials = json.loads(Path('_data/teaching_materials.json').read_text(encoding='utf8'))
+for course, resources in materials.items():
+    if any(not item.get('title') or not item.get('url') or not item.get('type') for item in resources):
+        errors.append('Incomplete teaching material: ' + course)
+if sum(len(items) for items in materials.values()) < 30:
+    errors.append('Previously public teaching materials have been lost')
+
 if not errors:
     from check_browser import check_browser
     errors.extend(check_browser(ROOT))

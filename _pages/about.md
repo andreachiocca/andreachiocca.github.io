@@ -2,7 +2,7 @@
 layout: about
 title: Home
 permalink: /
-subtitle: Researcher in machine design at the <a href='https://www.dici.unipi.it/'>Department of Civil and Industrial Engineering</a>, <a href='https://www.unipi.it/'>University of Pisa</a>
+subtitle: Researcher in machine design (research contract) at the <a href='https://www.dici.unipi.it/'>Department of Civil and Industrial Engineering</a>, <a href='https://www.unipi.it/'>University of Pisa</a>
 
 profile:
   align: right
@@ -15,15 +15,13 @@ profile:
     <p>56123, Pisa, Italy</p>
 
 news: false  # includes a list of news items
-latest_posts: true  # includes a list of the newest posts
+latest_posts: false  # includes a list of the newest posts
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I study the structural integrity and fatigue of notched and welded components. My work combines finite element modelling, analytical methods and experimental testing, with particular interests in multiaxial fatigue, critical plane approaches and residual stresses. Related work addresses composites, joints and additively manufactured structures.
+I study **fatigue and structural integrity**: how repeated loads affect notched and welded components, materials and joints. My work combines **finite element modelling, analytical methods and experimental testing**, with applications in mechanical design, automotive components and additive manufacturing.
 
-I hold a research contract at the University of Pisa, following a research fellowship in 2025–2026 and a fixed-term researcher appointment in 2022–2025. I received my PhD in Industrial Engineering from Pisa in 2021. See my [academic CV]({{ '/cv/' | relative_url }}) and [teaching activities]({{ '/teaching/' | relative_url }}).
+I hold a research contract at the University of Pisa and am **Co-Leader of FABER WG3 — Fatigue Estimation Competition**. I received my PhD in Industrial Engineering from Pisa in 2021.
 
-I am **Co-Leader of FABER Working Group 3 (Fatigue Estimation Competition)** within COST Action CA23109. Read about my [international research activities]({{ '/research/' | relative_url }}#international-collaborations) and explore the [scientific software, benchmarks and data]({{ '/repositories/' | relative_url }}) supporting this work.
-
-For scientific enquiries, [contact me by email](mailto:andrea.chiocca@unipi.it). The [complete bibliography]({{ '/publications/' | relative_url }}) includes journal articles, conference contributions and my doctoral thesis.
+<ul class="inline-links home-paths"><li><a href="{{ '/research/' | relative_url }}">Research areas</a></li><li><a href="{{ '/repositories/' | relative_url }}">Software & data</a></li><li><a href="{{ '/teaching/' | relative_url }}">For students</a></li><li><a href="#collaboration">Contact</a></li></ul>

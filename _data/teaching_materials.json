@@ -1,0 +1,219 @@
+{
+  "1_project": [
+    {
+      "title": "Introduzione al metodo degli elementi finiti",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Introduzione_EN.pdf",
+      "format": "PDF",
+      "academic_year": null,
+      "type": "Lecture slides"
+    },
+    {
+      "title": "Graphic User Interface (GUI) di Ansys Workbench",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/GUI.pdf",
+      "format": "PDF",
+      "academic_year": null,
+      "type": "Lecture slides"
+    },
+    {
+      "title": "Esercitazione: albero con variazione di diametro",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Albero_con_variazione_diametro.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Esercitazione: lastra con foro",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Lastra_con_foro.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Esercitazione: barra di torsione",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Barra_di_torsione.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Esercitazione: albero con variazione di diametro e foro",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Albero_con_variazione_diametro_e_foro.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Esercitazione: tubolare flangiato",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Tubolare_flangiato.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Esercitazione: contatto leva vincolata",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Contatto_Leva_Vincolata.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Esercitazione: contatto perno forcella",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Contatto_Perno_Forcella.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Esercitazione: contatto sfera piano",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Contatto_Sfera_Piano.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Esercitazione: pretensionamento bullone",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Pretensionamento_bullone.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Esercitazione: sottomodellazione (provino CT)",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Provino_CT_Sottomodello.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Esercitazione: plasticità (prova di trazione)",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Plasticita_materiale.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Esercitazione: simulazione termica-strutturale (trave bimetallica)",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Trave_bimetallica.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Video Tutorial (NO AUDIO)",
+      "url": "https://drive.google.com/drive/folders/1mj3l27BpV8Vq-zZZvyizL4qd_Yc5xVua?usp=sharing",
+      "format": "Video",
+      "academic_year": null,
+      "type": "Video tutorials"
+    }
+  ],
+  "2_project": [
+    {
+      "title": "Introduzione al metodo degli elementi finiti",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Introduzione_AE.pdf",
+      "format": "PDF",
+      "academic_year": null,
+      "type": "Lecture slides"
+    },
+    {
+      "title": "Graphic User Interface (GUI) di Ansys Workbench",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/GUI.pdf",
+      "format": "PDF",
+      "academic_year": null,
+      "type": "Lecture slides"
+    },
+    {
+      "title": "Esercitazione: albero con variazione di diametro",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Albero_con_variazione_diametro.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Esercitazione: lastra con foro",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Lastra_con_foro.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Esercitazione: barra di torsione",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Barra_di_torsione.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Esercitazione: albero con variazione di diametro e foro",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Albero_con_variazione_diametro_e_foro.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Esercitazione: tubolare flangiato",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Tubolare_flangiato.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Esercitazione: contatto leva vincolata",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Contatto_Leva_Vincolata.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Esercitazione: contatto sfera piano",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Contatto_Sfera_Piano.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Esercitazione: pretensionamento bullone",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Pretensionamento_bullone.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Esercitazione: sottomodellazione (provino CT)",
+      "url": "/TeachingMaterial/Ingegneria_Energetica/PMMEF/Provino_CT_Sottomodello.zip",
+      "format": "ZIP",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    },
+    {
+      "title": "Video Tutorial (NO AUDIO)",
+      "url": "https://drive.google.com/drive/folders/1mj3l27BpV8Vq-zZZvyizL4qd_Yc5xVua?usp=sharing",
+      "format": "Video",
+      "academic_year": null,
+      "type": "Video tutorials"
+    }
+  ],
+  "3_project": [],
+  "4_project": [
+    {
+      "title": "Programma del corso",
+      "url": "/TeachingMaterial/PF60/Programma.pdf",
+      "format": "PDF",
+      "academic_year": null,
+      "type": "Course information"
+    },
+    {
+      "title": "Dispensa manoscritta",
+      "url": "/TeachingMaterial/PF60/Teoria.pdf",
+      "format": "PDF",
+      "academic_year": null,
+      "type": "Lecture notes"
+    },
+    {
+      "title": "Esercitazioni",
+      "url": "/TeachingMaterial/PF60/Esercitazioni.pdf",
+      "format": "PDF",
+      "academic_year": null,
+      "type": "Exercises and worked examples"
+    }
+  ]
+}

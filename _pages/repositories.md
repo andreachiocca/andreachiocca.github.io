@@ -2,7 +2,7 @@
 layout: page
 permalink: /repositories/
 title: Repositories & Research Outputs
-nav_title: Outputs
+nav_title: Repositories
 description: Scientific software, engineering tools, fatigue benchmarks and archived research data by Andrea Chiocca.
 nav: true
 nav_order: 3.5
