@@ -16,6 +16,7 @@ class Page(HTMLParser):
     def __init__(self, content):
         super().__init__(convert_charrefs=True)
         self.links = []
+        self.ids = set()
         self.schemas = []
         self.json_buffer = None
         self.lang = None
@@ -28,6 +29,8 @@ class Page(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if attrs.get("id"):
+            self.ids.add(attrs["id"])
         if tag == "html":
             self.lang = attrs.get("lang")
         if tag == "main":
@@ -68,7 +71,7 @@ for path in ROOT.rglob("*.html"):
     pages[path] = Page(path.read_text(encoding="utf-8"))
 
 for name in ("index.html", "publications/index.html", "research/index.html",
-             "teaching/index.html", "cv/index.html"):
+             "teaching/index.html", "cv/index.html", "repositories/index.html"):
     path = ROOT / name
     if path not in pages:
         errors.append("Missing core page: " + name)
@@ -92,6 +95,8 @@ for path, page in pages.items():
         checked += 1
         if not target.is_file():
             errors.append(str(path.relative_to(ROOT)) + ": missing local target " + link)
+        elif url.fragment and target in pages and unquote(url.fragment) not in pages[target].ids:
+            errors.append(str(path.relative_to(ROOT)) + ": missing local anchor " + link)
 
 publication_page = pages.get(ROOT / "publications/index.html")
 if publication_page:
@@ -104,7 +109,7 @@ if publication_page:
     for paper in papers:
         if not paper.get("name") or not paper.get("author"):
             errors.append("Publication missing title or author")
-        if not re.fullmatch(r"10\.\d{4,9}/\S+", str(paper.get("identifier", "")), re.I):
+        if paper.get("identifier") and not re.fullmatch(r"10\.\d{4,9}/\S+", str(paper["identifier"]), re.I):
             errors.append("Missing or malformed publication DOI")
 
 try:
@@ -121,6 +126,19 @@ except (OSError, ET.ParseError) as exc:
 for path in ROOT.rglob("*.html"):
     if "polyfill.io/" in path.read_text(encoding="utf-8"):
         errors.append("Unsafe polyfill script reference remains: " + str(path.relative_to(ROOT)))
+
+
+outputs = json.loads(Path("_data/research_outputs.json").read_text(encoding="utf-8"))
+required = {"multiaxial-fatigue", "zenodo-21875885", "zenodo-21534682", "zenodo-18416255", "zenodo-14198237", "zenodo-12721131"}
+output_page = pages.get(ROOT / "repositories/index.html")
+if not output_page or not required.issubset(output_page.ids):
+    errors.append("Requested scientific resources are missing from the generated output catalogue")
+restricted = next(item for item in outputs if item["id"] == "zenodo-21875885")
+if restricted["access_right"] != "restricted":
+    errors.append("Restricted Zenodo record is incorrectly classified")
+if not errors:
+    from check_browser import check_browser
+    errors.extend(check_browser(ROOT))
 
 if errors:
     for error in sorted(set(errors)):
