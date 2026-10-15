@@ -30,11 +30,11 @@ Exact duplicate blobs include the introductory teaching PDF at `assets/pdf/_0_In
 
 **Strengths:** clear identity and Pisa affiliation; substantial bibliography; DOI data and downloadable papers; selected publications; research explanations with equations; a structured career record; public course materials; an established restrained theme with dark mode.
 
-**Weaknesses:** Publications is hidden from navigation; no research overview; metadata still describes a theme; the teaching overview duplicates a complex project-card template; several controls are mouse-oriented; page landmarks and image alternatives need work; template biography/CV data is still present; science content has specific bibliographic errors.
+**Weaknesses:** Publications is available through a Research dropdown rather than a direct navigation item; no research overview; metadata still describes a theme; the teaching overview duplicates a complex project-card template; several controls are mouse-oriented; page landmarks and image alternatives need work; template biography/CV data is still present; science content has specific bibliographic errors.
 
 | Before | Change and practical benefit |
 | --- | --- |
-| Publications hidden; research points directly to the bibliography | Expose Publications and add Research, with topic summaries linked to existing BibTeX anchors. |
+| Publications nested in a Research dropdown; homepage research link points directly to the bibliography | Expose Publications and add Research, with topic summaries linked to existing BibTeX anchors. |
 | Teaching overview repeats roughly 1.6 KB of conditional card layout | Use a short list generated from the same existing course collection; stable course URLs and files remain. |
 | Abstract/Bib links are anchors without destinations | Use native details/summary controls supporting keyboard operation and operation without JavaScript. |
 | Author truncation uses a mouse-click span | Show the full author list by default. |
@@ -73,7 +73,7 @@ No new publications, appointments, dates, degrees, achievements, collaborations,
 
 ## C. Changes implemented
 
-The existing Jekyll/al-folio identity and deployment model remain. Targeted changes address scientific accuracy, navigation, metadata, accessible interactions, responsive assets, caching, privacy defaults, and CI safeguards. No academic document, teaching archive, branch or historical commit is deleted. Known theme demo pages are excluded from publication while their sources remain.
+The existing Jekyll/al-folio identity and deployment model remain. Targeted changes address scientific accuracy, navigation, metadata, accessible interactions, responsive assets, caching, privacy defaults, and CI safeguards. No academic document, teaching archive, branch or historical commit is deleted. Known theme demo pages and the three sample announcements are excluded from publication while their sources remain. The former Research dropdown is replaced by direct Publications and Research links.
 
 Files added or modified:
 
