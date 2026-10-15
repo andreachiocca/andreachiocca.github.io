@@ -37,7 +37,7 @@ JEKYLL_ENV=production bundle exec jekyll build --trace
 python scripts/verify_site.py _site
 ```
 
-GitHub Actions runs the build and checks for pull requests. Only a successful build on `master` can deploy through GitHub Pages. Documentation, scripts, theme examples, and historical performance reports are excluded from the published site but remain in this repository.
+GitHub Actions runs the build, generated-site checks, and Ruby/npm advisory checks for pull requests. Only a successful build on `master` can deploy through GitHub Pages. Documentation, scripts, theme examples, and historical performance reports are excluded from the published site but remain in this repository.
 
 ## Adding a publication
 
@@ -63,7 +63,7 @@ Bootstrap Table loads only on pages with `table: true` in front matter. Native H
 
 ## Maintenance priorities
 
-- Generate and commit a reviewed `Gemfile.lock` after a successful build; Ruby dependencies currently resolve at build time.
+- Keep `Gemfile.lock` committed. It records the dependency set resolved by the verified GitHub build. Update it deliberately and rerun the build and advisory checks.
 - Review Dependabot updates and periodically audit both the resolved Ruby dependency set and `package-lock.json`.
 - Test keyboard navigation, narrow screens, light/dark contrast, and representative research notes before merging visual changes.
 - Measure the actual deployed site with Lighthouse and field Core Web Vitals. Historical theme reports are not measurements of this website.

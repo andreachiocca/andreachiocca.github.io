@@ -50,16 +50,32 @@ jobs:
         run: bundle exec jekyll build --trace
       - name: Verify pages, local links, metadata and sitemap
         id: verify
+        shell: bash
         run: python scripts/verify_site.py _site 2>&1 | tee verification.log
+
+      - name: Audit resolved Ruby dependencies
+        id: ruby_audit
+        shell: bash
+        run: |
+          gem install bundler-audit --no-document
+          bundle-audit check --update 2>&1 | tee ruby-audit.log
+      - name: Audit npm tooling dependencies
+        id: npm_audit
+        shell: bash
+        run: npm audit --package-lock-only 2>&1 | tee npm-audit.log
 
       - name: Record verification details
         if: always() && steps.verify.outcome != 'skipped' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
         env:
           GH_TOKEN: ${{ github.token }}
           CHECK_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
-          CHECK_RESULT: ${{ steps.verify.outcome }}
+          CHECK_RESULT: ${{ job.status }}
         run: |
-          jq -n --arg sha "$CHECK_SHA" --arg result "$CHECK_RESULT" --rawfile report verification.log --rawfile lock Gemfile.lock \
+          cat verification.log > checks.log
+          for report in ruby-audit.log npm-audit.log; do
+            if [ -f "$report" ]; then cat "$report" >> checks.log; fi
+          done
+          jq -n --arg sha "$CHECK_SHA" --arg result "$CHECK_RESULT" --rawfile report checks.log --rawfile lock Gemfile.lock \
             '{name: "Generated site verification", head_sha: $sha, status: "completed", conclusion: $result, output: {title: "Generated site verification", summary: $report, text: $lock}}' > verification-check.json
           gh api --method POST "repos/$GITHUB_REPOSITORY/check-runs" --input verification-check.json > /dev/null
 
