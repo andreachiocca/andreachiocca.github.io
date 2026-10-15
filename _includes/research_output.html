@@ -1,0 +1,27 @@
+<article class="research-output" id="{{ output.id }}">
+  <h3><a href="{{ output.url | escape }}">{{ output.title | escape }}</a></h3>
+  <p class="post-meta">{{ output.type_label }}{% if output.year %} · {{ output.year }}{% endif %}{% if output.version %} · {{ output.version }}{% endif %} · {{ output.access_label }}</p>
+  {% if output.creators.size > 0 %}<p>{{ output.creators | join: '; ' | escape }}</p>{% endif %}
+  <p>{{ output.description | escape }}</p>
+  {% if output.scope_note %}<p><small>{{ output.scope_note | escape }}</small></p>{% endif %}
+  {% if output.doi %}<p><a href="https://doi.org/{{ output.doi | escape }}">DOI: {{ output.doi }}</a></p>{% endif %}
+  {% if output.related_publications.size > 0 %}
+  <p>Related publication{% if output.related_publications.size > 1 %}s{% endif %}:
+    {% for key in output.related_publications %}<a href="{{ '/publications/' | relative_url }}#{{ key }}">view bibliography entry</a>{% unless forloop.last %}; {% endunless %}{% endfor %}.
+  </p>
+  {% endif %}
+  {% for version in output.earlier_versions %}<p>Earlier deposit: <a href="{{ version.url }}">{{ version.version }} ({{ version.doi }})</a>. This is a version of the same participant package.</p>{% endfor %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": {{ output.schema_type | jsonify }},
+    "name": {{ output.title | jsonify }},
+    "description": {{ output.description | jsonify }},
+    "url": {{ output.url | jsonify }}{% if output.doi %},
+    "identifier": {{ output.doi | jsonify }}{% endif %}{% if output.date %},
+    "datePublished": {{ output.date | jsonify }}{% endif %}{% if output.kind != 'software' %},
+    "creator": [{% for name in output.creators %}{"@type":"Person","name":{{ name | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}],
+    "isAccessibleForFree": {% if output.access_right == 'restricted' %}false{% else %}true{% endif %}{% endif %}
+  }
+  </script>
+</article>

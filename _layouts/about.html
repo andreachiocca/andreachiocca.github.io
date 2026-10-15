@@ -26,7 +26,10 @@ layout: default
               {% include figure.html
               path=profile_image_path
               class=profile_image_class
-              alt=page.profile.image
+              alt=page.profile.image_alt
+              loading="eager"
+              fetchpriority="high"
+              sizes="(min-width: 576px) 240px, 90vw"
               cache_bust=true -%}
             {% endif -%}
             {%- if page.profile.more_info %}

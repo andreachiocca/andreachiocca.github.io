@@ -1,57 +1,31 @@
 ---
 layout: page
 permalink: /teaching/
-title: teaching
-description: Materials related to my courses can be downloaded from this page (course materials are in Italian only).
+title: Teaching
+description: Course materials for finite element analysis and machine design. Teaching resources are provided in Italian.
 nav: true
-display_categories: 
 nav_order: 4
 ---
 
-<!-- pages/projects.md -->
-<div class="projects">
-{%- if site.enable_project_categories and page.display_categories %}
-  <!-- Display categorized projects -->
-  {%- for category in page.display_categories %}
-  <h2 class="category">{{ category }}</h2>
-  {%- assign categorized_projects = site.projects | where: "category", category -%}
-  {%- assign sorted_projects = categorized_projects | sort: "importance" %}
-  <!-- Generate cards for each project -->
-  {% if page.horizontal -%}
-  <div class="container">
-    <div class="row row-cols-2">
-    {%- for project in sorted_projects -%}
-      {% include projects_horizontal.html %}
-    {%- endfor %}
-    </div>
-  </div>
-  {%- else -%}
-  <div class="grid">
-    {%- for project in sorted_projects -%}
-      {% include projects.html %}
-    {%- endfor %}
-  </div>
-  {%- endif -%}
-  {% endfor %}
+Course resources cover finite element analysis, mechanical design, and computer-aided engineering. Materials are in Italian. The periods below follow my academic CV; a period ending in 2026 does not imply a continuing appointment beyond that year.
 
-{%- else -%}
-<!-- Display projects without categories -->
-  {%- assign sorted_projects = site.projects | sort: "importance" -%}
-  <!-- Generate cards for each project -->
-  {% if page.horizontal -%}
-  <div class="container">
-    <div class="row row-cols-2">
-    {%- for project in sorted_projects -%}
-      {% include projects_horizontal.html %}
-    {%- endfor %}
-    </div>
-  </div>
-  {%- else -%}
-  <div class="grid">
-    {%- for project in sorted_projects -%}
-      {% include projects.html %}
-    {%- endfor %}
-  </div>
-  {%- endif -%}
-{%- endif -%}
-</div>
+{% assign courses = site.projects | sort: "importance" %}
+{% for course in courses %}
+## [{{ course.title }}]({{ course.url | relative_url }})
+
+{{ course.description }}
+
+**{{ course.teaching_period }}** · {{ course.teaching_role }}.
+
+{% if course.importance == 3 %}
+Teaching materials are being prepared.
+{% else %}
+[View course materials]({{ course.url | relative_url }}).
+{% endif %}
+{% endfor %}
+
+## Supervision and research mentoring
+
+I have supervised or co-supervised master's theses on welded joints, polymer composites, hybrid SPR joints, additively manufactured aluminium structures, elastomers and automotive PCB assemblies. In August–October 2026, I also mentor a FABER short-term scientific mission involving the National Engineering School of Monastir (ENIM).
+
+For questions about these materials or thesis enquiries, [contact me by email](mailto:andrea.chiocca@unipi.it).

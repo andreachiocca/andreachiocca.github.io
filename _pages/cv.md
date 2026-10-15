@@ -1,11 +1,11 @@
 ---
 layout: cv
 permalink: /cv/
-title: cv
+title: CV
 nav: true
-nav_order: 1
+nav_order: 5
 cv_pdf: resume_ENG.pdf
-description: This is a brief description, however you can download the pdf of the full CV via the button in the upper right corners.
+description: Academic positions, education, research experience, and awards. Download the public academic CV in English as a PDF.
 toc:
   sidebar: left
 ---

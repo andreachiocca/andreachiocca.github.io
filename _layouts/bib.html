@@ -31,6 +31,21 @@
 
         <!-- Entry bib key -->
         <div id="{{entry.key}}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "{% if entry.type == 'article' or entry.type == 'inproceedings' %}ScholarlyArticle{% elsif entry.type == 'phdthesis' %}Thesis{% else %}CreativeWork{% endif %}",
+          "name": {{ entry.title | strip_html | jsonify }},
+          "datePublished": {{ entry.year | jsonify }},
+          "author": [
+            {% for author in entry.author_array %}
+            { "@type": "Person", "name": {{ author.first | append: ' ' | append: author.last | jsonify }} }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+          ]{% if entry.doi %},
+          "identifier": {{ entry.doi | jsonify }},
+          "url": {{ entry.doi | prepend: 'https://doi.org/' | jsonify }}{% endif %}
+        }
+        </script>
         <!-- Title -->
         <div class="title">{{entry.title}}</div>
         <!-- Author -->
@@ -109,6 +124,8 @@
 
         </div>
 
+        {% assign entrymonth = "" %}
+        {% assign entryyear = "" %}
         <!-- Journal/Book title and date -->
         {% assign proceedings = "inproceedings,incollection" | split: ','%}
         {% assign thesis = "thesis,mastersthesis,phdthesis" | split: ','%}
@@ -138,17 +155,14 @@
 
           <!-- Links/Buttons -->
           <div class="links">
-          {%- if entry.abstract %}
-            <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
+          {%- if entry.doi %}
+            <a href="https://doi.org/{{ entry.doi | escape }}" class="btn btn-sm z-depth-0">DOI</a>
           {%- endif %}
-          {%- if entry.arxiv %}
-            <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
+{%- if entry.arxiv %}
+            <a href="https://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button">arXiv</a>
           {%- endif %}
-          {%- if entry.bibtex_show %}
-            <a class="bibtex btn btn-sm z-depth-0" role="button">Bib</a>
-          {%- endif %}
-          {%- if entry.html %}
-            <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button">HTML</a>
+{%- if entry.html %}
+            <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" >Publisher</a>
           {%- endif %}
           {%- if entry.pdf %}
             {% if entry.pdf contains '://' -%}
@@ -225,16 +239,18 @@
 
           {% if entry.abstract -%}
           <!-- Hidden abstract block -->
-          <div class="abstract hidden">
+          <details class="publication-details abstract">
+            <summary>Abstract</summary>
             <p>{{ entry.abstract }}</p>
-          </div>
+          </details>
           {%- endif -%}
 
           {% if entry.bibtex_show -%}
           <!-- Hidden bibtex block -->
-          <div class="bibtex hidden">
+          <details class="publication-details bibtex">
+            <summary>BibTeX</summary>
             {% highlight bibtex %}{{ entry.bibtex | hideCustomBibtex }}{% endhighlight %}
-          </div>
+          </details>
           {%- endif %}
         </div>
       </div>

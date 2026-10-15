@@ -1,16 +1,32 @@
 ---
 layout: page
 permalink: /repositories/
-title: repositories
-description: In the following some of my GitHub repositories containing some projects developed over time.
+title: Research outputs
+description: Scientific software, fatigue benchmarks, and supporting research data by Andrea Chiocca, with repository links, DOIs and access information.
 nav: false
-nav_order: 3
 ---
 
-{% if site.data.repositories.github_repos %}
-<div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-  {% for repo in site.data.repositories.github_repos %}
-    {% include repository/repo.html repository=repo %}
-  {% endfor %}
-</div>
-{% endif %}
+Research software and archived data complement my [publications]({{ '/publications/' | relative_url }}) and [research activities]({{ '/research/' | relative_url }}). Access conditions and development scope are stated for each resource.
+
+## Scientific software
+
+{% assign software = site.data.research_outputs | where: 'kind', 'software' %}
+{% for output in software %}{% include research_output.html %}{% endfor %}
+
+This WG4.3 software activity is distinct from my [WG3 co-leadership]({{ '/research/' | relative_url }}#international-collaborations).
+
+## Fatigue benchmarks
+
+{% assign benchmarks = site.data.research_outputs | where: 'kind', 'benchmark' %}
+{% for output in benchmarks %}{% include research_output.html %}{% endfor %}
+
+## Supporting data and archived research outputs
+
+{% assign datasets = site.data.research_outputs | where: 'kind', 'data' %}
+{% for output in datasets %}{% include research_output.html %}{% endfor %}
+
+## Additional code repositories
+
+{% for repo in site.data.repositories.github_repos %}
+- [{{ repo }}](https://github.com/{{ repo }})
+{% endfor %}

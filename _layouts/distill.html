@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- _layouts/distill.html -->
-<html>
+<html lang="{{ site.lang }}">
   <head>
     {%- include head.html %}
 
@@ -56,11 +56,13 @@
 
   <body class="{%- if site.navbar_fixed -%}fixed-top-nav{%- endif -%} {%- unless site.footer_fixed -%}sticky-bottom-footer{%- endunless -%}">
 
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
     <!-- Header -->
     {%- include header.html %}
 
     <!-- Content -->
-    <div class="post distill">
+    <main id="main-content" class="post distill" tabindex="-1">
 
       <d-title>
         <h1>{{ page.title }}</h1>
@@ -106,7 +108,7 @@
         {% include giscus.html %}
       {%- endif -%}
 
-    </div>
+    </main>
 
     <!-- Footer -->
     {%- include footer.html %}
