@@ -18,6 +18,8 @@
     {%- endif %}
   </head>
 
+  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
+
   <d-front-matter>
     <script async type="text/json">{
       "title": "{{ page.title }}",
@@ -54,7 +56,6 @@
     }</script>
   </d-front-matter>
 
-  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
 
     <a class="skip-link" href="#main-content">Skip to main content</a>
 

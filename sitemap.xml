@@ -8,11 +8,12 @@ sitemap: false
 {% assign documents = site.pages | concat: site.documents | sort: 'url' %}
 {% assign previous_url = '' %}
 {% for document in documents %}
-  {% assign suffix = document.url | slice: -1 %}
-  {% if document.sitemap != false and document.url != previous_url %}
-    {% if suffix == '/' or document.url contains '.html' %}
-  <url><loc>{{ document.url | absolute_url | xml_escape }}</loc></url>
-      {% assign previous_url = document.url %}
+  {% assign canonical_path = document.url | replace: 'index.html', '' %}
+  {% assign suffix = canonical_path | slice: -1 %}
+  {% if document.sitemap != false and canonical_path != previous_url %}
+    {% if suffix == '/' or canonical_path contains '.html' %}
+  <url><loc>{{ canonical_path | absolute_url | xml_escape }}</loc></url>
+      {% assign previous_url = canonical_path %}
     {% endif %}
   {% endif %}
 {% endfor %}

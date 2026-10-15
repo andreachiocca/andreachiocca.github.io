@@ -64,6 +64,7 @@ jobs:
           retention-days: 7
           path: |
             _site/**/*.html
+            _site/sitemap.xml
             _site/assets/css
             _site/assets/js
             _site/assets/fonts

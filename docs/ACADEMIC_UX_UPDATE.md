@@ -28,3 +28,5 @@ CI checks now include Notes, all scientific articles and all course pages at 375
 Deployment remains restricted to master; this update does not authorize a merge or deployment. The previous PR #20 was already merged, so the current work uses a follow-up PR on the existing branch.
 
 The existing Google Drive tutorial folder returned HTTP 404 to anonymous access. Its URL remains in the source data for provenance, but the two course listings mark it unavailable and offer a contact link rather than sending students to a broken destination. A replacement or restored public sharing setting needs owner-supplied information.
+
+Recovery verification found that pagination emits an index-file URL while Notes metadata uses the directory URL; the custom sitemap now normalizes index paths to canonical directory URLs. Scientific articles also had front-matter markup before the body, which let HTML minification discard body attributes. Front matter now sits inside the body, and dated article URLs retain the Notes active state.
