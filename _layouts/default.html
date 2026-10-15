@@ -18,7 +18,7 @@
     {%- include header.html %}
 
     <!-- Content -->
-    <main id="main-content" class="container mt-5" tabindex="-1">
+    <main id="main-content" class="container {% if page.catalogue %}mt-4{% else %}mt-5{% endif %}" tabindex="-1">
       {% if page.toc and page.toc.sidebar %}
         {% if page.toc.sidebar == "right" %}
         <div class="row">

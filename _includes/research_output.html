@@ -5,7 +5,7 @@
     {{ output.source }}{% if output.github_url and output.zenodo_record_id %} · GitHub archive{% endif %}{% if output.featured %}<span class="output-featured">Selected research</span>{% endif %}
   </p>
   <h2 id="{{ output.id }}-title"><a href="{{ output.url | escape }}">{{ output.display_title | default: output.title | escape }}</a></h2>
-  <p class="output-meta">{{ output.type_label | escape }}{% if output.language %} · {{ output.language | escape }}{% endif %}{% if output.year %} · {{ output.year }}{% endif %}{% if output.fork %} · Fork{% endif %}{% if output.archived %} · Archived{% elsif output.github_url %} · Not archived{% endif %}{% if output.mirror_url %} · Mirror{% endif %}</p>
+  <p class="output-meta">{{ output.type_label | escape }}{% if output.language %} · {{ output.language | escape }}{% endif %}{% if output.year %} · {{ output.year }}{% endif %}{% if output.fork %} · Fork{% endif %}{% if output.archived %} · Archived{% endif %}{% if output.mirror_url %} · Mirror{% endif %}</p>
   <p class="output-description">{{ output.description | escape }}</p>
   {% if output.topic %}<p class="output-topic">{{ output.topic | escape }}</p>{% endif %}
   {% if output.development_note %}<p class="output-notice">{{ output.development_note | escape }}</p>{% endif %}
@@ -25,6 +25,7 @@
     {% if output.creators.size > 0 %}<p><strong>Creators:</strong> {{ output.creators | join: '; ' | escape }}</p>{% endif %}
     {% if output.access_label %}<p><strong>Access:</strong> {{ output.access_label | escape }}</p>{% endif %}
     {% if output.github_full_name %}<p><strong>Repository:</strong> {{ output.github_full_name | escape }}</p>{% endif %}
+    {% if output.github_url %}<p><strong>Repository status:</strong> {% if output.archived %}Archived{% else %}Not archived{% endif %}.</p>{% endif %}
     {% if output.upstream_url %}<p>Fork of <a href="{{ output.upstream_url | escape }}">{{ output.upstream_url | remove: 'https://github.com/' | escape }}</a>. Upstream authorship is retained.</p>{% endif %}
     {% if output.mirror_url %}<p>Mirror of <a href="{{ output.mirror_url | escape }}">{{ output.mirror_url | escape }}</a>.</p>{% endif %}
     {% if output.scope_note %}<p>{{ output.scope_note | escape }}</p>{% endif %}

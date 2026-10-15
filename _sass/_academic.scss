@@ -74,7 +74,8 @@ body h1, body h2, body h3, body h4, body h5, body h6, .research-output {
 #navbar .nav-link { display: flex; align-items: center; justify-content: flex-end; }
 #navbar .navbar-toggler { min-width: 44px; }
 
-.output-catalogue { margin-top: 1.25rem; }
+.post-catalogue .post-description { margin-bottom: 1rem; }
+.output-catalogue { margin-top: 1rem; }
 .catalogue-coverage { font-weight: 500; }
 .catalogue-coverage, .catalogue-count, .catalogue-footnote { font-size: .9rem; }
 .catalogue-count { margin: .75rem 0 1rem; color: var(--global-text-color-light); }
