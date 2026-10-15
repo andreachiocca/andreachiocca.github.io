@@ -1,12 +1,13 @@
 ---
 layout: about
-title: about
+title: Home
 permalink: /
 subtitle: Research fellow at the <a href='https://www.dici.unipi.it/'>Department of Civil and Industrial Engineering</a>, <a href='https://www.unipi.it/'>University of Pisa</a>
 
 profile:
   align: right
   image: prof_pic.jpg
+  image_alt: Andrea Chiocca
   image_circular: true # crops the image to make it circular
   more_info: >
     <p>+39 050 2218036</p>
@@ -19,8 +20,10 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am a research fellow in the machine design group at the <a href='https://www.unipi.it/'>University of Pisa</a> (UniPi), specializing in structural engineering. My research focuses on residual stress analysis and fatigue assessment of welded structures and additive manufactured components, using advanced numerical techniques and efficient algorithms to enhance material application and component safety. I actively contribute to academic conferences, and my work has practical applications in improving the reliability of structural components.
+I am a research fellow in the machine design group at the <a href='https://www.unipi.it/'>University of Pisa</a> (UniPi), specializing in structural engineering. My research focuses on residual stress analysis and fatigue assessment of welded structures and additively manufactured components, using advanced numerical techniques and efficient algorithms to enhance material application and component safety. I actively contribute to academic conferences, and my work has practical applications in improving the reliability of structural components.
 
-As a research fellow at the University of Pisa, I am dedicated to [research](/publications/), [education](/teaching/), and the [dissemination](/repositories/) of knowledge in the field of structural engineering.
+As a research fellow at the University of Pisa, I am dedicated to [research]({{ '/research/' | relative_url }}), [education]({{ '/teaching/' | relative_url }}), and the [research software]({{ '/repositories/' | relative_url }}) of knowledge in the field of structural engineering.
 
 The <a href='http://machinedesign.ing.unipi.it/'>research group</a> expertise extends to vehicle design, multibody dynamics, structural dynamics, and mechanics of materials. We are committed to sharing knowledge and insights through joint collaborations.
+
+Explore my [publications]({{ '/publications/' | relative_url }}), [research areas]({{ '/research/' | relative_url }}), [academic CV]({{ '/cv/' | relative_url }}), and [teaching materials]({{ '/teaching/' | relative_url }}). For research enquiries, contact [andrea.chiocca@unipi.it](mailto:andrea.chiocca@unipi.it).

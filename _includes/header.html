@@ -2,7 +2,7 @@
     <header>
 
       <!-- Nav Bar -->
-      <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}">
+      <nav aria-label="Main navigation" id="navbar" class="navbar navbar-light navbar-expand-md {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}">
         <div class="container">
           {% if page.permalink != '/' -%}
           <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
@@ -98,9 +98,9 @@
 
               <!-- Toogle theme mode -->
               <li class="toggle-container">
-                <button id="light-toggle" title="Change theme">
-                  <i class="fas fa-moon"></i>
-                  <i class="fas fa-sun"></i>
+                <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme">
+                  <i aria-hidden="true" class="fas fa-moon"></i>
+                  <i aria-hidden="true" class="fas fa-sun"></i>
                 </button>
               </li>
               {%- endif %}

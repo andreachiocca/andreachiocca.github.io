@@ -8,7 +8,7 @@ middle_name:
 last_name: Chiocca
 email: andrea.chiocca@unipi.it
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+  Andrea Chiocca, University of Pisa: research in machine design, multiaxial fatigue, residual stresses, welded joints, and additively manufactured components. Publications, academic CV, and teaching materials.
 footer_text: 
 keywords: Andrea Chiocca, Unipi, Research, University, Website, Pisa, Università, Sito  # add your own keywords or leave empty
 
@@ -70,7 +70,7 @@ twitter_username: # your Twitter handle
 mastodon_username: # your mastodon instance+username in the format instance.tld/@username
 linkedin_username: andrea-chiocca # your LinkedIn user name
 telegram_username: # your Telegram user name
-scholar_userid: h6zp4TwAAAAJ&hl # your Google Scholar ID
+scholar_userid: h6zp4TwAAAAJ # your Google Scholar ID
 semanticscholar_id: # your Semantic Scholar ID
 whatsapp_number: # your WhatsApp number (full phone number in international format. Omit any zeroes, brackets, or dashes when adding the phone number in international format.)
 orcid_id: 0000-0002-1472-4398 # your ORCID ID
@@ -194,6 +194,27 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
+  - docs
+  - scripts
+  - README.md
+  - CONTRIBUTING.md
+  - CUSTOMIZE.md
+  - FAQ.md
+  - INSTALL.md
+  - Dockerfile
+  - docker-compose.yml
+  - docker-compose-slim.yml
+  - package.json
+  - package-lock.json
+  - requirements.txt
+  - purgecss.config.js
+  - readme_preview
+  - lighthouse_results
+  - reports
+  - _pages/profiles.md
+  - _pages/about_einstein.md
+  - _pages/projects.md
+  - _pages/dropdown.md
 keep_files:
   - CNAME
   - .nojekyll
@@ -282,23 +303,25 @@ scholar:
   details_link: Details
 
   query: "@*"
+  sort_by: year
+  order: descending
   group_by: year
   group_order: descending
 
 # Display different badges withs stats for your publications
 enable_publication_badges:
-  altmetric: true # Altmetric badge (https://www.altmetric.com/products/altmetric-badges/)
-  dimensions: true # Dimensions badge (https://badge.dimensions.ai/)
+  altmetric: false # Altmetric badge (https://www.altmetric.com/products/altmetric-badges/)
+  dimensions: false # Dimensions badge (https://badge.dimensions.ai/)
 
 # Filter out certain bibtex entry keywords used internally from the bib output
 filtered_bibtex_keywords: [abbr, abstract, arxiv, bibtex_show, html, pdf, selected, supp, blog, code, poster, slides, website, preview, altmetric]
 
 # Maximum number of authors to be shown for each publication (more authors are visible on click)
-max_author_limit: 5  # leave blank to always show all authors
+max_author_limit:   # leave blank to always show all authors
 more_authors_animation_delay: 5  # more authors are revealed on click using animation; smaller delay means faster animation
 
 # Enables publication thumbnails. If disabled, none of the publications will display thumbnails, even if specified in the bib entry.
-enable_publication_thumbnails: true
+enable_publication_thumbnails: false
 
 # -----------------------------------------------------------------------------
 # Jekyll Link Attributes
@@ -345,8 +368,8 @@ jekyll-diagrams:
 # Optional Features
 # -----------------------------------------------------------------------------
 
-enable_google_analytics:    true  # enables google analytics
-enable_cronitor_analytics: true  # enables cronitor RUM analytics
+enable_google_analytics:    false  # enables google analytics
+enable_cronitor_analytics: false  # enables cronitor RUM analytics
 enable_google_verification: true  # enables google site verification
 enable_bing_verification:   true  # enables bing site verification
 enable_masonry:             true   # enables automatic project cards arrangement
@@ -354,12 +377,12 @@ enable_math:                true   # enables math typesetting (uses MathJax)
 enable_tooltips:            true  # enables automatic tooltip links generated
                                    # for each section titles on pages and posts
 enable_darkmode:            true   # enables switching between light/dark modes
-enable_navbar_social:       true  # enables displaying social links in the
+enable_navbar_social:       false  # enables displaying social links in the
                                    # navbar on the about page
 enable_project_categories:  true   # enables categorization of projects into
                                    # multiple categories
 enable_medium_zoom:         true   # enables image zoom feature (as on medium.com)
-enable_progressbar:         true   # enables a horizontal progress bar linked to the vertical scroll position
+enable_progressbar:         false   # enables a horizontal progress bar linked to the vertical scroll position
 
 # -----------------------------------------------------------------------------
 # Library versions
@@ -404,3 +427,9 @@ jsonresume:
   - languages
   - interests
   - references
+
+# Publication filtering uses a small local script; all entries remain readable without JavaScript.
+bib_search: true
+blog_name: Research notes
+blog_nav_title: Research notes
+blog_description: Notes on fatigue assessment, residual stresses, and computational methods.

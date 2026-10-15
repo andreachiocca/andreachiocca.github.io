@@ -15,9 +15,14 @@
     },
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
+        "network": "ORCID",
+        "username": "0000-0002-1472-4398",
+        "url": "https://orcid.org/0000-0002-1472-4398"
+      },
+      {
+        "network": "Google Scholar",
+        "username": "h6zp4TwAAAAJ",
+        "url": "https://scholar.google.com/citations?user=h6zp4TwAAAAJ"
       }
     ]
   },
@@ -109,7 +114,7 @@
       "endDate": "PRES.",
       "summary": "I assess the static and fatigue properties of metal, composite materials and joints under varying loading conditions and temperatures.",
       "highlights": [
-       "Thermoplastic composites",
+        "Thermoplastic composites",
         "Thermoset composites",
         "SPR joints",
         "Static and fatigue testing",
@@ -131,8 +136,8 @@
       "courses": [
         "Fatigue of welded structures",
         "Residual stresses evaluation",
-        "Thermal-mechanical numerical simulations", 
-        "Experimental testing", 
+        "Thermal-mechanical numerical simulations",
+        "Experimental testing",
         "Analytical models development"
       ]
     },
@@ -157,28 +162,28 @@
       "date": "2024",
       "awarder": "AIAS",
       "url": "https://www.aiasnet.it/aiasnet.it/premi.html",
-      "summary": "Recognition of the best scientific paper presented as part of the AIAS conference 2023.'"
+      "summary": "Recognition of the best scientific paper presented as part of the AIAS conference 2023."
     },
     {
       "title": "Best PhD thesis in Industrial Engineering 2021",
       "date": "2022",
       "awarder": "University of Pisa",
       "url": "https://wwwnew2.unipi.it/index.php/comunicati-stampa/item/23824-premiate-le-14-migliori-tesi-di-dottorato-dell-ateneo",
-      "summary": "Award for the best doctoral thesis discussed in the year 2021 in the field of industrial engineering at the University of Pisa.'"
+      "summary": "Award for the best doctoral thesis discussed in the year 2021 in the field of industrial engineering at the University of Pisa."
     },
     {
       "title": "Ansys Hall of Fame 2020 Competition - Finalist: Top 10 Academic",
       "date": "2020",
       "url": "https://www.ansys.com/experiences/hall-of-fame",
       "awarder": "Ansys",
-      "summary": "The video was selected as one of the top ten finalists in the competition among academic simulations.'"
+      "summary": "The video was selected as one of the top ten finalists in the competition among academic simulations."
     },
     {
       "title": "Software Simulation Award",
       "date": "2019",
       "awarder": "AIAS",
       "url": "https://www.aiasnet.it/aiasnet.it/premi.html",
-      "summary": "Best Software Simulation Award of the National Conference of the Italian Scientific Society of Mechanical Design and Machine Building, AIAS 2019.'"
+      "summary": "Best Software Simulation Award of the National Conference of the Italian Scientific Society of Mechanical Design and Machine Building, AIAS 2019."
     }
   ],
   "certificates": [],

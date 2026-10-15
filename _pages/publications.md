@@ -1,9 +1,9 @@
 ---
 layout: page
 permalink: /publications/
-title: publications
-description: Publications by categories in reversed chronological order.
-nav: false
+title: Publications
+description: Journal articles, conference contributions, a doctoral thesis, and research data by Andrea Chiocca, grouped by year, newest first.
+nav: true
 nav_order: 2
 ---
 
@@ -13,7 +13,7 @@ nav_order: 2
 
 {% include bib_search.liquid %}
 
-<div class="publications">
+<div class="publications" id="publication-list">
 
 {% bibliography %}
 
