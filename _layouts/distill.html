@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- _layouts/distill.html -->
-<html lang="{{ site.lang }}">
+<html lang="{{ site.lang }}" class="scientific-document">
   <head>
     {%- include head.html %}
 
@@ -17,6 +17,8 @@
     </style>
     {%- endif %}
   </head>
+
+  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
 
   <d-front-matter>
     <script async type="text/json">{
@@ -54,7 +56,6 @@
     }</script>
   </d-front-matter>
 
-  <body class="{%- if site.navbar_fixed -%}fixed-top-nav{%- endif -%} {%- unless site.footer_fixed -%}sticky-bottom-footer{%- endunless -%}">
 
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
@@ -116,5 +117,6 @@
     {% include scripts/bootstrap.html %}
     {% include scripts/analytics.html %}
     {% include scripts/progressBar.html %}
+    <script defer src="{{ '/assets/js/scientific_content.js' | relative_url | bust_file_cache }}"></script>
   </body>
 </html>

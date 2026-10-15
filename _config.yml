@@ -426,6 +426,6 @@ jsonresume:
 
 # Publication filtering uses a small local script; all entries remain readable without JavaScript.
 bib_search: true
-blog_name: Research notes
-blog_nav_title: Research notes
+blog_name: Notes
+blog_nav_title: Notes
 blog_description: Notes on fatigue assessment, residual stresses, and computational methods.

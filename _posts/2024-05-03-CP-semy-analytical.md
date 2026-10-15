@@ -1,5 +1,6 @@
 ---
 layout: distill
+short_title: Semi-analytical critical plane assessment
 title: Rapid and Accurate Semi-Analytical Method for Fatigue Assessment
 description: A semi-analytical method for fatigue assessment using critical plane methods under non-proportional loading and material plasticity.
 tags: fatigue assessment, critical plane, semi-analytical method

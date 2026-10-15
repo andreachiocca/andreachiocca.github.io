@@ -49,24 +49,28 @@ jobs:
       - name: Test catalogue discovery and snapshot safety
         run: python -m unittest discover -s tests -v
       - name: Build site
+        id: jekyll_build
         run: bundle exec jekyll build --trace
       - name: Verify pages, local links, metadata and sitemap
         id: verify
         shell: bash
         run: python scripts/verify_site.py _site 2>&1 | tee verification.log
 
-      - name: Save catalogue preview for review
-        if: github.event_name == 'pull_request'
+      - name: Save website preview for review
+        if: always() && github.event_name == 'pull_request' && steps.jekyll_build.outcome == 'success'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          name: catalogue-preview
+          name: website-preview
           retention-days: 7
           path: |
-            _site/repositories
+            _site/**/*.html
+            _site/sitemap.xml
             _site/assets/css
             _site/assets/js
             _site/assets/fonts
             _site/assets/webfonts
+            _site/assets/bibliography
+            _site/assets/img/prof_pic*
 
       - name: Audit resolved Ruby dependencies
         id: ruby_audit

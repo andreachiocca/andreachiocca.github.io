@@ -1,5 +1,6 @@
 ---
 layout: distill
+short_title: Efficient critical plane factor evaluation
 title: Closed-Form Solution for the Evaluation of CP Factor and CP Orientation
 description: A detailed explanation of an efficient method for evaluating the Critical Plane (CP) factor and orientation.
 tags: fatigue evaluation, critical plane, strain tensor

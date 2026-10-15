@@ -73,9 +73,15 @@ def check_browser(root):
 
             command('Page.enable')
             origin = 'http://127.0.0.1:' + str(server.server_port)
-            for width in (390, 768, 1280):
+            routes = ['/', '/publications/', '/research/', '/repositories/', '/teaching/', '/cv/', '/blog/']
+            for path in sorted(root.rglob('*.html')):
+                if '<d-article>' in path.read_text(encoding='utf8') or '/projects/' in '/' + path.relative_to(root).as_posix():
+                    route = '/' + path.relative_to(root).as_posix().removesuffix('index.html')
+                    if route not in routes:
+                        routes.append(route)
+            for width in (375, 390, 768, 1280):
                 command('Emulation.setDeviceMetricsOverride', {'width': width, 'height': 900, 'deviceScaleFactor': 1, 'mobile': False})
-                for route in ('/', '/publications/', '/research/', '/repositories/', '/teaching/', '/cv/'):
+                for route in routes:
                     command('Page.navigate', {'url': origin + route})
                     for _ in range(120):
                         if evaluate("document.readyState === 'complete' && location.pathname === " + json.dumps(route)):
@@ -84,6 +90,17 @@ def check_browser(root):
                     expect(evaluate('document.documentElement.scrollWidth <= innerWidth + 2'), f'horizontal overflow at {width}px on {route}')
                     expect(evaluate("document.querySelectorAll('main').length === 1 && document.querySelectorAll('h1').length === 1"), 'landmarks/headings on ' + route)
                     expect(evaluate("Array.from(document.images).every(img => !img.complete || img.naturalWidth > 0)"), 'broken loaded image on ' + route)
+                    expect(evaluate("document.querySelectorAll('#navbar .nav-link[aria-current]').length === 1"), 'unique active navigation on ' + route)
+                    expect(evaluate("document.querySelector('h1').getBoundingClientRect().top >= document.getElementById('navbar').getBoundingClientRect().bottom"), 'header obscures title on ' + route)
+                    if route == '/blog/':
+                        expect(evaluate("[...document.querySelectorAll('.note-card')].every(card => card.getBoundingClientRect().width >= 280)"), f'narrow Notes cards at {width}px')
+                        expect(evaluate("parseFloat(getComputedStyle(document.querySelector('h1')).fontSize) <= 40"), 'oversized Notes heading')
+                        expect(evaluate("document.querySelectorAll('.note-card').length === new Set([...document.querySelectorAll('.note-card h2 a')].map(a => a.href)).size"), 'duplicate note previews')
+                    if route == '/research/' or route == '/cv/':
+                        expect(evaluate("document.querySelector('[data-project=faber]')?.textContent.includes('Co-Leader of WG3')"), 'FABER role missing on ' + route)
+                        expect(evaluate("!document.querySelector('main').textContent.includes('2025 - 2025')"), 'duplicated project date on ' + route)
+                    if route.startswith('/blog/') and route != '/blog/':
+                        expect(evaluate("document.querySelector('d-article') !== null"), 'scientific note content missing')
                     if route == '/repositories/':
                         expect(evaluate("document.querySelector('h1').getBoundingClientRect().top >= document.getElementById('navbar').getBoundingClientRect().bottom"), f'catalogue behind navigation at {width}px')
                         expect(evaluate("[...document.querySelectorAll('.research-output')].every(card => {const r = card.getBoundingClientRect(); return r.left >= 0 && r.right <= innerWidth;})"), f'catalogue card overflow at {width}px')
@@ -120,12 +137,27 @@ def check_browser(root):
                         command('Input.dispatchKeyEvent', {'type': 'keyDown', 'key': 'Enter', 'code': 'Enter', 'windowsVirtualKeyCode': 13, 'text': '\r', 'unmodifiedText': '\r'})
                         command('Input.dispatchKeyEvent', {'type': 'keyUp', 'key': 'Enter', 'code': 'Enter', 'windowsVirtualKeyCode': 13})
                         expect(evaluate("document.activeElement.id === 'main-content'"), 'skip-link keyboard activation')
+                        initial_top = evaluate("document.querySelector('h1').getBoundingClientRect().top")
                         evaluate("document.querySelector('.navbar-toggler').focus()")
                         command('Input.dispatchKeyEvent', {'type': 'keyDown', 'key': ' ', 'code': 'Space', 'windowsVirtualKeyCode': 32})
                         command('Input.dispatchKeyEvent', {'type': 'keyUp', 'key': ' ', 'code': 'Space', 'windowsVirtualKeyCode': 32})
                         time.sleep(.5)
                         expect(evaluate("document.querySelector('.navbar-toggler').getAttribute('aria-expanded') === 'true'"), 'mobile keyboard navigation menu')
-            print(f'PASS: {checks} browser checks at 390, 768 and 1280px, including keyboard controls and publication filtering' if not errors else f'Browser checks: {len(errors)} errors')
+                        expect(abs(evaluate("document.querySelector('h1').getBoundingClientRect().top") - initial_top) < 1, 'mobile menu shifts page content')
+                        expect(evaluate("document.querySelector('main').inert"), 'background remains interactive behind mobile menu')
+                        command('Input.dispatchKeyEvent', {'type': 'keyDown', 'key': 'Escape', 'code': 'Escape', 'windowsVirtualKeyCode': 27})
+                        command('Input.dispatchKeyEvent', {'type': 'keyUp', 'key': 'Escape', 'code': 'Escape', 'windowsVirtualKeyCode': 27})
+                        expect(evaluate("document.querySelector('.navbar-toggler').getAttribute('aria-expanded') === 'false' && !document.querySelector('main').inert && document.activeElement.matches('.navbar-toggler')"), 'Escape closes menu and restores focus')
+            command('Emulation.setDeviceMetricsOverride', {'width': 844, 'height': 390, 'deviceScaleFactor': 1, 'mobile': False})
+            command('Page.navigate', {'url': origin + '/blog/'})
+            for _ in range(120):
+                if evaluate("document.readyState === 'complete' && location.pathname === '/blog/'"):
+                    break
+                time.sleep(.1)
+            evaluate("document.querySelector('.navbar-toggler').click()")
+            expect(evaluate("document.getElementById('navbarNav').getBoundingClientRect().bottom <= innerHeight + 1"), 'landscape menu extends past viewport')
+            expect(evaluate("document.getElementById('navbarNav').scrollHeight > document.getElementById('navbarNav').clientHeight"), 'landscape menu cannot scroll')
+            print(f'PASS: {checks} browser checks at 375, 390, 768 and 1280px, including Notes, courses, scientific articles, navigation and catalogue controls' if not errors else f'Browser checks: {len(errors)} errors')
         except Exception as exc:
             errors.append('Browser check could not complete: ' + str(exc))
         finally:

@@ -1,0 +1,13 @@
+{% assign project = include.project %}
+<article class="research-project"{% if project.id %} data-project="{{ project.id }}"{% endif %}>
+  <h3>{{ project.name | escape }}</h3>
+  <p class="project-meta">{% if project.periodLabel %}{{ project.periodLabel }}{% elsif project.startDate == project.endDate %}{{ project.startDate }}{% elsif project.startDate %}{{ project.startDate }}–{{ project.endDate | default: 'present' }}{% endif %}{% if project.programme %} · {{ project.programme | escape }}{% endif %}</p>
+  <p class="project-role">{{ project.role | escape }}</p>
+  <p>{{ project.summary | escape }}</p>
+  {% if project.url or project.project_url or project.output_url %}<ul class="inline-links">
+    {% if project.url %}<li><a href="{{ project.url }}">Official COST Action</a></li>{% endif %}
+    {% if project.project_url %}<li><a href="{{ project.project_url }}">Project website</a></li>{% endif %}
+    {% if project.output_url %}<li><a href="{{ project.output_url | relative_url }}">{{ project.output_label }}</a></li>{% endif %}
+  </ul>{% endif %}
+  {% if project.highlights.size > 0 %}<ul>{% for highlight in project.highlights %}<li>{{ highlight | escape }}</li>{% endfor %}</ul>{% endif %}
+</article>

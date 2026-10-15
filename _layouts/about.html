@@ -1,80 +1,25 @@
 ---
 layout: default
 ---
-
-<!-- about.html -->
-      <div class="post">
-        <header class="post-header">
-          <h1 class="post-title">
-            {% if site.title == "blank" -%}<span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}{%- else -%}{{ site.title }}{%- endif %}
-          </h1>
-          <p class="desc">{{ page.subtitle }}</p>
-        </header>
-
-        <article>
-          {% if page.profile -%}
-          <div class="profile float-{%- if page.profile.align == 'left' -%}left{%- else -%}right{%- endif -%}">
-            {%- if page.profile.image %}
-              {%- assign profile_image_path = page.profile.image | prepend: 'assets/img/' -%}
-
-              {% if page.profile.image_circular %}
-                {%- assign profile_image_class = "img-fluid z-depth-1 rounded-circle" -%}
-              {% else %}
-                {%- assign profile_image_class = "img-fluid z-depth-1 rounded" -%}
-              {% endif %}
-
-              {% include figure.html
-              path=profile_image_path
-              class=profile_image_class
-              alt=page.profile.image_alt
-              loading="eager"
-              fetchpriority="high"
-              sizes="(min-width: 576px) 240px, 90vw"
-              cache_bust=true -%}
-            {% endif -%}
-            {%- if page.profile.more_info %}
-            <div class="more-info">
-              {{ page.profile.more_info }}
-            </div>
-            {%- endif %}
-          </div>
-          {%- endif %}
-
-          <div class="clearfix">
-            {{ content }}
-          </div>
-
-          <!-- News -->
-          {% if page.news and site.announcements.enabled -%}
-            <h2><a href="{{ '/news/' | relative_url }}" style="color: inherit;">news</a></h2>
-            {%- include news.html limit=true %}
-          {%- endif %}
-
-          <!-- Latest posts -->
-          {% if page.latest_posts -%}
-            <h2><a href="{{ '/blog/' | relative_url }}" style="color: inherit;">latest posts</a></h2>
-            {%- include latest_posts.html %}
-          {%- endif %}
-
-          <!-- Selected papers -->
-          {% if page.selected_papers -%}
-            <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">selected publications</a></h2>
-            {%- include selected_papers.html %}
-          {%- endif %}
-
-          <!-- Social -->
-          {%- if page.social %}
-            <div class="social">
-              <div class="contact-icons">
-                {% include social.html %}
-              </div>
-
-              <div class="contact-note">
-                {{ site.contact_note }}
-              </div>
-
-            </div>
-          {%- endif %}
-        </article>
-
+<div class="post home-page">
+  <header class="post-header"><h1 class="post-title"><span class="font-weight-bold">{{ site.first_name }}</span> {{ site.last_name }}</h1><p class="desc">{{ page.subtitle }}</p></header>
+  <div class="home-introduction">
+    <div class="home-summary">{{ content }}</div>
+    {% if page.profile %}<aside class="profile" aria-label="Portrait and office contact">
+      {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+      {% include figure.html path=profile_image_path class="img-fluid rounded-circle" alt=page.profile.image_alt loading="eager" fetchpriority="high" sizes="(min-width: 700px) 200px, 140px" cache_bust=true %}
+      {% if page.profile.more_info %}<details class="context-details office-contact"><summary>Office contact</summary>{{ page.profile.more_info }}</details>{% endif %}
+    </aside>{% endif %}
+  </div>
+  <section class="home-project" aria-labelledby="home-project-title">
+    <h2 id="home-project-title">Current research activity</h2>
+    <h3><a href="{{ '/research/' | relative_url }}#projects">FABER — Fatigue Benchmark Repository</a></h3>
+    <p>Co-Leader of WG3, Fatigue Estimation Competition, within COST Action CA23109. An international collaboration on fatigue datasets, benchmarking and the comparison of prediction methods.</p>
+    <ul class="inline-links"><li><a href="{{ '/research/' | relative_url }}#projects">Projects and responsibilities</a></li><li><a href="{{ '/repositories/' | relative_url }}#zenodo-21534682">FABEST participant package</a></li></ul>
+  </section>
+  {% if page.selected_papers %}<section aria-labelledby="home-publications"><h2 id="home-publications"><a href="{{ '/publications/' | relative_url }}">Selected publications</a></h2>{% include selected_papers.html %}</section>{% endif %}
+  <section class="home-open-science" aria-labelledby="home-open-science-title"><h2 id="home-open-science-title">Software and research data</h2><p>Explore <a href="{{ '/repositories/' | relative_url }}">scientific software, engineering tools and datasets</a>, including the <a href="{{ '/repositories/' | relative_url }}#multiaxial-fatigue">FABER WG4.3 multiaxial fatigue library</a>. Its development and validation limits are documented separately from the WG3 responsibility.</p></section>
+  <section id="collaboration" class="collaboration-panel" aria-labelledby="collaboration-title"><h2 id="collaboration-title">Interested in research collaboration?</h2><p>I welcome discussions with researchers and engineering teams about shared scientific interests, research proposals, fatigue-assessment methods and relevant industrial challenges.</p><a class="contact-link" href="mailto:{{ site.data.resume.basics.email }}">{{ site.data.resume.basics.email }}</a></section>
+  {% if page.latest_posts %}<h2><a href="{{ '/blog/' | relative_url }}">Latest notes</a></h2>{% include latest_posts.html %}{% endif %}
+  {% if page.social %}<div class="social"><div class="contact-icons">{% include social.html %}</div><div class="contact-note">{{ site.contact_note }}</div></div>{% endif %}
 </div>
