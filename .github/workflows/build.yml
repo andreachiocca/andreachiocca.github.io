@@ -79,7 +79,7 @@ jobs:
             '{name: "Generated site verification", head_sha: $sha, status: "completed", conclusion: $result, output: {title: "Generated site verification", summary: $report, text: $lock}}' > verification-check.json
           gh api --method POST "repos/$GITHUB_REPOSITORY/check-runs" --input verification-check.json > /dev/null
 
-      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         with:
           path: ./_site
