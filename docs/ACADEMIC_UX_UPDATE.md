@@ -30,3 +30,5 @@ Deployment remains restricted to master; this update does not authorize a merge 
 The existing Google Drive tutorial folder returned HTTP 404 to anonymous access. Its URL remains in the source data for provenance, but the two course listings mark it unavailable and offer a contact link rather than sending students to a broken destination. A replacement or restored public sharing setting needs owner-supplied information.
 
 Recovery verification found that pagination emits an index-file URL while Notes metadata uses the directory URL; the custom sitemap now normalizes index paths to canonical directory URLs. Scientific articles also had front-matter markup before the body, which let HTML minification discard body attributes. Front matter now sits inside the body, and dated article URLs retain the Notes active state.
+
+Rendered landscape testing found legacy Sass arithmetic corrupting CSS variable names inside calc(), removing the menu height bound. Those expressions are now emitted literally, with a landscape regression check. Distill’s injected root font and floating contents are overridden locally to keep the shared readable type scale and full-width contents.
