@@ -26,3 +26,5 @@ The public leadership pages do not yet establish the owner's co-leadership date;
 CI checks now include Notes, all scientific articles and all course pages at 375, 390, 768 and 1280px, alongside existing catalogue/publication checks. They test narrow-card regression, heading sizes, active navigation, menu geometry, background isolation and Escape/focus restoration. Generated-site checks verify local assets, links/anchors, core metadata and required FABER/teaching content. The final PR and task report record the actual build, external-link checks, browser results and inspected screenshots.
 
 Deployment remains restricted to master; this update does not authorize a merge or deployment. The previous PR #20 was already merged, so the current work uses a follow-up PR on the existing branch.
+
+The existing Google Drive tutorial folder returned HTTP 404 to anonymous access. Its URL remains in the source data for provenance, but the two course listings mark it unavailable and offer a contact link rather than sending students to a broken destination. A replacement or restored public sharing setting needs owner-supplied information.

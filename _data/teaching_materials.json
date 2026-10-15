@@ -103,7 +103,9 @@
       "url": "https://drive.google.com/drive/folders/1mj3l27BpV8Vq-zZZvyizL4qd_Yc5xVua?usp=sharing",
       "format": "Video",
       "academic_year": null,
-      "type": "Video tutorials"
+      "type": "Video tutorials",
+      "availability": "unavailable",
+      "availability_note": "The original shared folder returned HTTP 404 to public access on 15 October 2026."
     }
   ],
   "2_project": [
@@ -189,7 +191,9 @@
       "url": "https://drive.google.com/drive/folders/1mj3l27BpV8Vq-zZZvyizL4qd_Yc5xVua?usp=sharing",
       "format": "Video",
       "academic_year": null,
-      "type": "Video tutorials"
+      "type": "Video tutorials",
+      "availability": "unavailable",
+      "availability_note": "The original shared folder returned HTTP 404 to public access on 15 October 2026."
     }
   ],
   "3_project": [],

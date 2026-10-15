@@ -7,7 +7,7 @@
 {% for year in years %}
 <h2>{% if year.name == '' %}Shared materials{% else %}Academic year {{ year.name }}{% endif %}</h2>
 {% assign types = year.items | group_by: 'type' %}
-{% for type in types %}<section class="teaching-material-group"><h3>{{ type.name }}</h3><ul class="material-list">{% for material in type.items %}<li><a href="{% if material.url contains '://' %}{{ material.url | escape }}{% else %}{{ material.url | relative_url }}{% endif %}">{{ material.title | escape }} <span class="material-format">({{ material.format }})</span></a></li>{% endfor %}</ul></section>{% endfor %}
+{% for type in types %}<section class="teaching-material-group"><h3>{{ type.name }}</h3><ul class="material-list">{% for material in type.items %}<li>{% if material.availability == 'unavailable' %}<span class="unavailable-resource">{{ material.title | escape }} ({{ material.format }}) — currently unavailable. <a href="mailto:andrea.chiocca@unipi.it">Ask about access</a>.</span>{% else %}<a href="{% if material.url contains '://' %}{{ material.url | escape }}{% else %}{{ material.url | relative_url }}{% endif %}">{{ material.title | escape }} <span class="material-format">({{ material.format }})</span></a>{% endif %}</li>{% endfor %}</ul></section>{% endfor %}
 {% endfor %}
 {% else %}<p>No public materials are currently listed for this course. Use the official university platform or <a href="mailto:andrea.chiocca@unipi.it">contact me</a> for course information.</p>{% endif %}
 <p><a href="https://unipi.coursecatalogue.cineca.it/">Official course catalogue</a> · <a href="https://elearn.ing.unipi.it/">Engineering e-learning platform</a></p>

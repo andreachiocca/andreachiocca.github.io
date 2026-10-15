@@ -25,7 +25,7 @@ The latest documented teaching periods extend through 2026; current academic-yea
   <h3><a href="{{ course.url | relative_url }}">{{ course.title }}</a></h3>
   <p class="course-programme">{{ course.description }} · University of Pisa</p>
   <p>{{ course.teaching_period }} · {{ course.teaching_role }}.</p>
-  {% if materials.size > 0 %}<a class="course-material-link" href="{{ course.url | relative_url }}">View {{ materials.size }} resources</a>{% else %}<p class="course-availability">No public materials listed.</p>{% endif %}
+  {% if materials.size > 0 %}<a class="course-material-link" href="{{ course.url | relative_url }}">View course materials</a>{% else %}<p class="course-availability">No public materials listed.</p>{% endif %}
 </section>
 {% endfor %}
 </div>
