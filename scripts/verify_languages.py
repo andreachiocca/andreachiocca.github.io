@@ -7,12 +7,13 @@ root=Path(sys.argv[1] if len(sys.argv)>1 else '_site')
 origin='https://andreachiocca.github.io'
 class Document(HTMLParser):
     def __init__(self,path):
-        super().__init__();self.lang=None;self.canonical=None;self.alternates={};self.links=[];self.json=[];self.buffer=None;self.text=[]
+        super().__init__();self.lang=None;self.canonical=None;self.alternates={};self.links=[];self.json=[];self.buffer=None;self.text=[];self.metadata={}
         self.feed(path.read_text(encoding='utf8'))
     def handle_starttag(self,tag,attrs):
         a=dict(attrs)
         if tag=='html':self.lang=a.get('lang')
         if tag=='a':self.links.append(a.get('href',''))
+        if tag=='meta':self.metadata[a.get('name') or a.get('property')]=a.get('content')
         if tag=='link' and a.get('rel')=='canonical':self.canonical=a.get('href')
         if tag=='link' and a.get('rel')=='alternate':self.alternates[a.get('hreflang')]=a.get('href')
         if tag=='script' and a.get('type')=='application/ld+json':self.buffer=''
@@ -46,12 +47,41 @@ for directory in ('_pages','_layouts','_includes'):
             assert (double or single) in it, 'Missing interface key: '+(double or single)
 translated=json.loads(Path('_data/i18n/it/texts.json').read_text(encoding='utf8'))
 assert required.issubset(translated) and all(translated[k].strip() for k in required), 'Missing descriptive translations'
+# All currently published descriptive records must have reviewed Italian overrides.
+def read_json(path):return json.loads(Path(path).read_text(encoding='utf8'))
+resume=read_json('assets/json/resume.json')
+lab=read_json('_data/laboratory.json')
+thesis=read_json('_data/thesis_opportunities.json')
+groups={
+    'research_areas':read_json('_data/research_areas.json'),
+    'projects':resume['projects'],
+    'outputs':read_json('_data/research_outputs.json'),
+    'resume':[resume['basics']]+resume['work']+resume['education']+resume['awards'],
+    'laboratory':lab['capabilities']+lab['measurement_context']+lab['equipment'],
+    'thesis':thesis['directions']+thesis['approaches']+thesis['projects']}
+for group,records in groups.items():
+    ids=[record['id'] for record in records]
+    assert len(ids)==len(set(ids)), ('Duplicate scientific record',group)
+    translations=read_json('_data/i18n/it/'+group+'.json')
+    assert set(ids).issubset(translations), ('Missing reviewed record translation',group,set(ids)-set(translations))
+    for record in records:
+        override=translations[record['id']]
+        immutable={'id','url','doi','github_url','github_full_name','zenodo_record_id','creators','startDate','endDate','date','year','institution','name','programme','working_groups','links','specifications'}
+        if group in ('outputs','projects','resume'):immutable.add('title')
+        assert not immutable.intersection(override), ('Translation overrides canonical metadata',group,record['id'])
+        assert all(value not in ('',None) for value in override.values()), ('Empty descriptive translation',group,record['id'])
 sitemap=(root/'sitemap.xml').read_text(encoding='utf8')
 for key,route in sources:
     documents=[]
     for lang,url in [('en',route),('it','/it'+route)]:
         doc=Document(root/url.lstrip('/')/'index.html');documents.append(doc)
         assert doc.lang==lang,(key,'incorrect HTML language')
+        assert doc.metadata.get('description'), (key,'missing description')
+        assert doc.metadata.get('og:locale')==('it_IT' if lang=='it' else 'en_GB'), (key,'incorrect social language')
+        if lang=='it':
+            metadata=read_json('_data/i18n/it/pages.json')[key]
+            assert doc.metadata['description']==metadata['description'], (key,'unlocalized metadata')
+        assert all(not href.startswith(origin+'/it/assets/') for href in doc.links), 'Localized asset URL'
         assert doc.canonical==origin+url,(key,'incorrect canonical')
         expected={'en':origin+route,'it':origin+'/it'+route,'x-default':origin+route}
         assert doc.alternates==expected,(key,'incorrect reciprocal language links')
@@ -66,6 +96,8 @@ for key,route in sources:
     if key=='repositories':
         def records(doc):return {(r.get('@type'),r.get('name'),r.get('identifier'),r.get('url')) for r in doc.json if r.get('@type') in ('Dataset','SoftwareSourceCode')}
         assert records(documents[0])==records(documents[1]),'Scientific output identities differ'
+    if key=='repositories':
+        assert len(records(documents[0]))==len(groups['outputs']), 'Missing or duplicate rendered resource'
     if key=='research':
         assert 'Ricerca' in ''.join(documents[1].text) and 'WG5.3' in ''.join(documents[1].text)
 assert not (root/'it/blog').exists(),'Retired Notes were republished'
