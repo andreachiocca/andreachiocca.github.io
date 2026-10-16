@@ -10,12 +10,12 @@
 - title: Repositories
   url: /repositories/
   section: repositories
+- title: Laboratory
+  url: /laboratory/
+  section: laboratory
 - title: Teaching
   url: /teaching/
   section: teaching
-- title: Notes
-  url: /blog/
-  section: notes
 - title: CV
   url: /cv/
   section: cv

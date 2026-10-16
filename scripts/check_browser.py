@@ -73,9 +73,9 @@ def check_browser(root):
 
             command('Page.enable')
             origin = 'http://127.0.0.1:' + str(server.server_port)
-            routes = ['/', '/publications/', '/research/', '/repositories/', '/teaching/', '/cv/', '/blog/']
+            routes = ['/', '/publications/', '/research/', '/repositories/', '/teaching/', '/cv/', '/thesis/', '/laboratory/']
             for path in sorted(root.rglob('*.html')):
-                if '<d-article>' in path.read_text(encoding='utf8') or '/projects/' in '/' + path.relative_to(root).as_posix():
+                if '/projects/' in '/' + path.relative_to(root).as_posix():
                     route = '/' + path.relative_to(root).as_posix().removesuffix('index.html')
                     if route not in routes:
                         routes.append(route)
@@ -92,15 +92,17 @@ def check_browser(root):
                     expect(evaluate("Array.from(document.images).every(img => !img.complete || img.naturalWidth > 0)"), 'broken loaded image on ' + route)
                     expect(evaluate("document.querySelectorAll('#navbar .nav-link[aria-current]').length === 1"), 'unique active navigation on ' + route)
                     expect(evaluate("document.querySelector('h1').getBoundingClientRect().top >= document.getElementById('navbar').getBoundingClientRect().bottom"), 'header obscures title on ' + route)
-                    if route == '/blog/':
-                        expect(evaluate("[...document.querySelectorAll('.note-card')].every(card => card.getBoundingClientRect().width >= 280)"), f'narrow Notes cards at {width}px')
-                        expect(evaluate("parseFloat(getComputedStyle(document.querySelector('h1')).fontSize) <= 40"), 'oversized Notes heading')
-                        expect(evaluate("document.querySelectorAll('.note-card').length === new Set([...document.querySelectorAll('.note-card h2 a')].map(a => a.href)).size"), 'duplicate note previews')
+                    expect(evaluate("[...document.querySelectorAll('#navbar .nav-link')].map(a => a.textContent.trim()).join('|') === 'Home|Research|Publications|Repositories|Laboratory|Teaching|CV'"), 'shared navigation order on ' + route)
+                    if route in ('/thesis/', '/laboratory/'):
+                        expect(evaluate("[...document.querySelectorAll('.feature-card')].every(card => card.getBoundingClientRect().width >= 280 && card.getBoundingClientRect().right <= innerWidth)"), f'narrow or overflowing resource cards at {width}px on {route}')
+                        expect(evaluate("[...document.querySelectorAll('.feature-card .inline-links a, .contact-link, .page-paths a, .institution-list a')].every(a => a.getBoundingClientRect().height >= 44)"), 'resource touch targets on ' + route)
+                        expect(evaluate("[...document.querySelectorAll('.feature-card')].every(card => card.querySelector('h3')?.textContent.trim() && card.querySelector('p')?.textContent.trim())"), 'empty resource cards on ' + route)
+                    if route == '/thesis/':
+                        expect(evaluate("document.querySelectorAll('.thesis-topic').length === 5 && document.querySelectorAll('#ways-of-working + p + .approach-list .approach').length === 3"), 'thesis directions and approaches')
+                        expect(evaluate("document.querySelector('#navbar a[aria-current]').textContent.trim() === 'Teaching'"), 'Teaching parent of thesis page')
                     if route == '/research/' or route == '/cv/':
                         expect(evaluate("document.querySelector('[data-project=faber]')?.textContent.includes('Co-Leader of WG3')"), 'FABER role missing on ' + route)
                         expect(evaluate("!document.querySelector('main').textContent.includes('2025 - 2025')"), 'duplicated project date on ' + route)
-                    if route.startswith('/blog/') and route != '/blog/':
-                        expect(evaluate("document.querySelector('d-article') !== null"), 'scientific note content missing')
                     if route == '/repositories/':
                         expect(evaluate("document.querySelector('h1').getBoundingClientRect().top >= document.getElementById('navbar').getBoundingClientRect().bottom"), f'catalogue behind navigation at {width}px')
                         expect(evaluate("[...document.querySelectorAll('.research-output')].every(card => {const r = card.getBoundingClientRect(); return r.left >= 0 && r.right <= innerWidth;})"), f'catalogue card overflow at {width}px')
@@ -149,15 +151,15 @@ def check_browser(root):
                         command('Input.dispatchKeyEvent', {'type': 'keyUp', 'key': 'Escape', 'code': 'Escape', 'windowsVirtualKeyCode': 27})
                         expect(evaluate("document.querySelector('.navbar-toggler').getAttribute('aria-expanded') === 'false' && !document.querySelector('main').inert && document.activeElement.matches('.navbar-toggler')"), 'Escape closes menu and restores focus')
             command('Emulation.setDeviceMetricsOverride', {'width': 844, 'height': 390, 'deviceScaleFactor': 1, 'mobile': False})
-            command('Page.navigate', {'url': origin + '/blog/'})
+            command('Page.navigate', {'url': origin + '/thesis/'})
             for _ in range(120):
-                if evaluate("document.readyState === 'complete' && location.pathname === '/blog/'"):
+                if evaluate("document.readyState === 'complete' && location.pathname === '/thesis/'"):
                     break
                 time.sleep(.1)
             evaluate("document.querySelector('.navbar-toggler').click()")
             expect(evaluate("document.getElementById('navbarNav').getBoundingClientRect().bottom <= innerHeight + 1"), 'landscape menu extends past viewport')
             expect(evaluate("document.getElementById('navbarNav').scrollHeight > document.getElementById('navbarNav').clientHeight"), 'landscape menu cannot scroll')
-            print(f'PASS: {checks} browser checks at 375, 390, 768 and 1280px, including Notes, courses, scientific articles, navigation and catalogue controls' if not errors else f'Browser checks: {len(errors)} errors')
+            print(f'PASS: {checks} browser checks at 375, 390, 768 and 1280px, including thesis and laboratory pages, courses, navigation and catalogue controls' if not errors else f'Browser checks: {len(errors)} errors')
         except Exception as exc:
             errors.append('Browser check could not complete: ' + str(exc))
         finally:

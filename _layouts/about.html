@@ -11,6 +11,13 @@ layout: default
       {% if page.profile.more_info %}<details class="context-details office-contact"><summary>Office contact</summary>{{ page.profile.more_info }}</details>{% endif %}
     </aside>{% endif %}
   </div>
+  <section class="home-audiences" aria-labelledby="home-pathways-title">
+    <h2 id="home-pathways-title">Students and research partners</h2>
+    <div class="feature-grid">
+      <section class="feature-card audience-card"><h3>For students</h3><p>Explore thesis directions in computational mechanics, fatigue, experimental testing and structural integrity, with possibilities to discuss work in Pisa or abroad.</p><a class="contact-link" href="{{ '/thesis/' | relative_url }}">Explore thesis opportunities <span aria-hidden="true">→</span></a></section>
+      <section class="feature-card audience-card"><h3>For researchers &amp; industry</h3><p>Explore experimental expertise, numerical–experimental methods and opportunities for joint investigations and research collaboration.</p><a class="contact-link" href="{{ '/laboratory/' | relative_url }}">Laboratory capabilities <span aria-hidden="true">→</span></a></section>
+    </div>
+  </section>
   <section class="home-project" aria-labelledby="home-project-title">
     <h2 id="home-project-title">Current research activity</h2>
     <h3><a href="{{ '/research/' | relative_url }}#projects">FABER — Fatigue Benchmark Repository</a></h3>
@@ -20,6 +27,5 @@ layout: default
   {% if page.selected_papers %}<section aria-labelledby="home-publications"><h2 id="home-publications"><a href="{{ '/publications/' | relative_url }}">Selected publications</a></h2>{% include selected_papers.html %}</section>{% endif %}
   <section class="home-open-science" aria-labelledby="home-open-science-title"><h2 id="home-open-science-title">Software and research data</h2><p>Explore <a href="{{ '/repositories/' | relative_url }}">scientific software, engineering tools and datasets</a>, including the <a href="{{ '/repositories/' | relative_url }}#multiaxial-fatigue">FABER WG4.3 multiaxial fatigue library</a>. Its development and validation limits are documented separately from the WG3 responsibility.</p></section>
   <section id="collaboration" class="collaboration-panel" aria-labelledby="collaboration-title"><h2 id="collaboration-title">Interested in research collaboration?</h2><p>I welcome discussions with researchers and engineering teams about shared scientific interests, research proposals, fatigue-assessment methods and relevant industrial challenges.</p><a class="contact-link" href="mailto:{{ site.data.resume.basics.email }}">{{ site.data.resume.basics.email }}</a></section>
-  {% if page.latest_posts %}<h2><a href="{{ '/blog/' | relative_url }}">Latest notes</a></h2>{% include latest_posts.html %}{% endif %}
   {% if page.social %}<div class="social"><div class="contact-icons">{% include social.html %}</div><div class="contact-note">{{ site.contact_note }}</div></div>{% endif %}
 </div>

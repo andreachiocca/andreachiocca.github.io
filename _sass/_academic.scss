@@ -183,35 +183,32 @@ html { scrollbar-gutter: stable; }
 .material-list a { display: block; min-height: 44px; padding: .6rem 0; }
 .material-format { color: var(--global-text-color-light); font-size: .85rem; white-space: nowrap; }
 .teaching-material-group h3 { font-size: 1.1rem; margin: 1.25rem 0 .5rem; }
-.notes-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 1rem; align-items: start; }
-@media (min-width: 700px) { .notes-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
-.note-card { border: 1px solid var(--global-divider-color); border-radius: .4rem; padding: 1rem; min-width: 0; overflow-wrap: break-word; word-break: normal; }
-.note-card h2 { font-size: 1.15rem; line-height: 1.4; margin: .5rem 0 .75rem; }
-.note-card p { font-size: .95rem; line-height: 1.6; margin-bottom: .5rem; }
-.note-card .note-meta { font-size: .8rem; color: var(--global-text-color-light); }
-.note-read-link { display: inline-flex; align-items: center; min-height: 44px; }
-// Distill supplies citations and equations; shared readable geometry replaces its wide grid.
-.post.distill { max-width: 800px; margin: 1.5rem auto 0; padding: 0 15px; min-width: 0; }
-.post.distill d-title, .post.distill d-byline, .post.distill d-article, .post.distill d-appendix { display: block; padding: 0; margin: 0; min-width: 0; max-width: 100%; }
-.post.distill d-title h1 { font-size: clamp(1.75rem,4vw,2.5rem); line-height: 1.2; margin: 0 0 1rem; }
-.post.distill d-title p { font-size: 1rem; line-height: 1.6; margin: 0 0 1.25rem; }
-.post.distill d-article { font-size: 1rem; line-height: 1.7; }
-.post.distill d-article p, .post.distill d-article li { font-size: 1rem; line-height: 1.7; }
-.post.distill d-article h2 { font-size: 1.45rem; line-height: 1.35; margin: 1.75rem 0 .75rem; }
-.post.distill d-article h3 { font-size: 1.15rem; line-height: 1.4; }
-.post.distill d-article d-contents { display: block; width: auto; margin: 1rem 0; padding: 1rem; }
-.post.distill d-article d-contents nav { display: block; }
-.post.distill d-article d-contents nav div { margin-bottom: .35rem; font-weight: 400; }
-.post.distill d-byline { margin-bottom: 1rem; }
-.post.distill d-article img, .post.distill d-article svg, .post.distill d-article video { max-width: 100%; height: auto; }
-.post.distill d-article figure { max-width: 100%; margin: 1rem 0; }
-.post.distill d-article pre, .post.distill .scientific-scroll, .post.distill mjx-container[display='true'] { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
-.post.distill d-article pre { white-space: pre; padding: .75rem; }
-.post.distill d-article table { min-width: min-content; font-size: .9rem; }
-.post.distill mjx-container[display='true'] { display: block; padding: .5rem 0; }
-.scientific-scroll:focus-visible, .post.distill pre:focus-visible, .post.distill mjx-container:focus-visible { outline: 3px solid var(--global-theme-color); outline-offset: 2px; }
 
-// Distill injects a 14px root and floating contents; retain the shared type scale.
-html.scientific-document { font-size: 100%; }
-.post.distill d-article d-contents { float: none; clear: both; box-sizing: border-box; width: 100%; }
-.post.distill d-article d-contents nav { width: auto; max-width: none; margin: 0; padding: 0; }
+// Shared text-first cards work without photos, API calls or client-side rendering.
+.page-paths { margin-bottom: 1.5rem; }
+.feature-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; align-items: start; margin: 1rem 0 1.5rem; }
+@media (min-width: 700px) { .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.feature-card { min-width: 0; padding: 1.2rem; border: 1px solid var(--global-divider-color); border-radius: .5rem; line-height: 1.6; word-break: normal; overflow-wrap: break-word; }
+.feature-card h3 { margin: .35rem 0 .75rem; font-size: 1.15rem; line-height: 1.4; }
+.feature-card p { margin-bottom: .75rem; }
+.feature-card > :last-child { margin-bottom: 0; }
+.feature-card .inline-links { gap: .15rem .85rem; font-size: .9rem; }
+.resource-icon { color: var(--global-theme-color); font-size: 1.15rem; margin-bottom: .5rem; }
+.resource-mode { font-size: .8rem; font-weight: 500; color: var(--global-theme-color); line-height: 1.5; }
+.resource-activities { font-size: .9rem; }
+.resource-image { display: block; max-width: 100%; height: auto; border-radius: .25rem; margin-bottom: .9rem; }
+.capability-card { border-top: 3px solid var(--global-theme-color); }
+.approach-list { border-top: 1px solid var(--global-divider-color); margin-top: 1rem; }
+.approach { padding: 1rem 0; border-bottom: 1px solid var(--global-divider-color); }
+.approach h3 { margin: 0 0 .4rem; }
+.approach p { margin: 0; }
+.opportunity-context { padding: .25rem 0 1rem; margin-top: 1rem; border-top: 1px solid var(--global-divider-color); }
+.institution-list { list-style: none; padding: 0; margin: 1rem 0; }
+.institution-list li { padding: .5rem 0; border-bottom: 1px solid var(--global-divider-color); }
+.institution-list a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 500; }
+.institution-list span { display: block; color: var(--global-text-color-light); font-size: .85rem; }
+.scope-note { font-size: .9rem; color: var(--global-text-color-light); line-height: 1.65; }
+.audience-card .contact-link { gap: .5rem; }
+.equipment-specifications { font-size: .9rem; }
+.equipment-specifications dt { font-weight: 500; }
+.equipment-specifications dd { margin-bottom: .5rem; }

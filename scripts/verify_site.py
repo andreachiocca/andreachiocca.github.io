@@ -71,7 +71,7 @@ for path in ROOT.rglob("*.html"):
     pages[path] = Page(path.read_text(encoding="utf-8"))
 
 for name in ("index.html", "publications/index.html", "research/index.html",
-             "teaching/index.html", "cv/index.html", "repositories/index.html", "blog/index.html"):
+             "teaching/index.html", "cv/index.html", "repositories/index.html", "thesis/index.html", "laboratory/index.html"):
     path = ROOT / name
     if path not in pages:
         errors.append("Missing core page: " + name)
@@ -157,7 +157,7 @@ restricted = next(item for item in outputs if item["id"] == "zenodo-21875885")
 if restricted["access_right"] != "restricted":
     errors.append("Restricted Zenodo record is incorrectly classified")
 # Required navigation and source-grounded content must survive rendering.
-expected_navigation = [('Home', '/'), ('Research', '/research/'), ('Publications', '/publications/'), ('Repositories', '/repositories/'), ('Teaching', '/teaching/'), ('Notes', '/blog/'), ('CV', '/cv/')]
+expected_navigation = [('Home', '/'), ('Research', '/research/'), ('Publications', '/publications/'), ('Repositories', '/repositories/'), ('Laboratory', '/laboratory/'), ('Teaching', '/teaching/'), ('CV', '/cv/')]
 for label, url in expected_navigation:
     if ORIGIN + url not in locations:
         errors.append('Missing navigation destination in sitemap: ' + label)
@@ -170,6 +170,67 @@ for course, resources in materials.items():
         errors.append('Incomplete teaching material: ' + course)
 if sum(len(items) for items in materials.values()) < 30:
     errors.append('Previously public teaching materials have been lost')
+
+# Thesis/laboratory content contracts and retired Notes must survive a real build.
+thesis_path = ROOT / 'thesis/index.html'
+lab_path = ROOT / 'laboratory/index.html'
+if thesis_path in pages:
+    thesis = pages[thesis_path]
+    topic_ids = {'welded-structures', 'multiaxial-fatigue', 'polymer-fatigue', 'pcb-reliability', 'ai-structural-integrity'}
+    if not topic_ids.issubset(thesis.ids):
+        errors.append('A required thesis direction is missing')
+    thesis_source = json.loads(Path('_data/thesis_opportunities.json').read_text(encoding='utf8'))
+    for institution in thesis_source['international_contacts']:
+        if institution['url'] not in thesis.links:
+            errors.append('Missing international research contact: ' + institution['name'])
+    text = thesis_path.read_text(encoding='utf8')
+    for qualification in ('project availability', 'host-institution acceptance', 'funding and mobility', 'suitable datasets'):
+        if qualification not in text:
+            errors.append('Missing thesis scope qualification: ' + qualification)
+    if not any(link.startswith('mailto:andrea.chiocca@unipi.it?subject=Thesis') for link in thesis.links):
+        errors.append('Thesis enquiry contact is missing')
+if lab_path in pages:
+    lab = pages[lab_path]
+    text = lab_path.read_text(encoding='utf8')
+    for qualification in ('departmental', 'laboratory staff', 'technical feasibility', 'institutional procedures'):
+        if qualification not in text:
+            errors.append('Missing laboratory scope qualification: ' + qualification)
+    if not any(link.startswith('mailto:andrea.chiocca@unipi.it?subject=Experimental') for link in lab.links):
+        errors.append('Laboratory enquiry contact is missing')
+    if not json.loads(Path('_data/laboratory.json').read_text(encoding='utf8'))['equipment'] and 'id="equipment"' in text:
+        errors.append('Empty equipment section is exposed')
+for route in ('index.html', 'teaching/index.html', 'research/index.html'):
+    page = pages.get(ROOT / route)
+    if page and '/thesis/' not in page.links:
+        errors.append('Missing thesis entry point on ' + route)
+for route in ('index.html', 'research/index.html'):
+    page = pages.get(ROOT / route)
+    if page and '/laboratory/' not in page.links:
+        errors.append('Missing laboratory entry point on ' + route)
+if ORIGIN + '/thesis/' not in locations:
+    errors.append('Thesis page is absent from the sitemap')
+retired_urls = set(json.loads(Path('_data/retired_notes_urls.json').read_text(encoding='utf8')))
+for url in retired_urls:
+    relative = url.lstrip('/') + ('index.html' if url.endswith('/') else '')
+    redirect = ROOT / relative
+    content = redirect.read_text(encoding='utf8') if redirect.is_file() else ''
+    if not all(marker in content for marker in ('noindex', 'http-equiv="refresh"', 'url=/research/', 'rel="canonical"')):
+        errors.append('Missing safe legacy redirect: ' + url)
+    if ORIGIN + url in locations:
+        errors.append('Retired Notes URL is still indexed: ' + url)
+for path, page in pages.items():
+    url = '/' + path.relative_to(ROOT).as_posix().removesuffix('index.html')
+    if url in retired_urls:
+        continue
+    if any(urlsplit(link).path in retired_urls for link in page.links):
+        errors.append('Public page promotes retired Notes: ' + str(path.relative_to(ROOT)))
+    if '<d-article>' in path.read_text(encoding='utf8'):
+        errors.append('Retired scientific article is still published')
+if (ROOT / 'docs/retired-notes').exists():
+    errors.append('Unpublished Notes source leaked into the build')
+feed = ROOT / 'feed.xml'
+if feed.is_file() and '<entry>' in feed.read_text(encoding='utf8'):
+    errors.append('Retired Notes content remains in the public feed')
 
 if not errors:
     from check_browser import check_browser
