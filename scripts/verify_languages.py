@@ -98,6 +98,14 @@ for key,route in sources:
         assert records(documents[0])==records(documents[1]),'Scientific output identities differ'
     if key=='repositories':
         assert len(records(documents[0]))==len(groups['outputs']), 'Missing or duplicate rendered resource'
+    rendered_text=' '.join(documents[1].text)
+    expected_groups={'research':['research_areas','projects'],'cv':['resume','projects'],'repositories':['outputs'],'laboratory':['laboratory'],'thesis':['thesis']}.get(key,[])
+    for group in expected_groups:
+        overrides=read_json('_data/i18n/it/'+group+'.json')
+        for record in groups[group]:
+            translation=overrides[record['id']]
+            for field in ('description','summary'):
+                if field in translation:assert translation[field] in rendered_text, (key,'rendered description was not localized',record['id'],field)
     if key=='research':
         assert 'Ricerca' in ''.join(documents[1].text) and 'WG5.3' in ''.join(documents[1].text)
 assert not (root/'it/blog').exists(),'Retired Notes were republished'

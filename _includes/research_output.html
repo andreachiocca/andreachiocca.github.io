@@ -1,4 +1,4 @@
-{% assign output = output | localized_record: 'outputs' %}
+{% assign output = include.output | localized_record: 'outputs' %}
 {% assign category = output.kind %}{% if category == 'benchmark' %}{% assign category = 'data' %}{% endif %}
 <article class="research-output" id="{{ output.id }}" data-category="{{ category }}" aria-labelledby="{{ output.id }}-title">
   <p class="output-source">

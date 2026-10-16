@@ -15,7 +15,7 @@ section: teaching
 <ul class="inline-links page-paths"><li><a href="#research-directions">{{ "Research topics" | t }}</a></li><li><a href="#ways-of-working">{{ "Ways of working" | t }}</a></li><li><a href="#italy-and-abroad">{{ "Italy and abroad" | t }}</a></li><li><a href="#discuss-a-thesis">{{ "Discuss a thesis" | t }}</a></li></ul>
 
 <h2 id="research-directions">{{ "Explore a research direction" | t }}</h2>
-<div class="feature-grid thesis-topics">{% for resource in site.data.thesis_opportunities.directions %}{% include resource_card.html resource=resource group="thesis" kind="thesis-topic" %}{% endfor %}</div>
+<div class="feature-grid thesis-topics">{% for canonical_resource in site.data.thesis_opportunities.directions %}{% include resource_card.html resource=canonical_resource group="thesis" kind="thesis-topic" %}{% endfor %}</div>
 
 <h2 id="ways-of-working">{{ "Choose how you work" | t }}</h2>
 {% locale thesis.approaches %}<p>You can focus on computation, experiments, or their combination. The activity labels above are starting points; we will agree a feasible approach for your thesis.</p>{% endlocale %}
@@ -24,7 +24,7 @@ section: teaching
 
 {% if site.data.thesis_opportunities.projects.size > 0 %}
 <h2 id="specific-projects">{{ "Specific thesis projects" | t }}</h2>
-<div class="feature-grid">{% for resource in site.data.thesis_opportunities.projects %}{% include resource_card.html resource=resource group="thesis" kind="thesis-project" %}{% endfor %}</div>
+<div class="feature-grid">{% for canonical_resource in site.data.thesis_opportunities.projects %}{% include resource_card.html resource=canonical_resource group="thesis" kind="thesis-project" %}{% endfor %}</div>
 {% endif %}
 
 <section class="opportunity-context" aria-labelledby="italy-and-abroad">

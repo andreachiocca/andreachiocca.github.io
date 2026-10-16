@@ -26,7 +26,7 @@ nav_order: 1
 <section id="projects" aria-labelledby="selected-collaborative-projects">
   <h2 id="selected-collaborative-projects">{{ "Research projects" | t }}</h2>
   <div class="project-list">{% assign project = site.data.resume.projects.first %}{% include research_project.html project=project %}</div>
-  <details class="context-details previous-projects"><summary>{{ "Previous projects" | t }}</summary><div class="project-list">{% for project in site.data.resume.projects offset:1 %}{% include research_project.html project=project %}{% endfor %}</div></details>
+  <details class="context-details previous-projects"><summary>{{ "Previous projects" | t }}</summary><div class="project-list">{% for canonical_project in site.data.resume.projects offset:1 %}{% include research_project.html project=canonical_project %}{% endfor %}</div></details>
 </section>
 
 <h2 id="international-collaborations"><i class="far fa-handshake section-icon" aria-hidden="true"></i>{{ "International collaborations" | t }}</h2>

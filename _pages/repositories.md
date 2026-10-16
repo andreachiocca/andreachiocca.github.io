@@ -22,7 +22,7 @@ catalogue: true
   </div>
   <p id="output-count" class="catalogue-count" data-count-template="{{ "%visible% of %total% resources shown." | t }}" role="status" aria-live="polite" aria-atomic="true">{{ site.data.research_outputs.size }} {{ "resources · Selected research first." | t }}</p>
   <div id="output-grid" class="output-grid">
-    {% for output in site.data.research_outputs %}{% include research_output.html %}{% endfor %}
+    {% for canonical_output in site.data.research_outputs %}{% include research_output.html output=canonical_output %}{% endfor %}
   </div>
   {% locale repositories.snapshot %}<p class="catalogue-footnote">Snapshot verified {{ site.data.catalogue_status.verified_on | date: '%-d %B %Y' }}. Public research repositories from <a href="https://github.com/achiocca1">achiocca1</a> and <a href="https://github.com/andreachiocca">andreachiocca</a> are listed here. The {{ site.data.catalogue_status.zenodo_records }} verified Zenodo records are grouped into {{ site.data.catalogue_status.zenodo_resources }} resources; earlier versions remain accessible under “Record details”. Selected activities appear first, followed by latest commit or publication date. Commit dates indicate code history, not scientific validation or maintenance commitments.</p>{% endlocale %}
 </div>
