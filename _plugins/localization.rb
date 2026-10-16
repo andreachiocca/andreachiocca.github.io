@@ -64,7 +64,7 @@ module Jekyll
         source.data['alternates'] = { 'en' => source.url, 'it' => '/it' + source.url }
         metadata = site.data.dig('i18n', 'it', 'pages', key)
         raise Jekyll::Errors::FatalException, "Missing Italian page metadata: #{key}" unless metadata && metadata['title'] && metadata['description']
-        translated = PageWithoutAFile.new(site, site.source, '/it' + source.url, 'index.html')
+        translated = PageWithoutAFile.new(site, site.source, '/it' + source.url, source.extname == '.md' ? 'index.md' : 'index.html')
         translated.content = source.content
         translated.data = JSON.parse(JSON.generate(source.data)).merge(metadata)
         translated.data.merge!('lang' => 'it', 'permalink' => '/it' + source.url, 'section' => source.data['section'] || (source.is_a?(Document) ? 'teaching' : nil))
