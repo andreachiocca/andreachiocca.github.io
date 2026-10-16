@@ -7,9 +7,9 @@
     {"id": "engineering-analysis", "title": "Engineering data and methods", "icon": "fa-code", "description": "Process experimental data, develop scientific software and compare analytical or computational methods. Reproducible datasets and documented algorithms support interpretation and model validation.", "links": [{"label": "Software and datasets", "url": "/repositories/"}]}
   ],
   "measurement_context": [
-    {"title": "Material and joint response", "description": "Previous studies document static and fatigue characterisation of materials and joints. The specimen, loading conditions and required measurements define the feasibility of a new campaign."},
-    {"title": "Strain, vibration and temperature", "description": "These measurement categories feature in existing research. Sensors, acquisition settings, operating ranges and facility access must be confirmed for each investigation."},
-    {"title": "Model correlation and data processing", "description": "Experimental results can be compared with finite element and analytical models, using scientific programming to evaluate predictions and document the analysis."}
+    {"id": "material-response", "title": "Material and joint response", "description": "Previous studies document static and fatigue characterisation of materials and joints. The specimen, loading conditions and required measurements define the feasibility of a new campaign."},
+    {"id": "physical-measurements", "title": "Strain, vibration and temperature", "description": "These measurement categories feature in existing research. Sensors, acquisition settings, operating ranges and facility access must be confirmed for each investigation."},
+    {"id": "model-correlation", "title": "Model correlation and data processing", "description": "Experimental results can be compared with finite element and analytical models, using scientific programming to evaluate predictions and document the analysis."}
   ],
   "equipment": []
 }

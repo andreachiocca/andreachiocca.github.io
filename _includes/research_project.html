@@ -1,13 +1,13 @@
-{% assign project = include.project %}
+{% assign project = include.project | localized_record: 'projects' %}
 <article class="research-project"{% if project.id %} data-project="{{ project.id }}"{% endif %}>
   <h3>{{ project.name | escape }}</h3>
-  <p class="project-meta">{% if project.periodLabel %}{{ project.periodLabel }}{% elsif project.startDate == project.endDate %}{{ project.startDate }}{% elsif project.startDate %}{{ project.startDate }}–{{ project.endDate | default: 'present' }}{% endif %}{% if project.programme %} · {{ project.programme | escape }}{% endif %}</p>
-  {% if project.working_groups.size > 0 %}<ul class="project-roles">{% for group in project.working_groups %}<li><a href="{{ group.url }}"{% if group.official_title %} title="{{ group.official_title | escape }}"{% endif %}>{{ group.id }}, {{ group.title }}</a> · <strong>{{ group.role }}</strong></li>{% endfor %}</ul>{% else %}<p class="project-role">{{ project.role | escape }}</p>{% endif %}
+  <p class="project-meta">{% if project.actionStartDate %}{{ 'Action period' | t }} {{ project.actionStartDate | date: '%Y' }}–{{ project.actionEndDate | date: '%Y' }}{% elsif project.periodLabel %}{{ project.periodLabel }}{% elsif project.startDate == project.endDate %}{{ project.startDate }}{% elsif project.startDate %}{{ project.startDate }}–{{ project.endDate | default: '' }}{% endif %}{% if project.programme %} · {% assign programme_parts = project.programme | split: ' · ' %}{{ programme_parts.first | escape }}{% if programme_parts.size > 1 %} · {% if programme_parts.last == 'International research network' %}{{ programme_parts.last | t }}{% else %}{{ programme_parts.last | escape }}{% endif %}{% endif %}{% endif %}</p>
+  {% if project.working_groups.size > 0 %}<ul class="project-roles">{% for group in project.working_groups %}<li><a href="{{ group.url }}"{% if group.official_title %} title="{{ group.official_title | escape }}"{% endif %}>{{ group.id }}, {{ group.title }}</a> · <strong>{{ group.role | t }}</strong></li>{% endfor %}</ul>{% else %}<p class="project-role">{{ project.role | escape }}</p>{% endif %}
   <p>{{ project.summary | escape }}</p>
   {% if project.url or project.project_url or project.output_url %}<ul class="inline-links">
-    {% if project.url %}<li><a href="{{ project.url }}">Official COST Action</a></li>{% endif %}
-    {% if project.project_url %}<li><a href="{{ project.project_url }}">Project website</a></li>{% endif %}
-    {% if project.output_url %}<li><a href="{{ project.output_url | relative_url }}">{{ project.output_label }}</a></li>{% endif %}
+    {% if project.url %}<li><a href="{{ project.url }}">{{ "Official COST Action" | t }}</a></li>{% endif %}
+    {% if project.project_url %}<li><a href="{{ project.project_url }}">{{ "Project website" | t }}</a></li>{% endif %}
+    {% if project.output_url %}<li><a href="{{ project.output_url | local_url | relative_url }}">{{ project.output_label | t }}</a></li>{% endif %}
   </ul>{% endif %}
   {% if project.highlights.size > 0 %}<ul>{% for highlight in project.highlights %}<li>{{ highlight | escape }}</li>{% endfor %}</ul>{% endif %}
 </article>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang }}">
+<html lang="{{ page.lang | default: site.lang }}">
 
   <!-- Head -->
   <head>
@@ -12,7 +12,7 @@
   <!-- Body -->
   <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
 
-    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <a class="skip-link" href="#main-content">{{ "Skip to main content" | t }}</a>
 
     <!-- Header -->
     {%- include header.html %}
@@ -28,14 +28,14 @@
           </div>
           <!-- sidebar, which will move to the top on a small screen -->
           <div class="col-sm-3">
-            <nav id="toc-sidebar" class="sticky-top"></nav>
+            <nav id="toc-sidebar" class="sticky-top" aria-label="{{ 'On this page' | t }}"></nav>
           </div>
         </div>
         {% else %}
         <div class="row">
           <!-- sidebar, which will move to the top on a small screen -->
           <div class="col-sm-3">
-            <nav id="toc-sidebar" class="sticky-top"></nav>
+            <nav id="toc-sidebar" class="sticky-top" aria-label="{{ 'On this page' | t }}"></nav>
           </div>
           <!-- main content area -->
           <div class="col-sm-9">

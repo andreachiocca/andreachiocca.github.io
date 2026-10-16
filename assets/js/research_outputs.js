@@ -10,7 +10,7 @@
     cards.forEach(card => { card.hidden = category !== 'all' && card.dataset.category !== category; });
     buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === category)));
     const visible = cards.filter(card => !card.hidden).length;
-    count.textContent = `${visible} of ${cards.length} resources shown.`;
+    count.textContent = count.dataset.countTemplate.replace('%visible%', visible).replace('%total%', cards.length);
   }
   buttons.forEach(button => button.addEventListener('click', () => filter(button.dataset.filter)));
   function revealLinkedResource() {

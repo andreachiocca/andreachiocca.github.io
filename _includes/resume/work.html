@@ -1,12 +1,13 @@
 <ul class="card-text font-weight-light list-group list-group-flush">
+  {% assign present_label = 'Present' | t %}
   {% assign work = data[1] | sort: 'startDate' | reverse %}
-  {% for content in work %}
+  {% for canonical_content in work %}{% assign content = canonical_content | localized_record: 'resume' %}
   <li class="list-group-item">
     <div class="row">
       <div class="col-xs-2 cl-sm-2 col-md-2 text-center" style="width: 75px;">
         {% if content.startDate %}
         {% assign startDate = content.startDate | split: "-" | slice: 0,2 | join: "." %}
-        {% assign endDate   = content.endDate   | split: "-" | slice: 0,2 | join: "." | default: "Present" %}
+        {% assign endDate   = content.endDate   | split: "-" | slice: 0,2 | join: "." | default: present_label %}
         {% assign date = startDate | append: " - "%}
         {% assign date = date | append: endDate %}
         {% else %}

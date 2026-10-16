@@ -1,0 +1,17 @@
+{
+  "faber": {
+    "summary": "Una rete internazionale dedicata allo sviluppo di dati di fatica accessibili, benchmark e strumenti per confrontare le previsioni della vita a fatica."
+  },
+  "hybrid-joints": {
+    "summary": "Caratterizzazione sperimentale, modellazione teorica e simulazione CAE di giunti tra metalli diversi.",
+    "role": "Membro del gruppo di progetto"
+  },
+  "extrusion-additive-manufacturing": {
+    "summary": "Ricerca sull’ottimizzazione dei processi di manifattura additiva per estrusione di componenti metallici e ceramici.",
+    "role": "Co-responsabile del progetto"
+  },
+  "pon-automotive": {
+    "summary": "Ricerca su compositi polimerici, componenti elastomerici e circuiti stampati, combinando valutazione sperimentale e modellazione computazionale.",
+    "role": "Contributo alla ricerca con Pierburg Pump Technology Italy / Rheinmetall"
+  }
+}

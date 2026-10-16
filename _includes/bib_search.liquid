@@ -1,6 +1,6 @@
 {% if site.bib_search %}
-<label for="bibsearch">Filter publications by title, author, year, or keyword</label>
-<input type="search" id="bibsearch" autocomplete="off" class="form-control mb-2" placeholder="e.g. fatigue, 2024, Frendo" aria-controls="publication-list" hidden>
-<p id="bibsearch-status" role="status" aria-live="polite"></p>
-<script defer src="{{ '/assets/js/bibsearch.js' | relative_url | bust_file_cache }}"></script>
+<label for="bibsearch">{{ "Filter publications by title, author, year, or keyword" | t }}</label>
+<input type="search" id="bibsearch" autocomplete="off" class="form-control mb-2" placeholder="{{ "e.g. fatigue, 2024, Frendo" | t }}" aria-controls="publication-list" hidden>
+<p id="bibsearch-status" data-count-template="{{ "%visible% of %total% publications" | t }}" role="status" aria-live="polite"></p>
+<script defer src="{{ '/assets/js/bibsearch.js' | local_url | relative_url | bust_file_cache }}"></script>
 {% endif %}

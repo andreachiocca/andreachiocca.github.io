@@ -46,6 +46,8 @@ jobs:
 
       - name: Check stylesheet cache invalidation
         run: bundle exec ruby scripts/check_cache_bust.rb
+      - name: Test localization primitives
+        run: bundle exec ruby scripts/check_localization.rb
       - name: Test recent publication selection
         run: bundle exec ruby scripts/check_recent_publications.rb
       - name: Test catalogue discovery and snapshot safety
@@ -57,6 +59,9 @@ jobs:
         id: verify
         shell: bash
         run: python scripts/verify_site.py _site 2>&1 | tee verification.log
+
+      - name: Verify bilingual page pairs
+        run: python scripts/verify_languages.py _site
 
       - name: Save website preview for review
         if: always() && github.event_name == 'pull_request' && steps.jekyll_build.outcome == 'success'

@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var heading = group.previousElementSibling;
       if (heading && /^H[1-6]$/.test(heading.tagName)) heading.hidden = empty;
     });
-    status.textContent = visible + " of " + entries.length + " publications";
+    status.textContent = status.dataset.countTemplate.replace('%visible%', visible).replace('%total%', entries.length);
   }
   input.hidden = false;
   input.addEventListener("input", filter);

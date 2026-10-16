@@ -1,4 +1,7 @@
 ---
+lang: en
+translation_key: course-2
+section: teaching
 layout: page
 title: esercitazioni con codice agli elementi finiti
 description: INGEGNERIA AEROSPAZIALE - Costruzione di macchine - 231II

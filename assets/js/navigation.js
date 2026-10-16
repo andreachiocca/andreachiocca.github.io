@@ -16,7 +16,7 @@
     panel.classList.toggle('show', open);
     button.classList.toggle('collapsed', !open);
     button.setAttribute('aria-expanded', String(open));
-    button.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    button.setAttribute('aria-label', open ? button.dataset.closeLabel : button.dataset.openLabel);
     backdrop.hidden = !open;
     if (open) {
       previousOverflow = document.body.style.overflow;

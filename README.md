@@ -130,3 +130,26 @@ Both pages share `_includes/resource_card.html`. Approved photographs belong in 
 Notes are retired. Three unchanged source articles remain in the excluded `docs/retired-notes/` directory; none is published in posts, archives or the feed. `_data/retired_notes_urls.json` records 16 former catalogue, archive and article routes. `_plugins/retired-notes.rb` and `_layouts/retired-notes.html` provide immediate lightweight redirects to Research, with a canonical destination, `noindex` and a manual link. These routes stay out of the sitemap. The RSS icon and Notes-only interface code are removed; the legacy feed is empty for existing subscribers. Restoring an article requires a separate editorial decision.
 
 PR builds retain a seven-day `website-preview` artifact containing generated HTML, styles, scripts, fonts, bibliography and the profile image for visual review. This replaces the narrower catalogue-only preview; deployment remains master-only.
+
+
+## English and Italian content
+
+English URLs remain unchanged. `_plugins/localization.rb` generates `/it/` equivalents from the same page bodies, layouts and canonical records. `translation_key` identifies each pair; `academic_languages` in `_config.yml` enables the twelve reviewed pairs. The static EN/IT selector links to the equivalent page. An unpaired page explicitly offers the Italian homepage. There are no automatic redirects or browser-side translation requests.
+
+Short interface text lives in `_data/i18n/en/ui.json` and `_data/i18n/it/ui.json`. English labels are the dictionary keys. Longer passages use `{% locale stable.key %}English text{% endlocale %}` and the corresponding entry in `_data/i18n/it/texts.json`. Italian titles and SEO descriptions live in `it/pages.json`. Course titles, programme names and teaching files retain their original language; course SEO explanations are localized separately. Teaching pages state that public materials are in Italian.
+
+Scientific facts are updated once. Descriptive translations are reviewed separately:
+
+| Update | Canonical source, updated once | Italian description |
+| --- | --- | --- |
+| Publication | `_bibliography/PersonalPub.bib` | None for titles, authors, venues or DOI. Both homepages automatically select the same five recent records. |
+| Project or academic role | `assets/json/resume.json` | `it/projects.json` or `it/resume.json`, keyed by stable ID |
+| GitHub or Zenodo resource | `_data/research_outputs.json`, using the existing synchronization script | `it/outputs.json`, keyed by stable ID; synchronization never writes this file |
+| Thesis direction or confirmed proposal | `_data/thesis_opportunities.json` | `it/thesis.json`, keyed by stable ID |
+| Laboratory capability or verified equipment | `_data/laboratory.json` | `it/laboratory.json`, keyed by stable ID; technical values and links remain canonical |
+| Teaching material | `_data/teaching_materials.json` and the original file | Keep the material title and file language; translate a new grouping label in the UI dictionaries if needed |
+| Homepage or page prose | Existing English page or shared layout | Matching stable key in `it/texts.json` |
+
+Keep IDs stable. Do not put official titles, author lists, dates, DOI values, specifications or URLs into descriptive overrides. For a new page, add one canonical page with a unique `translation_key`, Italian metadata and reviewed text, then enable the key. Do not duplicate the bibliography or output catalogue. Unknown fields should be omitted until verified.
+
+Missing short labels or page passages fail the build. A newly discovered record without an Italian description emits a Jekyll warning and displays an explicit English-description notice; the release verification rejects missing reviewed overrides so an incomplete translation is not silently accepted. Run `bundle exec ruby scripts/check_localization.rb`, the normal Jekyll build, `python scripts/verify_site.py`, and `python scripts/verify_languages.py _site`. CI also checks links, metadata, responsive pages and interactions in both languages. Production deployment remains restricted to `master`.

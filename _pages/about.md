@@ -1,4 +1,6 @@
 ---
+lang: en
+translation_key: home
 layout: about
 title: Home
 permalink: /
@@ -18,8 +20,8 @@ recent_papers: true # five most recent published bibliography records
 social: true  # includes social icons at the bottom of the page
 ---
 
-I study **fatigue and structural integrity**, examining how repeated loads affect notched and welded components, materials and joints. My work combines **finite element modelling, analytical methods and experimental testing**, with applications in mechanical design, automotive components and additive manufacturing.
+{% locale home.intro %}I study **fatigue and structural integrity**, examining how repeated loads affect notched and welded components, materials and joints. My work combines **finite element modelling, analytical methods and experimental testing**, with applications in mechanical design, automotive components and additive manufacturing.{% endlocale %}
 
-I hold a research contract at the University of Pisa and am **Co-Leader of FABER WG3 (Fatigue Estimation Competition)**. I received my PhD in Industrial Engineering from Pisa in 2021.
+{% locale home.bio %}I hold a research contract at the University of Pisa and am **Co-Leader of FABER WG3 (Fatigue Estimation Competition)**. I received my PhD in Industrial Engineering from Pisa in 2021.{% endlocale %}
 
-<ul class="inline-links home-paths"><li><a href="{{ '/research/' | relative_url }}">Research areas</a></li><li><a href="{{ '/repositories/' | relative_url }}">Software & data</a></li><li><a href="{{ '/teaching/' | relative_url }}">For students</a></li><li><a href="#collaboration">Contact</a></li></ul>
+<ul class="inline-links home-paths"><li><a href="{{ '/research/' | local_url | relative_url }}">{{ "Research areas" | t }}</a></li><li><a href="{{ '/repositories/' | local_url | relative_url }}">{{ "Software & data" | t }}</a></li><li><a href="{{ '/teaching/' | local_url | relative_url }}">{{ "For students" | t }}</a></li><li><a href="#collaboration">{{ "Contact" | t }}</a></li></ul>

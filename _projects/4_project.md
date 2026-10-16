@@ -1,4 +1,7 @@
 ---
+lang: en
+translation_key: course-4
+section: teaching
 layout: page
 title: Costruzione di macchine
 description: PF60 - CLASSE A042
