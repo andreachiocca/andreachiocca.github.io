@@ -35,7 +35,8 @@
         "label": "Ductile cast iron data",
         "url": "/repositories/#zenodo-14198237"
       }
-    ]
+    ],
+    "icon": "fa-chart-bar"
   },
   {
     "id": "residual-stresses-and-welded-structures",
@@ -65,7 +66,8 @@
         "label": "Multiaxial welded-joints study",
         "url": "/publications/#Chiocca2026WeldedECP"
       }
-    ]
+    ],
+    "icon": "fa-object-group"
   },
   {
     "id": "additive-manufacturing-and-material-behaviour",
@@ -91,7 +93,8 @@
         "label": "Fatigue of coated FDM lattices",
         "url": "/publications/#Chiocca2022a"
       }
-    ]
+    ],
+    "icon": "fa-clone"
   },
   {
     "id": "component-testing-and-industrial-applications",
@@ -125,6 +128,7 @@
         "label": "Experience and collaborations",
         "url": "/cv/"
       }
-    ]
+    ],
+    "icon": "fa-compass"
   }
 ]

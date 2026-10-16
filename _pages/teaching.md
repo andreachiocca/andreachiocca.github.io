@@ -9,7 +9,7 @@ nav_order: 4
 
 Find your course below for slides, notes, exercises and tutorials. These resources complement the [official course catalogue](https://unipi.coursecatalogue.cineca.it/) and [Engineering e-learning platform](https://elearn.ing.unipi.it/).
 
-<section class="collaboration-panel" aria-labelledby="teaching-thesis-title"><h2 id="teaching-thesis-title">Looking for a thesis topic?</h2><p>Explore five research directions, from welded structures and multiaxial fatigue to polymers, PCB reliability and prospective AI applications. Choose numerical, experimental or combined work and discuss possibilities in Pisa or abroad.</p><a class="contact-link" href="{{ '/thesis/' | relative_url }}">Explore thesis opportunities <span aria-hidden="true">→</span></a></section>
+<section class="collaboration-panel" aria-labelledby="teaching-thesis-title"><h2 id="teaching-thesis-title"><i class="far fa-lightbulb section-icon" aria-hidden="true"></i>Looking for a thesis topic?</h2><p>Explore five research directions, from welded structures and multiaxial fatigue to polymers, PCB reliability and prospective AI applications. Choose numerical, experimental or combined work and discuss possibilities in Pisa or abroad.</p><a class="contact-link" href="{{ '/thesis/' | relative_url }}">Explore thesis opportunities <span aria-hidden="true">→</span></a></section>
 
 ## Recent teaching
 

@@ -12,9 +12,9 @@ I study how materials and components respond to repeated loads, combining analyt
 <div class="research-areas">
 {% for area in site.data.research_areas %}
 <section class="research-area" aria-labelledby="{{ area.id }}">
-  <h2 id="{{ area.id }}">{{ area.title }}</h2>
+  <h2 id="{{ area.id }}"><i class="far {{ area.icon }} section-icon" aria-hidden="true"></i>{{ area.title }}</h2>
   <p class="research-summary">{{ area.summary }}</p>
-  <p class="research-methods"><strong>Methods:</strong> {{ area.methods }}</p>
+  <p class="research-methods"><strong>Methods</strong> {{ area.methods }}</p>
   <ul class="inline-links" aria-label="Related outputs for {{ area.title }}">{% for link in area.links %}<li><a href="{{ link.url | relative_url }}">{{ link.label }}</a></li>{% endfor %}</ul>
   <details class="context-details"><summary>Further studies and technical context</summary><ul>{% for link in area.further %}<li><a href="{{ link.url | relative_url }}">{{ link.label }}</a></li>{% endfor %}</ul></details>
 </section>
@@ -27,8 +27,8 @@ I study how materials and components respond to repeated loads, combining analyt
   <details class="context-details previous-projects"><summary>Previous projects</summary><div class="project-list">{% for project in site.data.resume.projects offset:1 %}{% include research_project.html project=project %}{% endfor %}</div></details>
 </section>
 
-<h2 id="international-collaborations">International collaborations</h2>
-<p>The FABER WG3 responsibility above is separate from the <a href="{{ '/repositories/' | relative_url }}#multiaxial-fatigue">WG4.3 multiaxial fatigue software and review activity</a>. Research exchanges also connect my work with European universities and research institutes.</p>
+<h2 id="international-collaborations"><i class="far fa-handshake section-icon" aria-hidden="true"></i>International collaborations</h2>
+<p>Research exchanges connect my work with European universities and research institutes. My current FABER responsibilities are listed under <a href="#projects">research projects</a>.</p>
 <details class="context-details"><summary>Research visits</summary><p>Czech Technical University in Prague (FABER WG6, June 2026); Aarhus University (Circle U., January 2026); NTNU (Erasmus+, July 2024); Fraunhofer LBF (doctoral research, February–June 2021).</p></details>
 
 <ul class="inline-links"><li><a href="{{ '/laboratory/' | relative_url }}">Laboratory and experimental capabilities</a></li><li><a href="{{ '/thesis/' | relative_url }}">Thesis opportunities for students</a></li></ul>

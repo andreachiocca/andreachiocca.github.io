@@ -23,6 +23,16 @@ ACCOUNTS = ("achiocca1", "andreachiocca")
 ORCID = "0000-0002-1472-4398"
 ZENODO_OWNER = "275783"  # Owner of the explicitly supplied deposits, verified by ORCID.
 REQUIRED_RECORDS = {21875885, 21534682, 18416255, 14198237, 12721131}
+EXCLUDED_REPOSITORIES = frozenset(name.casefold() for name in json.loads((ROOT / '_data/catalogue_exclusions.json').read_text(encoding='utf8')))
+
+
+def excluded_repository(name):
+    return (name or '').casefold() in EXCLUDED_REPOSITORIES
+
+
+def included_entry(entry):
+    name = entry.get('github_full_name') or entry.get('url', '').removeprefix('https://github.com/')
+    return not excluded_repository(name)
 
 
 def fetch(url):
@@ -159,7 +169,10 @@ def validate_catalogue(entries, github_names, zenodo_ids):
     if len(ids) != len(set(ids)):
         raise ValueError("Duplicate catalogue anchors")
     listed_github = [entry["github_full_name"] for entry in entries if entry.get("github_full_name")]
-    if len(listed_github) != len(set(listed_github)) or not set(github_names).issubset(listed_github):
+    expected = {name for name in github_names if not excluded_repository(name)}
+    if any(excluded_repository(name) for name in listed_github):
+        raise ValueError("An explicitly excluded GitHub repository is advertised")
+    if len(listed_github) != len(set(listed_github)) or not expected.issubset(listed_github):
         raise ValueError("Missing or duplicate public GitHub repositories")
     listed_zenodo = [str(entry["zenodo_record_id"]) for entry in entries if entry.get("zenodo_record_id")]
     listed_zenodo += [str(version["record_id"]) for entry in entries for version in entry.get("earlier_versions", [])]
@@ -173,6 +186,7 @@ def validate_catalogue(entries, github_names, zenodo_ids):
 
 
 def build_catalogue(existing):
+    existing = [item for item in existing if included_entry(item)]
     repos = [repo for account in ACCOUNTS for repo in github_repositories(account)]
     candidates = {}
     for query in (f'creators.orcid:"{ORCID}"', "creators.name:Chiocca", "owners:" + ZENODO_OWNER):
@@ -186,6 +200,8 @@ def build_catalogue(existing):
     used = set()
     entries = []
     for repo in repos:
+        if excluded_repository(repo['full_name']):
+            continue
         original = repo_map.get(repo["full_name"])
         if original:
             used.add(original["id"])
@@ -209,7 +225,9 @@ def build_catalogue(existing):
     record_ids = sorted(str(record["id"]) for record in verified)
     validate_catalogue(entries, names, record_ids)
     status = {"verified_on": datetime.now(timezone.utc).date().isoformat(), "github_accounts": list(ACCOUNTS), "github_full_names": names,
-              "github_repositories": len(repos), "zenodo_record_ids": record_ids, "zenodo_records": len(verified), "zenodo_resources": len(groups),
+              "github_repositories": len(repos), "github_repositories_included": len([name for name in names if not excluded_repository(name)]),
+              "excluded_github_full_names": [name for name in names if excluded_repository(name)],
+              "zenodo_record_ids": record_ids, "zenodo_records": len(verified), "zenodo_resources": len(groups),
               "excluded_zenodo_ids": sorted(set(candidates) - set(record_ids)), "total_cards": len(entries)}
     return entries, status
 

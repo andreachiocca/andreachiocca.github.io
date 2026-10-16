@@ -161,14 +161,17 @@ html { scrollbar-gutter: stable; }
 .previous-projects .research-project:last-child { border-bottom: 0; }
 .home-introduction { display: grid; grid-template-columns: minmax(0,1fr); gap: 1rem; align-items: start; }
 .home-summary { min-width: 0; line-height: 1.7; }
-.home-page .profile { width: 140px; max-width: 100%; margin: 0 auto 1rem !important; float: none; }
-.home-page .profile figure { margin: 0; }
+.home-page .profile { width: 100%; max-width: 320px; margin: 0 auto 1rem !important; float: none; }
+.home-page .profile figure { width: 140px; margin: 0 auto; }
 .home-page .profile img { width: 100%; height: auto; }
-.office-contact { font-size: .8rem; }
-.office-contact p { margin: .25rem 0; }
+.office-contact { font-size: .82rem; font-style: normal; line-height: 1.6; margin: .75rem 0 0; }
+.office-contact p { display: flex; align-items: baseline; gap: .45rem; margin: .25rem 0; }
+.office-contact i { width: 1rem; flex-shrink: 0; color: var(--global-theme-color); text-align: center; }
+.office-contact a { min-width: 0; overflow-wrap: anywhere; display: inline-flex; align-items: center; min-height: 44px; }
 @media (min-width: 700px) {
   .home-introduction { grid-template-columns: minmax(0,1fr) 200px; gap: 1.5rem; }
   .home-page .profile { width: 200px; }
+  .home-page .profile figure { width: 200px; }
 }
 .home-project { border-top: 1px solid var(--global-divider-color); padding-top: .25rem; }
 .home-project h3 { font-size: 1.1rem; }
@@ -212,3 +215,8 @@ html { scrollbar-gutter: stable; }
 .equipment-specifications { font-size: .9rem; }
 .equipment-specifications dt { font-weight: 500; }
 .equipment-specifications dd { margin-bottom: .5rem; }
+.section-icon { color: var(--global-theme-color); font-size: .85em; margin-right: .55em; width: 1.15em; text-align: center; }
+.project-roles { list-style: none; padding: 0; margin: .5rem 0; font-size: .9rem; }
+.project-roles li { margin: .2rem 0; }
+.project-roles a { display: inline-block; min-height: 44px; padding: .5rem 0; }
+.resource-activities strong { display: block; }

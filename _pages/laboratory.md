@@ -15,7 +15,7 @@ This page presents expertise developed through our research activities and a sta
 <p>The linked studies and datasets document existing research experience. New material, component or loading requirements need a project-specific feasibility assessment.</p>
 <div class="feature-grid laboratory-capabilities">{% for resource in site.data.laboratory.capabilities %}{% include resource_card.html resource=resource kind="capability-card" %}{% endfor %}</div>
 
-<h2 id="instrumentation">Instrumentation and experimental methods</h2>
+<h2 id="instrumentation"><i class="far fa-chart-bar section-icon" aria-hidden="true"></i>Instrumentation and experimental methods</h2>
 <p>Previous work brings together the following measurement and analysis activities. This is an overview of research methods, rather than an equipment inventory or a catalogue of testing services.</p>
 <div class="approach-list">{% for method in site.data.laboratory.measurement_context %}<section class="approach"><h3>{{ method.title }}</h3><p>{{ method.description }}</p></section>{% endfor %}</div>
 <p class="scope-note">Machine models, load capacities, loading modes, operating frequencies and environmental conditions are not listed until verified. Contact me to discuss which facilities and measurement systems are suitable for a specific investigation.</p>

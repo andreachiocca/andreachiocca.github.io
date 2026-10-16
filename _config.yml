@@ -190,6 +190,8 @@ exclude:
   - scripts
   - tests
   - README.md
+  - AGENTS.md
+  - WRITING_STYLE.md
   - CONTRIBUTING.md
   - CUSTOMIZE.md
   - FAQ.md

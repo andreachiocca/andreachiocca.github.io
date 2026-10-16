@@ -40,5 +40,12 @@
     "2608559",
     "8214402"
   ],
-  "total_cards": 18
+  "total_cards": 14,
+  "excluded_github_full_names": [
+    "achiocca1/Awesome-CV",
+    "andreachiocca/FatPy",
+    "andreachiocca/andreachiocca.github.io",
+    "andreachiocca/moloch"
+  ],
+  "github_repositories_included": 7
 }

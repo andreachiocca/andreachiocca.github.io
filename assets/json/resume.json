@@ -235,18 +235,40 @@
   "projects": [
     {
       "id": "faber",
-      "name": "FABER — Fatigue Benchmark Repository",
+      "name": "FABER (Fatigue Benchmark Repository)",
       "programme": "COST Action CA23109 · International research network",
-      "role": "Co-Leader of WG3 — Fatigue Estimation Competition",
-      "periodLabel": "Action period: 2024–2028",
+      "role": "Co-Leader of WG3; Participant in WG4.3 and WG5.3",
+      "periodLabel": "Action period 2024–2028",
       "actionStartDate": "2024-09-25",
       "actionEndDate": "2028-09-24",
-      "summary": "An international network developing accessible fatigue datasets, benchmark sets and tools for comparing fatigue-life predictions. WG3 focuses on the fatigue estimation competition.",
+      "summary": "An international network developing accessible fatigue datasets, benchmark sets and tools for comparing fatigue-life predictions.",
       "url": "https://www.cost.eu/actions/CA23109/",
       "project_url": "https://faber-cost.eu/",
       "output_url": "/repositories/#zenodo-21534682",
       "output_label": "FABEST participant package",
-      "highlights": []
+      "highlights": [],
+      "working_groups": [
+        {
+          "id": "WG3",
+          "title": "Fatigue Estimation Competition",
+          "role": "Co-Leader",
+          "url": "https://faber-cost.eu/wg3-fatigue-estimation-competition/"
+        },
+        {
+          "id": "WG4.3",
+          "title": "Multiaxial fatigue",
+          "official_title": "Load Multiaxiality Effect",
+          "role": "Participant",
+          "url": "https://faber-cost.eu/wg4-fatigue-estimation-categories/"
+        },
+        {
+          "id": "WG5.3",
+          "title": "Welding",
+          "official_title": "Welded Joints",
+          "role": "Participant",
+          "url": "https://faber-cost.eu/wg5-compound-problems/"
+        }
+      ]
     },
     {
       "name": "Hybrid joints for lightweight vehicle structures",
