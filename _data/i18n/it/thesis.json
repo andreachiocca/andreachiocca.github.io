@@ -2,43 +2,43 @@
   "welded-structures": {
     "title": "Strutture saldate",
     "mode": "Numerica + sperimentale",
-    "description": "Studia come la saldatura modifica le tensioni e la vita a fatica di un componente. La tesi può collegare simulazioni di processo, misure e prove su giunti saldati.",
+    "description": "La tesi può riguardare gli effetti della saldatura sullo stato di tensione e sulla vita a fatica di un componente, combinando simulazioni del processo, misurazioni e prove su giunti saldati.",
     "activities": "Simulazione della saldatura, modelli termomeccanici agli elementi finiti, valutazione delle tensioni residue, prove di fatica e confronto numerico-sperimentale."
   },
   "multiaxial-fatigue": {
     "title": "Fatica multiassiale dei metalli",
     "mode": "Numerica / computazionale",
-    "description": "Studia il danno a fatica dei metalli soggetti a carichi in più direzioni. Sviluppa e confronta metodi di valutazione, con attività adatte a chi è interessato a meccanica, programmazione e calcolo scientifico.",
+    "description": "La tesi può riguardare l’accumulo di danno da fatica nei metalli soggetti a carichi multiassiali e lo sviluppo e il confronto di metodi di analisi. Le attività sono adatte a chi è interessato alla meccanica, alla programmazione e al calcolo scientifico.",
     "activities": "Criteri di piano critico, algoritmi efficienti, confronto tra modelli, validazione su dati sperimentali e software scientifico in Python."
   },
   "polymer-fatigue": {
     "title": "Comportamento a fatica dei polimeri",
     "mode": "Sperimentale + numerica",
-    "description": "Studia la risposta dei materiali polimerici ai carichi ripetuti e la previsione di vita dei componenti. Il rapporto tra prove e modellazione può essere definito in base ai tuoi interessi e al progetto concordato.",
-    "activities": "Caratterizzazione meccanica e ciclica, modelli costitutivi e di vita a fatica, simulazioni di componenti e validazione sperimentale. Gli effetti della temperatura possono essere considerati quando fattibile."
+    "description": "La tesi può riguardare il comportamento dei materiali polimerici sotto carichi ripetuti e la previsione della vita a fatica dei componenti. Il peso delle attività sperimentali e numeriche può essere definito in base ai tuoi interessi e al progetto concordato.",
+    "activities": "Caratterizzazione meccanica e ciclica, modelli costitutivi e di vita a fatica, simulazioni di componenti e validazione sperimentale. Gli effetti della temperatura possono essere considerati quando le condizioni sperimentali lo consentono."
   },
   "pcb-reliability": {
     "title": "Fatica e affidabilità dei PCB",
     "mode": "Numerica + sperimentale",
-    "description": "Studia l’affidabilità meccanica dei circuiti stampati e degli assemblaggi elettronici. Le possibili applicazioni riguardano componenti soggetti a carichi ciclici o vibrazioni nel settore automobilistico e in altri ambiti ingegneristici.",
+    "description": "La tesi può riguardare l’affidabilità meccanica dei circuiti stampati e degli assemblaggi elettronici. Le possibili applicazioni comprendono componenti soggetti a carichi ciclici o vibrazioni nel settore automobilistico e in altri ambiti ingegneristici.",
     "activities": "Modelli agli elementi finiti di schede e componenti, risposta meccanica e meccanismi di cedimento, stima della vita a fatica e confronto con le misure."
   },
   "ai-structural-integrity": {
     "title": "Intelligenza artificiale e integrità strutturale",
     "mode": "Numerica / computazionale · esplorativa",
-    "description": "Valuta se i metodi basati sui dati possono supportare la previsione a fatica e la verifica strutturale. I progetti dipendono da dati adatti, collaboratori e obiettivi concordati. Si tratta di possibili sviluppi, non di strumenti già consolidati o validati.",
+    "description": "Una possibile attività di tesi riguarda l’impiego di metodi basati sui dati per la previsione del comportamento a fatica e la verifica strutturale. La definizione del progetto dipende dalla disponibilità di dati adatti, dalle collaborazioni di ricerca e dagli obiettivi concordati. Si tratta di sviluppi da esplorare, la cui applicabilità e validazione devono essere valutate.",
     "activities": "Confronto di metodi di apprendimento automatico, integrazione di modelli fisici e basati sui dati, modelli surrogati e interpretazione di dati sperimentali rispetto a risultati di riferimento."
   },
   "computational": {
     "title": "Numerica / computazionale",
-    "description": "Simulazioni agli elementi finiti, metodi analitici, programmazione e sviluppo di algoritmi. Confronta i modelli e verifica le previsioni con dati di riferimento."
+    "description": "Simulazioni agli elementi finiti, metodi analitici, programmazione e sviluppo di algoritmi. Le attività comprendono il confronto tra modelli e la verifica delle previsioni rispetto a dati di riferimento."
   },
   "experimental": {
     "title": "Sperimentale",
-    "description": "Prove di laboratorio, caratterizzazione dei provini, misure e acquisizione dati. Interpreta i risultati per comprendere il comportamento di materiali e componenti."
+    "description": "Prove di laboratorio, caratterizzazione dei provini, misure e acquisizione dati. L’interpretazione dei risultati consente di studiare il comportamento di materiali e componenti."
   },
   "combined": {
-    "title": "Combinata",
-    "description": "Sviluppa un modello numerico supportato da prove. Correla simulazioni e misure e valida metodi di verifica strutturale o di valutazione a fatica."
+    "title": "Mista",
+    "description": "Sviluppo di un modello numerico affiancato da prove sperimentali. Il confronto tra simulazioni e misurazioni consente di validare metodi di verifica strutturale o di analisi a fatica."
   }
 }

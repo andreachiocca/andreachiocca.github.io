@@ -9,15 +9,15 @@
   },
   "joints-structures": {
     "title": "Giunti e integrità strutturale",
-    "description": "Collegare misure e analisi computazionale per valutare componenti saldati e giunti meccanici, considerando tensioni residue e risposta a fatica."
+    "description": "Integrare misurazioni e analisi numeriche per valutare componenti saldati e giunti meccanici, tenendo conto delle tensioni residue e della risposta a fatica."
   },
   "model-validation": {
-    "title": "Validazione numerico-sperimentale",
-    "description": "Combinare analisi agli elementi finiti e misure meccaniche per esaminare le previsioni dei modelli. L’esperienza comprende misure di deformazione, vibrazione e temperatura e correlazioni a livello di componente."
+    "title": "Validazione di modelli numerici",
+    "description": "Combinare analisi agli elementi finiti e misurazioni meccaniche per verificare le previsioni dei modelli. L’esperienza comprende misure di deformazione, vibrazione e temperatura e il confronto tra simulazioni e prove su componenti."
   },
   "engineering-analysis": {
     "title": "Dati e metodi per l’ingegneria",
-    "description": "Elaborare dati sperimentali, sviluppare software scientifico e confrontare metodi analitici o computazionali. Dati riproducibili e algoritmi documentati supportano l’interpretazione e la validazione dei modelli."
+    "description": "Elaborare dati sperimentali, sviluppare software scientifici e confrontare metodi analitici o numerici. Raccolte di dati riproducibili e algoritmi documentati contribuiscono all’interpretazione dei risultati e alla validazione dei modelli."
   },
   "material-response": {
     "title": "Risposta di materiali e giunti",
@@ -25,7 +25,7 @@
   },
   "physical-measurements": {
     "title": "Deformazioni, vibrazioni e temperatura",
-    "description": "Queste categorie di misura sono presenti nelle ricerche esistenti. Sensori, impostazioni di acquisizione, intervalli operativi e accesso alle strutture devono essere verificati per ogni indagine."
+    "description": "Le ricerche svolte comprendono misure di deformazione, vibrazione e temperatura. Sensori, impostazioni di acquisizione, intervalli operativi e accesso ai laboratori devono essere verificati per ogni studio."
   },
   "model-correlation": {
     "title": "Correlazione con i modelli ed elaborazione dei dati",

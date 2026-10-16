@@ -1,9 +1,9 @@
 {
   "multiaxial-fatigue": {
-    "description": "Libreria Python e catalogo di metodi sviluppati nell’ambito di FABER WG4.3 per confrontare criteri di fatica multiassiale. I calcoli attuali considerano cicli di tensione armonici a frequenza singola per geometrie lisce o prive di intagli.",
+    "description": "Libreria Python e catalogo di metodi sviluppati nell’ambito di FABER WG4.3 per confrontare criteri di fatica multiassiale. I calcoli attuali considerano cicli di tensione armonici a un’unica frequenza per geometrie lisce, prive di intagli.",
     "topic": "Fatica multiassiale",
     "development_note": "In sviluppo. La validazione scientifica indipendente resta da completare.",
-    "scope_note": "Sviluppo in corso. Alcuni metodi sono parziali o richiedono revisione. La validazione indipendente su dati pubblicati o sperimentali resta da completare. Storie ad ampiezza variabile, gradienti di tensione presso gli intagli e plasticità costitutiva sono sviluppi futuri. L’articolo di rassegna è in preparazione."
+    "scope_note": "Sviluppo in corso. Alcuni metodi sono parziali o richiedono revisione. La validazione indipendente su dati pubblicati o sperimentali resta da completare. Storie ad ampiezza variabile, gradienti di tensione in corrispondenza degli intagli e plasticità costitutiva sono sviluppi futuri. L’articolo di rassegna è in preparazione."
   },
   "zenodo-21534682": {
     "description": "Materiale per i partecipanti alla previsione alla cieca della vita a fatica dell’acciaio 42CrMo4+QT sotto carichi multiassiali ad alto numero di cicli. Comprende regolamento, dati di calibrazione, casi di carico, informazioni sui provini e modelli per l’invio dei risultati.",
@@ -19,7 +19,7 @@
     "scope_note": "Dati di supporto. Zenodo classifica il record come Journal. Il record è elencato separatamente dall’articolo associato."
   },
   "github-achiocca1-ECP": {
-    "description": "Routine MATLAB per valutare la fatica mediante campi di tensione e deformazione mediati su un volume dipendente dal materiale. Comprende post-processing ANSYS, valutazione del piano critico, dati di calibrazione ed esempi.",
+    "description": "Routine MATLAB per eseguire l’analisi a fatica mediante campi di tensione e deformazione mediati su un volume dipendente dal materiale. Comprende post-processing ANSYS, valutazione del piano critico, dati di calibrazione ed esempi.",
     "topic": "Fatica multiassiale"
   },
   "github-achiocca1-CPOpt-v1.0": {
@@ -31,12 +31,12 @@
     "topic": "Metodi di piano critico"
   },
   "zenodo-14198237": {
-    "description": "Dati grezzi ed elaborati di fatica della ghisa sferoidale a supporto della valutazione ECP sotto carichi multiassiali e non proporzionali. Comprendono vita sperimentale, parametro di danno e vita prevista.",
+    "description": "Dati grezzi ed elaborati di fatica della ghisa sferoidale a supporto della valutazione ECP sotto carichi multiassiali e non proporzionali. Comprendono vita a fatica sperimentale, parametro di danno e vita a fatica prevista.",
     "topic": "Fatica multiassiale",
     "scope_note": "Dati di supporto. Zenodo classifica il record come Data paper. Il record è elencato separatamente dall’articolo associato."
   },
   "github-achiocca1-SeAn-CP": {
-    "description": "Valutazione semi-analitica dei fattori di fatica sul piano critico, anche per carichi non proporzionali e plasticità del materiale. Implementazione MATLAB associata al metodo pubblicato.",
+    "description": "Valutazione semianalitica dei fattori di fatica sul piano critico, anche per carichi non proporzionali e plasticità del materiale. Implementazione MATLAB associata al metodo pubblicato.",
     "topic": "Metodi di piano critico"
   },
   "github-achiocca1-FS-Sol": {
@@ -44,7 +44,7 @@
     "topic": "Metodi di piano critico"
   },
   "zenodo-12741922": {
-    "description": "Misure sperimentali di tempo, spostamento e forza da prove di trazione su giunti ibridi rivettati autoperforanti PEEL e LAP, con e senza adesivo.",
+    "description": "Misure sperimentali di tempo, spostamento e forza da prove di trazione su giunti ibridi con rivetti autoperforanti PEEL e LAP, con e senza adesivo.",
     "topic": "Meccanica sperimentale"
   },
   "zenodo-12721131": {

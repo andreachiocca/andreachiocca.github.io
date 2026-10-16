@@ -1,5 +1,5 @@
 <p><a href="{{ '/teaching/' | local_url | relative_url }}">← {{ "All courses and student resources" | t }}</a></p>
-<p><strong>University of Pisa</strong> · {{ page.teaching_period }} · {{ page.teaching_role | t }}.</p>
+<p><strong>{{ "University of Pisa" | institution_display }}</strong> · {{ page.teaching_period }} · {{ page.teaching_role | t }}.</p>
 {% assign materials = site.data.teaching_materials[page.materials_key] %}
 {% if materials.size > 0 %}
 <p>{{ "Public resources are in Italian. Shared materials are not assigned to a specific academic year; consult the official course information for current requirements." | t }}</p>

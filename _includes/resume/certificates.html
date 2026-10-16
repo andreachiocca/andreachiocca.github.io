@@ -3,7 +3,7 @@
 {% for certificate in certificates %}
 <li class="mb-3">
   <h3 class="h5">{% if certificate.url %}<a href="{{ certificate.url }}">{{ certificate.name }}</a>{% else %}{{ certificate.name }}{% endif %}</h3>
-  <p>{{ certificate.issuer }} · {{ certificate.date }}</p>
+  <p>{{ certificate.issuer | institution_display }} · {{ certificate.date }}</p>
 </li>
 {% endfor %}
 </ul>
