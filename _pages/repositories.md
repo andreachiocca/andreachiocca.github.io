@@ -20,7 +20,7 @@ catalogue: true
     <button type="button" data-filter="data" aria-pressed="false" aria-controls="output-grid" aria-label="{{ "Datasets and benchmarks" | t }}">{{ "Datasets" | t }}</button>
     <button type="button" data-filter="other" aria-pressed="false" aria-controls="output-grid">{{ "Other outputs" | t }}</button>
   </div>
-  <p id="output-count" class="catalogue-count" data-count-template="{{ "{visible} of {total} resources shown." | t }}" role="status" aria-live="polite" aria-atomic="true">{{ site.data.research_outputs.size }} {{ "resources · Selected research first." | t }}</p>
+  <p id="output-count" class="catalogue-count" data-count-template="{{ "%visible% of %total% resources shown." | t }}" role="status" aria-live="polite" aria-atomic="true">{{ site.data.research_outputs.size }} {{ "resources · Selected research first." | t }}</p>
   <div id="output-grid" class="output-grid">
     {% for output in site.data.research_outputs %}{% include research_output.html %}{% endfor %}
   </div>

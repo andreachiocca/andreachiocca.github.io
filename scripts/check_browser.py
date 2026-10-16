@@ -96,19 +96,21 @@ def check_browser(root):
                     labels = 'Home|Ricerca|Pubblicazioni|Repository|Laboratorio|Didattica|CV' if route.startswith('/it/') else 'Home|Research|Publications|Repositories|Laboratory|Teaching|CV'
                     expect(evaluate("[...document.querySelectorAll('#navbar .nav-link')].map(a => a.textContent.trim()).join('|') === " + json.dumps(labels)), 'shared navigation order on ' + route)
                     expect(evaluate("document.querySelectorAll('.language-link').length === 2 && document.querySelectorAll('.language-link[aria-current]').length === 1"), 'language selector on ' + route)
-                    if route in ('/thesis/', '/laboratory/'):
+                    canonical_route = route[3:] if route.startswith('/it/') else route
+                    italian = route.startswith('/it/')
+                    if canonical_route in ('/thesis/', '/laboratory/'):
                         expect(evaluate("[...document.querySelectorAll('.feature-card')].every(card => card.getBoundingClientRect().width >= 280 && card.getBoundingClientRect().right <= innerWidth)"), f'narrow or overflowing resource cards at {width}px on {route}')
                         expect(evaluate("[...document.querySelectorAll('.feature-card .inline-links a, .contact-link, .page-paths a, .institution-list a')].every(a => a.getBoundingClientRect().height >= 44)"), 'resource touch targets on ' + route)
                         expect(evaluate("[...document.querySelectorAll('.feature-card')].every(card => card.querySelector('h3')?.textContent.trim() && card.querySelector('p')?.textContent.trim())"), 'empty resource cards on ' + route)
-                    if route == '/thesis/':
+                    if canonical_route == '/thesis/':
                         expect(evaluate("document.querySelectorAll('.thesis-topic').length === 5 && document.querySelectorAll('#ways-of-working + p + .approach-list .approach').length === 3"), 'thesis directions and approaches')
-                        expect(evaluate("document.querySelector('#navbar .nav-link[aria-current]').textContent.trim() === 'Teaching'"), 'Teaching parent of thesis page')
-                    if route == '/research/' or route == '/cv/':
+                        expect(evaluate("document.querySelector('#navbar .nav-link[aria-current]').textContent.trim() === " + json.dumps('Didattica' if italian else 'Teaching') + ""), 'Teaching parent of thesis page')
+                    if canonical_route in ('/research/', '/cv/'):
                         expect(evaluate("[...document.querySelectorAll('[data-project=faber] .project-roles li')].some(li => li.textContent.includes('WG3,') && li.textContent.includes('Co-Leader'))"), 'FABER WG3 role missing on ' + route)
                         for group in ('WG4.3', 'WG5.3'):
-                            expect(evaluate("[...document.querySelectorAll('[data-project=faber] .project-roles li')].some(li => li.textContent.includes(" + json.dumps(group) + ") && li.textContent.includes('Participant'))"), 'FABER Participant role missing on ' + route)
+                            expect(evaluate("[...document.querySelectorAll('[data-project=faber] .project-roles li')].some(li => li.textContent.includes(" + json.dumps(group) + ") && li.textContent.includes(" + json.dumps('Partecipante' if italian else 'Participant') + "))"), 'FABER Participant role missing on ' + route)
                         expect(evaluate("!document.querySelector('main').textContent.includes('2025 - 2025')"), 'duplicated project date on ' + route)
-                    if route == '/repositories/':
+                    if canonical_route == '/repositories/':
                         expect(evaluate("document.querySelector('h1').getBoundingClientRect().top >= document.getElementById('navbar').getBoundingClientRect().bottom"), f'catalogue behind navigation at {width}px')
                         expect(evaluate("[...document.querySelectorAll('.research-output')].every(card => {const r = card.getBoundingClientRect(); return r.left >= 0 && r.right <= innerWidth;})"), f'catalogue card overflow at {width}px')
                         expect(evaluate("[...document.querySelectorAll('.output-links a, .catalogue-filters button, .output-details summary')].every(link => link.getBoundingClientRect().height >= 44)"), f'catalogue touch targets at {width}px')
@@ -128,7 +130,7 @@ def check_browser(root):
                             expect(evaluate("document.querySelector('[data-filter=other]').getAttribute('aria-pressed') === 'true'"), 'keyboard catalogue filter')
                             evaluate("document.querySelector('[data-filter=all]').click()")
                             expect(evaluate("document.querySelectorAll('.research-output:not([hidden])').length") == total, 'catalogue filter reset')
-                    if route == '/publications/' and width == 390:
+                    if canonical_route == '/publications/' and width == 390:
                         total_publications = evaluate("document.querySelectorAll('ol.bibliography > li').length")
                         expect(evaluate("!document.getElementById('bibsearch').hidden"), 'publication filter not initialized')
                         evaluate("document.getElementById('bibsearch').value='2026'; document.getElementById('bibsearch').dispatchEvent(new Event('input'))")
@@ -139,11 +141,11 @@ def check_browser(root):
                         command('Input.dispatchKeyEvent', {'type': 'keyDown', 'key': 'Enter', 'code': 'Enter', 'windowsVirtualKeyCode': 13, 'text': '\r', 'unmodifiedText': '\r'})
                         command('Input.dispatchKeyEvent', {'type': 'keyUp', 'key': 'Enter', 'code': 'Enter', 'windowsVirtualKeyCode': 13})
                         expect(evaluate("document.querySelector('details').open"), 'keyboard publication disclosure')
-                    if route == '/':
+                    if canonical_route == '/':
                         expect(evaluate("document.querySelector('.office-contact')?.tagName === 'ADDRESS' && !document.querySelector('.office-contact').closest('details') && document.querySelector('.office-contact a[href^=mailto]').getBoundingClientRect().height >= 44"), 'office contact must remain visible')
                         expect(evaluate("document.querySelectorAll('.recent-publications ol.bibliography > li').length === 5"), 'five recent publications on homepage')
                         expect(evaluate("[...document.querySelectorAll('.section-icon')].every(i => i.getAttribute('aria-hidden') === 'true' && getComputedStyle(i,'::before').content !== 'none')"), 'decorative icon accessibility and glyphs')
-                    if route == '/' and width == 390:
+                    if canonical_route == '/' and width == 390:
                         evaluate("document.querySelector('.skip-link').focus()")
                         command('Input.dispatchKeyEvent', {'type': 'keyDown', 'key': 'Enter', 'code': 'Enter', 'windowsVirtualKeyCode': 13, 'text': '\r', 'unmodifiedText': '\r'})
                         command('Input.dispatchKeyEvent', {'type': 'keyUp', 'key': 'Enter', 'code': 'Enter', 'windowsVirtualKeyCode': 13})

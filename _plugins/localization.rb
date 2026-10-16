@@ -28,7 +28,7 @@ module Jekyll
         Jekyll.logger.warn 'Translation missing:', "#{group}/#{record['id']}; English description retained"
         return record.merge('_translation_missing' => true)
       end
-      forbidden = %w[id url doi github_url github_full_name zenodo_record_id creators startDate endDate actionStartDate actionEndDate]
+      forbidden = %w[id url doi github_url github_full_name zenodo_record_id creators startDate endDate actionStartDate actionEndDate date year institution name programme working_groups links further specifications verification_source]
       forbidden += %w[title name] if %w[outputs projects resume].include?(group)
       raise Jekyll::Errors::FatalException, "Translation overrides canonical fields: #{group}/#{record['id']}" unless (override.keys & forbidden).empty?
       record.merge(override)
@@ -68,6 +68,10 @@ module Jekyll
         translated.content = source.content
         translated.data = JSON.parse(JSON.generate(source.data)).merge(metadata)
         translated.data.merge!('lang' => 'it', 'permalink' => '/it' + source.url, 'section' => source.data['section'] || (source.is_a?(Document) ? 'teaching' : nil))
+        if source.is_a?(Document)
+          translated.data['description'] = source.data['description']
+          translated.data['seo_description'] = metadata['description']
+        end
         site.pages << translated
         site.config['academic_localized_routes'][source.url] = translated.url
       end
