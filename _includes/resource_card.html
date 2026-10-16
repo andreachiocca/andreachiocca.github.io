@@ -1,6 +1,6 @@
 {% assign resource = include.resource %}
 <section class="feature-card {{ include.kind }}" id="{{ resource.id | escape }}">
-  {% if resource.image %}<img class="resource-image" src="{{ resource.image | relative_url }}" alt="{{ resource.image_alt | escape }}" loading="lazy" width="{{ resource.image_width }}" height="{{ resource.image_height }}">{% endif %}
+  {% if resource.image %}<img class="resource-image" src="{{ resource.image | local_url | relative_url }}" alt="{{ resource.image_alt | escape }}" loading="lazy" width="{{ resource.image_width }}" height="{{ resource.image_height }}">{% endif %}
   {% if resource.icon %}<i class="fas {{ resource.icon | escape }} resource-icon" aria-hidden="true"></i>{% endif %}
   {% if resource.mode %}<p class="resource-mode">{{ resource.mode }}</p>{% endif %}
   <h3>{{ resource.title }}</h3>
@@ -10,5 +10,5 @@
   {% if resource.supervisors %}<p><strong>Supervision</strong> {{ resource.supervisors }}</p>{% endif %}
   {% if resource.host or resource.location %}<p>{{ resource.host }}{% if resource.host and resource.location %} · {% endif %}{{ resource.location }}</p>{% endif %}
   {% if resource.specifications.size > 0 %}<dl class="equipment-specifications">{% for spec in resource.specifications %}<dt>{{ spec.label }}</dt><dd>{{ spec.value }}</dd>{% endfor %}</dl>{% endif %}
-  {% if resource.links.size > 0 %}<ul class="inline-links" aria-label="Related resources for {{ resource.title | escape }}">{% for link in resource.links %}<li><a href="{{ link.url | relative_url }}">{{ link.label }}</a></li>{% endfor %}</ul>{% endif %}
+  {% if resource.links.size > 0 %}<ul class="inline-links" aria-label="Related resources for {{ resource.title | escape }}">{% for link in resource.links %}<li><a href="{{ link.url | local_url | relative_url }}">{{ link.label }}</a></li>{% endfor %}</ul>{% endif %}
 </section>

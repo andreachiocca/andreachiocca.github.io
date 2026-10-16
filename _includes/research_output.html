@@ -17,7 +17,7 @@
     {% if output.zenodo_record_id %}<li><a href="{{ output.url | escape }}">Zenodo<span class="sr-only">: {{ output.title | escape }}</span></a></li>{% elsif output.source == 'Mendeley' %}<li><a href="{{ output.url | escape }}">Mendeley<span class="sr-only">: {{ output.title | escape }}</span></a></li>{% endif %}
     {% if output.doi %}<li><a href="https://doi.org/{{ output.doi | escape }}">DOI<span class="sr-only">: {{ output.doi }}</span></a></li>{% endif %}
     {% if output.documentation_url %}<li><a href="{{ output.documentation_url | escape }}">Documentation<span class="sr-only">: {{ output.title | escape }}</span></a></li>{% endif %}
-    {% if output.research_anchor %}<li><a href="{{ '/research/' | relative_url }}#{{ output.research_anchor }}">Research context</a></li>{% endif %}
+    {% if output.research_anchor %}<li><a href="{{ '/research/' | local_url | relative_url }}#{{ output.research_anchor }}">Research context</a></li>{% endif %}
   </ul>
   <details class="output-details">
     <summary>Record details<span class="sr-only">: {{ output.display_title | default: output.title | escape }}</span></summary>
@@ -29,7 +29,7 @@
     {% if output.upstream_url %}<p>Fork of <a href="{{ output.upstream_url | escape }}">{{ output.upstream_url | remove: 'https://github.com/' | escape }}</a>. Upstream authorship is retained.</p>{% endif %}
     {% if output.mirror_url %}<p>Mirror of <a href="{{ output.mirror_url | escape }}">{{ output.mirror_url | escape }}</a>.</p>{% endif %}
     {% if output.scope_note %}<p>{{ output.scope_note | escape }}</p>{% endif %}
-    {% if output.related_publications.size > 0 %}<p>Related publication{% if output.related_publications.size > 1 %}s{% endif %}: {% for key in output.related_publications %}<a href="{{ '/publications/' | relative_url }}#{{ key }}">bibliography entry {{ forloop.index }}</a>{% unless forloop.last %}; {% endunless %}{% endfor %}.</p>{% endif %}
+    {% if output.related_publications.size > 0 %}<p>Related publication{% if output.related_publications.size > 1 %}s{% endif %}: {% for key in output.related_publications %}<a href="{{ '/publications/' | local_url | relative_url }}#{{ key }}">bibliography entry {{ forloop.index }}</a>{% unless forloop.last %}; {% endunless %}{% endfor %}.</p>{% endif %}
     {% if output.doi %}<p><strong>Version DOI:</strong> <a href="https://doi.org/{{ output.doi | escape }}">{{ output.doi }}</a></p>{% endif %}
     {% if output.concept_doi %}<p><strong>All versions:</strong> <a href="https://doi.org/{{ output.concept_doi | escape }}">{{ output.concept_doi }}</a></p>{% endif %}
     {% if output.earlier_versions.size > 0 %}<p>Earlier versions of this resource:</p><ul>{% for version in output.earlier_versions %}<li><a href="{{ version.url | escape }}">{{ version.version | escape }}</a> · <a href="https://doi.org/{{ version.doi | escape }}">{{ version.doi }}</a></li>{% endfor %}</ul>{% endif %}

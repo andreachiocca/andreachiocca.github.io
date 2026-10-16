@@ -1,4 +1,6 @@
 ---
+lang: en
+translation_key: thesis
 layout: page
 title: Thesis Opportunities
 permalink: /thesis/
@@ -18,7 +20,7 @@ These are research directions to develop together, rather than a list of current
 <h2 id="ways-of-working">Choose how you work</h2>
 <p>You can focus on computation, experiments, or their combination. The activity labels above are starting points; we will agree a feasible approach for your thesis.</p>
 <div class="approach-list">{% for approach in site.data.thesis_opportunities.approaches %}<section class="approach"><h3>{{ approach.title }}</h3><p>{{ approach.description }}</p></section>{% endfor %}</div>
-<ul class="inline-links"><li><a href="{{ '/laboratory/' | relative_url }}">Explore experimental capabilities</a></li><li><a href="{{ '/teaching/' | relative_url }}">Courses and materials</a></li></ul>
+<ul class="inline-links"><li><a href="{{ '/laboratory/' | local_url | relative_url }}">Explore experimental capabilities</a></li><li><a href="{{ '/teaching/' | local_url | relative_url }}">Courses and materials</a></li></ul>
 
 {% if site.data.thesis_opportunities.projects.size > 0 %}
 <h2 id="specific-projects">Specific thesis projects</h2>

@@ -1,0 +1,5 @@
+{% assign current_language = page.lang | default: 'en' %}
+<div class="language-selector" role="group" aria-label="{{ 'Language' | t }}">
+  <a class="language-link" href="{{ page.alternates.en | default: '/' | relative_url }}" lang="en" hreflang="en" aria-label="{{ 'Read in English' | t }}"{% if current_language == 'en' %} aria-current="true"{% endif %}>EN</a><span aria-hidden="true">|</span>
+  <a class="language-link" href="{{ page.alternates.it | default: '/it/' | relative_url }}" lang="it" hreflang="it" aria-label="{% if page.alternates.it %}{{ 'Read in Italian' | t }}{% else %}{{ 'Italian translation unavailable; open Italian homepage' | t }}{% endif %}"{% if current_language == 'it' %} aria-current="true"{% endif %}>IT{% unless page.alternates.it %}<span class="language-fallback"> (home)</span>{% endunless %}</a>
+</div>

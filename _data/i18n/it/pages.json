@@ -1,0 +1,11 @@
+{
+  "home": {
+    "title": "Home",
+    "description": "Andrea Chiocca, ricerca su fatica e integrità strutturale, attività sperimentali, pubblicazioni e proposte di tesi.",
+    "subtitle": "Ricercatore in progettazione meccanica (contratto di ricerca) presso il <a href='https://www.dici.unipi.it/'>Department of Civil and Industrial Engineering</a>, <a href='https://www.unipi.it/'>University of Pisa</a>"
+  },
+  "research": {
+    "title": "Ricerca",
+    "description": "Valutazione a fatica, giunti saldati, manifattura additiva e caratterizzazione di materiali e componenti presso la University of Pisa."
+  }
+}

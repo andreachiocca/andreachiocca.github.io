@@ -74,6 +74,7 @@ def check_browser(root):
             command('Page.enable')
             origin = 'http://127.0.0.1:' + str(server.server_port)
             routes = ['/', '/publications/', '/research/', '/repositories/', '/teaching/', '/cv/', '/thesis/', '/laboratory/']
+            routes += ['/' + p.relative_to(root).as_posix().removesuffix('index.html') for p in sorted((root / 'it').rglob('*.html'))]
             for path in sorted(root.rglob('*.html')):
                 if '/projects/' in '/' + path.relative_to(root).as_posix():
                     route = '/' + path.relative_to(root).as_posix().removesuffix('index.html')
@@ -92,7 +93,9 @@ def check_browser(root):
                     expect(evaluate("Array.from(document.images).every(img => !img.complete || img.naturalWidth > 0)"), 'broken loaded image on ' + route)
                     expect(evaluate("document.querySelectorAll('#navbar .nav-link[aria-current]').length === 1"), 'unique active navigation on ' + route)
                     expect(evaluate("document.querySelector('h1').getBoundingClientRect().top >= document.getElementById('navbar').getBoundingClientRect().bottom"), 'header obscures title on ' + route)
-                    expect(evaluate("[...document.querySelectorAll('#navbar .nav-link')].map(a => a.textContent.trim()).join('|') === 'Home|Research|Publications|Repositories|Laboratory|Teaching|CV'"), 'shared navigation order on ' + route)
+                    labels = 'Home|Ricerca|Pubblicazioni|Repository|Laboratorio|Didattica|CV' if route.startswith('/it/') else 'Home|Research|Publications|Repositories|Laboratory|Teaching|CV'
+                    expect(evaluate("[...document.querySelectorAll('#navbar .nav-link')].map(a => a.textContent.trim()).join('|') === " + json.dumps(labels)), 'shared navigation order on ' + route)
+                    expect(evaluate("document.querySelectorAll('.language-link').length === 2 && document.querySelectorAll('.language-link[aria-current]').length === 1"), 'language selector on ' + route)
                     if route in ('/thesis/', '/laboratory/'):
                         expect(evaluate("[...document.querySelectorAll('.feature-card')].every(card => card.getBoundingClientRect().width >= 280 && card.getBoundingClientRect().right <= innerWidth)"), f'narrow or overflowing resource cards at {width}px on {route}')
                         expect(evaluate("[...document.querySelectorAll('.feature-card .inline-links a, .contact-link, .page-paths a, .institution-list a')].every(a => a.getBoundingClientRect().height >= 44)"), 'resource touch targets on ' + route)

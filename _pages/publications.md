@@ -1,4 +1,6 @@
 ---
+lang: en
+translation_key: publications
 layout: page
 permalink: /publications/
 title: Publications
@@ -7,7 +9,7 @@ nav: true
 nav_order: 2
 ---
 
-Journal articles, conference contributions and my doctoral thesis are listed separately below. [Research software, datasets and benchmark packages]({{ '/repositories/' | relative_url }}) have their own catalogue.
+Journal articles, conference contributions and my doctoral thesis are listed separately below. [Research software, datasets and benchmark packages]({{ '/repositories/' | local_url | relative_url }}) have their own catalogue.
 
 {% include bib_search.liquid %}
 
@@ -26,4 +28,4 @@ Journal articles, conference contributions and my doctoral thesis are listed sep
 </section>
 </div>
 
-<p id="Moda2022a">The Rosenthal-solution dataset is listed under <a href="{{ '/repositories/' | relative_url }}#Moda2022a">research outputs</a>.</p>
+<p id="Moda2022a">The Rosenthal-solution dataset is listed under <a href="{{ '/repositories/' | local_url | relative_url }}#Moda2022a">research outputs</a>.</p>

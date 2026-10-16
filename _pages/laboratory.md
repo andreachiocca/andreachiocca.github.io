@@ -1,4 +1,6 @@
 ---
+lang: en
+translation_key: laboratory
 layout: page
 title: Laboratory & Experimental Capabilities
 permalink: /laboratory/
@@ -27,4 +29,4 @@ This page presents expertise developed through our research activities and a sta
 
 <section id="laboratory-collaboration" class="collaboration-panel" aria-labelledby="laboratory-contact-title"><h2 id="laboratory-contact-title">Discuss an investigation or research collaboration</h2><p>I welcome enquiries from university groups and industrial R&amp;D teams about joint research, experimental campaigns, numerical–experimental studies, research proposals, material and component investigations, and method development.</p><p>Share the scientific question, material or component, expected loading and measurements, and any timing constraints. Activities depend on laboratory availability, technical feasibility, institutional procedures and an agreed project scope.</p><a class="contact-link" href="mailto:andrea.chiocca@unipi.it?subject=Experimental%20Investigation%20and%20Research%20Collaboration">andrea.chiocca@unipi.it</a></section>
 
-<ul class="inline-links"><li><a href="{{ '/research/' | relative_url }}#projects">Research projects</a></li><li><a href="{{ '/publications/' | relative_url }}">Publications</a></li><li><a href="{{ '/repositories/' | relative_url }}">Software and research data</a></li><li><a href="{{ '/thesis/' | relative_url }}">Thesis opportunities</a></li></ul>
+<ul class="inline-links"><li><a href="{{ '/research/' | local_url | relative_url }}#projects">Research projects</a></li><li><a href="{{ '/publications/' | local_url | relative_url }}">Publications</a></li><li><a href="{{ '/repositories/' | local_url | relative_url }}">Software and research data</a></li><li><a href="{{ '/thesis/' | local_url | relative_url }}">Thesis opportunities</a></li></ul>

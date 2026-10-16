@@ -56,7 +56,7 @@
     {% if page.og_image or site.og_image -%}
     <meta property="og:image" content="{%- if page.og_image -%}{{ page.og_image }}{%- else -%}{{ site.og_image }}{%- endif -%}" />
     {%- endif %}
-    <meta property="og:locale" content="{{ site.lang }}" />
+    <meta property="og:locale" content="{% if page.lang == 'it' %}it_IT{% else %}en_GB{% endif %}" />
 
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary" />
@@ -247,6 +247,7 @@
           "url": {{ page.url | absolute_url | jsonify }},
           "name": {{ page.title | default: person_name | jsonify }},
           "description": {{ page.description | default: site.description | strip_html | jsonify }},
+          "inLanguage": {{ page.lang | default: site.lang | jsonify }},
           "isPartOf": { "@id": {{ website_id | jsonify }} },
           "about": { "@id": {{ person_id | jsonify }} }
         }

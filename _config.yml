@@ -428,3 +428,6 @@ jsonresume:
 
 # Publication filtering uses a small local script; all entries remain readable without JavaScript.
 bib_search: true
+
+# Italian page pairs are enabled after pilot verification.
+academic_languages: [home, research]

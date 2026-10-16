@@ -277,7 +277,8 @@
       "summary": "Experimental characterisation, theoretical modelling and CAE simulation of joints between dissimilar metals.",
       "highlights": [],
       "programme": "PRIN PNRR 2022",
-      "role": "Project team member"
+      "role": "Project team member",
+      "id": "hybrid-joints"
     },
     {
       "name": "Extrusion-based additive manufacturing",
@@ -286,7 +287,8 @@
       "summary": "Research on process optimisation for extrusion-based additive manufacturing of metal and ceramic components.",
       "highlights": [],
       "programme": "PRA 2022 · University of Pisa",
-      "role": "Project co-lead"
+      "role": "Project co-lead",
+      "id": "extrusion-additive-manufacturing"
     },
     {
       "id": "pon-automotive",

@@ -1,0 +1,22 @@
+{
+  "multiaxial-fatigue-and-critical-plane-methods": {
+    "title": "Valutazione a fatica",
+    "summary": "Studio il danneggiamento dei componenti meccanici sottoposti a carichi ripetuti, anche multidirezionali. Sviluppo e confronto metodi del piano critico che mettono in relazione tensioni e deformazioni locali con la vita a fatica. L’obiettivo è rendere la valutazione dei componenti intagliati e saldati più pratica e riproducibile.",
+    "methods": "Modelli analitici e semianalitici; elaborazione dei risultati agli elementi finiti; confronto con prove di fatica."
+  },
+  "residual-stresses-and-welded-structures": {
+    "title": "Strutture saldate e tensioni residue",
+    "summary": "La saldatura introduce tensioni nel componente prima della sua entrata in servizio. Studio l’interazione tra queste tensioni residue e i carichi applicati, e i suoi effetti sulla vita a fatica. Combino simulazioni e misure per analizzare i giunti saldati e collegare le condizioni di fabbricazione alla risposta strutturale.",
+    "methods": "Analisi termostrutturali agli elementi finiti; valutazione delle tensioni residue; prove sperimentali di fatica."
+  },
+  "additive-manufacturing-and-material-behaviour": {
+    "title": "Manifattura additiva",
+    "summary": "Studio il comportamento meccanico delle strutture prodotte mediante manifattura additiva e gli effetti termici dei processi di fabbricazione. Il lavoro comprende elementi strutturali rappresentativi per la valutazione a fatica e modelli analitici dei processi di saldatura e manifattura additiva dei metalli. Questi approcci collegano condizioni di processo, comportamento del materiale e analisi del componente.",
+    "methods": "Modelli analitici di trasmissione del calore; analisi agli elementi finiti; caratterizzazione sperimentale."
+  },
+  "component-testing-and-industrial-applications": {
+    "title": "Prove su materiali e componenti",
+    "summary": "Caratterizzo la risposta di materiali e giunti a carichi statici e ripetuti, considerando anche gli effetti della temperatura. Le applicazioni comprendono compositi polimerici, giunti ibridi rivettati, componenti automobilistici e circuiti stampati. Il lavoro collega misure di laboratorio e modelli computazionali per comprendere il comportamento strutturale nelle applicazioni ingegneristiche.",
+    "methods": "Prove statiche e di fatica; misure di deformazione, vibrazione e temperatura; modellazione computazionale."
+  }
+}

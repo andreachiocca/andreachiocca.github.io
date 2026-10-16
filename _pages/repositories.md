@@ -1,4 +1,6 @@
 ---
+lang: en
+translation_key: repositories
 layout: page
 permalink: /repositories/
 title: Repositories & Research Outputs
@@ -10,7 +12,7 @@ catalogue: true
 ---
 
 <div class="output-catalogue">
-  <p>Code and data supporting my <a href="{{ '/research/' | relative_url }}">research</a> and <a href="{{ '/publications/' | relative_url }}">publications</a>. Forks retain upstream attribution.</p>
+  <p>Code and data supporting my <a href="{{ '/research/' | local_url | relative_url }}">research</a> and <a href="{{ '/publications/' | local_url | relative_url }}">publications</a>. Forks retain upstream attribution.</p>
   <p class="catalogue-coverage">{{ site.data.catalogue_status.github_repositories_included }} GitHub repositories · {{ site.data.catalogue_status.zenodo_resources }} Zenodo resources · 1 additional dataset</p>
   <div class="catalogue-filters" role="group" aria-label="Filter research outputs" hidden>
     <button type="button" data-filter="all" aria-pressed="true" aria-controls="output-grid">All</button>
@@ -24,4 +26,4 @@ catalogue: true
   </div>
   <p class="catalogue-footnote">Snapshot verified {{ site.data.catalogue_status.verified_on | date: '%-d %B %Y' }}. Public research repositories from <a href="https://github.com/achiocca1">achiocca1</a> and <a href="https://github.com/andreachiocca">andreachiocca</a> are listed here. The {{ site.data.catalogue_status.zenodo_records }} verified Zenodo records are grouped into {{ site.data.catalogue_status.zenodo_resources }} resources; earlier versions remain accessible under “Record details”. Selected activities appear first, followed by latest commit or publication date. Commit dates indicate code history, not scientific validation or maintenance commitments.</p>
 </div>
-<script defer src="{{ '/assets/js/research_outputs.js' | relative_url | bust_file_cache }}"></script>
+<script defer src="{{ '/assets/js/research_outputs.js' | local_url | relative_url | bust_file_cache }}"></script>

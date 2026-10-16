@@ -220,3 +220,16 @@ html { scrollbar-gutter: stable; }
 .project-roles li { margin: .2rem 0; }
 .project-roles a { display: inline-block; min-height: 44px; padding: .5rem 0; }
 .resource-activities strong { display: block; }
+.language-selector { display: flex; align-items: center; gap: .1rem; margin-left: auto; font-size: .8rem; white-space: nowrap; }
+.language-link { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
+.language-link[aria-current] { font-weight: 700; text-decoration: underline; text-underline-offset: .25em; }
+.language-fallback { font-size: .65rem; }
+@media (min-width: 992px) {
+  #navbar > .container { max-width: 1050px; }
+  #navbarNav { order: 1; }
+  .language-selector { order: 2; margin-left: .75rem; }
+}
+@media (max-width: 991.98px) {
+  #navbar .navbar-brand { max-width: calc(100% - 155px); }
+  #navbar .navbar-toggler { margin-left: .25rem !important; }
+}
