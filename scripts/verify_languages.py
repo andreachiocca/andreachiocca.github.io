@@ -81,6 +81,8 @@ for key,route in sources:
         if lang=='it':
             metadata=read_json('_data/i18n/it/pages.json')[key]
             assert doc.metadata['description']==metadata['description'], (key,'unlocalized metadata')
+            leaked={text.strip() for text in doc.text if text.strip() in it and it[text.strip()]!=text.strip()}
+            assert not leaked, (key,'English interface fragments',sorted(leaked))
         assert all(not href.startswith(origin+'/it/assets/') for href in doc.links), 'Localized asset URL'
         assert doc.canonical==origin+url,(key,'incorrect canonical')
         expected={'en':origin+route,'it':origin+'/it'+route,'x-default':origin+route}
