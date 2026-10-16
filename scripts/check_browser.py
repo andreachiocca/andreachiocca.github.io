@@ -102,7 +102,7 @@ def check_browser(root):
                         expect(evaluate("[...document.querySelectorAll('.feature-card')].every(card => card.querySelector('h3')?.textContent.trim() && card.querySelector('p')?.textContent.trim())"), 'empty resource cards on ' + route)
                     if route == '/thesis/':
                         expect(evaluate("document.querySelectorAll('.thesis-topic').length === 5 && document.querySelectorAll('#ways-of-working + p + .approach-list .approach').length === 3"), 'thesis directions and approaches')
-                        expect(evaluate("document.querySelector('#navbar a[aria-current]').textContent.trim() === 'Teaching'"), 'Teaching parent of thesis page')
+                        expect(evaluate("document.querySelector('#navbar .nav-link[aria-current]').textContent.trim() === 'Teaching'"), 'Teaching parent of thesis page')
                     if route == '/research/' or route == '/cv/':
                         expect(evaluate("[...document.querySelectorAll('[data-project=faber] .project-roles li')].some(li => li.textContent.includes('WG3,') && li.textContent.includes('Co-Leader'))"), 'FABER WG3 role missing on ' + route)
                         for group in ('WG4.3', 'WG5.3'):
