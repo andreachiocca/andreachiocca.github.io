@@ -1,0 +1,62 @@
+{
+  "multiaxial-fatigue": {
+    "description": "Libreria Python e catalogo di metodi sviluppati nell’ambito di FABER WG4.3 per confrontare criteri di fatica multiassiale. I calcoli attuali considerano cicli di tensione armonici a frequenza singola per geometrie lisce o prive di intagli.",
+    "topic": "Fatica multiassiale",
+    "development_note": "In sviluppo. La validazione scientifica indipendente resta da completare.",
+    "scope_note": "Sviluppo in corso. Alcuni metodi sono parziali o richiedono revisione. La validazione indipendente su dati pubblicati o sperimentali resta da completare. Storie ad ampiezza variabile, gradienti di tensione presso gli intagli e plasticità costitutiva sono sviluppi futuri. L’articolo di rassegna è in preparazione."
+  },
+  "zenodo-21534682": {
+    "description": "Materiale per i partecipanti alla previsione alla cieca della vita a fatica dell’acciaio 42CrMo4+QT sotto carichi multiassiali ad alto numero di cicli. Comprende regolamento, dati di calibrazione, casi di carico, informazioni sui provini e modelli per l’invio dei risultati.",
+    "topic": "Confronto di metodi di previsione a fatica"
+  },
+  "zenodo-21875885": {
+    "description": "Dati di ricerca relativi alla fatica di componenti con intagli acuti sotto carichi di Modo I e Modo III. I file sono ad accesso limitato. Consulta la pagina del record per le condizioni di accesso.",
+    "topic": "Fatica multiassiale"
+  },
+  "zenodo-18416255": {
+    "description": "Dati sperimentali di vita a fatica e previsioni ECP per giunti saldati sotto carichi monoassiali e multiassiali. I file di testo distinguono geometria, carico, trattamento e rapporto di carico.",
+    "topic": "Fatica multiassiale",
+    "scope_note": "Dati di supporto. Zenodo classifica il record come Journal. Il record è elencato separatamente dall’articolo associato."
+  },
+  "github-achiocca1-ECP": {
+    "description": "Routine MATLAB per valutare la fatica mediante campi di tensione e deformazione mediati su un volume dipendente dal materiale. Comprende post-processing ANSYS, valutazione del piano critico, dati di calibrazione ed esempi.",
+    "topic": "Fatica multiassiale"
+  },
+  "github-achiocca1-CPOpt-v1.0": {
+    "description": "Implementazione MATLAB per valutare in modo efficiente i fattori di fatica sul piano critico mediante invarianti tensoriali e trasformazioni di coordinate. Comprende esempi Fatemi–Socie e Smith–Watson–Topper con post-processing ANSYS.",
+    "topic": "Metodi di piano critico"
+  },
+  "github-achiocca1-FI-Sol": {
+    "description": "Valutazione in forma chiusa del fattore di piano critico di Findley per materiali elastici lineari sotto carico proporzionale. Comprende codice MATLAB e dati di esempio.",
+    "topic": "Metodi di piano critico"
+  },
+  "zenodo-14198237": {
+    "description": "Dati grezzi ed elaborati di fatica della ghisa sferoidale a supporto della valutazione ECP sotto carichi multiassiali e non proporzionali. Comprendono vita sperimentale, parametro di danno e vita prevista.",
+    "topic": "Fatica multiassiale",
+    "scope_note": "Dati di supporto. Zenodo classifica il record come Data paper. Il record è elencato separatamente dall’articolo associato."
+  },
+  "github-achiocca1-SeAn-CP": {
+    "description": "Valutazione semi-analitica dei fattori di fatica sul piano critico, anche per carichi non proporzionali e plasticità del materiale. Implementazione MATLAB associata al metodo pubblicato.",
+    "topic": "Metodi di piano critico"
+  },
+  "github-achiocca1-FS-Sol": {
+    "description": "Valutazione in forma chiusa del parametro Fatemi–Socie esteso per materiali isotropi elastici lineari sotto carico proporzionale. Comprende codice MATLAB, dati di validazione ed esempi.",
+    "topic": "Metodi di piano critico"
+  },
+  "zenodo-12741922": {
+    "description": "Misure sperimentali di tempo, spostamento e forza da prove di trazione su giunti ibridi rivettati autoperforanti PEEL e LAP, con e senza adesivo.",
+    "topic": "Meccanica sperimentale"
+  },
+  "zenodo-12721131": {
+    "description": "Post-processing ECP di prove di fatica pubblicate sull’acciaio a basso tenore di carbonio En3B, a supporto del confronto delle previsioni per componenti intagliati.",
+    "topic": "Fatica multiassiale"
+  },
+  "github-achiocca1-APDL-WB-ssr-v1.0": {
+    "description": "Script Python per eseguire sequenze di simulazioni ANSYS APDL in Workbench e raccogliere i file di risultato selezionati. Strumento per automatizzare analisi ripetute agli elementi finiti.",
+    "topic": "Automazione delle analisi agli elementi finiti"
+  },
+  "Moda2022a": {
+    "description": "Condizioni operative adimensionali associate alla ricerca sulla soluzione di Rosenthal per saldatura e manifattura additiva dei metalli.",
+    "topic": "Saldatura e manifattura additiva"
+  }
+}

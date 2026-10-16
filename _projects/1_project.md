@@ -1,4 +1,7 @@
 ---
+lang: en
+translation_key: course-1
+section: teaching
 layout: page
 title: Progettazione meccanica col metodo degli elementi finiti 
 description: INGEGNERIA ENERGETICA - 923II

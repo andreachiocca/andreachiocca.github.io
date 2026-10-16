@@ -6,12 +6,12 @@ layout: default
 <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">{{ page.title }} {% if page.cv_pdf %}<a href="{{ page.cv_pdf | prepend: 'assets/pdf/' | local_url | relative_url}}" target="_blank" rel="noopener noreferrer" class="float-right" aria-label="Download public academic CV (PDF)"><i aria-hidden="true" class="fas fa-file-pdf"></i></a>{% endif %}</h1>
+    <h1 class="post-title">{{ page.title }} {% if page.cv_pdf %}<a href="{{ page.cv_pdf | prepend: 'assets/pdf/' | local_url | relative_url}}" target="_blank" rel="noopener noreferrer" class="float-right" aria-label="{{ "Download public academic CV (PDF)" | t }}"><i aria-hidden="true" class="fas fa-file-pdf"></i></a>{% endif %}</h1>
       {% if page.description %}<p class="post-description">{{ page.description }}</p>{% endif %}
   </header>
 
   <article>
-    <p>Current international responsibilities are described under <a href="{{ '/research/' | local_url | relative_url }}#international-collaborations">research activities</a>; course periods and supervision are listed under <a href="{{ '/teaching/' | local_url | relative_url }}">teaching</a>.</p>
+    {% locale cv.context %}<p>Current international responsibilities are described under <a href="{{ '/research/' | local_url | relative_url }}#international-collaborations">research activities</a>; course periods and supervision are listed under <a href="{{ '/teaching/' | local_url | relative_url }}">teaching</a>.</p>{% endlocale %}
     <div class="cv">
       {% for entry in site.data.cv %}
         <a class="anchor" id="{{ entry.title }}"></a>
@@ -42,12 +42,12 @@ layout: default
 <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">{{ page.title }} {% if page.cv_pdf %}<a href="{{ page.cv_pdf | prepend: 'assets/pdf/' | local_url | relative_url}}" target="_blank" rel="noopener noreferrer" class="float-right" aria-label="Download public academic CV (PDF)"><i aria-hidden="true" class="fas fa-file-pdf"></i></a>{% endif %}</h1>
+    <h1 class="post-title">{{ page.title }} {% if page.cv_pdf %}<a href="{{ page.cv_pdf | prepend: 'assets/pdf/' | local_url | relative_url}}" target="_blank" rel="noopener noreferrer" class="float-right" aria-label="{{ "Download public academic CV (PDF)" | t }}"><i aria-hidden="true" class="fas fa-file-pdf"></i></a>{% endif %}</h1>
     {% if page.description %}<p class="post-description">{{ page.description }}</p>{% endif %}
   </header>
 
   <article>
-    <p>Current international responsibilities are described under <a href="{{ '/research/' | local_url | relative_url }}#international-collaborations">research activities</a>; course periods and supervision are listed under <a href="{{ '/teaching/' | local_url | relative_url }}">teaching</a>.</p>
+    {% locale cv.context %}<p>Current international responsibilities are described under <a href="{{ '/research/' | local_url | relative_url }}#international-collaborations">research activities</a>; course periods and supervision are listed under <a href="{{ '/teaching/' | local_url | relative_url }}">teaching</a>.</p>{% endlocale %}
     <div class="cv">
       {% for data in site.data.resume %}
         {% if site.jsonresume and site.jsonresume.size > 0 %}
@@ -60,7 +60,7 @@ layout: default
         {% endif %}
         <a class="anchor" id="{{ data[0] }}"></a>
         <div class="card mt-3 p-3">
-          <h2 class="card-title h3 font-weight-medium">{{ data[0] | capitalize }}</h2>
+          <h2 class="card-title h3 font-weight-medium">{{ data[0] | capitalize | t }}</h2>
           <div>
           {% case data[0] %}
             {% when "basics" %}

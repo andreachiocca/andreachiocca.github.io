@@ -61,6 +61,8 @@ for key,route in sources:
     # Article identities, title, DOI and authors are identical across both renderings.
     def papers(doc):return [r for r in doc.json if r.get('@type') in ('ScholarlyArticle','Thesis','CreativeWork')]
     assert papers(documents[0])==papers(documents[1]),(key,'scientific bibliography differs across languages')
+    if key=='home':
+        assert '**' not in ''.join(documents[1].text), 'Localized Markdown was not rendered'
     if key=='repositories':
         def records(doc):return {(r.get('@type'),r.get('name'),r.get('identifier'),r.get('url')) for r in doc.json if r.get('@type') in ('Dataset','SoftwareSourceCode')}
         assert records(documents[0])==records(documents[1]),'Scientific output identities differ'

@@ -1,0 +1,110 @@
+{
+  "profile": {
+    "label": "Ricercatore in progettazione meccanica (contratto di ricerca)",
+    "summary": "Integrità strutturale e valutazione a fatica di componenti intagliati e saldati, combinando meccanica computazionale, metodi analitici e prove sperimentali."
+  },
+  "pisa-research-contract": {
+    "position": "Ricercatore in progettazione meccanica (contratto di ricerca)",
+    "summary": "Ricerca sull’integrità strutturale di componenti intagliati e saldati.",
+    "highlights": [
+      "Fatica multiassiale e metodi di piano critico",
+      "Modellazione computazionale e validazione sperimentale"
+    ]
+  },
+  "pisa-fellowship": {
+    "position": "Assegnista di ricerca",
+    "summary": "Valutazione delle proprietà statiche e a fatica di compositi termoplastici e termoindurenti a diverse temperature e di giunti rivettati autoperforanti.",
+    "highlights": [
+      "Compositi termoplastici",
+      "Compositi termoindurenti",
+      "Giunti SPR",
+      "Prove statiche e di fatica",
+      "Analisi degli effetti della temperatura"
+    ]
+  },
+  "pisa-rtda": {
+    "position": "Ricercatore a tempo determinato in progettazione meccanica (RTDa)",
+    "summary": "Sviluppo di metodi computazionali per la valutazione a fatica, tra cui l’approccio Effective Critical Plane, analisi termostrutturali, prove sperimentali e valutazione delle tensioni residue in strutture saldate e prodotte mediante manifattura additiva.",
+    "highlights": [
+      "Approccio Effective Critical Plane (ECP)",
+      "Analisi termostrutturale",
+      "Valutazione delle tensioni residue",
+      "Valutazione a fatica dei giunti saldati",
+      "Manifattura additiva"
+    ]
+  },
+  "pierburg-collaboration": {
+    "position": "Collaboratore di ricerca industriale",
+    "summary": "Collaborazione a progetti di ricerca e sviluppo sull’integrità strutturale e sul comportamento a fatica di compositi polimerici, passacavi elastomerici e assemblaggi PCB per applicazioni automobilistiche.",
+    "highlights": [
+      "Integrità dei compositi polimerici",
+      "Passacavi elastomerici",
+      "Valutazione di assemblaggi PCB",
+      "Analisi a fatica nel dominio della frequenza"
+    ]
+  },
+  "lbf-doctoral-visit": {
+    "position": "Periodo di ricerca di dottorato, Component-Related Material Behavior Group",
+    "summary": "Trasferimento tra scale di elementi strutturali rappresentativi di componenti prodotti mediante manifattura additiva, con metodi analitici e numerici.",
+    "highlights": [
+      "Trasferimento tra scale",
+      "Metodi analitici",
+      "Metodi numerici",
+      "Manifattura additiva"
+    ]
+  },
+  "lbf-research-assistant": {
+    "position": "Assistente di ricerca junior, Structural Durability Group",
+    "summary": "Studio del comportamento ciclico di provini prodotti mediante Selective Laser Melting (SLM) e caratterizzazione dell’anisotropia mediante prove sperimentali e analisi numeriche.",
+    "highlights": [
+      "Comportamento ciclico",
+      "Selective Laser Melting",
+      "Comportamento anisotropo",
+      "Prove sperimentali",
+      "Analisi numeriche"
+    ]
+  },
+  "lbf-student-intern": {
+    "position": "Tirocinante, Structural Durability Group",
+    "summary": "Analisi dell’interazione e della coalescenza di cricche multiple in giunti saldati mediante elementi finiti e prove sperimentali, con implementazione dei modelli nell’algoritmo IBESS.",
+    "highlights": [
+      "Interazione tra cricche",
+      "Modelli di coalescenza",
+      "Analisi agli elementi finiti",
+      "Prove sperimentali",
+      "Algoritmo IBESS"
+    ]
+  },
+  "phd": {
+    "studyType": "Dottorato di ricerca",
+    "area": "Industrial Engineering",
+    "courses": [
+      "Tesi di dottorato: Influence of residual stresses on the fatigue life of welded joints."
+    ]
+  },
+  "master": {
+    "studyType": "Laurea magistrale",
+    "area": "Ingegneria meccanica",
+    "courses": [
+      "Interazione tra cricche multiple",
+      "Coalescenza di cricche multiple"
+    ]
+  },
+  "bachelor": {
+    "studyType": "Laurea triennale",
+    "area": "Ingegneria meccanica",
+    "courses": []
+  },
+  "aias-2024": {
+    "summary": "Riconoscimento alla 53rd AIAS National Conference per la modellazione applicata alla valutazione a fatica con approcci di piano critico."
+  },
+  "phd-award": {
+    "summary": "Premio per la migliore tesi di dottorato discussa nel 2021 nell’ambito dell’ingegneria industriale presso la University of Pisa."
+  },
+  "ansys-2020": {
+    "summary": "Finalista nella categoria accademica della Ansys Hall of Fame 2020 per un modello transitorio termomeccanico agli elementi finiti di un giunto saldato tubo-piastra."
+  },
+  "simulation-2019": {
+    "summary": "Premio Best Software Simulation Award alla conferenza nazionale AIAS 2019."
+  }
+}

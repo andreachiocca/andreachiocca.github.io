@@ -22,7 +22,8 @@
         "url": "https://scholar.google.com/citations?user=h6zp4TwAAAAJ"
       }
     ],
-    "summary": "Structural integrity and fatigue assessment of notched and welded components, combining computational mechanics, analytical methods and experimental testing."
+    "summary": "Structural integrity and fatigue assessment of notched and welded components, combining computational mechanics, analytical methods and experimental testing.",
+    "id": "profile"
   },
   "work": [
     {
@@ -35,7 +36,8 @@
       "highlights": [
         "Multiaxial fatigue and critical plane methods",
         "Computational modelling and experimental validation"
-      ]
+      ],
+      "id": "pisa-research-contract"
     },
     {
       "name": "Department of Civil and Industrial Engineering, University of Pisa",
@@ -51,7 +53,8 @@
         "SPR joints",
         "Static and fatigue testing",
         "Temperature-dependent analysis"
-      ]
+      ],
+      "id": "pisa-fellowship"
     },
     {
       "name": "Department of Civil and Industrial Engineering, University of Pisa",
@@ -67,7 +70,8 @@
         "Residual stress evaluation",
         "Fatigue assessment of welded joints",
         "Additive manufacturing"
-      ]
+      ],
+      "id": "pisa-rtda"
     },
     {
       "name": "Pierburg Pump Technology Italy S.p.A., Rheinmetall",
@@ -82,7 +86,8 @@
         "Elastomeric grommets",
         "PCB assembly assessment",
         "Fatigue analysis in frequency domain"
-      ]
+      ],
+      "id": "pierburg-collaboration"
     },
     {
       "name": "Fraunhofer LBF",
@@ -97,7 +102,8 @@
         "Analytical methods",
         "Numerical methods",
         "Additive manufacturing"
-      ]
+      ],
+      "id": "lbf-doctoral-visit"
     },
     {
       "name": "Fraunhofer LBF",
@@ -113,7 +119,8 @@
         "Anisotropic behaviour",
         "Experimental tests",
         "Numerical tests"
-      ]
+      ],
+      "id": "lbf-research-assistant"
     },
     {
       "name": "Fraunhofer LBF",
@@ -129,7 +136,8 @@
         "Finite element analysis",
         "Experimental tests",
         "IBESS algorithm"
-      ]
+      ],
+      "id": "lbf-student-intern"
     }
   ],
   "volunteer": [],
@@ -145,7 +153,8 @@
       "score": "",
       "courses": [
         "Doctoral thesis: Influence of residual stresses on the fatigue life of welded joints."
-      ]
+      ],
+      "id": "phd"
     },
     {
       "institution": "University of Pisa, Pisa, Italy",
@@ -159,7 +168,8 @@
       "courses": [
         "Multiple cracks interaction",
         "Multiple cracks coalescence"
-      ]
+      ],
+      "id": "master"
     },
     {
       "institution": "University of Pisa",
@@ -167,7 +177,8 @@
       "area": "Mechanical Engineering",
       "studyType": "Bachelor’s degree",
       "endDate": "2015-12-09",
-      "courses": []
+      "courses": [],
+      "id": "bachelor"
     }
   ],
   "awards": [
@@ -176,28 +187,32 @@
       "date": "2024-09",
       "awarder": "AIAS",
       "url": "https://www.aiasnet.it/aiasnet.it/premi.html",
-      "summary": "Recognition at the 53rd AIAS National Conference for modelling applied to fatigue assessment using critical plane approaches."
+      "summary": "Recognition at the 53rd AIAS National Conference for modelling applied to fatigue assessment using critical plane approaches.",
+      "id": "aias-2024"
     },
     {
       "title": "Best PhD thesis in Industrial Engineering 2021",
       "date": "2022",
       "awarder": "University of Pisa",
       "url": "https://wwwnew2.unipi.it/index.php/comunicati-stampa/item/23824-premiate-le-14-migliori-tesi-di-dottorato-dell-ateneo",
-      "summary": "Award for the best doctoral thesis discussed in the year 2021 in the field of industrial engineering at the University of Pisa."
+      "summary": "Award for the best doctoral thesis discussed in the year 2021 in the field of industrial engineering at the University of Pisa.",
+      "id": "phd-award"
     },
     {
       "title": "Ansys Hall of Fame 2020 Competition - Finalist: Top 10 Academic",
       "date": "2020",
       "url": "https://www.ansys.com/experiences/hall-of-fame",
       "awarder": "Ansys",
-      "summary": "Academic finalist in the Ansys Hall of Fame 2020 competition for a transient thermo-mechanical finite element model of a welded tube-to-plate joint."
+      "summary": "Academic finalist in the Ansys Hall of Fame 2020 competition for a transient thermo-mechanical finite element model of a welded tube-to-plate joint.",
+      "id": "ansys-2020"
     },
     {
       "title": "Software Simulation Award",
       "date": "2019",
       "awarder": "AIAS",
       "url": "https://www.aiasnet.it/aiasnet.it/premi.html",
-      "summary": "Best Software Simulation Award of the National Conference of the Italian Scientific Society of Mechanical Design and Machine Building, AIAS 2019."
+      "summary": "Best Software Simulation Award of the National Conference of the Italian Scientific Society of Mechanical Design and Machine Building, AIAS 2019.",
+      "id": "simulation-2019"
     }
   ],
   "certificates": [

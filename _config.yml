@@ -430,4 +430,4 @@ jsonresume:
 bib_search: true
 
 # Italian page pairs are enabled after pilot verification.
-academic_languages: [home, research]
+academic_languages: [home, research, publications, repositories, laboratory, teaching, thesis, cv, course-1, course-2, course-3, course-4]

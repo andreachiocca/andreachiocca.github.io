@@ -150,7 +150,7 @@
           {{ periodical | strip }}
         </div>
         <div class="periodical">
-          {{ entry.note | strip }}
+          {% if entry.note == 'First published online on 25 August 2026.' %}{{ entry.note | t }}{% else %}{{ entry.note | strip }}{% endif %}
         </div>
 
           <!-- Links/Buttons -->

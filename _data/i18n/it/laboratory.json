@@ -1,0 +1,34 @@
+{
+  "fatigue-durability": {
+    "title": "Fatica e durabilità",
+    "description": "Studiare il comportamento sotto carichi ripetuti, caratterizzare la risposta a fatica e confrontare le previsioni di vita con i risultati sperimentali."
+  },
+  "mechanical-characterisation": {
+    "title": "Caratterizzazione meccanica",
+    "description": "Studiare la risposta meccanica di materiali e componenti. Le ricerche precedenti comprendono compositi polimerici, giunti ibridi ed effetti della temperatura sul comportamento dei materiali."
+  },
+  "joints-structures": {
+    "title": "Giunti e integrità strutturale",
+    "description": "Collegare misure e analisi computazionale per valutare componenti saldati e giunti meccanici, considerando tensioni residue e risposta a fatica."
+  },
+  "model-validation": {
+    "title": "Validazione numerico-sperimentale",
+    "description": "Combinare analisi agli elementi finiti e misure meccaniche per esaminare le previsioni dei modelli. L’esperienza comprende misure di deformazione, vibrazione e temperatura e correlazioni a livello di componente."
+  },
+  "engineering-analysis": {
+    "title": "Dati e metodi per l’ingegneria",
+    "description": "Elaborare dati sperimentali, sviluppare software scientifico e confrontare metodi analitici o computazionali. Dati riproducibili e algoritmi documentati supportano l’interpretazione e la validazione dei modelli."
+  },
+  "material-response": {
+    "title": "Risposta di materiali e giunti",
+    "description": "Gli studi precedenti documentano la caratterizzazione statica e a fatica di materiali e giunti. Provino, condizioni di carico e misure richieste definiscono la fattibilità di una nuova campagna."
+  },
+  "physical-measurements": {
+    "title": "Deformazioni, vibrazioni e temperatura",
+    "description": "Queste categorie di misura sono presenti nelle ricerche esistenti. Sensori, impostazioni di acquisizione, intervalli operativi e accesso alle strutture devono essere verificati per ogni indagine."
+  },
+  "model-correlation": {
+    "title": "Correlazione con i modelli ed elaborazione dei dati",
+    "description": "I risultati sperimentali possono essere confrontati con modelli analitici e agli elementi finiti, utilizzando la programmazione scientifica per valutare le previsioni e documentare l’analisi."
+  }
+}

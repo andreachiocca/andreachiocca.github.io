@@ -14,11 +14,11 @@
             {% for item in content.items %}
               {% assign i = i | plus:1 %}
             {% endfor %}
-            <td colspan="{{ i }}" class="list-group-category">{{ content.language }}</td>
+            <td colspan="{{ i }}" class="list-group-category">{{ content.language | t }}</td>
           </tr>
           <tr>
             <td></td>
-            <td class="list-group-name"><b>{{ content.fluency }}</b></td>
+            <td class="list-group-name"><b>{{ content.fluency | t }}</b></td>
           </tr>
         </tbody>
       </table>

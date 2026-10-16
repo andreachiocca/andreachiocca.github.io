@@ -1,4 +1,7 @@
 ---
+lang: en
+translation_key: course-3
+section: teaching
 layout: page
 title: Laboratorio di progettazione assistita
 description: TECNICHE PER LA MECCANICA E LA PRODUZIONE - 2167Z

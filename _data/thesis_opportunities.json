@@ -47,9 +47,9 @@
     }
   ],
   "approaches": [
-    {"title": "Numerical / computational", "description": "Finite element simulations, analytical methods, programming and algorithm development. Compare models and check their predictions against reference data."},
-    {"title": "Experimental", "description": "Laboratory testing, specimen characterisation, measurements and data acquisition. Interpret results to understand material and component behaviour."},
-    {"title": "Combined", "description": "Build a numerical model and support it with experiments. Correlate simulations with measurements and validate structural or fatigue assessment methods."}
+    {"id": "computational", "title": "Numerical / computational", "description": "Finite element simulations, analytical methods, programming and algorithm development. Compare models and check their predictions against reference data."},
+    {"id": "experimental", "title": "Experimental", "description": "Laboratory testing, specimen characterisation, measurements and data acquisition. Interpret results to understand material and component behaviour."},
+    {"id": "combined", "title": "Combined", "description": "Build a numerical model and support it with experiments. Correlate simulations with measurements and validate structural or fatigue assessment methods."}
   ],
   "international_contacts": [
     {"name": "Aarhus University", "location": "Denmark", "url": "https://www.au.dk/en/"},

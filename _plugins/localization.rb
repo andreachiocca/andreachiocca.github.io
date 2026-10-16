@@ -4,7 +4,7 @@ require 'json'
 module Jekyll
   module AcademicLocalization
     def language
-      @context['page']['lang'] || 'en'
+      (@context['page'] || {})['lang'] || 'en'
     end
 
     def t(message)
@@ -63,7 +63,7 @@ module Jekyll
         source.data['lang'] = 'en'
         source.data['alternates'] = { 'en' => source.url, 'it' => '/it' + source.url }
         metadata = site.data.dig('i18n', 'it', 'pages', key)
-        raise Jekyll::Errors::FatalException, "Missing Italian page metadata: #{key}" unless metadata && metadata['title'] && metadata['description']
+        raise Jekyll::Errors::FatalException, "Missing Italian page metadata: #{key}" unless metadata && metadata['description']
         translated = PageWithoutAFile.new(site, site.source, '/it' + source.url, source.extname == '.md' ? 'index.md' : 'index.html')
         translated.content = source.content
         translated.data = JSON.parse(JSON.generate(source.data)).merge(metadata)
