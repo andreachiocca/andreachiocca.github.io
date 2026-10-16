@@ -101,7 +101,9 @@ def check_browser(root):
                         expect(evaluate("document.querySelectorAll('.thesis-topic').length === 5 && document.querySelectorAll('#ways-of-working + p + .approach-list .approach').length === 3"), 'thesis directions and approaches')
                         expect(evaluate("document.querySelector('#navbar a[aria-current]').textContent.trim() === 'Teaching'"), 'Teaching parent of thesis page')
                     if route == '/research/' or route == '/cv/':
-                        expect(evaluate("document.querySelector('[data-project=faber]')?.textContent.includes('Co-Leader of WG3')"), 'FABER role missing on ' + route)
+                        expect(evaluate("[...document.querySelectorAll('[data-project=faber] .project-roles li')].some(li => li.textContent.includes('WG3,') && li.textContent.includes('Co-Leader'))"), 'FABER WG3 role missing on ' + route)
+                        for group in ('WG4.3', 'WG5.3'):
+                            expect(evaluate("[...document.querySelectorAll('[data-project=faber] .project-roles li')].some(li => li.textContent.includes(" + json.dumps(group) + ") && li.textContent.includes('Participant'))"), 'FABER Participant role missing on ' + route)
                         expect(evaluate("!document.querySelector('main').textContent.includes('2025 - 2025')"), 'duplicated project date on ' + route)
                     if route == '/repositories/':
                         expect(evaluate("document.querySelector('h1').getBoundingClientRect().top >= document.getElementById('navbar').getBoundingClientRect().bottom"), f'catalogue behind navigation at {width}px')
@@ -134,6 +136,10 @@ def check_browser(root):
                         command('Input.dispatchKeyEvent', {'type': 'keyDown', 'key': 'Enter', 'code': 'Enter', 'windowsVirtualKeyCode': 13, 'text': '\r', 'unmodifiedText': '\r'})
                         command('Input.dispatchKeyEvent', {'type': 'keyUp', 'key': 'Enter', 'code': 'Enter', 'windowsVirtualKeyCode': 13})
                         expect(evaluate("document.querySelector('details').open"), 'keyboard publication disclosure')
+                    if route == '/':
+                        expect(evaluate("document.querySelector('.office-contact')?.tagName === 'ADDRESS' && !document.querySelector('.office-contact').closest('details') && document.querySelector('.office-contact a[href^=mailto]').getBoundingClientRect().height >= 44"), 'office contact must remain visible')
+                        expect(evaluate("document.querySelectorAll('.recent-publications ol.bibliography > li').length === 5"), 'five recent publications on homepage')
+                        expect(evaluate("[...document.querySelectorAll('.section-icon')].every(i => i.getAttribute('aria-hidden') === 'true' && getComputedStyle(i,'::before').content !== 'none')"), 'decorative icon accessibility and glyphs')
                     if route == '/' and width == 390:
                         evaluate("document.querySelector('.skip-link').focus()")
                         command('Input.dispatchKeyEvent', {'type': 'keyDown', 'key': 'Enter', 'code': 'Enter', 'windowsVirtualKeyCode': 13, 'text': '\r', 'unmodifiedText': '\r'})

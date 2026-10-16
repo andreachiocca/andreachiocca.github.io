@@ -88,6 +88,30 @@ class DiscoveryTests(unittest.TestCase):
         catalogue.validate_catalogue(entries, status["github_full_names"], status["zenodo_record_ids"])
         self.assertEqual(len(entries), len({item["id"] for item in entries}))
 
+    def test_explicit_exclusions_survive_discovery_and_old_snapshot_retention(self):
+        root = Path(__file__).parents[1]
+        excluded = json.loads((root / '_data/catalogue_exclusions.json').read_text(encoding='utf8'))
+        repos = [{"full_name": name, "name": name.split('/')[1], "html_url": "https://github.com/" + name,
+                  "size": 0, "fork": False, "archived": False} for name in excluded + ['andreachiocca/multiaxial-fatigue']]
+        old = [{"id": 'old-' + str(i), "title": repo['name'], "kind": 'other', "description": 'Existing record',
+                "url": repo['html_url'], "github_full_name": repo['full_name'], "featured": True} for i, repo in enumerate(repos)]
+        with patch.object(catalogue, 'github_repositories', side_effect=[repos, []]), patch.object(catalogue, 'zenodo_search', return_value=[deposit(11)]), patch.object(catalogue, 'REQUIRED_RECORDS', {11}):
+            entries, status = catalogue.build_catalogue(old)
+        self.assertEqual([item['github_full_name'] for item in entries if item.get('github_full_name')], ['andreachiocca/multiaxial-fatigue'])
+        self.assertEqual(status['github_repositories_included'], 1)
+        self.assertEqual(status['github_repositories'], 5)
+        self.assertEqual(len(status['excluded_github_full_names']), 4)
+        # Even a previously discovered repository that is no longer returned must stay excluded.
+        with patch.object(catalogue, 'github_repositories', side_effect=[[repos[-1]], []]), patch.object(catalogue, 'zenodo_search', return_value=[deposit(11)]), patch.object(catalogue, 'REQUIRED_RECORDS', {11}):
+            refreshed, _ = catalogue.build_catalogue(old)
+        self.assertTrue(all(catalogue.included_entry(item) for item in refreshed))
+
+    def test_validation_rejects_an_excluded_repository(self):
+        entry = {'id': 'excluded', 'title': 'Excluded', 'description': 'Existing', 'kind': 'other',
+                 'url': 'https://github.com/andreachiocca/FatPy', 'github_full_name': 'andreachiocca/FatPy'}
+        with self.assertRaisesRegex(ValueError, 'explicitly excluded'):
+            catalogue.validate_catalogue([entry], [entry['github_full_name']], [])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -6,7 +6,7 @@ description: Explore thesis directions in computational mechanics, experimental 
 section: teaching
 ---
 
-Interested in understanding why materials and structures fail—and how to make better predictions? Bachelor’s and master’s students in mechanical engineering and related disciplines can discuss a thesis combining **mechanics, simulations, programming or laboratory work**.
+Interested in understanding why materials and structures fail and how to improve predictions? Bachelor’s and master’s students in mechanical engineering and related disciplines can discuss a thesis combining **mechanics, simulations, programming or laboratory work**.
 
 These are research directions to develop together, rather than a list of current vacancies. The topic and scope will reflect your background, interests and the available projects.
 
@@ -33,4 +33,4 @@ These are research directions to develop together, rather than a list of current
   <p class="scope-note">These contacts do not imply permanently open or guaranteed placements. Any international thesis depends on project availability, agreement of potential supervisors, host-institution acceptance, academic requirements, and funding and mobility arrangements where relevant.</p>
 </section>
 
-<section id="discuss-a-thesis" class="collaboration-panel" aria-labelledby="thesis-contact-title"><h2 id="thesis-contact-title">Interested in one of these topics?</h2><p>Tell me about your degree programme, research interests, background, preferred type of work and possible timeframe. We can discuss suitable projects and whether work in Pisa or abroad is feasible.</p><a class="contact-link" href="mailto:andrea.chiocca@unipi.it?subject=Thesis%20Opportunity%20%E2%80%94%20Research%20Interest">andrea.chiocca@unipi.it</a></section>
+<section id="discuss-a-thesis" class="collaboration-panel" aria-labelledby="thesis-contact-title"><h2 id="thesis-contact-title">Interested in one of these topics?</h2><p>Tell me about your degree programme, research interests, background, preferred type of work and possible timeframe. We can discuss suitable projects and whether work in Pisa or abroad is feasible.</p><a class="contact-link" href="mailto:andrea.chiocca@unipi.it?subject=Thesis%20Opportunity%20Research%20Interest">andrea.chiocca@unipi.it</a></section>

@@ -46,6 +46,8 @@ jobs:
 
       - name: Check stylesheet cache invalidation
         run: bundle exec ruby scripts/check_cache_bust.rb
+      - name: Test recent publication selection
+        run: bundle exec ruby scripts/check_recent_publications.rb
       - name: Test catalogue discovery and snapshot safety
         run: python -m unittest discover -s tests -v
       - name: Build site

@@ -133,7 +133,7 @@ required = {"multiaxial-fatigue", "zenodo-21875885", "zenodo-21534682", "zenodo-
 output_page = pages.get(ROOT / "repositories/index.html")
 if not output_page or not required.issubset(output_page.ids):
     errors.append("Requested scientific resources are missing from the generated output catalogue")
-from sync_research_outputs import validate_catalogue
+from sync_research_outputs import validate_catalogue, excluded_repository
 catalogue_status = json.loads(Path("_data/catalogue_status.json").read_text(encoding="utf8"))
 try:
     validate_catalogue(outputs, catalogue_status["github_full_names"], catalogue_status["zenodo_record_ids"])
@@ -143,10 +143,13 @@ if output_page:
     expected_ids = {item["id"] for item in outputs}
     if not expected_ids.issubset(output_page.ids):
         errors.append("A catalogue card is absent from the generated page")
-    expected_urls = {"https://github.com/" + name for name in catalogue_status["github_full_names"]}
+    expected_urls = {"https://github.com/" + name for name in catalogue_status["github_full_names"] if not excluded_repository(name)}
     expected_urls.update("https://zenodo.org/records/" + record_id for record_id in catalogue_status["zenodo_record_ids"])
     if not expected_urls.issubset(set(output_page.links)):
         errors.append("A discovered repository or Zenodo version link is missing")
+    for name in catalogue_status['github_full_names']:
+        if excluded_repository(name) and 'https://github.com/' + name in output_page.links:
+            errors.append('An excluded project remains in the public catalogue: ' + name)
     catalogue_html = (ROOT / "repositories/index.html").read_text(encoding="utf8")
     if any(marker in catalogue_html for marker in ("Â·", "â€”", "�")):
         errors.append("Catalogue text encoding is corrupted")
@@ -170,6 +173,30 @@ for course, resources in materials.items():
         errors.append('Incomplete teaching material: ' + course)
 if sum(len(items) for items in materials.values()) < 30:
     errors.append('Previously public teaching materials have been lost')
+
+home_page = pages.get(ROOT / 'index.html')
+if home_page:
+    recent = [item for item in home_page.schemas if item.get('@type') in ('ScholarlyArticle', 'Thesis', 'CreativeWork')]
+    if len(recent) != 5:
+        errors.append('Homepage must contain exactly five recent publications')
+    years = [int(item.get('datePublished', 0)) for item in recent]
+    if years != sorted(years, reverse=True):
+        errors.append('Homepage publications are not newest first')
+    home_html = (ROOT / 'index.html').read_text(encoding='utf8')
+    if 'Recent Publications' not in home_html or 'Selected publications' in home_html:
+        errors.append('Homepage publication heading is incorrect')
+    if 'mailto:andrea.chiocca@unipi.it' not in home_page.links or 'tel:+390502218036' not in home_page.links:
+        errors.append('Verified office contact links are missing')
+for route in ('research/index.html', 'cv/index.html'):
+    content = (ROOT / route).read_text(encoding='utf8')
+    for group in ('WG3', 'WG4.3', 'WG5.3'):
+        if group not in content:
+            errors.append('Missing FABER responsibility on ' + route + ': ' + group)
+    if 'responsibility above is separate' in content:
+        errors.append('Unnecessary FABER explanation remains on ' + route)
+for private_file in ('AGENTS.md', 'WRITING_STYLE.md'):
+    if (ROOT / private_file).exists():
+        errors.append('Local writing instructions leaked into the website: ' + private_file)
 
 # Thesis/laboratory content contracts and retired Notes must survive a real build.
 thesis_path = ROOT / 'thesis/index.html'
