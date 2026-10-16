@@ -1,19 +1,19 @@
 {
   "profile": {
     "label": "Ricercatore in progettazione meccanica (contratto di ricerca)",
-    "summary": "Integrità strutturale e valutazione a fatica di componenti intagliati e saldati, combinando meccanica computazionale, metodi analitici e prove sperimentali."
+    "summary": "Integrità strutturale e analisi a fatica di componenti intagliati e saldati, combinando meccanica computazionale, metodi analitici e prove sperimentali."
   },
   "pisa-research-contract": {
     "position": "Ricercatore in progettazione meccanica (contratto di ricerca)",
     "summary": "Ricerca sull’integrità strutturale di componenti intagliati e saldati.",
     "highlights": [
       "Fatica multiassiale e metodi di piano critico",
-      "Modellazione computazionale e validazione sperimentale"
+      "Modellazione numerica e validazione sperimentale"
     ]
   },
   "pisa-fellowship": {
     "position": "Assegnista di ricerca",
-    "summary": "Valutazione delle proprietà statiche e a fatica di compositi termoplastici e termoindurenti a diverse temperature e di giunti rivettati autoperforanti.",
+    "summary": "Valutazione delle proprietà statiche e a fatica di compositi termoplastici e termoindurenti a diverse temperature e di giunti con rivetti autoperforanti.",
     "highlights": [
       "Compositi termoplastici",
       "Compositi termoindurenti",
@@ -24,12 +24,12 @@
   },
   "pisa-rtda": {
     "position": "Ricercatore a tempo determinato in progettazione meccanica (RTDa)",
-    "summary": "Sviluppo di metodi computazionali per la valutazione a fatica, tra cui l’approccio Effective Critical Plane, analisi termostrutturali, prove sperimentali e valutazione delle tensioni residue in strutture saldate e prodotte mediante manifattura additiva.",
+    "summary": "Sviluppo di metodi di calcolo per l’analisi a fatica, tra cui l’approccio Effective Critical Plane, analisi termostrutturali, prove sperimentali e valutazione delle tensioni residue in strutture saldate e prodotte mediante manifattura additiva.",
     "highlights": [
       "Approccio Effective Critical Plane (ECP)",
       "Analisi termostrutturale",
       "Valutazione delle tensioni residue",
-      "Valutazione a fatica dei giunti saldati",
+      "Analisi a fatica dei giunti saldati",
       "Manifattura additiva"
     ]
   },
@@ -96,10 +96,10 @@
     "courses": []
   },
   "aias-2024": {
-    "summary": "Riconoscimento alla 53rd AIAS National Conference per la modellazione applicata alla valutazione a fatica con approcci di piano critico."
+    "summary": "Riconoscimento alla 53rd AIAS National Conference per la modellazione applicata all’analisi a fatica con approcci di piano critico."
   },
   "phd-award": {
-    "summary": "Premio per la migliore tesi di dottorato discussa nel 2021 nell’ambito dell’ingegneria industriale presso la University of Pisa."
+    "summary": "Premio per la migliore tesi di dottorato discussa nel 2021 nell’ambito dell’ingegneria industriale presso l’Università di Pisa."
   },
   "ansys-2020": {
     "summary": "Finalista nella categoria accademica della Ansys Hall of Fame 2020 per un modello transitorio termomeccanico agli elementi finiti di un giunto saldato tubo-piastra."

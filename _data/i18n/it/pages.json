@@ -1,12 +1,12 @@
 {
   "home": {
     "title": "Home",
-    "description": "Andrea Chiocca, ricerca su fatica e integrità strutturale, attività sperimentali, pubblicazioni e proposte di tesi.",
-    "subtitle": "Ricercatore in progettazione meccanica (contratto di ricerca) presso il <a href='https://www.dici.unipi.it/'>Department of Civil and Industrial Engineering</a>, <a href='https://www.unipi.it/'>University of Pisa</a>"
+    "description": "Andrea Chiocca, ricerca su fatica e integrità strutturale, attività sperimentali, pubblicazioni e opportunità di tesi.",
+    "subtitle": "Ricercatore in progettazione meccanica (contratto di ricerca) presso il <a href='https://www.dici.unipi.it/'>Dipartimento di Ingegneria Civile e Industriale</a>, <a href='https://www.unipi.it/'>Università di Pisa</a>"
   },
   "research": {
     "title": "Ricerca",
-    "description": "Valutazione a fatica, giunti saldati, manifattura additiva e caratterizzazione di materiali e componenti presso la University of Pisa."
+    "description": "Analisi a fatica, giunti saldati, manifattura additiva e caratterizzazione di materiali e componenti presso l’Università di Pisa."
   },
   "publications": {
     "title": "Pubblicazioni",
@@ -17,15 +17,15 @@
     "description": "Software scientifico, strumenti di analisi, benchmark di fatica e dati di ricerca di Andrea Chiocca."
   },
   "laboratory": {
-    "title": "Laboratorio e competenze sperimentali",
+    "title": "Laboratorio e attrezzature sperimentali",
     "description": "Meccanica sperimentale, caratterizzazione di materiali e componenti, fatica e correlazione numerico-sperimentale per collaborazioni accademiche e industriali."
   },
   "teaching": {
     "title": "Didattica",
-    "description": "Corsi, materiali didattici pubblici in italiano e proposte di tesi in meccanica computazionale e sperimentale presso la University of Pisa."
+    "description": "Corsi, materiali didattici pubblici in italiano e opportunità di tesi in meccanica computazionale e sperimentale presso l’Università di Pisa."
   },
   "thesis": {
-    "title": "Proposte di tesi",
+    "title": "Opportunità di tesi",
     "description": "Temi di tesi in meccanica computazionale, prove sperimentali, fatica e integrità strutturale, a Pisa e con possibili contatti di ricerca all’estero."
   },
   "cv": {
@@ -33,15 +33,15 @@
     "description": "Formazione, esperienze di ricerca, progetti e responsabilità scientifiche di Andrea Chiocca."
   },
   "course-1": {
-    "description": "Materiali didattici in italiano e informazioni sul corso presso la University of Pisa."
+    "description": "Materiali didattici in italiano e informazioni sul corso presso l’Università di Pisa."
   },
   "course-2": {
-    "description": "Materiali didattici in italiano e informazioni sul corso presso la University of Pisa."
+    "description": "Materiali didattici in italiano e informazioni sul corso presso l’Università di Pisa."
   },
   "course-3": {
-    "description": "Materiali didattici in italiano e informazioni sul corso presso la University of Pisa."
+    "description": "Materiali didattici in italiano e informazioni sul corso presso l’Università di Pisa."
   },
   "course-4": {
-    "description": "Materiali didattici in italiano e informazioni sul corso presso la University of Pisa."
+    "description": "Materiali didattici in italiano e informazioni sul corso presso l’Università di Pisa."
   }
 }

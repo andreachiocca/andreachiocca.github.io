@@ -13,6 +13,13 @@ module Jekyll
       messages.fetch(message.to_s.strip) { raise Jekyll::Errors::FatalException, "Missing #{language} interface translation: #{message}" }
     end
 
+    # Translate established institutional display names without overriding records.
+    def institution_display(name)
+      return name if language == 'en' || name.nil?
+      names = @context.registers[:site].data.dig('i18n', language, 'institutions') || {}
+      names.fetch(name, name)
+    end
+
     def local_url(url)
       value = url.to_s
       return value unless language == 'it' && value.start_with?('/') && !value.start_with?('//')

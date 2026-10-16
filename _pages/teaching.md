@@ -27,7 +27,7 @@ nav_order: 4
 {% assign materials = site.data.teaching_materials[course.materials_key] %}
 <section class="course-summary">
   <h3><a href="{{ course.url | local_url | relative_url }}">{{ course.title }}</a></h3>
-  <p class="course-programme">{{ course.description }} · University of Pisa</p>
+  <p class="course-programme">{{ course.description }} · {{ "University of Pisa" | institution_display }}</p>
   <p>{{ course.teaching_period }} · {{ course.teaching_role | t }}.</p>
   {% if materials.size > 0 %}<a class="course-material-link" href="{{ course.url | local_url | relative_url }}">{{ "View course materials" | t }}</a>{% else %}<p class="course-availability">{{ "No public materials listed." | t }}</p>{% endif %}
 </section>

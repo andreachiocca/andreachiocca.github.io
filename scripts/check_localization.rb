@@ -48,3 +48,16 @@ Dir.mktmpdir('academic-localization') do |directory|
   raise 'Missing reciprocal pair' unless italian.data['alternates'] == page.data['alternates']
 end
 puts 'PASS: missing-description fallback, immutable identifiers, Markdown conversion and generated page pairs'
+
+# Institutional names are locale-specific display values, not record overrides.
+site.data['i18n']['it']['institutions'] = {
+  'Department of Civil and Industrial Engineering, University of Pisa' => 'Dipartimento di Ingegneria Civile e Industriale, Università di Pisa'
+}
+institution = 'Department of Civil and Industrial Engineering, University of Pisa'
+raise 'Italian institution display failed' unless filters.institution_display(institution) == 'Dipartimento di Ingegneria Civile e Industriale, Università di Pisa'
+raise 'Unknown institution changed' unless filters.institution_display('Aarhus University') == 'Aarhus University'
+raise 'Nil institution changed' unless filters.institution_display(nil).nil?
+context['page']['lang'] = 'en'
+raise 'English institution changed' unless filters.institution_display(institution) == institution
+context['page']['lang'] = 'it'
+puts 'PASS: institutional display names, English preservation and unknown-name fallback'

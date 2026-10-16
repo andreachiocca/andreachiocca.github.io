@@ -101,6 +101,16 @@ for key,route in sources:
     if key=='repositories':
         assert len(records(documents[0]))==len(groups['outputs']), 'Missing or duplicate rendered resource'
     rendered_text=' '.join(documents[1].text)
+    # Established institutional names affect display only; canonical JSON-LD stays shared.
+    english_text=' '.join(documents[0].text)
+    if key in ('home','research','laboratory','thesis','cv'):
+        assert 'Department of Civil and Industrial Engineering' not in rendered_text, (key,'English department in Italian display')
+        assert 'Dipartimento di Ingegneria Civile e Industriale' in rendered_text, (key,'missing Italian department')
+        assert 'Department of Civil and Industrial Engineering' in english_text, (key,'English department changed')
+    if key in ('home','research','laboratory','thesis','teaching','cv','course-1','course-2','course-3','course-4'):
+        assert 'University of Pisa' not in rendered_text, (key,'English university in Italian display')
+        assert 'Università di Pisa' in rendered_text, (key,'missing Italian university')
+        assert 'University of Pisa' in english_text, (key,'English university changed')
     expected_groups={'research':['research_areas','projects'],'cv':['resume','projects'],'repositories':['outputs'],'laboratory':['laboratory'],'thesis':['thesis']}.get(key,[])
     for group in expected_groups:
         overrides=read_json('_data/i18n/it/'+group+'.json')
