@@ -105,6 +105,11 @@ def check_browser(root):
                     if canonical_route == '/thesis/':
                         expect(evaluate("document.querySelectorAll('.thesis-topic').length === 5 && document.querySelectorAll('#ways-of-working + p + .approach-list .approach').length === 3"), 'thesis directions and approaches')
                         expect(evaluate("document.querySelector('#navbar .nav-link[aria-current]').textContent.trim() === " + json.dumps('Didattica' if italian else 'Teaching') + ""), 'Teaching parent of thesis page')
+                    if canonical_route == '/cv/':
+                        if width < 576:
+                            expect(evaluate("getComputedStyle(document.querySelector('#toc-sidebar')).display === 'none'"), 'mobile CV contents must not overlay the introduction')
+                        else:
+                            expect(evaluate("document.querySelector('#toc-sidebar').getBoundingClientRect().right <= document.querySelector('h1').getBoundingClientRect().left"), 'CV sidebar overlaps main column')
                     if canonical_route in ('/research/', '/cv/'):
                         expect(evaluate("[...document.querySelectorAll('[data-project=faber] .project-roles li')].some(li => li.textContent.includes('WG3,') && li.textContent.includes('Co-Leader'))"), 'FABER WG3 role missing on ' + route)
                         for group in ('WG4.3', 'WG5.3'):
