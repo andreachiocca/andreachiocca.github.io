@@ -1,21 +1,33 @@
-- title: Home
-  url: /
-  section: home
 - title: Research
   url: /research/
   section: research
-- title: Publications
-  url: /publications/
-  section: publications
-- title: Repositories
-  url: /repositories/
-  section: repositories
-- title: Laboratory
-  url: /laboratory/
-  section: laboratory
+  pages: [research, publications, repositories, laboratory]
+  children:
+    - title: Research overview
+      url: /research/
+    - title: Research areas
+      url: /research/#research-areas
+    - title: Publications
+      url: /publications/
+    - title: Research projects
+      url: /research/#projects
+    - title: Software and research data
+      url: /repositories/
+    - title: Laboratory
+      url: /laboratory/
+    - title: International collaborations
+      url: /research/#international-collaborations
 - title: Teaching
   url: /teaching/
   section: teaching
+  pages: [teaching, thesis, course-1, course-2, course-3, course-4]
+  courses: true
+  children:
+    - title: Teaching overview
+      url: /teaching/
+    - title: Thesis opportunities
+      url: /thesis/
 - title: CV
   url: /cv/
   section: cv
+  pages: [cv]

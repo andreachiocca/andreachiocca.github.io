@@ -1,0 +1,10 @@
+[
+  {"id": "ctu-2026", "contact": "Czech Technical University in Prague", "period": "2026-06", "activity": "Research visit within FABER WG6"},
+  {"id": "aarhus-2026", "contact": "Aarhus University", "period": "2026-01", "activity": "Circle U. mobility"},
+  {"id": "ntnu-2024", "contact": "NTNU", "period": "2024-07", "activity": "Erasmus+ research mobility"},
+  {"id": "fraunhofer", "contact": "Fraunhofer LBF", "activities": [
+    {"work_id": "lbf-student-intern", "label": "Master’s thesis activity"},
+    {"work_id": "lbf-research-assistant", "label": "Post-graduation employment contract"},
+    {"work_id": "lbf-doctoral-visit", "label": "Doctoral research period"}
+  ]}
+]

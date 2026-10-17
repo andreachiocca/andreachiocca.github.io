@@ -14,7 +14,7 @@
   "polymer-fatigue": {
     "title": "Comportamento a fatica dei polimeri",
     "mode": "Sperimentale + numerica",
-    "description": "La tesi può riguardare il comportamento dei materiali polimerici sotto carichi ripetuti e la previsione della vita a fatica dei componenti. Il peso delle attività sperimentali e numeriche può essere definito in base ai tuoi interessi e al progetto concordato.",
+    "description": "La tesi può riguardare il comportamento dei materiali polimerici sotto carichi ciclici e la previsione della vita a fatica dei componenti. Il peso delle attività sperimentali e numeriche può essere definito in base ai tuoi interessi e al progetto concordato.",
     "activities": "Caratterizzazione meccanica e ciclica, modelli costitutivi e di vita a fatica, simulazioni di componenti e validazione sperimentale. Gli effetti della temperatura possono essere considerati quando le condizioni sperimentali lo consentono."
   },
   "pcb-reliability": {

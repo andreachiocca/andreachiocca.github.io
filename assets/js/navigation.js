@@ -6,6 +6,23 @@
   const panel = document.getElementById('navbarNav');
   const backdrop = document.querySelector('.navigation-backdrop');
   const mobile = window.matchMedia('(max-width: 991.98px)');
+  const sections = [...nav.querySelectorAll('.nav-section-toggle')];
+  function setSection(toggle, expanded) {
+    toggle.setAttribute('aria-expanded', String(expanded));
+    document.getElementById(toggle.getAttribute('aria-controls')).hidden = !expanded;
+  }
+  function closeSections() { sections.forEach(toggle => setSection(toggle, false)); }
+  sections.forEach(toggle => toggle.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') !== 'true';
+    closeSections();
+    setSection(toggle, expanded);
+  }));
+  document.addEventListener('click', event => {
+    if (!nav.contains(event.target)) closeSections();
+  });
+  nav.addEventListener('focusout', event => {
+    if (!nav.contains(event.relatedTarget)) closeSections();
+  });
   let open = false;
   let previousOverflow = '';
   let savedInert = [];
@@ -26,6 +43,7 @@
       nav.setAttribute('role', 'dialog');
       nav.setAttribute('aria-modal', 'true');
     } else {
+      closeSections();
       document.body.style.overflow = previousOverflow;
       savedInert.forEach(([element, inert]) => { element.inert = inert; });
       savedInert = [];
@@ -38,6 +56,15 @@
   backdrop.addEventListener('click', () => setOpen(false));
   panel.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false, false)));
   document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      const expanded = sections.find(toggle => toggle.getAttribute('aria-expanded') === 'true');
+      if (expanded) {
+        event.preventDefault();
+        setSection(expanded, false);
+        expanded.focus({preventScroll: true});
+        return;
+      }
+    }
     if (!open) return;
     if (event.key === 'Escape') { event.preventDefault(); setOpen(false); }
     if (event.key === 'Tab') {
@@ -47,7 +74,7 @@
       else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
     }
   });
-  mobile.addEventListener('change', () => setOpen(false, false));
+  mobile.addEventListener('change', () => { closeSections(); setOpen(false, false); });
   function reserveSpace() {
     const height = Math.ceil(nav.getBoundingClientRect().height);
     const viewport = window.visualViewport?.height || window.innerHeight;
