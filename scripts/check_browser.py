@@ -91,10 +91,13 @@ def check_browser(root):
                     expect(evaluate('document.documentElement.scrollWidth <= innerWidth + 2'), f'horizontal overflow at {width}px on {route}')
                     expect(evaluate("document.querySelectorAll('main').length === 1 && document.querySelectorAll('h1').length === 1"), 'landmarks/headings on ' + route)
                     expect(evaluate("Array.from(document.images).every(img => !img.complete || img.naturalWidth > 0)"), 'broken loaded image on ' + route)
-                    expect(evaluate("document.querySelectorAll('#navbar .nav-link[aria-current]').length === 1"), 'unique active navigation on ' + route)
+                    is_home = route in ('/', '/it/')
+                    expect(evaluate("document.querySelectorAll('#navbar .nav-link[aria-current]').length") == (0 if is_home else 1), 'unique active content category on ' + route)
                     expect(evaluate("document.querySelector('h1').getBoundingClientRect().top >= document.getElementById('navbar').getBoundingClientRect().bottom"), 'header obscures title on ' + route)
-                    labels = 'Home|Ricerca|Pubblicazioni|Repository|Laboratorio|Didattica|CV' if route.startswith('/it/') else 'Home|Research|Publications|Repositories|Laboratory|Teaching|CV'
-                    expect(evaluate("[...document.querySelectorAll('#navbar .nav-link')].map(a => a.textContent.trim()).join('|') === " + json.dumps(labels)), 'shared navigation order on ' + route)
+                    labels = 'Ricerca|Didattica|CV' if route.startswith('/it/') else 'Research|Teaching|CV'
+                    expect(evaluate("[...document.querySelectorAll('#navbarNav > ul > .nav-item > .nav-link')].map(a => a.textContent.trim()).join('|') === " + json.dumps(labels)), 'three primary navigation categories on ' + route)
+                    expect(evaluate("document.querySelector('.navbar-brand').getAttribute('href') === " + json.dumps('/it/' if route.startswith('/it/') else '/')), 'homepage remains reachable through identity on ' + route)
+                    expect(evaluate("document.querySelectorAll('.nav-section-toggle[aria-controls][aria-expanded=false]').length === 2 && document.querySelectorAll('.nav-submenu[hidden]').length === 2"), 'submenus start collapsed on ' + route)
                     expect(evaluate("document.querySelectorAll('.language-link').length === 2 && document.querySelectorAll('.language-link[aria-current]').length === 1"), 'language selector on ' + route)
                     canonical_route = route[3:] if route.startswith('/it/') else route
                     italian = route.startswith('/it/')
@@ -147,6 +150,8 @@ def check_browser(root):
                         command('Input.dispatchKeyEvent', {'type': 'keyUp', 'key': 'Enter', 'code': 'Enter', 'windowsVirtualKeyCode': 13})
                         expect(evaluate("document.querySelector('details').open"), 'keyboard publication disclosure')
                     if canonical_route == '/':
+                        expect(evaluate("document.querySelector('#research-environment')?.compareDocumentPosition(document.querySelector('.home-paths')) & Node.DOCUMENT_POSITION_FOLLOWING"), 'research context precedes homepage pathways')
+                        expect(evaluate("document.querySelector('#research-environment')?.textContent.includes('Gruppo di Costruzione di Macchine') && document.querySelector('#research-environment').textContent.includes('DICI')"), 'verified homepage group affiliation')
                         expect(evaluate("document.querySelector('.office-contact')?.tagName === 'ADDRESS' && !document.querySelector('.office-contact').closest('details') && document.querySelector('.office-contact a[href^=mailto]').getBoundingClientRect().height >= 44"), 'office contact must remain visible')
                         expect(evaluate("document.querySelectorAll('.recent-publications ol.bibliography > li').length === 5"), 'five recent publications on homepage')
                         expect(evaluate("[...document.querySelectorAll('.section-icon')].every(i => i.getAttribute('aria-hidden') === 'true' && getComputedStyle(i,'::before').content !== 'none')"), 'decorative icon accessibility and glyphs')
@@ -166,6 +171,37 @@ def check_browser(root):
                         command('Input.dispatchKeyEvent', {'type': 'keyDown', 'key': 'Escape', 'code': 'Escape', 'windowsVirtualKeyCode': 27})
                         command('Input.dispatchKeyEvent', {'type': 'keyUp', 'key': 'Escape', 'code': 'Escape', 'windowsVirtualKeyCode': 27})
                         expect(evaluate("document.querySelector('.navbar-toggler').getAttribute('aria-expanded') === 'false' && !document.querySelector('main').inert && document.activeElement.matches('.navbar-toggler')"), 'Escape closes menu and restores focus')
+                    if canonical_route == '/research/' and width >= 992:
+                        evaluate("document.getElementById('nav-research-toggle').click(); document.querySelector('#nav-research a[href$=\"#projects\"]').click()")
+                        expect(evaluate("location.hash === '#projects' && document.getElementById('nav-research').hidden && document.getElementById('nav-research-toggle').getAttribute('aria-expanded') === 'false'"), 'same-page destination closes desktop submenu')
+                    if canonical_route == '/' and evaluate("document.querySelectorAll('.nav-section-toggle').length === 2"):
+                        if width < 992:
+                            evaluate("document.querySelector('.navbar-toggler').click()")
+                        evaluate("document.getElementById('nav-research-toggle').focus()")
+                        command('Input.dispatchKeyEvent', {'type': 'keyDown', 'key': 'Enter', 'code': 'Enter', 'windowsVirtualKeyCode': 13, 'text': '\r'})
+                        command('Input.dispatchKeyEvent', {'type': 'keyUp', 'key': 'Enter', 'code': 'Enter', 'windowsVirtualKeyCode': 13})
+                        expect(evaluate("document.getElementById('nav-research-toggle').getAttribute('aria-expanded') === 'true' && !document.getElementById('nav-research').hidden"), 'keyboard opens research submenu')
+                        command('Input.dispatchKeyEvent', {'type': 'keyDown', 'key': 'Tab', 'code': 'Tab', 'windowsVirtualKeyCode': 9})
+                        command('Input.dispatchKeyEvent', {'type': 'keyUp', 'key': 'Tab', 'code': 'Tab', 'windowsVirtualKeyCode': 9})
+                        expect(evaluate("document.activeElement === document.querySelector('#nav-research a')"), 'Tab reaches first research destination')
+                        command('Input.dispatchKeyEvent', {'type': 'keyDown', 'key': 'Escape', 'code': 'Escape', 'windowsVirtualKeyCode': 27})
+                        command('Input.dispatchKeyEvent', {'type': 'keyUp', 'key': 'Escape', 'code': 'Escape', 'windowsVirtualKeyCode': 27})
+                        expect(evaluate("document.getElementById('nav-research').hidden && document.activeElement.id === 'nav-research-toggle'"), 'Escape closes submenu and restores trigger focus')
+                        if width < 992:
+                            expect(evaluate("document.querySelector('.navbar-toggler').getAttribute('aria-expanded') === 'true'"), 'submenu Escape preserves mobile menu')
+                        evaluate("document.getElementById('nav-teaching-toggle').click()")
+                        expect(evaluate("document.querySelectorAll('#nav-teaching a[data-course]').length === 4 && document.querySelector('#nav-teaching a[data-thesis]').getClientRects().length > 0"), 'courses and thesis reachable from teaching submenu')
+                        expect(evaluate("document.getElementById('nav-research').hidden"), 'only one submenu opens at a time')
+                        expect(evaluate("[...document.querySelectorAll('.nav-submenu:not([hidden])')].every(menu => {const r=menu.getBoundingClientRect(); return r.left >= 0 && r.right <= innerWidth;})"), 'expanded submenu stays within viewport')
+                        evaluate("document.getElementById('nav-teaching-toggle').click()")
+                        evaluate("document.getElementById('nav-research-toggle').click(); document.getElementById('nav-teaching-toggle').click()")
+                        expect(evaluate("document.getElementById('nav-research').hidden && !document.getElementById('nav-teaching').hidden"), 'opening teaching closes the research disclosure')
+                        evaluate("document.getElementById('nav-teaching-toggle').click()")
+                        if width >= 992:
+                            evaluate("document.getElementById('nav-research-toggle').click(); document.body.click()")
+                            expect(evaluate("document.getElementById('nav-research').hidden"), 'outside click closes desktop submenu')
+                        if width < 992:
+                            evaluate("document.querySelector('.navbar-toggler').click()")
             command('Emulation.setDeviceMetricsOverride', {'width': 844, 'height': 390, 'deviceScaleFactor': 1, 'mobile': False})
             command('Page.navigate', {'url': origin + '/thesis/'})
             for _ in range(120):
@@ -173,8 +209,19 @@ def check_browser(root):
                     break
                 time.sleep(.1)
             evaluate("document.querySelector('.navbar-toggler').click()")
+            evaluate("document.getElementById('nav-teaching-toggle')?.click()")
             expect(evaluate("document.getElementById('navbarNav').getBoundingClientRect().bottom <= innerHeight + 1"), 'landscape menu extends past viewport')
             expect(evaluate("document.getElementById('navbarNav').scrollHeight > document.getElementById('navbarNav').clientHeight"), 'landscape menu cannot scroll')
+            command('Emulation.setScriptExecutionDisabled', {'value': True})
+            for width in (375, 1280):
+                command('Emulation.setDeviceMetricsOverride', {'width': width, 'height': 900, 'deviceScaleFactor': 1, 'mobile': False})
+                command('Page.navigate', {'url': origin + '/it/'})
+                for _ in range(120):
+                    if evaluate("document.readyState === 'complete' && location.pathname === '/it/'"):
+                        break
+                    time.sleep(.1)
+                expect(evaluate("document.querySelector('#nav-teaching a[data-thesis]').getClientRects().length > 0"), 'thesis reachable without JavaScript')
+                expect(evaluate("document.querySelector('h1').getBoundingClientRect().top >= document.querySelector('#navbar').getBoundingClientRect().bottom"), 'no-JavaScript navigation does not obscure content')
             print(f'PASS: {checks} browser checks at 375, 390, 768 and 1280px, including thesis and laboratory pages, courses, navigation and catalogue controls' if not errors else f'Browser checks: {len(errors)} errors')
         except Exception as exc:
             errors.append('Browser check could not complete: ' + str(exc))

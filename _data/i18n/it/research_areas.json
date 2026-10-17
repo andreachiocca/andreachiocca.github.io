@@ -1,7 +1,7 @@
 {
   "multiaxial-fatigue-and-critical-plane-methods": {
     "title": "Analisi a fatica",
-    "summary": "Studio il danneggiamento dei componenti meccanici sottoposti a carichi ripetuti, anche multidirezionali. Sviluppo e confronto metodi basati sul piano critico che mettono in relazione le tensioni e le deformazioni locali con la vita a fatica. L’obiettivo è rendere l’analisi dei componenti intagliati e saldati più agevole e riproducibile.",
+    "summary": "Studio il danneggiamento dei componenti meccanici sottoposti a carichi ciclici, anche multiassiali. Sviluppo e confronto metodi basati sul piano critico che mettono in relazione le tensioni e le deformazioni locali con la vita a fatica. L’obiettivo è migliorare l’affidabilità dell’analisi a fatica di componenti intagliati e strutture saldate.",
     "methods": "Modelli analitici e semianalitici; elaborazione dei risultati agli elementi finiti; confronto con prove di fatica."
   },
   "residual-stresses-and-welded-structures": {
@@ -16,7 +16,7 @@
   },
   "component-testing-and-industrial-applications": {
     "title": "Prove su materiali e componenti",
-    "summary": "Caratterizzo la risposta di materiali e giunti a carichi statici e ripetuti, considerando anche gli effetti della temperatura. Le applicazioni comprendono compositi polimerici, giunti ibridi rivettati, componenti automobilistici e assemblaggi di circuiti stampati. Il lavoro combina misurazioni di laboratorio e modelli numerici per comprendere il comportamento strutturale nelle applicazioni ingegneristiche.",
+    "summary": "Caratterizzo la risposta di materiali e giunti a carichi statici e ciclici, considerando anche gli effetti della temperatura. Le applicazioni comprendono compositi polimerici, giunti ibridi rivettati, componenti automobilistici e assemblaggi di circuiti stampati. Il lavoro combina misurazioni di laboratorio e modelli numerici per comprendere il comportamento strutturale nelle applicazioni ingegneristiche.",
     "methods": "Prove statiche e di fatica; misure di deformazione, vibrazione e temperatura; modellazione computazionale."
   }
 }

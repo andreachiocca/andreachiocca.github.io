@@ -1,0 +1,13 @@
+<ul class="international-experiences">
+{% for canonical_visit in site.data.research_visits %}
+  {% assign visit = canonical_visit | localized_record: 'visits' %}
+  {% assign institution = site.data.thesis_opportunities.international_contacts | where: 'name', visit.contact | first %}
+  <li data-experience="{{ visit.id }}"><a href="{{ institution.url }}">{{ institution.name }}</a>{% if institution.detail %}, {{ institution.detail }}{% endif %} ({{ institution.location | t }})
+    {% if visit.activities %}
+    <ul>{% for activity in visit.activities %}{% assign work = site.data.resume.work | where: 'id', activity.work_id | first %}
+      <li data-work-id="{{ work.id }}">{{ activity.label | t }} · {{ work.startDate }}–{{ work.endDate }}</li>
+    {% endfor %}</ul>
+    {% else %}<p>{{ visit.activity }} · {{ visit.period }}</p>{% endif %}
+  </li>
+{% endfor %}
+</ul>

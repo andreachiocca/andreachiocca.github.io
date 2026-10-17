@@ -7,10 +7,12 @@ root=Path(sys.argv[1] if len(sys.argv)>1 else '_site')
 origin='https://andreachiocca.github.io'
 class Document(HTMLParser):
     def __init__(self,path):
-        super().__init__();self.lang=None;self.canonical=None;self.alternates={};self.links=[];self.json=[];self.buffer=None;self.text=[];self.metadata={}
+        super().__init__();self.lang=None;self.canonical=None;self.alternates={};self.links=[];self.json=[];self.buffer=None;self.text=[];self.metadata={};self.experiences=[];self.work_ids=[]
         self.feed(path.read_text(encoding='utf8'))
     def handle_starttag(self,tag,attrs):
         a=dict(attrs)
+        if a.get('data-experience'):self.experiences.append(a['data-experience'])
+        if a.get('data-work-id'):self.work_ids.append(a['data-work-id'])
         if tag=='html':self.lang=a.get('lang')
         if tag=='a':self.links.append(a.get('href',''))
         if tag=='meta':self.metadata[a.get('name') or a.get('property')]=a.get('content')
@@ -103,11 +105,11 @@ for key,route in sources:
     rendered_text=' '.join(documents[1].text)
     # Established institutional names affect display only; canonical JSON-LD stays shared.
     english_text=' '.join(documents[0].text)
-    if key in ('home','research','laboratory','thesis','cv'):
+    if key in ('home','laboratory','thesis','cv'):
         assert 'Department of Civil and Industrial Engineering' not in rendered_text, (key,'English department in Italian display')
         assert 'Dipartimento di Ingegneria Civile e Industriale' in rendered_text, (key,'missing Italian department')
         assert 'Department of Civil and Industrial Engineering' in english_text, (key,'English department changed')
-    if key in ('home','research','laboratory','thesis','teaching','cv','course-1','course-2','course-3','course-4'):
+    if key in ('home','laboratory','thesis','teaching','cv','course-1','course-2','course-3','course-4'):
         assert 'University of Pisa' not in rendered_text, (key,'English university in Italian display')
         assert 'Università di Pisa' in rendered_text, (key,'missing Italian university')
         assert 'University of Pisa' in english_text, (key,'English university changed')
@@ -120,5 +122,19 @@ for key,route in sources:
                 if field in translation:assert translation[field] in rendered_text, (key,'rendered description was not localized',record['id'],field)
     if key=='research':
         assert 'Ricerca' in ''.join(documents[1].text) and 'WG5.3' in ''.join(documents[1].text)
+        visits=read_json('_data/research_visits.json')
+        contacts={item['name'] for item in thesis['international_contacts']}
+        work={item['id']:item for item in resume['work']}
+        for visit in visits:
+            assert visit['contact'] in contacts, ('Unknown visited institution',visit['id'])
+            for activity in visit.get('activities',[]):
+                assert activity['work_id'] in work, ('Unknown employment/visit reference',activity)
+        for doc in documents:
+            assert doc.experiences==['ctu-2026','aarhus-2026','ntnu-2024','fraunhofer'], 'Missing or inconsistent international experiences'
+            assert doc.work_ids==['lbf-student-intern','lbf-research-assistant','lbf-doctoral-visit'], 'Fraunhofer experiences were conflated'
+            text=' '.join(doc.text)
+            for work_id in doc.work_ids:
+                record=work[work_id]
+                assert record['startDate']+'–'+record['endDate'] in text, ('Rendered experience dates differ from CV',work_id)
 assert not (root/'it/blog').exists(),'Retired Notes were republished'
 print(f'PASS: {len(sources)} bilingual page pairs, reciprocal SEO, selector destinations, shared scientific identities and translation completeness')

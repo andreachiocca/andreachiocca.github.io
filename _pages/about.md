@@ -4,7 +4,7 @@ translation_key: home
 layout: about
 title: Home
 permalink: /
-subtitle: Researcher in machine design (research contract) at the <a href='https://www.dici.unipi.it/'>Department of Civil and Industrial Engineering</a>, <a href='https://www.unipi.it/'>University of Pisa</a>
+subtitle: Researcher in machine design (research contract)
 
 profile:
   align: right
@@ -21,6 +21,10 @@ social: true  # includes social icons at the bottom of the page
 ---
 
 {% locale home.intro %}I study **fatigue and structural integrity**, examining how repeated loads affect notched and welded components, materials and joints. My work combines **finite element modelling, analytical methods and experimental testing**, with applications in mechanical design, automotive components and additive manufacturing.{% endlocale %}
+
+<section id="research-environment" aria-label="{{ 'Research environment' | t }}">
+{% locale home.context %}<p>I work in the machine design research group (<em>Gruppo di Costruzione di Macchine</em>) within the <a href="https://www.dici.unipi.it/">Department of Civil and Industrial Engineering (DICI)</a>, <a href="https://www.unipi.it/">University of Pisa</a>. The group’s expertise in experimental mechanics and modelling provides the context for my research on fatigue and structural integrity.</p>{% endlocale %}
+</section>
 
 {% locale home.bio %}I hold a research contract at the University of Pisa and am **Co-Leader of FABER WG3 (Fatigue Estimation Competition)**. I received my PhD in Industrial Engineering from Pisa in 2021.{% endlocale %}
 
