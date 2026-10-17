@@ -54,7 +54,10 @@
   }
   button.addEventListener('click', () => setOpen(!open));
   backdrop.addEventListener('click', () => setOpen(false));
-  panel.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false, false)));
+  panel.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    closeSections();
+    setOpen(false, false);
+  }));
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape') {
       const expanded = sections.find(toggle => toggle.getAttribute('aria-expanded') === 'true');

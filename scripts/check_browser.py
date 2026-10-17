@@ -171,6 +171,9 @@ def check_browser(root):
                         command('Input.dispatchKeyEvent', {'type': 'keyDown', 'key': 'Escape', 'code': 'Escape', 'windowsVirtualKeyCode': 27})
                         command('Input.dispatchKeyEvent', {'type': 'keyUp', 'key': 'Escape', 'code': 'Escape', 'windowsVirtualKeyCode': 27})
                         expect(evaluate("document.querySelector('.navbar-toggler').getAttribute('aria-expanded') === 'false' && !document.querySelector('main').inert && document.activeElement.matches('.navbar-toggler')"), 'Escape closes menu and restores focus')
+                    if canonical_route == '/research/' and width >= 992:
+                        evaluate("document.getElementById('nav-research-toggle').click(); document.querySelector('#nav-research a[href$=\"#projects\"]').click()")
+                        expect(evaluate("location.hash === '#projects' && document.getElementById('nav-research').hidden && document.getElementById('nav-research-toggle').getAttribute('aria-expanded') === 'false'"), 'same-page destination closes desktop submenu')
                     if canonical_route == '/' and evaluate("document.querySelectorAll('.nav-section-toggle').length === 2"):
                         if width < 992:
                             evaluate("document.querySelector('.navbar-toggler').click()")
