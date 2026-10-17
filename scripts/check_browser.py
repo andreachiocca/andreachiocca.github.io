@@ -191,6 +191,12 @@ def check_browser(root):
                         expect(evaluate("document.getElementById('nav-research').hidden"), 'only one submenu opens at a time')
                         expect(evaluate("[...document.querySelectorAll('.nav-submenu:not([hidden])')].every(menu => {const r=menu.getBoundingClientRect(); return r.left >= 0 && r.right <= innerWidth;})"), 'expanded submenu stays within viewport')
                         evaluate("document.getElementById('nav-teaching-toggle').click()")
+                        evaluate("document.getElementById('nav-research-toggle').click(); document.getElementById('nav-teaching-toggle').click()")
+                        expect(evaluate("document.getElementById('nav-research').hidden && !document.getElementById('nav-teaching').hidden"), 'opening teaching closes the research disclosure')
+                        evaluate("document.getElementById('nav-teaching-toggle').click()")
+                        if width >= 992:
+                            evaluate("document.getElementById('nav-research-toggle').click(); document.body.click()")
+                            expect(evaluate("document.getElementById('nav-research').hidden"), 'outside click closes desktop submenu')
                         if width < 992:
                             evaluate("document.querySelector('.navbar-toggler').click()")
             command('Emulation.setDeviceMetricsOverride', {'width': 844, 'height': 390, 'deviceScaleFactor': 1, 'mobile': False})
@@ -203,6 +209,16 @@ def check_browser(root):
             evaluate("document.getElementById('nav-teaching-toggle')?.click()")
             expect(evaluate("document.getElementById('navbarNav').getBoundingClientRect().bottom <= innerHeight + 1"), 'landscape menu extends past viewport')
             expect(evaluate("document.getElementById('navbarNav').scrollHeight > document.getElementById('navbarNav').clientHeight"), 'landscape menu cannot scroll')
+            command('Emulation.setScriptExecutionDisabled', {'value': True})
+            for width in (375, 1280):
+                command('Emulation.setDeviceMetricsOverride', {'width': width, 'height': 900, 'deviceScaleFactor': 1, 'mobile': False})
+                command('Page.navigate', {'url': origin + '/it/'})
+                for _ in range(120):
+                    if evaluate("document.readyState === 'complete' && location.pathname === '/it/'"):
+                        break
+                    time.sleep(.1)
+                expect(evaluate("document.querySelector('#nav-teaching a[data-thesis]').getClientRects().length > 0"), 'thesis reachable without JavaScript')
+                expect(evaluate("document.querySelector('h1').getBoundingClientRect().top >= document.querySelector('#navbar').getBoundingClientRect().bottom"), 'no-JavaScript navigation does not obscure content')
             print(f'PASS: {checks} browser checks at 375, 390, 768 and 1280px, including thesis and laboratory pages, courses, navigation and catalogue controls' if not errors else f'Browser checks: {len(errors)} errors')
         except Exception as exc:
             errors.append('Browser check could not complete: ' + str(exc))
