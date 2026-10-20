@@ -1,0 +1,87 @@
+// Phase 1: Technical Editorial. Scoped visual refinement, no content changes.
+:root {
+  --editorial-navy: #163e60;
+  --editorial-blue: #2869a7;
+  --editorial-teal: #087f85;
+  --editorial-surface: #f8f8f4;
+  --editorial-grid: rgba(40,105,167,.055);
+  --global-theme-color: var(--editorial-blue);
+  --global-hover-color: var(--editorial-navy);
+}
+html[data-theme='dark'] {
+  --editorial-navy: #a6cbed;
+  --editorial-blue: #8bbce9;
+  --editorial-teal: #80d6cd;
+  --editorial-surface: #242a32;
+  --editorial-grid: rgba(166,203,237,.055);
+  --global-theme-color: var(--editorial-blue);
+  --global-hover-color: var(--editorial-navy);
+}
+body { font-feature-settings: "kern"; }
+.post-title, .post h2, .research-output h2 {
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+.post-title {
+  font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-weight: 500;
+  letter-spacing: -.055em;
+  line-height: 1.14;
+}
+.post-header {
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--global-divider-color);
+  margin-bottom: 1.8rem;
+}
+.post h2:not(.bibliography) {
+  padding-bottom: .45rem;
+  border-bottom: 1px solid var(--global-divider-color);
+}
+.post h2:not(.bibliography)::before {
+  content: "/ ";
+  color: var(--editorial-teal);
+  font-family: ui-monospace, Consolas, monospace;
+  font-weight: 400;
+}
+#navbar { border-bottom: 1px solid var(--global-divider-color); }
+#navbar .navbar-brand {
+  font-family: ui-monospace, Consolas, monospace;
+  font-weight: 600;
+  letter-spacing: -.04em;
+}
+#navbar .nav-link { font-size: .91rem; }
+.publications ol.bibliography > li {
+  padding: 1.15rem 0 1.45rem;
+  border-bottom: 1px solid var(--global-divider-color);
+}
+.publications ol.bibliography > li:first-child { border-top: 1px solid var(--global-divider-color); }
+.publications .title { font-weight: 600; line-height: 1.45; }
+.publications .links .btn {
+  border-radius: .15rem;
+  font-size: .8rem;
+}
+.output-grid { gap: 1.1rem; }
+.research-output {
+  border-radius: .15rem;
+  border-top: 2px solid var(--editorial-blue);
+  padding: 1.35rem;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.research-output:hover {
+  border-top-color: var(--editorial-teal);
+  box-shadow: 0 6px 24px rgba(12,40,68,.07);
+}
+.research-output h2 { letter-spacing: -.02em; }
+.output-source, .output-meta, .output-topic, .output-date, .catalogue-count {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: .78rem;
+}
+.catalogue-filters button { border-radius: .15rem; }
+.catalogue-filters button[aria-pressed='true'] { background: var(--global-code-bg-color); }
+@media (max-width: 575px) {
+  .post-title { font-size: clamp(1.7rem, 8vw, 2.35rem); }
+  .research-output { padding: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .research-output { transition: none; }
+}
