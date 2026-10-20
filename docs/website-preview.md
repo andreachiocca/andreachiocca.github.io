@@ -63,3 +63,8 @@ URLs, CSS, noindex controls and eight primary English/Italian routes.
 - GitHub build failure: inspect the first failing step before deployment.
 - Missing PR alias: ensure the deploy step succeeded and Cloudflare generated
   the `pr-N` branch deployment. Avoid assuming the URL exists before deployment.
+- An unrelated `Workers Builds: andreachiocca-github-io` status came from a
+  separate Cloudflare Workers Git integration, not this Direct Upload Pages
+  project. If its automatic Git builds were disconnected, push a new PR commit
+  to check whether the obsolete status no longer appears; do not disconnect
+  the `academic-website-preview` Pages project.
