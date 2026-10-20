@@ -102,6 +102,17 @@ jobs:
             echo "::error::Set CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID in environment website-preview."
             exit 1
           fi
+          # Confirm token/account/project access without printing credentials.
+          check_file="$RUNNER_TEMP/cloudflare-project-check.json"
+          http_status=$(curl --silent --show-error --output "$check_file" --write-out '%{http_code}' \
+            --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/academic-website-preview")
+          if [ "$http_status" != "200" ] || ! jq -e '.success == true' "$check_file" > /dev/null; then
+            error_codes=$(jq -r '[.errors[]?.code] | join(",")' "$check_file" 2>/dev/null || true)
+            echo "::error::Cloudflare Pages preflight failed (HTTP $http_status, Cloudflare codes: ${error_codes:-unavailable}). Confirm project account and token Pages Edit permissions."
+            exit 1
+          fi
+          echo "Cloudflare Pages project accessible; deploying exact PR source."
           npx --yes wrangler@4 pages deploy _site \
             --project-name academic-website-preview \
             --branch "pr-$PR_NUMBER" \
