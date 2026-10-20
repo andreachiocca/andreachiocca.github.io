@@ -1,10 +1,10 @@
 """Verify static page pairs and shared scientific identities using the standard library."""
-import json,re,sys
+import json,re,sys,os
 from html.parser import HTMLParser
 from pathlib import Path
 
 root=Path(sys.argv[1] if len(sys.argv)>1 else '_site')
-origin='https://andreachiocca.github.io'
+origin=os.environ.get('SITE_ORIGIN','https://andreachiocca.github.io').rstrip('/')
 class Document(HTMLParser):
     def __init__(self,path):
         super().__init__();self.lang=None;self.canonical=None;self.alternates={};self.links=[];self.json=[];self.buffer=None;self.text=[];self.metadata={};self.experiences=[];self.work_ids=[]

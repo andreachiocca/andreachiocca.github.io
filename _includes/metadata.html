@@ -1,3 +1,6 @@
+{% if site.preview_mode %}
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+{% endif %}
 {% assign localized_description = page.seo_description | default: page.description | default: site.description %}
 {% if site.enable_google_verification or site.enable_bing_verification %}
     <!-- Website verification -->
