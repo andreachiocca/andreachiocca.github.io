@@ -1,51 +1,67 @@
-<!-- Conceptual engineering illustration; no experimental data or numerical results. -->
+<!-- Simplified Cauchy stress element. Geometry represents an isometric cube,
+     and vectors indicate representative normal and shear tractions.
+     Conceptual diagram only; not calculated stresses or experimental data. -->
 <svg class="home-technical-figure" viewBox="0 0 640 540" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
   <defs>
     <pattern id="home-grid-v2" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M32 0H0V32" stroke="#A6C4E1" stroke-opacity=".13" stroke-width=".8"/>
+      <path d="M32 0H0V32" stroke="#A6C4E1" stroke-opacity=".14" stroke-width=".8"/>
     </pattern>
-    <linearGradient id="home-beam-top-v2" x1="150" y1="140" x2="510" y2="320" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#2F698F"/><stop offset=".52" stop-color="#1D7494"/><stop offset="1" stop-color="#103A62"/>
+    <linearGradient id="home-cauchy-top" x1="190" y1="150" x2="445" y2="290" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3279A1"/><stop offset=".56" stop-color="#1D7494"/><stop offset="1" stop-color="#113D62"/>
     </linearGradient>
-    <linearGradient id="home-beam-side-v2" x1="150" y1="300" x2="510" y2="420" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0D3254"/><stop offset="1" stop-color="#23658D"/>
+    <linearGradient id="home-cauchy-right" x1="320" y1="235" x2="465" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1F587C"/><stop offset="1" stop-color="#102E51"/>
     </linearGradient>
-    <linearGradient id="home-orbit-v2" x1="110" y1="150" x2="540" y2="390" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#72D8D5"/><stop offset="1" stop-color="#AECFEF"/>
+    <linearGradient id="home-orbit-v2" x1="120" y1="150" x2="530" y2="410" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#71D7D5"/><stop offset="1" stop-color="#B0CEE7"/>
     </linearGradient>
   </defs>
-  <rect x="0" y="0" width="640" height="540" fill="url(#home-grid-v2)"/>
-  <g stroke="#A2C6DE" stroke-opacity=".2" stroke-width="1">
-    <path d="M100 110H540M100 400H540M100 110V400M540 110V400" stroke-dasharray="4 9"/>
-    <circle cx="325" cy="256" r="192" stroke-dasharray="4 12"/>
-    <circle cx="325" cy="256" r="230" stroke-dasharray="3 14"/>
+  <rect width="640" height="540" fill="url(#home-grid-v2)"/>
+  <!-- Contextual construction lines, deliberately behind the stress element. -->
+  <g stroke="#A2C6DE" stroke-opacity=".22" stroke-width="1">
+    <path d="M108 112H536M108 434H536M108 112V434M536 112V434" stroke-dasharray="4 9"/>
+    <circle cx="326" cy="269" r="198" stroke-dasharray="4 12"/>
+    <circle cx="326" cy="269" r="235" stroke-dasharray="3 14"/>
   </g>
-  <g>
-    <path d="M150 210L325 119L512 214L336 307Z" fill="url(#home-beam-top-v2)" fill-opacity=".94" stroke="#8BBEDE" stroke-width="2"/>
-    <path d="M150 210L336 307V418L150 321Z" fill="#16486C" stroke="#7DB8DC" stroke-width="2"/>
-    <path d="M336 307L512 214V328L336 418Z" fill="url(#home-beam-side-v2)" stroke="#79ADCD" stroke-width="2"/>
-    <g stroke="#AAD9E6" stroke-opacity=".45" stroke-width="1"><path d="M169.4 199.9 L355.6 296.7"/><path d="M170.7 220.8 L345.8 129.6"/><path d="M188.9 189.8 L375.1 286.3"/><path d="M191.3 231.6 L366.6 140.1"/><path d="M208.3 179.7 L394.7 276"/><path d="M212 242.3 L387.3 150.7"/><path d="M227.8 169.6 L414.2 265.7"/><path d="M232.7 253.1 L408.1 161.2"/><path d="M247.2 159.4 L433.8 255.3"/><path d="M253.3 263.9 L428.9 171.8"/><path d="M266.7 149.3 L453.3 245"/><path d="M274 274.7 L449.7 182.3"/><path d="M286.1 139.2 L472.9 234.7"/><path d="M294.7 285.4 L470.4 192.9"/><path d="M305.6 129.1 L492.4 224.3"/><path d="M315.3 296.2 L491.2 203.4"/></g>
-    <path d="M150 246L336 345L512 250M150 282L336 381L512 287" stroke="#A4D6E6" stroke-opacity=".22" stroke-width="1.1"/>
-    <path d="M194 234V342M248 262V370M296 287V396M380 284V390M439 252V358M484 230V337" stroke="#A4D6E6" stroke-opacity=".16"/>
+  <g transform="rotate(-25 326 269)" stroke="url(#home-orbit-v2)" stroke-opacity=".46">
+    <ellipse cx="326" cy="269" rx="225" ry="95" stroke-width="1.6"/>
+    <ellipse cx="326" cy="269" rx="174" ry="72" stroke-width="1" stroke-dasharray="6 10"/>
   </g>
-  <g transform="rotate(-25 324 253)" stroke="url(#home-orbit-v2)">
-    <ellipse cx="324" cy="253" rx="223" ry="94" stroke-width="2.1"/>
-    <ellipse cx="324" cy="253" rx="171" ry="70" stroke-opacity=".7" stroke-dasharray="6 8" stroke-width="1.5"/>
-    <path d="M324 133V373M75 253H572" stroke-opacity=".35" stroke-width="1.2" stroke-dasharray="5 8"/>
-    <circle cx="324" cy="253" r="8" fill="#83D8DC" stroke="#0F4261" stroke-width="3"/>
+  <!-- Three visible orthographic faces of an isometric cube (equal edge lengths). -->
+  <g stroke-linejoin="round" stroke-width="2">
+    <path d="M199 209L326 283V430L199 356Z" fill="#16486C" stroke="#83BDD8"/>
+    <path d="M326 283L453 209V356L326 430Z" fill="url(#home-cauchy-right)" stroke="#7FB9D8"/>
+    <path d="M199 209L326 135L453 209L326 283Z" fill="url(#home-cauchy-top)" stroke="#B3D9EA"/>
   </g>
-  <g stroke="#86DEE1" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M316 70V25M306 39L316 25L326 39"/>
-    <path d="M534 252H593M579 242L593 252L579 262"/>
+  <g stroke="#B3DCE7" stroke-opacity=".28" stroke-width="1"><path d="M214.9 199.8L341.9 273.8 M214.9 218.3L341.9 144.3 M230.8 190.5L357.8 264.5 M230.8 227.5L357.8 153.5 M246.6 181.3L373.6 255.3 M246.6 236.8L373.6 162.8 M262.5 172.0L389.5 246.0 M262.5 246.0L389.5 172.0 M278.4 162.8L405.4 236.8 M278.4 255.3L405.4 181.3 M294.3 153.5L421.3 227.5 M294.3 264.5L421.3 190.5 M310.1 144.3L437.1 218.3 M310.1 273.8L437.1 199.8"/></g>
+  <g stroke="#A5D3E2" stroke-opacity=".22" stroke-width="1"><path d="M214.9 218.3L214.9 365.3 M341.9 273.8L341.9 420.8 M230.8 227.5L230.8 374.5 M357.8 264.5L357.8 411.5 M246.6 236.8L246.6 383.8 M373.6 255.3L373.6 402.3 M262.5 246.0L262.5 393.0 M389.5 246.0L389.5 393.0 M278.4 255.3L278.4 402.3 M405.4 236.8L405.4 383.8 M294.3 264.5L294.3 411.5 M421.3 227.5L421.3 374.5 M310.1 273.8L310.1 420.8 M437.1 218.3L437.1 365.3 M199.0 238.4L326.0 312.4 M326.0 312.4L453.0 238.4 M199.0 267.8L326.0 341.8 M326.0 341.8L453.0 267.8 M199.0 297.2L326.0 371.2 M326.0 371.2L453.0 297.2 M199.0 326.6L326.0 400.6 M326.0 400.6L453.0 326.6"/></g>
+  <!-- Normal tractions, oriented perpendicular to the illustrated faces. -->
+  <g stroke="#82E2DE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M326 210V84M316 100L326 84L336 100"/>
+    <path d="M264 317L148 256M156 272L148 256L167 256"/>
+    <path d="M390 318L516 255M497 255L516 255L504 272"/>
   </g>
-  <g fill="#D2F1EE" font-family="Georgia,serif" font-size="32">
-    <text x="334" y="55">σ</text>
-    <text x="560" y="236">τ</text>
+  <g fill="#DAF6F2" font-family="Georgia,serif" font-size="30">
+    <text x="342" y="104">σ<tspan baseline-shift="sub" font-size="17">z</tspan></text>
+    <text x="109" y="254">σ<tspan baseline-shift="sub" font-size="17">y</tspan></text>
+    <text x="525" y="247">σ<tspan baseline-shift="sub" font-size="17">x</tspan></text>
   </g>
-  <g stroke="#A3D1DF" stroke-opacity=".32" stroke-width="1"><path d="M120 462H520"/></g>
-  <path d="M120.0 462.0 L124.2 458.2 L128.3 454.5 L132.4 451.1 L136.6 448.2 L140.8 445.9 L144.9 444.2 L149.1 443.2 L153.2 443.0 L157.3 443.6 L161.5 445.0 L165.7 447.0 L169.8 449.7 L173.9 452.8 L178.1 456.4 L182.3 460.1 L186.4 464.0 L190.6 467.7 L194.7 471.3 L198.9 474.4 L203.0 477.1 L207.2 479.1 L211.3 480.4 L215.4 480.9 L219.6 480.7 L223.8 479.7 L227.9 478.0 L232.1 475.7 L236.2 472.7 L240.4 469.4 L244.5 465.7 L248.7 461.9 L252.8 458.1 L257.0 454.4 L261.1 451.1 L265.3 448.2 L269.4 445.9 L273.6 444.2 L277.7 443.3 L281.9 443.1 L286.0 443.7 L290.1 445.1 L294.3 447.2 L298.5 449.8 L302.6 453.0 L306.8 456.5 L310.9 460.3 L315.1 464.1 L319.2 467.8 L323.4 471.3 L327.5 474.4 L331.6 477.0 L335.8 479.0 L340.0 480.3 L344.1 480.8 L348.3 480.6 L352.4 479.5 L356.6 477.8 L360.7 475.5 L364.9 472.5 L369.0 469.2 L373.2 465.5 L377.3 461.8 L381.5 458.0 L385.6 454.4 L389.8 451.1 L393.9 448.3 L398.1 446.0 L402.2 444.4 L406.4 443.5 L410.5 443.4 L414.7 444.0 L418.8 445.4 L423.0 447.4 L427.1 450.1 L431.3 453.2 L435.4 456.7 L439.6 460.4 L443.7 464.2 L447.9 467.9 L452.0 471.3 L456.2 474.3 L460.3 476.9 L464.5 478.8 L468.6 480.0 L472.8 480.5 L476.9 480.3 L481.1 479.2 L485.2 477.5 L489.4 475.2 L493.5 472.3 L497.7 469.0 L501.8 465.4 L506.0 461.6 L510.1 457.9 L514.3 454.4 L518.4 451.2" stroke="#80E1D7" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
-  <g fill="#A7CDDF" fill-opacity=".9">
-    <circle cx="126" cy="462" r="3"/><circle cx="515" cy="462" r="3"/>
-    <circle cx="150" cy="210" r="4"/><circle cx="325" cy="119" r="4"/><circle cx="512" cy="214" r="4"/>
+  <!-- Representative in-plane (shear) traction directions on three faces. -->
+  <g stroke="#B8D9F4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M304 218L257 191M265 204L257 191L272 192"/>
+    <path d="M285 318V373M277 359L285 373L293 359"/>
+    <path d="M365 361L427 326M410 326L427 326L419 342"/>
+  </g>
+  <g font-family="Georgia,serif" font-size="23" fill="#D2E9F8">
+    <text x="238" y="181">τ</text>
+    <text x="299" y="378">τ</text>
+    <text x="437" y="330">τ</text>
+  </g>
+  <!-- Schematic cyclic loading trace, not a measurement or fatigue-life curve. -->
+  <path d="M120 486H520" stroke="#A3D1DF" stroke-opacity=".32" stroke-width="1"/>
+  <path d="M120.0 486.0 L124.2 482.5 L128.3 479.2 L132.5 476.1 L136.7 473.5 L140.8 471.4 L145.0 469.9 L149.2 469.1 L153.3 469.1 L157.5 469.7 L161.7 471.0 L165.8 473.0 L170.0 475.5 L174.2 478.4 L178.3 481.7 L182.5 485.2 L186.7 488.7 L190.8 492.0 L195.0 495.2 L199.2 497.9 L203.3 500.1 L207.5 501.8 L211.7 502.7 L215.8 503.0 L220.0 502.5 L224.2 501.3 L228.3 499.5 L232.5 497.1 L236.7 494.3 L240.8 491.1 L245.0 487.7 L249.2 484.2 L253.3 480.8 L257.5 477.6 L261.7 474.7 L265.8 472.4 L270.0 470.6 L274.2 469.5 L278.3 469.1 L282.5 469.4 L286.7 470.4 L290.8 472.0 L295.0 474.3 L299.2 477.0 L303.3 480.1 L307.5 483.5 L311.7 487.0 L315.8 490.4 L320.0 493.7 L324.2 496.6 L328.3 499.1 L332.5 501.0 L336.7 502.2 L340.8 502.8 L345.0 502.7 L349.2 501.9 L353.3 500.4 L357.5 498.3 L361.7 495.6 L365.8 492.6 L370.0 489.3 L374.2 485.8 L378.3 482.4 L382.5 479.1 L386.7 476.1 L390.8 473.5 L395.0 471.5 L399.2 470.1 L403.3 469.3 L407.5 469.3 L411.7 469.9 L415.8 471.3 L420.0 473.2 L424.2 475.8 L428.3 478.7 L432.5 481.9 L436.7 485.3 L440.8 488.8 L445.0 492.1 L449.2 495.2 L453.3 497.8 L457.5 500.0 L461.7 501.6 L465.8 502.5 L470.0 502.7 L474.2 502.2 L478.3 501.0 L482.5 499.2 L486.7 496.8 L490.8 494.0 L495.0 490.8 L499.2 487.5 L503.3 484.0 L507.5 480.7 L511.7 477.6 L515.8 474.9 L520.0 472.6" stroke="#80E1D7" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <g fill="#A7CDDF">
+    <circle cx="120" cy="486" r="2.5"/><circle cx="520" cy="486" r="2.5"/>
+    <circle cx="199" cy="209" r="3"/><circle cx="326" cy="135" r="3"/><circle cx="453" cy="209" r="3"/>
   </g>
 </svg>

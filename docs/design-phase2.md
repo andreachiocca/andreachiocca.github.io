@@ -33,3 +33,16 @@ The pull request workflow uses the actual head SHA and publishes a branch alias
 - Inspect focus states and contrast in light and dark themes.
 - Avoid representing the technical drawing as experimental data.
 - Confirm that the production homepage is unchanged before the Phase 2 merge.
+
+## Follow-up refinements
+
+- FIG. 01 uses a true isometric **cube** with matched projected edge lengths
+  and representative normal and shear traction arrows, recalling the Cauchy
+  stress element. The vectors are illustrative, not a complete stress tensor.
+- FIG. 02 is a compact branching line diagram accompanying the section for
+  students and research partners, balancing the more prominent FIG. 01 and the
+  FABER panel in section 03.
+- After review, propagate the approved design incrementally to the research,
+  publications, research-output catalogue, laboratory, teaching, thesis and CV
+  pages using shared styles and page-level patterns. Preserve content, routes,
+  published data and accessibility checks for each step.

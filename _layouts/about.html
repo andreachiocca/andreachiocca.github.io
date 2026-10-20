@@ -34,7 +34,13 @@ layout: default
     </div>
   </section>
   <section class="home-audiences" aria-labelledby="home-pathways-title">
-    <h2 id="home-pathways-title">{{ "Students and research partners" | t }}</h2>
+    <div class="home-audiences-heading">
+      <h2 id="home-pathways-title">{{ "Students and research partners" | t }}</h2>
+      <div class="home-pathway-figure" aria-hidden="true">
+        <span class="home-pathway-caption">FIG. 02</span>
+        {% include home_pathways_visual.html %}
+      </div>
+    </div>
     <div class="feature-grid">
 {% locale home.students %}      <section class="feature-card audience-card"><h3><i class="far fa-lightbulb section-icon" aria-hidden="true"></i>{{ "For students" | t }}</h3><p>Explore thesis directions in computational mechanics, fatigue, experimental testing and structural integrity, with possibilities to discuss work in Pisa or abroad.</p><a class="contact-link" href="{{ '/thesis/' | local_url | relative_url }}">{{ "Explore thesis opportunities" | t }} <span aria-hidden="true">→</span></a></section>{% endlocale %}
 {% locale home.partners %}      <section class="feature-card audience-card"><h3><i class="far fa-handshake section-icon" aria-hidden="true"></i>{{ "For researchers &amp; industry" | t }}</h3><p>Explore experimental expertise, numerical–experimental methods and opportunities for joint investigations and research collaboration.</p><a class="contact-link" href="{{ '/laboratory/' | local_url | relative_url }}">{{ "Laboratory capabilities" | t }} <span aria-hidden="true">→</span></a></section>{% endlocale %}
