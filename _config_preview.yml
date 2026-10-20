@@ -1,0 +1,13 @@
+# Jekyll configuration for Cloudflare Pages preview deployments only.
+# The GitHub workflow overrides 'url' with the exact PR-specific alias.
+url: https://academic-website-preview.pages.dev
+baseurl: ""
+preview_mode: true
+google_analytics:
+google_site_verification:
+bing_site_verification:
+enable_google_analytics: false
+enable_google_verification: false
+enable_bing_verification: false
+serve_og_meta: true
+serve_schema_org: true

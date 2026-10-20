@@ -1,5 +1,6 @@
 """Check generated academic pages without additional Python packages."""
 import json
+import os
 import re
 import sys
 import xml.etree.ElementTree as ET
@@ -8,7 +9,7 @@ from pathlib import Path
 from urllib.parse import unquote, urljoin, urlsplit
 
 ROOT = Path(sys.argv[1] if len(sys.argv) > 1 else "_site").resolve()
-ORIGIN = "https://andreachiocca.github.io"
+ORIGIN = os.environ.get("SITE_ORIGIN", "https://andreachiocca.github.io").rstrip("/")
 errors = []
 
 
