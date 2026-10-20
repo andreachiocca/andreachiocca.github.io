@@ -7,7 +7,7 @@ review deployments. Never merge a design PR merely to inspect its layout.
 ## Infrastructure and permissions
 
 - Cloudflare Pages project: `academic-website-preview` (Direct Upload).
-- GitHub environment: `website-preview`.
+- GitHub environment: `website-preview-AC`.
 - Environment secrets (names only): `CLOUDFLARE_API_TOKEN` and
   `CLOUDFLARE_ACCOUNT_ID`.
 - Token scope: Cloudflare account / Pages / Edit on the owning account.
@@ -57,7 +57,7 @@ URLs, CSS, noindex controls and eight primary English/Italian routes.
 ## Troubleshooting
 
 - Missing secrets: check names under GitHub > Settings > Environments >
-  `website-preview`. The secret values are never printed.
+  `website-preview-AC`. The secret values are never printed.
 - Cloudflare 403/404: confirm the token's Pages Edit permission and project
   name; check which Cloudflare account owns the Pages project.
 - GitHub build failure: inspect the first failing step before deployment.
