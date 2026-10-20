@@ -1,0 +1,7 @@
+# Applied after _config.yml for isolated Cloudflare Pages previews.
+# Keep paths root-relative, while making absolute metadata links point to preview.
+url: https://academic-website-preview.pages.dev
+baseurl: ""
+google_analytics:
+google_site_verification:
+serve_og_meta: false
