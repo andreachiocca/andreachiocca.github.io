@@ -5,52 +5,105 @@ on:
     branches: [master]
     types: [opened, synchronize, reopened, ready_for_review]
   workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "Number of the open PR to preview (e.g. 27)"
+        required: true
+        type: string
 
 permissions:
   contents: read
+  pull-requests: read
 
 concurrency:
-  group: website-preview-${{ github.event.pull_request.number || github.ref }}
+  group: website-preview-${{ github.event.pull_request.number || inputs.pr_number || github.ref }}
   cancel-in-progress: true
 
 jobs:
   preview:
+    # Never provide deployment credentials to fork pull requests.
     if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     environment: website-preview
     steps:
-      - uses: actions/checkout@v4
+      - name: Resolve exact PR source commit
+        id: source
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number || inputs.pr_number }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! [[ "$PR_NUMBER" =~ ^[0-9]+$ ]]; then
+            echo "::error::A numeric PR number is required."
+            exit 1
+          fi
+          gh api "repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER" > "$RUNNER_TEMP/preview-pr.json"
+          jq -e --arg repo "$GITHUB_REPOSITORY" \
+            '.state == "open" and .base.ref == "master" and .head.repo.full_name == $repo and (.head.sha | test("^[a-f0-9]{40}$"))' \
+            "$RUNNER_TEMP/preview-pr.json" > /dev/null || {
+              echo "::error::Preview requires an open same-repository PR against master."
+              exit 1
+            }
+          printf 'sha=%s\n' "$(jq -r '.head.sha' "$RUNNER_TEMP/preview-pr.json")" >> "$GITHUB_OUTPUT"
+          printf 'number=%s\n' "$PR_NUMBER" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
+          ref: ${{ steps.source.outputs.sha }}
           persist-credentials: false
-      - name: Install system dependencies
+
+      - name: Install image and document tools
         run: |
           sudo apt-get update
           sudo apt-get install -y imagemagick webp pandoc
-      - uses: actions/setup-python@v5
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.11'
-      - run: python -m pip install jupyter nbconvert
-      - uses: ruby/setup-ruby@v1
+      - name: Install notebook support
+        run: python -m pip install jupyter nbconvert
+
+      - uses: ruby/setup-ruby@651ff0d62c5c79bed6d53ec518387aae20e72c1a # v1
         with:
           ruby-version: '3.3'
           bundler-cache: true
-      - name: Build isolated preview
+
+      - name: Build and verify PR preview
         env:
           JEKYLL_ENV: production
+          SITE_ORIGIN: https://pr-${{ steps.source.outputs.number }}.academic-website-preview.pages.dev
+        shell: bash
         run: |
-          bundle exec jekyll build --trace --config _config.yml,_config_preview.yml
+          set -euo pipefail
+          printf 'url: "%s"\n' "$SITE_ORIGIN" > "$RUNNER_TEMP/preview-origin.yml"
+          bundle exec jekyll build --trace --config "_config.yml,_config_preview.yml,$RUNNER_TEMP/preview-origin.yml"
+
+          # Cloudflare Pages static response headers. Do not block crawling via
+          # robots.txt: crawlers need to see the noindex response directive.
+          printf '/*\n  X-Robots-Tag: noindex, nofollow, noarchive\n' > _site/_headers
+          printf 'User-agent: *\nAllow: /\n' > _site/robots.txt
+
           python scripts/verify_site.py _site
           python scripts/verify_languages.py _site
-      - name: Publish preview
+          python scripts/verify_preview.py _site "$SITE_ORIGIN"
+
+      - name: Publish Cloudflare Pages branch preview
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_NUMBER: ${{ steps.source.outputs.number }}
+          SOURCE_SHA: ${{ steps.source.outputs.sha }}
+        shell: bash
         run: |
+          set -euo pipefail
           if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
-            echo "::error::Configure CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID in the website-preview environment."
+            echo "::error::Set CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID in environment website-preview."
             exit 1
           fi
-          branch="pr-${PR_NUMBER:-manual}"
-          npx --yes wrangler@3 pages deploy _site --project-name academic-website-preview --branch "$branch"
+          npx --yes wrangler@4 pages deploy _site \
+            --project-name academic-website-preview \
+            --branch "pr-$PR_NUMBER" \
+            --commit-hash "$SOURCE_SHA"
+          echo "Expected stable preview URL: https://pr-$PR_NUMBER.academic-website-preview.pages.dev/"
