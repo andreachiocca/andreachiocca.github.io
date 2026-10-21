@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<div class="post publication-atlas">
+  <header class="publication-hero">
+    <div class="publication-hero-copy">
+      <h1 class="post-title">{{ page.title }}</h1>
+      <p class="post-description">{{ page.description }}</p>
+      {% capture publication_intro %}{% locale publications.intro %}Journal articles, conference contributions and my doctoral thesis are listed separately below. [Research software, datasets and benchmark packages]({{ '/repositories/' | local_url | relative_url }}) have their own catalogue.{% endlocale %}{% endcapture %}
+      <div class="publication-introduction">{{ publication_intro | markdownify }}</div>
+    </div>
+    <nav class="publication-index" aria-label="{{ 'On this page' | t }}">
+      <p class="publication-index-label">{{ 'On this page' | t }}</p>
+      <a href="#journal-articles"><span aria-hidden="true">01</span><span>{{ 'Journal articles' | t }}</span></a>
+      <a href="#conference-contributions"><span aria-hidden="true">02</span><span>{{ 'Conference contributions' | t }}</span></a>
+      <a href="#doctoral-thesis"><span aria-hidden="true">03</span><span>{{ 'Doctoral thesis' | t }}</span></a>
+    </nav>
+  </header>
+  <article class="publication-atlas-body">
+    {{ content }}
+  </article>
+</div>
