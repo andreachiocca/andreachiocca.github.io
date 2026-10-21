@@ -53,5 +53,60 @@ class ResearchAtlasSourceTests(unittest.TestCase):
         self.assertIn("area.links", panel)
 
 
+class ResearchAtlasFigureTests(unittest.TestCase):
+    def test_fatigue_traction_decomposition(self):
+        import importlib.util
+        script = ROOT / "scripts/generate_research_atlas_figures.py"
+        spec = importlib.util.spec_from_file_location("research_atlas_figures", script)
+        figures = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(figures)
+        q = 1 / math.sqrt(2)
+        tensor = [[0, 0, .6], [0, 0, 0], [.6, 0, 1]]
+        normal, shear = figures.traction_components(tensor, (q, 0, q))
+        self.assertAlmostEqual(sum(normal[i] * (q, 0, q)[i] for i in range(3)), 1.1)
+        expected = ((1.1*q, 0, 1.1*q), (-.5*q, 0, .5*q))
+        for actual, ref in zip((normal, shear), expected):
+            for a, b in zip(actual, ref):
+                self.assertAlmostEqual(a, b, delta=1e-9)
+        self.assertAlmostEqual(sum(shear[i]*(q,0,q)[i] for i in range(3)), 0, delta=1e-9)
+        with self.assertRaises(ValueError):
+            figures.traction_components(tensor, (0, 0, 0))
+
+    def test_projected_vectors_share_one_mapping(self):
+        import importlib.util
+        script = ROOT / "scripts/generate_research_atlas_figures.py"
+        spec = importlib.util.spec_from_file_location("research_atlas_figures_projection", script)
+        figures = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(figures)
+        for vector, expected in [
+            ((1, 0, 0), (math.sqrt(3)/2, .5)),
+            ((0, 1, 0), (-math.sqrt(3)/2, .5)),
+            ((0, 0, 1), (0, -1)),
+        ]:
+            actual = figures.project_iso(vector)
+            for a, b in zip(actual, expected):
+                self.assertAlmostEqual(a, b, delta=1e-9)
+
+    def test_four_svg_figures_and_total_size(self):
+        import xml.etree.ElementTree as ET
+        paths = [ROOT / "_includes/research_figures" / (name + ".svg") for name in
+                 ("fatigue", "weld", "additive", "testing")]
+        self.assertLess(sum(path.stat().st_size for path in paths), 35000)
+        for path in paths:
+            root = ET.parse(path).getroot()
+            self.assertTrue(root.tag.endswith("svg"), path)
+            self.assertEqual(root.attrib.get("viewBox"), "0 0 480 320")
+
+    def test_unknown_figure_id_falls_back_to_text(self):
+        dispatch = source("_includes/research_area_visual.html")
+        panel = source("_includes/research_area_panel.html")
+        self.assertIn("case include.canonical_id", dispatch)
+        self.assertEqual(dispatch.count("{% when "), 4)
+        self.assertIn("research_area_visual.html", panel)
+        self.assertIn("{{ area.summary }}", panel)
+        self.assertIn("{{ area.methods }}", panel)
+        self.assertIn("area.links", panel)
+
+
 if __name__ == "__main__":
     unittest.main()
