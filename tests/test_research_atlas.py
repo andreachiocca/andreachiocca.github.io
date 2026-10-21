@@ -53,6 +53,27 @@ class ResearchAtlasSourceTests(unittest.TestCase):
         self.assertIn("area.links", panel)
 
 
+    def test_projects_and_visits_preserved(self):
+        page = source("_pages/research.md")
+        self.assertIn('id="projects"', page)
+        self.assertIn('id="selected-collaborative-projects"', page)
+        self.assertIn('id="international-collaborations"', page)
+        self.assertIn('id="research-environment"', page)
+        self.assertIn('class="research-projects"', page)
+        self.assertIn('class="research-collaborations"', page)
+        self.assertIn('class="research-contact"', page)
+        self.assertIn("include research_project.html project=project", page)
+        self.assertIn("include international_experiences.html", page)
+        self.assertIn("previous-projects", page)
+        self.assertIn("/laboratory/", page)
+        self.assertIn("/thesis/", page)
+        self.assertIn("{% locale research.contact %}", page)
+        project = source("_includes/research_project.html")
+        self.assertIn('data-project="{{ project.id }}"', project)
+        self.assertIn("project.working_groups", project)
+
+
+
 class ResearchAtlasFigureTests(unittest.TestCase):
     def test_fatigue_traction_decomposition(self):
         import importlib.util
