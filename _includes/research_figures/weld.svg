@@ -1,6 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" class="research-figure-svg" viewBox="0 0 480 320" fill="none" aria-hidden="true" focusable="false">
 <rect width="480" height="320" fill="#103551"/><path d="M35 83H445M35 235H445" stroke="#5a88a4" stroke-dasharray="4 9"/>
 <path d="M35 110H180L218 170L180 230H35Z M445 110H300L262 170L300 230H445Z" fill="#2b6985" stroke="#a7d7e9" stroke-width="2"/>
+<defs><pattern id="atlas-weld-haz-hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><rect width="9" height="9" fill="#376b80"/><path d="M0 0V9" stroke="#97ddd6" stroke-width="2.4" stroke-opacity=".7"/></pattern></defs>
+<!-- Stylized HAZ lies in parent material outside both fusion boundaries; not a measured extent. -->
+<g fill="url(#atlas-weld-haz-hatch)" stroke="#9ed2d6" stroke-width="1.5">
+<path data-heat-affected-zone="left" d="M159,110 L180,110 L218,170 L180,230 L159,230 L197,170 Z"/>
+<path data-heat-affected-zone="right" d="M321,110 L300,110 L262,170 L300,230 L321,230 L283,170 Z"/>
+</g>
 <polygon data-joint-type="double-v" points="180,110 300,110 262,170 300,230 180,230 218,170" fill="#67b9bd" fill-opacity=".48" stroke="#8ee1d7" stroke-width="2"/>
 <path d="M180 110L218 170L180 230M300 110L262 170L300 230" stroke="#d0f0f0" stroke-opacity=".35" stroke-width="5"/>
 <g stroke="#a5cce1" stroke-width="1"><path d="M35 241H445M35 99H445" stroke-dasharray="6 8"/><path d="M240 68V259" stroke-dasharray="5 9"/></g>

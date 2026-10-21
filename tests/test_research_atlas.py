@@ -118,6 +118,26 @@ class ResearchAtlasFigureTests(unittest.TestCase):
             self.assertTrue(root.tag.endswith("svg"), path)
             self.assertEqual(root.attrib.get("viewBox"), "0 0 480 320")
 
+    def test_weld_haz_is_mirrored_outside_fusion_and_without_labels(self):
+        import xml.etree.ElementTree as ET
+        svg = ET.fromstring(source("_includes/research_figures/weld.svg"))
+        zones = {node.attrib.get("data-heat-affected-zone"): node
+                 for node in svg.iter() if "data-heat-affected-zone" in node.attrib}
+        self.assertEqual(set(zones), {"left", "right"})
+        coordinates = []
+        for side in ("left", "right"):
+            points = [(int(x), int(y)) for x, y in
+                      re.findall(r"(\\d+),(\\d+)", zones[side].attrib["d"])]
+            self.assertEqual(len(points), 6)
+            coordinates.append(points)
+        for left, right in zip(*coordinates):
+            self.assertEqual(left[0] + right[0], 480)
+            self.assertEqual(left[1], right[1])
+        self.assertFalse(any(node.tag.endswith("}text") or node.tag == "text"
+                             for node in svg.iter()))
+        self.assertEqual(len([node for node in svg.iter()
+                              if node.attrib.get("data-joint-type") == "double-v"]), 1)
+
     def test_unknown_figure_id_falls_back_to_text(self):
         dispatch = source("_includes/research_area_visual.html")
         panel = source("_includes/research_area_panel.html")

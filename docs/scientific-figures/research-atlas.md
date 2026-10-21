@@ -31,9 +31,12 @@ the script inputs and rerun it before committing SVG changes.
 
 Cross-section of a schematic, symmetric double-V butt joint. The upper and
 lower grooves narrow towards the mid-thickness root, with an illustrative
-filled fusion region. The drawing specifies no plate thickness, groove angle,
-pass sequence, residual-stress distribution, thermal history or measured
-heat-affected-zone boundary. The interior "geometry only" label was removed.
+filled fusion region. Two mirrored hatched bands in the parent material
+illustrate the heat-affected zone (HAZ) directly adjacent to the fusion
+boundaries. These bands are schematic and have no measured width, temperature
+history, or material-property interpretation. The drawing specifies no plate
+thickness, groove angle, pass sequence, residual-stress distribution or
+quantitative HAZ boundary. The illustration includes no text labels.
 
 ## R04. Layered structure
 
