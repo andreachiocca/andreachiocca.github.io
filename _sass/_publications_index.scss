@@ -1,0 +1,19 @@
+// Phase 4. All new rules stay inside the Publications page.
+.publications-index {
+  width: 100%;
+  min-width: 0;
+}
+.publications-index .publications-index-intro {
+  max-width: 64ch;
+  padding-bottom: 1.35rem;
+  margin-bottom: 1.4rem;
+  border-bottom: 1px solid var(--global-divider-color);
+}
+.publications-index .publications-index-intro p { margin-bottom: 0; }
+.publications-index #publication-list > section {
+  min-width: 0;
+  scroll-margin-top: 6rem;
+}
+.publications-index #publication-list > section + section {
+  margin-top: 2rem;
+}
