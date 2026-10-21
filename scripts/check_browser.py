@@ -122,8 +122,10 @@ def check_browser(root):
                             expect(evaluate("getComputedStyle(document.querySelector('.research-chapter details summary')).display === 'list-item'"), 'Research summary retains native list-item semantics')
                             evaluate("document.querySelector('.research-chapter details').open = false")
                             evaluate("document.querySelector('.research-chapter details summary').focus()")
+                            expect(evaluate("document.activeElement === document.querySelector('.research-chapter details summary')"), 'Research disclosure summary receives keyboard focus')
                             command('Input.dispatchKeyEvent', {'type':'keyDown','key':'Enter','code':'Enter','windowsVirtualKeyCode':13,'text':'\\r','unmodifiedText':'\\r'})
                             command('Input.dispatchKeyEvent', {'type':'keyUp','key':'Enter','code':'Enter','windowsVirtualKeyCode':13})
+                            time.sleep(.15)
                             expect(evaluate("document.querySelector('.research-chapter details').open"), 'Research disclosure keyboard accessible')
                     if canonical_route in ('/research/', '/cv/'):
                         expect(evaluate("[...document.querySelectorAll('[data-project=faber] .project-roles li')].some(li => li.textContent.includes('WG3,') && li.textContent.includes('Co-Leader'))"), 'FABER WG3 role missing on ' + route)
