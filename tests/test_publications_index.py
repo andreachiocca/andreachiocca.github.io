@@ -29,5 +29,33 @@ class PublicationsIndexSourceTests(unittest.TestCase):
         self.assertEqual(read("assets/css/main.scss").count('@import "publications_index";'), 1)
         self.assertTrue((ROOT / "_sass/_publications_index.scss").is_file())
 
+    def test_filter_controls_and_i18n(self):
+        markup = read("_includes/bib_search.liquid")
+        types = re.findall(r'data-publication-filter="([^"]+)"', markup)
+        self.assertEqual(types, ["all", "article", "inproceedings", "phdthesis"])
+        for marker in ('id="publication-type-filters"', 'id="bibsearch-empty"',
+                       'id="bibsearch-clear"', 'id="bibsearch-status"', 'id="bibsearch"'):
+            self.assertIn(marker, markup)
+        self.assertIn('aria-pressed="true"', markup)
+        self.assertEqual(markup.count('aria-pressed="false"'), 3)
+        self.assertIn('aria-live="polite"', markup)
+        self.assertIn('role="status"', markup)
+        self.assertIn('data-count-template=', markup)
+        self.assertIn('hidden', markup)
+        en = json.loads(read("_data/i18n/en/ui.json"))
+        it = json.loads(read("_data/i18n/it/ui.json"))
+        self.assertEqual(set(en), set(it))
+        for label in ("Publication type", "No publications match your search.", "Clear filters"):
+            self.assertIn(label, en)
+            self.assertTrue(it[label].strip())
+        script = read("assets/js/bibsearch.js")
+        for token in ('data-publication-filter', 'aria-pressed', 'bibsearch-empty',
+                      'bibsearch-clear', 'filterPublications', 'DOMContentLoaded'):
+            self.assertIn(token, script)
+        config = read("_config.yml")
+        self.assertIn("altmetric: false", config)
+        self.assertIn("dimensions: false", config)
+        self.assertIn("enable_publication_thumbnails: false", config)
+
 if __name__ == "__main__":
     unittest.main()
