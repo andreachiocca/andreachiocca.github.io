@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="research-figure-svg" viewBox="0 0 480 320" fill="none" aria-hidden="true" focusable="false">
+<defs><pattern id="atlas-add-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" stroke="#9fd3e4" stroke-opacity=".17"/></pattern></defs>
+<rect width="480" height="320" fill="#103551"/><rect width="480" height="320" fill="url(#atlas-add-grid)"/>
+<g stroke="#8bd5d1" stroke-width="1.5" stroke-linejoin="round">
+<path d="M92 232L220 165L397 212L270 280Z" fill="#296b86" />
+<path d="M92 210L220 143L397 190L270 258Z" fill="#296b86" />
+<path d="M92 188L220 121L397 168L270 236Z" fill="#296b86" />
+<path d="M92 166L220 99L397 146L270 214Z" fill="#3c8095" />
+</g>
+<g stroke="#a6d6e4" stroke-width="1" opacity=".6"><path d="M92 166V232M220 99V165M397 146V212M270 214V280"/></g>
+<g stroke="#d3e9f1" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M163 145L239 104L321 126L262 158L214 146L287 108" stroke-dasharray="5 5"/><path d="M276 106L287 108L281 118"/></g>
+<g fill="#c9e8ef" font-family="monospace" font-size="12"><text x="154" y="301">schematic layered geometry</text></g>
+</svg>

@@ -82,3 +82,8 @@ main#main-content:has(> .research-atlas) { max-width: 1160px; }
   .research-atlas .research-chapter:nth-child(even) .research-chapter-visual { order: initial; }
   .research-atlas .research-chapter-visual { min-height: 0; }
 }
+
+.research-atlas .research-technical-figure { margin: 0; background: #103551; border: 1px solid #2a597b; overflow: hidden; }
+.research-atlas .research-figure-svg { width: 100%; height: auto; display: block; }
+.research-atlas .research-technical-figure figcaption { color: #c2dce8; font-size: .67rem; padding: .8rem 1rem; background: #103551; }
+.research-atlas .research-chapter-visual:empty { display: none; }

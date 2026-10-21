@@ -10,5 +10,5 @@
     <ul class="inline-links" aria-label="{{ 'Related outputs for' | t }} {{ area.title }}">{% for link in area.links %}<li><a href="{{ link.url | local_url | relative_url }}">{{ link.label | t }}</a></li>{% endfor %}</ul>
     <details class="context-details"><summary>{{ "Further studies and technical context" | t }}</summary><ul>{% for link in area.further %}<li><a href="{{ link.url | local_url | relative_url }}">{{ link.label | t }}</a></li>{% endfor %}</ul></details>
   </div>
-  <div class="research-chapter-visual" data-research-figure="{{ include.canonical_id }}" aria-hidden="true"></div>
+  <div class="research-chapter-visual" data-research-figure="{{ include.canonical_id }}">{% include research_area_visual.html canonical_id=include.canonical_id %}</div>
 </section>
