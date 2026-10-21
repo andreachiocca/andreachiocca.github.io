@@ -137,12 +137,13 @@ def verify_document(html: str, expected: list, language: str):
 
 def verify_publications_index(root: Path) -> None:
     root = Path(root)
-    docs = []
-    for lang, filename in (("en", "publications/index.html"), ("it", "it/publications/index.html")):
-        path = root / filename
-        if not path.is_file():
+    routes = (("en", "publications/index.html"), ("it", "it/publications/index.html"))
+    for lang, filename in routes:
+        if not (root / filename).is_file():
             raise ValueError("Missing " + ("Italian" if lang == "it" else "English") + " publications page " + filename)
-        docs.append(verify_document(path.read_text(encoding="utf8"), canonical_entries(), lang))
+    expected = canonical_entries()
+    docs = [verify_document((root / filename).read_text(encoding="utf8"), expected, lang)
+            for lang, filename in routes]
     english, italian = docs
     if [(r["key"], r["category"]) for r in english.rows] != [(r["key"], r["category"]) for r in italian.rows]:
         raise ValueError("EN/IT bibliography key/type order differs")
