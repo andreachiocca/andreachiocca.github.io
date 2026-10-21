@@ -15,16 +15,22 @@ nav_order: 1
 {% endfor %}
 </div>
 
-<section id="projects" aria-labelledby="selected-collaborative-projects">
+<section id="projects" class="research-projects" aria-labelledby="selected-collaborative-projects">
   <h2 id="selected-collaborative-projects">{{ "Research projects" | t }}</h2>
-  <div class="project-list">{% assign project = site.data.resume.projects.first %}{% include research_project.html project=project %}</div>
+  <div class="research-featured-project">
+    <div class="research-featured-project-head"><span>05 /</span><span>FABER CA23109</span></div>
+    <div class="project-list">{% assign project = site.data.resume.projects.first %}{% include research_project.html project=project %}</div>
+  </div>
   <details class="context-details previous-projects"><summary>{{ "Previous projects" | t }}</summary><div class="project-list">{% for canonical_project in site.data.resume.projects offset:1 %}{% include research_project.html project=canonical_project %}{% endfor %}</div></details>
 </section>
 
-<h2 id="international-collaborations"><i class="far fa-handshake section-icon" aria-hidden="true"></i>{{ "International collaborations" | t }}</h2>
-{% include international_experiences.html %}
+<section class="research-collaborations" aria-labelledby="international-collaborations">
+  <h2 id="international-collaborations"><i class="far fa-handshake section-icon" aria-hidden="true"></i>{{ "International collaborations" | t }}</h2>
+  {% include international_experiences.html %}
+  <ul class="inline-links"><li><a href="{{ '/laboratory/' | local_url | relative_url }}">{{ "Laboratory and experimental capabilities" | t }}</a></li><li><a href="{{ '/thesis/' | local_url | relative_url }}">{{ "Thesis opportunities for students" | t }}</a></li></ul>
+</section>
 
-<ul class="inline-links"><li><a href="{{ '/laboratory/' | local_url | relative_url }}">{{ "Laboratory and experimental capabilities" | t }}</a></li><li><a href="{{ '/thesis/' | local_url | relative_url }}">{{ "Thesis opportunities for students" | t }}</a></li></ul>
-
-<h2 id="research-environment">{{ "Research collaborations" | t }}</h2>
-{% locale research.contact %}<p>For potential academic or industrial research collaborations, <a href="mailto:andrea.chiocca@unipi.it">contact me</a>.</p>{% endlocale %}
+<section class="research-contact" aria-labelledby="research-environment">
+  <h2 id="research-environment">{{ "Research collaborations" | t }}</h2>
+  {% locale research.contact %}<p>For potential academic or industrial research collaborations, <a href="mailto:andrea.chiocca@unipi.it">contact me</a>.</p>{% endlocale %}
+</section>
