@@ -4,6 +4,7 @@ from pathlib import Path
 import json
 import re
 import sys
+from urllib.parse import unquote
 
 TYPES = ("article", "inproceedings", "phdthesis")
 KEYS = ("all",) + TYPES
@@ -128,7 +129,7 @@ def verify_document(html: str, expected: list, language: str):
             raise ValueError(language + ": static record hidden " + row["key"])
         if e.get("doi") and "https://doi.org/" + e["doi"] not in row["links"]:
             raise ValueError(language + ": DOI link absent for " + row["key"])
-        if e.get("pdf") and not any(href.endswith(e["pdf"]) for href in row["links"]):
+        if e.get("pdf") and not any(unquote(href).endswith(e["pdf"]) for href in row["links"]):
             raise ValueError(language + ": PDF link absent for " + row["key"])
     if len(doc.schemas) != len(expected):
         raise ValueError(language + ": bibliography JSON-LD count mismatch")
