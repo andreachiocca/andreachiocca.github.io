@@ -103,8 +103,10 @@ def check_browser(root):
                     italian = route.startswith('/it/')
                     if is_home:
                         expect(evaluate("[...document.querySelectorAll('.home-project p')].every(p => {const rgb = getComputedStyle(p).color.match(/\\d+/g)?.map(Number); return rgb && rgb.slice(0, 3).every(value => value >= 200);})"), 'FABER text remains light on the blue background on ' + route)
+                        expect(evaluate("[...document.querySelectorAll('.home-art-heading span, .home-art-footer span, .stress-scrub span, .stress-note p')].length >= 5 && [...document.querySelectorAll('.home-art-heading span, .home-art-footer span, .stress-scrub span, .stress-note p')].every(el => {const rgb = getComputedStyle(el).color.match(/\\d+/g)?.map(Number); return rgb && rgb.slice(0, 3).every(value => value >= 170);})"), 'home figure labels remain light on the blue background on ' + route)
                     if width >= 992:
                         expect(evaluate("Math.abs(document.querySelector('#light-toggle').getBoundingClientRect().top + document.querySelector('#light-toggle').getBoundingClientRect().height / 2 - (document.querySelector('#navbar .nav-link').getBoundingClientRect().top + document.querySelector('#navbar .nav-link').getBoundingClientRect().height / 2)) <= 2"), 'theme button aligns with desktop navigation on ' + route)
+                        expect(evaluate("[...document.querySelectorAll('#light-toggle i')].every(i => getComputedStyle(i).paddingTop === '0px' && getComputedStyle(i).paddingLeft === '0px')"), 'theme icon has no offset padding on ' + route)
                     if canonical_route in ('/thesis/', '/laboratory/'):
                         expect(evaluate("[...document.querySelectorAll('.feature-card')].every(card => card.getBoundingClientRect().width >= 280 && card.getBoundingClientRect().right <= innerWidth)"), f'narrow or overflowing resource cards at {width}px on {route}')
                         expect(evaluate("[...document.querySelectorAll('.feature-card .inline-links a, .contact-link, .page-paths a, .institution-list a')].every(a => a.getBoundingClientRect().height >= 44)"), 'resource touch targets on ' + route)
@@ -118,6 +120,7 @@ def check_browser(root):
                         else:
                             expect(evaluate("document.querySelector('#toc-sidebar').getBoundingClientRect().right <= document.querySelector('h1').getBoundingClientRect().left"), 'CV sidebar overlaps main column')
                     if canonical_route == '/research/':
+                        expect(evaluate("[...document.querySelectorAll('.research-figure-index span')].length === 2 && [...document.querySelectorAll('.research-figure-index span')].every(el => {const rgb = getComputedStyle(el).color.match(/\\d+/g)?.map(Number); return rgb && rgb.slice(0, 3).every(value => value >= 170);})"), 'Research figure labels remain light on the blue background on ' + route)
                         expect(evaluate("document.querySelectorAll('.research-chapter').length === 4"), 'four Research chapters on ' + route)
                         expect(evaluate("document.querySelectorAll('.research-chapter .research-technical-figure svg').length === 4"), 'four Research SVGs on ' + route)
                         expect(evaluate("[...document.querySelectorAll('.research-chapter, .research-technical-figure')].every(el => {const r=el.getBoundingClientRect(); return r.left >= -2 && r.right <= innerWidth+2;})"), 'Research figures/content overflow on ' + route)

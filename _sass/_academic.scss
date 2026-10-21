@@ -30,6 +30,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 }
 .skip-link:focus { top: .5rem; }
 #light-toggle { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
+#light-toggle .fa-moon, #light-toggle .fa-sun { padding: 0; line-height: 1; }
 .publications h2.bibliography {
   color: var(--global-text-color-light);
   margin-bottom: 1rem;

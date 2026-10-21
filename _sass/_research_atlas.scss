@@ -37,6 +37,7 @@ main#main-content:has(> .research-atlas) { max-width: 1160px; }
   border: 1px solid #275b79; color: #d5e8f3;
 }
 .research-atlas .research-figure-index { display: flex; gap: 1rem; justify-content: space-between; padding: 1rem 1.2rem 0; }
+.research-atlas .research-figure-index span { color: #d5e8f3; }
 .research-atlas .research-overview-svg { display: block; width: 100%; height: auto; }
 .research-atlas .research-hero-panel figcaption { padding: 0 1.2rem 1rem; color: #bad5e5; }
 .research-atlas .research-atlas-body { line-height: 1.7; }
