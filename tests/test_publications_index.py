@@ -57,5 +57,28 @@ class PublicationsIndexSourceTests(unittest.TestCase):
         self.assertIn("dimensions: false", config)
         self.assertIn("enable_publication_thumbnails: false", config)
 
+
+    def test_scoped_entry_styles_and_no_external_badges(self):
+        styles = read("_sass/_publications_index.scss")
+        for selector in (
+            ".publications-index .publications .title",
+            ".publications-index .publications .author",
+            ".publications-index .publications .periodical",
+            ".publications-index .publications .links .btn",
+            ".publications-index .publication-details summary",
+            ".publications-index .publications h2.bibliography",
+            ".publications-index :focus-visible",
+            ".publications-index [hidden]"
+        ):
+            self.assertIn(selector, styles)
+        for rule in ("min-height: 44px", "overflow-wrap: anywhere", "@media (max-width: 575px)"):
+            self.assertIn(rule, styles)
+        self.assertNotIn("@import url(", styles)
+        self.assertNotIn("https://", styles)
+        config = read("_config.yml")
+        self.assertIn("altmetric: false", config)
+        self.assertIn("dimensions: false", config)
+        self.assertIn("enable_publication_thumbnails: false", config)
+
 if __name__ == "__main__":
     unittest.main()
