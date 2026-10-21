@@ -1,0 +1,11 @@
+{
+  "title": "Cauchy cube with 90 degree out-of-phase axial and shear stresses",
+  "description": "Illustrative, normalized stress history. The prescribed components are sigma_zz / sigma_a = sin(omega t) and tau_zx / sigma_a = tau_xz / sigma_a = 0.6 sin(omega t + 90 degrees). All other components are zero. The rightmost waveform values and the cube show the same instant. Arrows reverse at sign changes and vanish at zero. The cube is undeformed. Without animation, the figure shows omega t = 45 degrees.",
+  "convention": "Subscripts identify the face-normal axis first and the traction direction second. Only the three visible positive faces are drawn. The hidden opposite faces carry opposite traction vectors. Both curves and all arrows use a common stress scale. This illustration is not experimental data or a fatigue-life prediction.",
+  "now": "now (t)",
+  "play": "Play",
+  "pause": "Pause",
+  "phase": "Cycle phase",
+  "note": "Axial + shear loading. Shear amplitude / normal amplitude = 0.6.",
+  "details": "Model and notation"
+}

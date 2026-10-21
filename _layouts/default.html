@@ -10,7 +10,7 @@
   </head>
 
   <!-- Body -->
-  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
+  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}{% if page.translation_key == 'home' %} academic-home-v2{% endif %}">
 
     <a class="skip-link" href="#main-content">{{ "Skip to main content" | t }}</a>
 

@@ -1,18 +1,46 @@
 ---
 layout: default
 ---
-<div class="post home-page">
-  <header class="post-header"><h1 class="post-title"><span class="font-weight-bold">{{ site.first_name }}</span> {{ site.last_name }}</h1><p class="desc">{{ page.subtitle }}</p></header>
-  <div class="home-introduction">
-    <div class="home-summary">{{ content }}</div>
-    {% if page.profile %}<aside class="profile" aria-label="{{ "Portrait and office contact" | t }}">
-      {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-      {% include figure.html path=profile_image_path class="img-fluid rounded-circle" alt=page.profile.image_alt loading="eager" fetchpriority="high" sizes="(min-width: 700px) 200px, 140px" cache_bust=true %}
-      <address class="office-contact" aria-label="{{ "Office contact" | t }}"><p><i class="far fa-envelope" aria-hidden="true"></i><a href="mailto:{{ site.data.resume.basics.email }}">{{ site.data.resume.basics.email }}</a></p>{{ page.profile.more_info }}</address>
-    </aside>{% endif %}
-  </div>
+<div class="post home-page home-page--editorial">
+  <section class="home-hero" aria-label="{{ 'Research overview' | t }}">
+    <div class="home-hero-copy">
+      <p class="home-eyebrow"><span class="home-eyebrow-index" aria-hidden="true">01 /</span> {{ "Research expertise" | t }}</p>
+      <header class="post-header home-hero-header">
+        <h1 class="post-title"><span class="font-weight-bold">{{ site.first_name }}</span> <span class="home-surname">{{ site.last_name }}</span></h1>
+        <p class="desc">{{ page.subtitle }}</p>
+      </header>
+      <div class="home-summary">{{ content }}</div>
+    </div>
+    <div class="home-hero-aside">
+      <div class="home-hero-art">
+        <div class="home-art-heading"><span>FIG. 01</span><span>{{ "Fatigue research" | t }}</span></div>
+        {% include home_visual.html %}
+        <div class="home-art-footer"><span>σ / τ</span><span>{{ "Research areas" | t }}</span></div>
+      </div>
+      {% if page.profile %}
+      <aside class="profile home-identity" aria-label="{{ 'Portrait and office contact' | t }}">
+        <div class="home-portrait">
+          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+          {% include figure.html path=profile_image_path class="img-fluid rounded-circle" alt=page.profile.image_alt loading="eager" fetchpriority="high" sizes="(min-width: 700px) 96px, 80px" cache_bust=true %}
+        </div>
+        <div class="home-identity-details">
+          <p class="home-identity-label">{{ "Office contact" | t }}</p>
+          <address class="office-contact" aria-label="{{ "Office contact" | t }}">
+            <p><i class="far fa-envelope" aria-hidden="true"></i><a href="mailto:{{ site.data.resume.basics.email }}">{{ site.data.resume.basics.email }}</a></p>{{ page.profile.more_info }}
+          </address>
+        </div>
+      </aside>
+      {% endif %}
+    </div>
+  </section>
   <section class="home-audiences" aria-labelledby="home-pathways-title">
-    <h2 id="home-pathways-title">{{ "Students and research partners" | t }}</h2>
+    <div class="home-audiences-heading">
+      <h2 id="home-pathways-title">{{ "Students and research partners" | t }}</h2>
+      <div class="home-pathway-figure" aria-hidden="true">
+        <span class="home-pathway-caption">FIG. 02</span>
+        {% include home_pathways_visual.html %}
+      </div>
+    </div>
     <div class="feature-grid">
 {% locale home.students %}      <section class="feature-card audience-card"><h3><i class="far fa-lightbulb section-icon" aria-hidden="true"></i>{{ "For students" | t }}</h3><p>Explore thesis directions in computational mechanics, fatigue, experimental testing and structural integrity, with possibilities to discuss work in Pisa or abroad.</p><a class="contact-link" href="{{ '/thesis/' | local_url | relative_url }}">{{ "Explore thesis opportunities" | t }} <span aria-hidden="true">→</span></a></section>{% endlocale %}
 {% locale home.partners %}      <section class="feature-card audience-card"><h3><i class="far fa-handshake section-icon" aria-hidden="true"></i>{{ "For researchers &amp; industry" | t }}</h3><p>Explore experimental expertise, numerical–experimental methods and opportunities for joint investigations and research collaboration.</p><a class="contact-link" href="{{ '/laboratory/' | local_url | relative_url }}">{{ "Laboratory capabilities" | t }} <span aria-hidden="true">→</span></a></section>{% endlocale %}
@@ -24,7 +52,7 @@ layout: default
 {% locale home.faber %}    <p>COST Action CA23109 brings together researchers to develop fatigue datasets and benchmarks for comparing fatigue-life predictions.</p>{% endlocale %}
     <ul class="inline-links"><li><a href="{{ '/research/' | local_url | relative_url }}#projects">{{ "Projects and responsibilities" | t }}</a></li><li><a href="{{ '/repositories/' | local_url | relative_url }}#zenodo-21534682">{{ "FABEST participant package" | t }}</a></li></ul>
   </section>
-  {% if page.recent_papers %}<section aria-labelledby="home-publications"><h2 id="home-publications"><i class="far fa-file-alt section-icon" aria-hidden="true"></i><a href="{{ '/publications/' | local_url | relative_url }}">{{ "Recent Publications" | t }}</a></h2>{% include recent_papers.html %}</section>{% endif %}
+  {% if page.recent_papers %}<section class="home-publications-section" aria-labelledby="home-publications"><h2 id="home-publications"><i class="far fa-file-alt section-icon" aria-hidden="true"></i><a href="{{ '/publications/' | local_url | relative_url }}">{{ "Recent Publications" | t }}</a></h2>{% include recent_papers.html %}</section>{% endif %}
 {% locale home.outputs %}  <section class="home-open-science" aria-labelledby="home-open-science-title"><h2 id="home-open-science-title"><i class="far fa-folder-open section-icon" aria-hidden="true"></i>{{ "Software and research data" | t }}</h2><p>Explore <a href="{{ '/repositories/' | local_url | relative_url }}">scientific software, engineering tools and datasets</a>, including the <a href="{{ '/repositories/' | local_url | relative_url }}#multiaxial-fatigue">FABER WG4.3 multiaxial fatigue library</a>. The catalogue describes each resource and its development status.</p></section>{% endlocale %}
 {% locale home.collaboration %}  <section id="collaboration" class="collaboration-panel" aria-labelledby="collaboration-title"><h2 id="collaboration-title"><i class="far fa-comments section-icon" aria-hidden="true"></i>{{ "Interested in research collaboration?" | t }}</h2><p>I welcome discussions with researchers and engineering teams about shared scientific interests, research proposals, fatigue-assessment methods and relevant industrial challenges.</p><a class="contact-link" href="mailto:{{ site.data.resume.basics.email }}">{{ site.data.resume.basics.email }}</a></section>{% endlocale %}
   {% if page.social %}<div class="social"><div class="contact-icons">{% include social.html %}</div><div class="contact-note">{{ site.contact_note | t }}</div></div>{% endif %}

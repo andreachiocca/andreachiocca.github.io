@@ -1,0 +1,61 @@
+{% assign stress_lang = page.lang | default: 'en' %}
+{% assign stress_text = site.data.i18n[stress_lang].stress_visual | default: site.data.i18n.en.stress_visual %}
+<figure class="stress-visual" data-stress-visual>
+  <!-- Static fallback and animation use the same tensor and projection. -->
+  <svg id="stress-svg" class="home-technical-figure" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="stress-title stress-description">
+    <title id="stress-title">{{ stress_text.title | escape }}</title>
+    <desc id="stress-description">{{ stress_text.description | escape }}</desc>
+    <defs>
+      <pattern id="home-grid-v2" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" stroke="#A6C4E1" stroke-opacity=".14" stroke-width=".8"/></pattern>
+      <linearGradient id="home-cauchy-top" x1="190" y1="150" x2="445" y2="290" gradientUnits="userSpaceOnUse"><stop stop-color="#3279A1"/><stop offset=".56" stop-color="#1D7494"/><stop offset="1" stop-color="#113D62"/></linearGradient>
+      <linearGradient id="home-cauchy-right" x1="320" y1="235" x2="465" y2="430" gradientUnits="userSpaceOnUse"><stop stop-color="#1F587C"/><stop offset="1" stop-color="#102E51"/></linearGradient>
+      <linearGradient id="home-orbit-v2" x1="120" y1="150" x2="530" y2="410" gradientUnits="userSpaceOnUse"><stop stop-color="#71D7D5"/><stop offset="1" stop-color="#B0CEE7"/></linearGradient>
+    </defs>
+    <rect width="640" height="640" fill="url(#home-grid-v2)"/>
+    <g stroke="#A2C6DE" stroke-opacity=".2" stroke-width="1"><path d="M108 112H536M108 434H536M108 112V434M536 112V434" stroke-dasharray="4 9"/><circle cx="326" cy="269" r="198" stroke-dasharray="4 12"/></g>
+    <g transform="rotate(-25 326 269)" stroke="url(#home-orbit-v2)" stroke-opacity=".46"><ellipse cx="326" cy="269" rx="225" ry="95" stroke-width="1.6"/><ellipse cx="326" cy="269" rx="174" ry="72" stroke-dasharray="6 10"/></g>
+    <g stroke-linejoin="round" stroke-width="2">
+      <path data-face="y" d="M198.694 209.000L326.000 282.500L326.000 429.500L198.694 356.000Z" fill="#16486C" stroke="#83BDD8"/>
+      <path data-face="x" d="M453.306 209.000L326.000 282.500L326.000 429.500L453.306 356.000Z" fill="url(#home-cauchy-right)" stroke="#7FB9D8"/>
+      <path data-face="z" d="M326.000 135.500L453.306 209.000L326.000 282.500L198.694 209.000Z" fill="url(#home-cauchy-top)" stroke="#B3D9EA"/>
+    </g>
+    <path d="M341.913 144.688L214.607 218.188M310.087 144.688L437.393 218.188M437.393 365.188L437.393 218.188M214.607 365.188L214.607 218.188M453.306 337.625L326.000 411.125M198.694 337.625L326.000 411.125M357.826 153.875L230.521 227.375M294.174 153.875L421.479 227.375M421.479 374.375L421.479 227.375M230.521 374.375L230.521 227.375M453.306 319.250L326.000 392.750M198.694 319.250L326.000 392.750M373.740 163.063L246.434 236.563M278.260 163.063L405.566 236.563M405.566 383.563L405.566 236.563M246.434 383.563L246.434 236.563M453.306 300.875L326.000 374.375M198.694 300.875L326.000 374.375M389.653 172.250L262.347 245.750M262.347 172.250L389.653 245.750M389.653 392.750L389.653 245.750M262.347 392.750L262.347 245.750M453.306 282.500L326.000 356.000M198.694 282.500L326.000 356.000M405.566 181.438L278.260 254.938M246.434 181.438L373.740 254.938M373.740 401.938L373.740 254.938M278.260 401.938L278.260 254.938M453.306 264.125L326.000 337.625M198.694 264.125L326.000 337.625M421.479 190.625L294.174 264.125M230.521 190.625L357.826 264.125M357.826 411.125L357.826 264.125M294.174 411.125L294.174 264.125M453.306 245.750L326.000 319.250M198.694 245.750L326.000 319.250M437.393 199.813L310.087 273.313M214.607 199.813L341.913 273.313M341.913 420.313L341.913 273.313M310.087 420.313L310.087 273.313M453.306 227.375L326.000 300.875M198.694 227.375L326.000 300.875" stroke="#A5D3E2" stroke-opacity=".2" stroke-width="1"/>
+    <!-- Components on +z and +x faces. +y is unloaded. Opposite faces are hidden. -->
+    <g class="stress-components"><path id="stress-sigma-zz" d="M326.000 209.000L326.000 141.118M330.000 149.118L326.000 141.118L322.000 149.118" class="stress-arrow stress-normal"/>
+    <path id="stress-tau-zx" d="M326.000 209.000L361.273 229.365M352.344 228.829L361.273 229.365L356.344 221.901" class="stress-arrow stress-shear"/>
+    <path id="stress-tau-xz" d="M389.653 319.250L389.653 278.521M393.653 286.521L389.653 278.521L385.653 286.521" class="stress-arrow stress-shear"/></g>
+    <g class="stress-math" font-family="Georgia,serif" font-size="28">
+      <text x="343" y="114" fill="#82E2DE">σ<tspan baseline-shift="sub" font-size="18">zz</tspan></text>
+      <text x="246" y="164" fill="#D2E9F8">τ<tspan baseline-shift="sub" font-size="18">zx</tspan></text>
+      <text x="430" y="285" fill="#D2E9F8">τ<tspan baseline-shift="sub" font-size="18">xz</tspan></text>
+      <text x="224" y="338" fill="#BCD3E4" font-size="22">t<tspan baseline-shift="super" font-size="15">(y)</tspan> = 0</text>
+    </g>
+    <g font-family="monospace" font-size="17" fill="#B3D9E8"><text x="389" y="215">+z</text><text x="422" y="359">+x</text><text x="270" y="382">+y</text></g>
+    <!-- Coordinate triad uses exactly the same 3D projection as the cube. -->
+    <g stroke="#A3CDDF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M98 360L132.641 380M124.641 380L132.641 380L129 373"/>
+      <path d="M98 360L63.359 380M67 373L63.359 380L71.359 380"/>
+      <path d="M98 360V320M94 327L98 320L102 327"/>
+    </g>
+    <g font-family="Georgia,serif" font-size="21" fill="#C9E1EB"><text x="138" y="387">x</text><text x="45" y="388">y</text><text x="94" y="309">z</text></g>
+    <g font-family="Georgia,serif" font-size="22">
+      <text x="96" y="466" fill="#82E2DE">σ<tspan baseline-shift="sub" font-size="14">zz</tspan>/σ<tspan baseline-shift="sub" font-size="14">a</tspan></text>
+      <text x="316" y="466" fill="#D2E9F8">τ<tspan baseline-shift="sub" font-size="14">zx</tspan>/σ<tspan baseline-shift="sub" font-size="14">a</tspan> = τ<tspan baseline-shift="sub" font-size="14">xz</tspan>/σ<tspan baseline-shift="sub" font-size="14">a</tspan></text>
+    </g>
+    <g font-family="monospace" font-size="17"><text data-stress-value="sigma" x="207" y="466" fill="#82E2DE">+0.707</text><text data-stress-value="tau" x="497" y="466" fill="#D2E9F8">+0.424</text></g>
+    <g stroke="#BAD8E8" stroke-opacity=".23" stroke-width="1"><path d="M96 500H552M96 546H552M96 592H552M96 500V592"/></g>
+    <g font-family="monospace" font-size="16" fill="#C6DCE6"><text x="62" y="506">+1</text><text x="72" y="552">0</text><text x="62" y="598">-1</text></g>
+    <polyline id="stress-wave-sigma" points="96.000,513.473 100.750,511.415 105.500,509.506 110.250,507.752 115.000,506.163 119.750,504.744 124.500,503.502 129.250,502.441 134.000,501.567 138.750,500.884 143.500,500.394 148.250,500.098 153.000,500.000 157.750,500.098 162.500,500.394 167.250,500.884 172.000,501.567 176.750,502.441 181.500,503.502 186.250,504.744 191.000,506.163 195.750,507.752 200.500,509.506 205.250,511.415 210.000,513.473 214.750,515.670 219.500,517.997 224.250,520.444 229.000,523.000 233.750,525.655 238.500,528.397 243.250,531.214 248.000,534.094 252.750,537.026 257.500,539.996 262.250,542.991 267.000,546.000 271.750,549.009 276.500,552.004 281.250,554.974 286.000,557.906 290.750,560.786 295.500,563.603 300.250,566.345 305.000,569.000 309.750,571.556 314.500,574.003 319.250,576.330 324.000,578.527 328.750,580.585 333.500,582.494 338.250,584.248 343.000,585.837 347.750,587.256 352.500,588.498 357.250,589.559 362.000,590.433 366.750,591.116 371.500,591.606 376.250,591.902 381.000,592.000 385.750,591.902 390.500,591.606 395.250,591.116 400.000,590.433 404.750,589.559 409.500,588.498 414.250,587.256 419.000,585.837 423.750,584.248 428.500,582.494 433.250,580.585 438.000,578.527 442.750,576.330 447.500,574.003 452.250,571.556 457.000,569.000 461.750,566.345 466.500,563.603 471.250,560.786 476.000,557.906 480.750,554.974 485.500,552.004 490.250,549.009 495.000,546.000 499.750,542.991 504.500,539.996 509.250,537.026 514.000,534.094 518.750,531.214 523.500,528.397 528.250,525.655 533.000,523.000 537.750,520.444 542.500,517.997 547.250,515.670 552.000,513.473" class="stress-wave stress-normal"/>
+    <circle id="stress-marker-sigma" cx="552" cy="513.473" r="4" class="stress-dot-sigma"/>
+    <polyline id="stress-wave-tau" points="96.000,526.484 100.750,527.802 105.500,529.198 110.250,530.666 115.000,532.200 119.750,533.793 124.500,535.438 129.250,537.128 134.000,538.857 138.750,540.616 143.500,542.397 148.250,544.195 153.000,546.000 157.750,547.805 162.500,549.603 167.250,551.384 172.000,553.143 176.750,554.872 181.500,556.562 186.250,558.207 191.000,559.800 195.750,561.334 200.500,562.802 205.250,564.198 210.000,565.516 214.750,566.751 219.500,567.897 224.250,568.949 229.000,569.902 233.750,570.754 238.500,571.499 243.250,572.135 248.000,572.660 252.750,573.070 257.500,573.364 262.250,573.541 267.000,573.600 271.750,573.541 276.500,573.364 281.250,573.070 286.000,572.660 290.750,572.135 295.500,571.499 300.250,570.754 305.000,569.902 309.750,568.949 314.500,567.897 319.250,566.751 324.000,565.516 328.750,564.198 333.500,562.802 338.250,561.334 343.000,559.800 347.750,558.207 352.500,556.562 357.250,554.872 362.000,553.143 366.750,551.384 371.500,549.603 376.250,547.805 381.000,546.000 385.750,544.195 390.500,542.397 395.250,540.616 400.000,538.857 404.750,537.128 409.500,535.438 414.250,533.793 419.000,532.200 423.750,530.666 428.500,529.198 433.250,527.802 438.000,526.484 442.750,525.249 447.500,524.103 452.250,523.051 457.000,522.098 461.750,521.246 466.500,520.501 471.250,519.865 476.000,519.340 480.750,518.930 485.500,518.636 490.250,518.459 495.000,518.400 499.750,518.459 504.500,518.636 509.250,518.930 514.000,519.340 518.750,519.865 523.500,520.501 528.250,521.246 533.000,522.098 537.750,523.051 542.500,524.103 547.250,525.249 552.000,526.484" class="stress-wave stress-shear"/>
+    <circle id="stress-marker-tau" cx="552" cy="526.484" r="4" class="stress-dot-tau"/>
+    <path d="M552 489V603" stroke="#ECF5F7" stroke-opacity=".65" stroke-dasharray="3 4"/>
+    <g font-family="monospace" font-size="17" fill="#D1E6EF"><text x="96" y="621">t - T</text><text x="324" y="621" text-anchor="middle">Δφ = 90°</text><text x="552" y="621" text-anchor="end">{{ stress_text.now | escape }}</text></g>
+  </svg>
+  <div class="stress-controls" data-stress-controls hidden>
+    <button type="button" data-stress-toggle data-play="{{ stress_text.play | escape }}" data-pause="{{ stress_text.pause | escape }}" aria-controls="stress-svg">{{ stress_text.play }}</button>
+    <label for="stress-phase" class="stress-scrub"><span>{{ stress_text.phase }}</span><input id="stress-phase" data-stress-phase type="range" min="0" max="360" step="1" value="45" aria-describedby="stress-note"/><output for="stress-phase" data-stress-angle aria-live="off">45°</output></label>
+  </div>
+  <figcaption id="stress-note" class="stress-note">{{ stress_text.note }} <details><summary>{{ stress_text.details }}</summary><p>{{ stress_text.description }}</p><p>{{ stress_text.convention }}</p></details></figcaption>
+</figure>
+<script defer src="{{ '/assets/js/stress-visual.js' | relative_url | bust_file_cache }}"></script>
