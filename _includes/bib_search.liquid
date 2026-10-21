@@ -1,6 +1,20 @@
 {% if site.bib_search %}
-<label for="bibsearch">{{ "Filter publications by title, author, year, or keyword" | t }}</label>
-<input type="search" id="bibsearch" autocomplete="off" class="form-control mb-2" placeholder="{{ "e.g. fatigue, 2024, Frendo" | t }}" aria-controls="publication-list" hidden>
-<p id="bibsearch-status" data-count-template="{{ "%visible% of %total% publications" | t }}" role="status" aria-live="polite"></p>
+<div class="publication-controls" hidden>
+  <div class="publication-type-filters" role="group" aria-label="{{ 'Publication type' | t }}">
+    <button type="button" data-publication-type="all" aria-pressed="true" aria-controls="publication-list">{{ 'All' | t }}</button>
+    <button type="button" data-publication-type="article" aria-pressed="false" aria-controls="publication-list">{{ 'Journal articles' | t }}</button>
+    <button type="button" data-publication-type="inproceedings" aria-pressed="false" aria-controls="publication-list">{{ 'Conference contributions' | t }}</button>
+    <button type="button" data-publication-type="phdthesis" aria-pressed="false" aria-controls="publication-list">{{ 'Doctoral thesis' | t }}</button>
+  </div>
+  <div class="publication-search">
+    <label for="bibsearch">{{ 'Filter publications by title, author, year, or keyword' | t }}</label>
+    <div class="publication-search-field">
+      <input type="search" id="bibsearch" autocomplete="off" class="form-control" placeholder="{{ 'e.g. fatigue, 2024, Frendo' | t }}" aria-controls="publication-list">
+      <button type="button" id="bibsearch-clear" title="{{ 'Clear search' | t }}" aria-label="{{ 'Clear search' | t }}" hidden><i class="fas fa-times" aria-hidden="true"></i></button>
+    </div>
+  </div>
+  <p id="bibsearch-status" data-count-template="{{ '%visible% of %total% publications' | t }}" role="status" aria-live="polite"></p>
+  <p id="bibsearch-empty" hidden>{{ 'No matching publications' | t }}</p>
+</div>
 <script defer src="{{ '/assets/js/bibsearch.js' | local_url | relative_url | bust_file_cache }}"></script>
 {% endif %}

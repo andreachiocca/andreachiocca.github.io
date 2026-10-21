@@ -138,13 +138,28 @@ def check_browser(root):
                             expect(evaluate("document.querySelector('[data-filter=other]').getAttribute('aria-pressed') === 'true'"), 'keyboard catalogue filter')
                             evaluate("document.querySelector('[data-filter=all]').click()")
                             expect(evaluate("document.querySelectorAll('.research-output:not([hidden])').length") == total, 'catalogue filter reset')
+                    if canonical_route == '/publications/':
+                        expect(evaluate("document.querySelectorAll('.publication-atlas .publication-section').length === 3 && document.querySelectorAll('.publication-index a').length === 3"), 'publication editorial index on ' + route)
+                        expect(evaluate("!document.querySelector('.publication-controls').hidden"), 'publication controls initialized on ' + route)
+                        expect(evaluate("[...document.querySelectorAll('.publication-index a, .publication-type-filters button, .publication-details summary, .publication-atlas .links a')].filter(el => !el.closest('[hidden]')).every(el => el.getBoundingClientRect().height >= 44)"), f'publication touch targets at {width}px on {route}')
+                        expect(evaluate("[...document.querySelectorAll('.publication-atlas .publication-hero, .publication-atlas .publication-section')].every(el => {const r=el.getBoundingClientRect(); return r.left >= -2 && r.right <= innerWidth+2;})"), f'publication layout bounds at {width}px on {route}')
                     if canonical_route == '/publications/' and width == 390:
                         total_publications = evaluate("document.querySelectorAll('ol.bibliography > li').length")
-                        expect(evaluate("!document.getElementById('bibsearch').hidden"), 'publication filter not initialized')
+                        expect(total_publications > 0, 'canonical bibliography is visible on ' + route)
                         evaluate("document.getElementById('bibsearch').value='2026'; document.getElementById('bibsearch').dispatchEvent(new Event('input'))")
                         expect(evaluate("Array.from(document.querySelectorAll('ol.bibliography > li')).filter(item => !item.hidden).length > 0 && document.querySelectorAll('ol.bibliography > li[hidden]').length > 0"), 'publication year filter')
-                        evaluate("document.getElementById('bibsearch').value=''; document.getElementById('bibsearch').dispatchEvent(new Event('input'))")
+                        evaluate("document.getElementById('bibsearch-clear').click()")
                         expect(evaluate("Array.from(document.querySelectorAll('ol.bibliography > li')).filter(item => !item.hidden).length") == total_publications, 'publication filter reset')
+                        evaluate("document.querySelector('.publication-type-filters [data-publication-type=phdthesis]').click()")
+                        expect(evaluate("document.querySelectorAll('.publication-section:not([hidden])').length === 1 && document.querySelectorAll('ol.bibliography > li:not([hidden])').length === 1"), 'publication type filter')
+                        evaluate("location.hash='#Chiocca2019b'")
+                        time.sleep(.2)
+                        expect(evaluate("!document.getElementById('Chiocca2019b').closest('li').hidden && document.querySelector('.publication-type-filters [data-publication-type=all]').getAttribute('aria-pressed') === 'true'"), 'filtered publication deep-link recovery')
+                        evaluate("document.getElementById('bibsearch').value='GMAW'; document.getElementById('bibsearch').dispatchEvent(new Event('input'))")
+                        expect(evaluate("!document.getElementById('Chiocca2019b').closest('li').hidden"), 'publication BibTeX keyword discovery')
+                        evaluate("document.getElementById('bibsearch').value='no-publication-will-match'; document.getElementById('bibsearch').dispatchEvent(new Event('input'))")
+                        expect(evaluate("!document.getElementById('bibsearch-empty').hidden"), 'publication empty state')
+                        evaluate("document.getElementById('bibsearch-clear').click()")
                         evaluate("document.querySelector('details summary').focus()")
                         command('Input.dispatchKeyEvent', {'type': 'keyDown', 'key': 'Enter', 'code': 'Enter', 'windowsVirtualKeyCode': 13, 'text': '\r', 'unmodifiedText': '\r'})
                         command('Input.dispatchKeyEvent', {'type': 'keyUp', 'key': 'Enter', 'code': 'Enter', 'windowsVirtualKeyCode': 13})
@@ -222,7 +237,25 @@ def check_browser(root):
                     time.sleep(.1)
                 expect(evaluate("document.querySelector('#nav-teaching a[data-thesis]').getClientRects().length > 0"), 'thesis reachable without JavaScript')
                 expect(evaluate("document.querySelector('h1').getBoundingClientRect().top >= document.querySelector('#navbar').getBoundingClientRect().bottom"), 'no-JavaScript navigation does not obscure content')
-            print(f'PASS: {checks} browser checks at 375, 390, 768 and 1280px, including thesis and laboratory pages, courses, navigation and catalogue controls' if not errors else f'Browser checks: {len(errors)} errors')
+                command('Page.navigate', {'url': origin + '/it/publications/'})
+                for _ in range(120):
+                    if evaluate("document.readyState === 'complete' && location.pathname === '/it/publications/'"):
+                        break
+                    time.sleep(.1)
+                expect(evaluate("document.querySelector('.publication-controls').hidden && [...document.querySelectorAll('#publication-list ol.bibliography > li')].every(entry => !entry.hidden)"), 'all Italian publications remain available without JavaScript')
+                expect(evaluate("!!document.querySelector('.publication-introduction a[href=" + json.dumps('/it/repositories/') + "]')"), 'localized publication introduction link without JavaScript')
+            command('Emulation.setScriptExecutionDisabled', {'value': False})
+            for width in (320, 1920):
+                command('Emulation.setDeviceMetricsOverride', {'width': width, 'height': 900, 'deviceScaleFactor': 1, 'mobile': False})
+                for route in ('/publications/', '/it/publications/'):
+                    command('Page.navigate', {'url': origin + route})
+                    for _ in range(120):
+                        if evaluate("document.readyState === 'complete' && location.pathname === " + json.dumps(route)):
+                            break
+                        time.sleep(.1)
+                    expect(evaluate("document.documentElement.scrollWidth <= innerWidth + 2"), f'publication overflow at {width}px on {route}')
+                    expect(evaluate("[...document.querySelectorAll('.publication-hero, .publication-section')].every(el => {const r=el.getBoundingClientRect(); return r.left >= -2 && r.right <= innerWidth+2;})"), f'publication bounds at {width}px on {route}')
+            print(f'PASS: {checks} browser checks at 320, 375, 390, 768, 1280 and 1920px, including bilingual Publications controls and no-JavaScript access' if not errors else f'Browser checks: {len(errors)} errors')
         except Exception as exc:
             errors.append('Browser check could not complete: ' + str(exc))
         finally:
