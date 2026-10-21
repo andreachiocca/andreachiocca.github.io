@@ -129,5 +129,30 @@ class ResearchAtlasFigureTests(unittest.TestCase):
         self.assertIn("area.links", panel)
 
 
+class ResearchAtlasRenderedContractTests(unittest.TestCase):
+    def test_verifier_is_wired_after_build(self):
+        path = ROOT / "scripts/verify_research_atlas.py"
+        self.assertTrue(path.is_file())
+        for workflow in (".github/workflows/build.yml", ".github/workflows/preview.yml"):
+            text = source(workflow)
+            self.assertIn("python scripts/verify_research_atlas.py _site", text)
+            self.assertGreater(text.index("python scripts/verify_research_atlas.py _site"), text.index("bundle exec jekyll build"))
+
+    def test_verifier_rejects_missing_areas_and_roles(self):
+        import importlib.util
+        import tempfile
+        spec = importlib.util.spec_from_file_location("atlas_verifier", ROOT / "scripts/verify_research_atlas.py")
+        verifier = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(verifier)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for prefix, lang in (("", "en"), ("it/", "it")):
+                target = root / prefix / "research/index.html"
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text(f'<html lang="{lang}"><main><h1>Research</h1><section id="projects"></section></main></html>', encoding="utf8")
+            with self.assertRaisesRegex((ValueError, AssertionError), "research|area|figure|FABER"):
+                verifier.verify_research_atlas(root)
+
+
 if __name__ == "__main__":
     unittest.main()
