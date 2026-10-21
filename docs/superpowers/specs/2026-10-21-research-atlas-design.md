@@ -1,7 +1,7 @@
 # Phase 3 Research Atlas Design Specification
 
 **Date:** 21 October 2026  
-**Status:** Awaiting review and written-spec approval  
+**Status:** Approved for implementation planning on 21 October 2026  
 **Project:** [Academic website](https://andreachiocca.github.io/)  
 **Repository:** [andreachiocca/andreachiocca.github.io](https://github.com/andreachiocca/andreachiocca.github.io)  
 **Proposed branch:** `design/phase-3-research-atlas`
@@ -157,4 +157,4 @@ No network fetch or runtime API is required. The default browser experience rema
 
 Phase 3 does not redesign Publications, Software and Research Data, Laboratory, Teaching, Thesis or CV. It does not change scientific records, create publication graphics that imply experimental findings, or generalize the homepage animation into every page.
 
-**Approval gate:** Review this specification and request amendments if needed. After explicit written-spec approval, create a detailed implementation plan for review. Only after plan approval should Phase 3 source files and a working Cloudflare preview be implemented.
+**Approval status:** The user approved this written specification on 21 October 2026. The subsequent implementation plan requires separate review and approval. Only after that approval should Phase 3 source files and a working Cloudflare preview be implemented.
