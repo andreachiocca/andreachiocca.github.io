@@ -63,6 +63,9 @@ jobs:
       - name: Verify bilingual page pairs
         run: python scripts/verify_languages.py _site
 
+      - name: Verify Research Atlas generated pages
+        run: python scripts/verify_research_atlas.py _site
+
       - name: Save website preview for review
         if: always() && github.event_name == 'pull_request' && steps.jekyll_build.outcome == 'success'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
