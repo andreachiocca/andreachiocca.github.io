@@ -231,5 +231,8 @@
   "Candidate-plane": "Candidate-plane",
   "Welded-joint geometry schematic": "Welded-joint geometry schematic",
   "Layered structure schematic": "Layered structure schematic",
-  "Axial specimen loading schematic": "Axial specimen loading schematic"
+  "Axial specimen loading schematic": "Axial specimen loading schematic",
+  "Publication type": "Publication type",
+  "No publications match your search.": "No publications match your search.",
+  "Clear filters": "Clear filters"
 }

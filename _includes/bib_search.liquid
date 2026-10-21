@@ -1,6 +1,18 @@
 {% if site.bib_search %}
-<label for="bibsearch">{{ "Filter publications by title, author, year, or keyword" | t }}</label>
-<input type="search" id="bibsearch" autocomplete="off" class="form-control mb-2" placeholder="{{ "e.g. fatigue, 2024, Frendo" | t }}" aria-controls="publication-list" hidden>
-<p id="bibsearch-status" data-count-template="{{ "%visible% of %total% publications" | t }}" role="status" aria-live="polite"></p>
+<div class="publications-index-search">
+  <label for="bibsearch">{{ "Filter publications by title, author, year, or keyword" | t }}</label>
+  <input type="search" id="bibsearch" autocomplete="off" class="form-control mb-2" placeholder="{{ "e.g. fatigue, 2024, Frendo" | t }}" aria-controls="publication-list" hidden>
+
+  <div id="publication-type-filters" class="publication-type-filters" role="group" aria-label="{{ "Publication type" | t }}" hidden>
+    <button type="button" data-publication-filter="all" aria-pressed="true">{{ "All" | t }} <span class="publication-type-count" aria-hidden="true"></span></button>
+    <button type="button" data-publication-filter="article" aria-pressed="false">{{ "Journal articles" | t }} <span class="publication-type-count" aria-hidden="true"></span></button>
+    <button type="button" data-publication-filter="inproceedings" aria-pressed="false">{{ "Conference contributions" | t }} <span class="publication-type-count" aria-hidden="true"></span></button>
+    <button type="button" data-publication-filter="phdthesis" aria-pressed="false">{{ "Doctoral thesis" | t }} <span class="publication-type-count" aria-hidden="true"></span></button>
+  </div>
+
+  <p id="bibsearch-status" data-count-template="{{ "%visible% of %total% publications" | t }}" role="status" aria-live="polite"></p>
+  <p id="bibsearch-empty" hidden>{{ "No publications match your search." | t }}</p>
+  <button id="bibsearch-clear" type="button" hidden>{{ "Clear filters" | t }}</button>
+</div>
 <script defer src="{{ '/assets/js/bibsearch.js' | local_url | relative_url | bust_file_cache }}"></script>
 {% endif %}
