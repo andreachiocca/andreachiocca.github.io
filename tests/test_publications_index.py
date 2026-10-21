@@ -127,6 +127,14 @@ class PublicationsIndexGeneratedTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Missing"):
             verifier.verify_document(self.fixture(), expected, "en")
 
+    def test_generated_document_accepts_percent_encoded_pdf_path(self):
+        verifier = self.verifier()
+        html = self.fixture().replace('<div class="title">Example</div>',
+                                      '<div class="title">Example</div><a href="/assets/pdf/report%20name.pdf">PDF</a>')
+        verifier.verify_document(html,
+                                 [{"key": "Alpha", "category": "article", "year": "2020",
+                                   "doi": None, "pdf": "report name.pdf"}], "en")
+
     def test_generated_document_rejects_wrong_category(self):
         verifier = self.verifier()
         with self.assertRaisesRegex(ValueError, "category|inproceedings"):
