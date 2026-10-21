@@ -119,6 +119,8 @@ def check_browser(root):
                         expect(evaluate("[...document.querySelectorAll('.research-chapter, .research-technical-figure')].every(el => {const r=el.getBoundingClientRect(); return r.left >= -2 && r.right <= innerWidth+2;})"), 'Research figures/content overflow on ' + route)
                         expect(evaluate("[...document.querySelectorAll('.research-quick-links a, .research-chapter details summary, .research-chapter .inline-links a')].every(el => el.getBoundingClientRect().height >= 44)"), 'Research touch targets on ' + route)
                         if width == 390:
+                            expect(evaluate("getComputedStyle(document.querySelector('.research-chapter details summary')).display === 'list-item'"), 'Research summary retains native list-item semantics')
+                            evaluate("document.querySelector('.research-chapter details').open = false")
                             evaluate("document.querySelector('.research-chapter details summary').focus()")
                             command('Input.dispatchKeyEvent', {'type':'keyDown','key':'Enter','code':'Enter','windowsVirtualKeyCode':13,'text':'\\r','unmodifiedText':'\\r'})
                             command('Input.dispatchKeyEvent', {'type':'keyUp','key':'Enter','code':'Enter','windowsVirtualKeyCode':13})

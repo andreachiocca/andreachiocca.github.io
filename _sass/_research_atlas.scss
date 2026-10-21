@@ -71,8 +71,9 @@ main#main-content:has(> .research-atlas) { max-width: 1160px; }
 .research-atlas .research-summary { max-width: 65ch; line-height: 1.75; }
 .research-atlas .research-methods { border-left: 2px solid var(--global-theme-color); padding: .45rem 0 .45rem 1rem; font-size: .9rem; }
 .research-atlas .research-chapter .inline-links { display: flex; flex-wrap: wrap; gap: .5rem .85rem; }
-.research-atlas .research-chapter .inline-links a,
-.research-atlas .research-chapter details summary { display: inline-flex; align-items: center; min-height: 44px; }
+.research-atlas .research-chapter .inline-links a { display: inline-flex; align-items: center; min-height: 44px; }
+/* Preserve native summary list-item behaviour for keyboard disclosure activation. */
+.research-atlas .research-chapter details summary { display: list-item; min-height: 44px; padding: .65rem 0; }
 .research-atlas .research-chapter-visual { min-height: 155px; }
 .research-atlas .research-chapter:nth-child(even) .research-chapter-copy { order: 2; }
 .research-atlas .research-chapter:nth-child(even) .research-chapter-visual { order: 1; }
