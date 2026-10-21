@@ -1,0 +1,52 @@
+// Phase 3 Research Atlas. All styles are scoped to the Research page.
+main#main-content:has(> .research-atlas) { max-width: 1160px; }
+.research-atlas { --atlas-rule: var(--global-divider-color); }
+.research-atlas .research-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: start;
+  padding: 1.3rem 0 3.4rem;
+  border-bottom: 1px solid var(--atlas-rule);
+  margin-bottom: 2.8rem;
+}
+.research-atlas .research-hero-copy { min-width: 0; }
+.research-atlas .research-kicker,
+.research-atlas .research-figure-index,
+.research-atlas figcaption {
+  font: 500 .72rem/1.5 ui-monospace, Consolas, monospace;
+  letter-spacing: .075em;
+  text-transform: uppercase;
+}
+.research-atlas .research-kicker { color: var(--global-theme-color); margin: 0 0 1.6rem; }
+.research-atlas .post-title { font-size: clamp(3rem, 5.8vw, 5.25rem); line-height: 1.04; margin: 0 0 1.2rem; letter-spacing: -.065em; }
+.research-atlas .research-subtitle { font-size: .94rem; line-height: 1.65; color: var(--global-text-color-light); margin-bottom: 1.3rem; }
+.research-atlas .research-introduction { max-width: 62ch; line-height: 1.75; font-size: 1.07rem; }
+.research-atlas .research-quick-links { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.75rem; }
+.research-atlas .research-quick-links a {
+  display: inline-flex; align-items: center; justify-content: space-between; gap: .9rem;
+  min-height: 44px; padding: .65rem .9rem; border: 1px solid var(--atlas-rule);
+  font-size: .82rem; color: var(--global-text-color); text-decoration: none;
+}
+.research-atlas .research-quick-links a:first-child { background: var(--global-theme-color); border-color: var(--global-theme-color); color: var(--global-hover-text-color); }
+.research-atlas .research-quick-links a:hover,
+.research-atlas .research-quick-links a:focus-visible { outline-offset: 3px; text-decoration: underline; border-color: var(--global-theme-color); }
+.research-atlas .research-hero-panel {
+  margin: 0; min-width: 0; overflow: hidden;
+  background: linear-gradient(155deg, #0a2a45, #174b70 65%, #0e304d);
+  border: 1px solid #275b79; color: #d5e8f3;
+}
+.research-atlas .research-figure-index { display: flex; gap: 1rem; justify-content: space-between; padding: 1rem 1.2rem 0; }
+.research-atlas .research-overview-svg { display: block; width: 100%; height: auto; }
+.research-atlas .research-hero-panel figcaption { padding: 0 1.2rem 1rem; color: #bad5e5; }
+.research-atlas .research-atlas-body { line-height: 1.7; }
+.research-atlas .research-atlas-body [id] { scroll-margin-top: 95px; }
+@media (max-width: 890px) {
+  .research-atlas .research-hero { grid-template-columns: minmax(0, 1fr); gap: 1.7rem; }
+  .research-atlas .research-hero-panel { max-width: 640px; }
+}
+@media (max-width: 575px) {
+  .research-atlas .research-hero { padding: .6rem 0 2rem; margin-bottom: 2rem; }
+  .research-atlas .post-title { font-size: clamp(2.7rem, 14vw, 4rem); }
+  .research-atlas .research-quick-links { flex-direction: column; }
+}

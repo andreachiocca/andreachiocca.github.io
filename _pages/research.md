@@ -1,15 +1,13 @@
 ---
 lang: en
 translation_key: research
-layout: page
+layout: research_atlas
 title: Research
 permalink: /research/
 description: Fatigue assessment, welded structures, additive manufacturing and component testing at the University of Pisa.
 nav: true
 nav_order: 1
 ---
-
-{% locale research.intro %}I study how materials and components respond to repeated loads, combining analytical models, finite element analysis and experiments. Explore the areas below, then follow the linked studies for technical detail.{% endlocale %}
 
 <div id="research-areas" class="research-areas">
 {% for canonical_area in site.data.research_areas %}{% assign area = canonical_area | localized_record: 'research_areas' %}
