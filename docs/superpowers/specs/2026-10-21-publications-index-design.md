@@ -1,7 +1,7 @@
 # Phase 4 Editorial Publication Index
 
 **Date:** 21 October 2026  
-**Status:** Design direction approved. Written specification awaiting review.  
+**Status:** Written specification approved on 21 October 2026. Detailed implementation plan awaiting review.  
 **Repository:** [andreachiocca/andreachiocca.github.io](https://github.com/andreachiocca/andreachiocca.github.io)  
 **Target pages:** `/publications/` and `/it/publications/`
 
@@ -141,4 +141,4 @@ The page should still work when JavaScript is unavailable, even if search contro
 
 ## 8. Stage approvals
 
-The Editorial Publication Index **direction** and its lightweight/maintainable constraints are approved. **This written specification requires a separate review.** Only after its approval should the detailed implementation plan be written. Only after approving that plan and choosing the execution method should source files be changed. The draft PR at the specification stage must remain documentation-only.
+The Editorial Publication Index direction, its lightweight and maintainable constraints, and this written specification were approved by the user on 21 October 2026. The detailed implementation plan requires separate review and a chosen execution method. Until then, PR #32 remains documentation-only. Do not implement or merge the Phase 4 redesign before the plan approval.
