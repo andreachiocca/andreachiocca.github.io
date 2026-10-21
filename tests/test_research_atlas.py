@@ -127,7 +127,7 @@ class ResearchAtlasFigureTests(unittest.TestCase):
         coordinates = []
         for side in ("left", "right"):
             points = [(int(x), int(y)) for x, y in
-                      re.findall(r"(\\d+),(\\d+)", zones[side].attrib["d"])]
+                      re.findall(r"(\d+),(\d+)", zones[side].attrib["d"])]
             self.assertEqual(len(points), 6)
             coordinates.append(points)
         for left, right in zip(*coordinates):
