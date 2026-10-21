@@ -35,6 +35,23 @@ class ResearchAtlasSourceTests(unittest.TestCase):
             self.assertIn('href="#' + anchor + '"', shell)
             self.assertIn('id="' + anchor + '"', page)
 
+    def test_four_canonical_chapters(self):
+        page = source("_pages/research.md")
+        panel = source("_includes/research_area_panel.html")
+        self.assertIn("site.data.research_areas", page)
+        self.assertIn("localized_record: 'research_areas'", page)
+        self.assertIn("include research_area_panel.html", page)
+        self.assertIn("canonical_id=canonical_area.id", page)
+        self.assertIn("ordinal=forloop.index", page)
+        self.assertIn('class="research-area', panel)
+        self.assertIn('id="{{ include.canonical_id }}"', panel)
+        self.assertIn("{{ area.summary }}", panel)
+        self.assertIn("{{ area.methods }}", panel)
+        self.assertIn("link.url | local_url | relative_url", panel)
+        self.assertIn('class="context-details"', panel)
+        self.assertIn("area.further", panel)
+        self.assertIn("area.links", panel)
+
 
 if __name__ == "__main__":
     unittest.main()
