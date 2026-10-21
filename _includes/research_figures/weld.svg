@@ -1,10 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" class="research-figure-svg" viewBox="0 0 480 320" fill="none" aria-hidden="true" focusable="false">
-<defs><pattern id="atlas-weld-hatch" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V12" stroke="#8fb6cf" stroke-opacity=".18" stroke-width="4"/></pattern></defs>
 <rect width="480" height="320" fill="#103551"/><path d="M35 83H445M35 235H445" stroke="#5a88a4" stroke-dasharray="4 9"/>
-<path d="M35 118H170L217 170V222H35ZM445 118H310L263 170V222H445Z" fill="#2b6985" stroke="#a7d7e9" stroke-width="2"/>
-<path d="M155 118H170L217 170V222H198L150 170Z" fill="#317990" fill-opacity=".6"/>
-<path d="M325 118H310L263 170V222H282L330 170Z" fill="#317990" fill-opacity=".6"/>
-<path d="M170 118L217 170V222H263V170L310 118Z" fill="#67b9bd" fill-opacity=".4" stroke="#8ee1d7" stroke-width="2"/>
-<g stroke="#a5cce1" stroke-width="1"><path d="M35 244H445M35 108H445" stroke-dasharray="6 8"/><path d="M240 68V259" stroke-dasharray="5 9"/></g>
-<g fill="#c9e8ef" font-family="monospace" font-size="12"><text x="150" y="284">joint cross-section • geometry only</text></g>
+<path d="M35 110H180L218 170L180 230H35Z M445 110H300L262 170L300 230H445Z" fill="#2b6985" stroke="#a7d7e9" stroke-width="2"/>
+<polygon data-joint-type="double-v" points="180,110 300,110 262,170 300,230 180,230 218,170" fill="#67b9bd" fill-opacity=".48" stroke="#8ee1d7" stroke-width="2"/>
+<path d="M180 110L218 170L180 230M300 110L262 170L300 230" stroke="#d0f0f0" stroke-opacity=".35" stroke-width="5"/>
+<g stroke="#a5cce1" stroke-width="1"><path d="M35 241H445M35 99H445" stroke-dasharray="6 8"/><path d="M240 68V259" stroke-dasharray="5 9"/></g>
 </svg>

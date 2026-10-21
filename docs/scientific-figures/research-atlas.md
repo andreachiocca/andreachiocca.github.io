@@ -29,33 +29,52 @@ the script inputs and rerun it before committing SVG changes.
 
 ## R03. Welded joint
 
-Cross-section of a schematic, symmetric butt-weld preparation and filled
-joint. Colour distinguishes the central fusion region from surrounding
-material. No residual-stress distribution, thermal history, or measured
-heat-affected-zone boundary is indicated.
+Cross-section of a schematic, symmetric double-V butt joint. The upper and
+lower grooves narrow towards the mid-thickness root, with an illustrative
+filled fusion region. The drawing specifies no plate thickness, groove angle,
+pass sequence, residual-stress distribution, thermal history or measured
+heat-affected-zone boundary. The interior "geometry only" label was removed.
 
 ## R04. Layered structure
 
-Schematic layers and a representative scan/deposition path, not a
-specific machine or additive manufacturing process. The figure does not
-imply a melt-pool geometry, computed thermal field or validated path.
+Schematic layers and a representative order-3 Hilbert infill path, not a
+specific machine or a claim that this path is used in every additive process.
+The deterministic 8 by 8 traversal visits each cell centre once, and every
+successive move crosses one grid edge. The generator maps that planar path
+onto the top-layer parallelogram; it does not represent a computed thermal
+field, melt pool, material track width or validated build plan. A subdued
+CSS-only trace travels along the static path. It has no JavaScript dependency
+and stops moving under `prefers-reduced-motion: reduce`.
+
+Hilbert infill has been studied as one additive-manufacturing path strategy.
+See [a path-planning review](https://pmc.ncbi.nlm.nih.gov/articles/PMC7407298/)
+and [a study of Hilbert-curve filling](https://pmc.ncbi.nlm.nih.gov/articles/PMC9586239/).
 
 ## R05. Specimen loading
 
 Idealized tensile loading applied outward at opposite specimen ends.
 The paired arrows show consistent directions and no force magnitude.
-Measurement marks indicate a generic gauge region, not actual sensors,
-test equipment or a validated experimental configuration.
+A minimalist foil-gauge symbol replaces the earlier gauge-length marks. Its
+long grid segments are parallel to the specimen's axial load and intended
+axial-strain direction. The drawing does not specify an actual sensor,
+installation, wiring, test equipment or validated experimental configuration.
+The orientation follows [strain-gauge alignment guidance](https://strainblog.micro-measurements.com/tips/mark-spot).
 
 ## R01. Overview
 
-The triangular network suggests complementary analytical, computational
-and experimental activities. It does not imply one mandatory workflow or
-that every project uses all three approaches.
+Three connected, undirected symbols represent a Cauchy traction relation,
+a triangular discretization and an idealized tensile specimen. They refer to
+analytical, numerical and experimental approaches respectively. The network
+does not imply a mandatory workflow or that every project uses all three
+approaches; the mesh is not a calculated field and the specimen is not an
+observation or equipment drawing. The line-art composition takes only general
+stylistic cues from the three images supplied by the owner.
 
 ## Common constraints
 
-All figures are inline, static SVGs with localized captions, no remote
-dependencies and unique SVG IDs. Rendering remains text-complete with
-JavaScript disabled. If a figure selection is not implemented for a new
-canonical ID, the research chapter retains its text, links and heading.
+All figures are inline SVGs with localized captions, no remote dependencies
+and unique SVG IDs. Only the Hilbert trace moves, through a small CSS animation;
+its complete base path remains visible without motion or JavaScript. Rendering
+remains text-complete with JavaScript disabled. If a figure selection is not
+implemented for a new canonical ID, the research chapter retains its text,
+links and heading.

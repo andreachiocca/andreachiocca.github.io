@@ -10,7 +10,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 LABELS = {
-    "multiaxial-fatigue-and-critical-plane-methods": "Candidate-plane traction schematic",
+    "multiaxial-fatigue-and-critical-plane-methods": "Candidate-plane",
     "residual-stresses-and-welded-structures": "Welded-joint geometry schematic",
     "additive-manufacturing-and-material-behaviour": "Layered structure schematic",
     "component-testing-and-industrial-applications": "Axial specimen loading schematic",

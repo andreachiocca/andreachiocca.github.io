@@ -1,10 +1,24 @@
-<!-- Abstract relationship between analytical, computational and experimental work.
-     Decorative schematic, not a mandatory methodology or experimental result. -->
+<!-- Three complementary approaches, without an implied sequence or measured result. -->
 <svg class="research-overview-svg" viewBox="0 0 480 350" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true" focusable="false">
-  <defs><pattern id="atlas-overview-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" stroke="#b5d8ed" stroke-opacity=".18" stroke-width=".8"/></pattern></defs>
+  <defs><pattern id="atlas-overview-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" stroke="#b5d8ed" stroke-opacity=".12" stroke-width=".8"/></pattern></defs>
   <rect width="480" height="350" fill="url(#atlas-overview-grid)"/>
-  <g stroke="#a9cbdf" stroke-width="1.2" opacity=".64"><circle cx="240" cy="167" r="119" stroke-dasharray="5 9"/><path d="M240 62L354 247H126Z" stroke="#8bd6d6" stroke-width="2"/><path d="M240 62V167L354 247M240 167L126 247" stroke-dasharray="4 8"/></g>
-  <g fill="#123c60" stroke="#9dd5db" stroke-width="2"><circle cx="240" cy="62" r="28"/><circle cx="354" cy="247" r="28"/><circle cx="126" cy="247" r="28"/><circle cx="240" cy="167" r="14" fill="#69d4cf"/></g>
-  <g stroke="#c9e9f1" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M224 69L240 51L256 69M231 75L249 75"/><path d="M339 253L354 237L369 253M347 262H361"/><path d="M112 247L126 232L140 247L126 261Z"/><path d="M235 167H245M240 162V172"/></g>
-  <g stroke="#8bd6d6" stroke-opacity=".45"><path d="M42 315H438"/><path d="M42 25H438" stroke-dasharray="3 10"/></g>
+  <g stroke="#9ecbdf" stroke-opacity=".3" stroke-width="1"><path d="M30 24H450M30 326H450" stroke-dasharray="4 9"/><circle cx="240" cy="175" r="139" stroke-dasharray="4 12"/></g>
+  <g stroke="#8bd6d6" stroke-opacity=".68" stroke-width="2" stroke-linecap="round"><path d="M168 136C190 142 206 159 224 170"/><path d="M312 136C290 142 274 159 256 170"/><path d="M240 194V206"/></g>
+  <g fill="#9edcde"><circle cx="240" cy="175" r="12"/><circle cx="182" cy="143" r="3"/><circle cx="298" cy="143" r="3"/></g>
+  <g data-method="analytical">
+    <circle cx="120" cy="108" r="60" fill="#143e5d" stroke="#9ecbdd" stroke-width="2"/>
+    <circle cx="120" cy="108" r="49" stroke="#9ecbdd" stroke-opacity=".28" stroke-dasharray="3 7"/>
+    <text x="120" y="115" fill="#dbf0f4" font-family="Georgia,serif" font-size="25" text-anchor="middle">t = &#963;n</text>
+    <path d="M88 133H152" stroke="#77d9d3" stroke-width="2"/>
+  </g>
+  <g data-method="numerical">
+    <circle cx="360" cy="108" r="60" fill="#143e5d" stroke="#9ecbdd" stroke-width="2"/>
+    <path d="M329 78H391V138H329Z M349 78V138 M370 78V138 M329 98H391 M329 118H391 M329 98L349 78 M349 118L370 98 M370 138L391 118 M329 138L349 118 M349 98L370 78 M370 118L391 98" stroke="#b9deec" stroke-width="1.5"/>
+    <g fill="#80dcd7"><circle cx="329" cy="78" r="2.5"/><circle cx="349" cy="98" r="2.5"/><circle cx="370" cy="118" r="2.5"/><circle cx="391" cy="138" r="2.5"/></g>
+  </g>
+  <g data-method="experimental">
+    <circle cx="240" cy="266" r="60" fill="#143e5d" stroke="#9ecbdd" stroke-width="2"/>
+    <path d="M203 248H216L224 255H256L264 248H277V284H264L256 277H224L216 284H203Z" fill="#2b7791" stroke="#b9deec" stroke-width="1.8"/>
+    <g stroke="#80dcd7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M207 266H186M193 260L186 266L193 272M273 266H294M287 260L294 266L287 272"/></g>
+  </g>
 </svg>

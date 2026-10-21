@@ -118,6 +118,7 @@ def check_browser(root):
                         expect(evaluate("document.querySelectorAll('.research-chapter .research-technical-figure svg').length === 4"), 'four Research SVGs on ' + route)
                         expect(evaluate("[...document.querySelectorAll('.research-chapter, .research-technical-figure')].every(el => {const r=el.getBoundingClientRect(); return r.left >= -2 && r.right <= innerWidth+2;})"), 'Research figures/content overflow on ' + route)
                         expect(evaluate("[...document.querySelectorAll('.research-quick-links a, .research-chapter details summary, .research-chapter .inline-links a')].every(el => el.getBoundingClientRect().height >= 44)"), 'Research touch targets on ' + route)
+                        expect(evaluate("[...document.querySelectorAll('.research-featured-project :is(p, h3, span, li, strong, a)')].every(el => {const channels = getComputedStyle(el).color.match(/\\d+/g)?.map(Number); return channels && channels.slice(0, 3).every(value => value >= 150);})"), 'Research featured project text contrast on ' + route)
                         if width == 390:
                             expect(evaluate("getComputedStyle(document.querySelector('.research-chapter details summary')).display === 'list-item'"), 'Research summary retains native list-item semantics')
                             evaluate("document.querySelector('.research-chapter details').open = false")
@@ -232,6 +233,10 @@ def check_browser(root):
                     evaluate("document.documentElement.setAttribute('data-theme','dark')")
                     expect(evaluate("getComputedStyle(document.querySelector('.research-hero-panel')).backgroundImage !== 'none'"), f'Research dark mode rendered at {width}px on {route}')
                     evaluate("document.documentElement.removeAttribute('data-theme')")
+                    expect(evaluate("getComputedStyle(document.querySelector('.research-hilbert-trace')).animationName === 'research-hilbert-draw'"), f'Research Hilbert path animation at {width}px on {route}')
+                    command('Emulation.setEmulatedMedia', {'features': [{'name': 'prefers-reduced-motion', 'value': 'reduce'}]})
+                    expect(evaluate("getComputedStyle(document.querySelector('.research-hilbert-trace')).animationName === 'none'"), f'Research reduced-motion path at {width}px on {route}')
+                    command('Emulation.setEmulatedMedia', {'features': []})
             command('Emulation.setDeviceMetricsOverride', {'width': 844, 'height': 390, 'deviceScaleFactor': 1, 'mobile': False})
             command('Page.navigate', {'url': origin + '/thesis/'})
             for _ in range(120):
