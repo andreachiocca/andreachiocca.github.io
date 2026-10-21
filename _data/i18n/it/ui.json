@@ -231,5 +231,8 @@
   "Candidate-plane": "Piano candidato",
   "Welded-joint geometry schematic": "Schema geometrico di un giunto saldato",
   "Layered structure schematic": "Schema di una struttura a strati",
-  "Axial specimen loading schematic": "Schema di carico assiale su un provino"
+  "Axial specimen loading schematic": "Schema di carico assiale su un provino",
+  "Publication type": "Tipologia di pubblicazione",
+  "No publications match your search.": "Nessuna pubblicazione corrisponde alla ricerca.",
+  "Clear filters": "Azzera i filtri"
 }

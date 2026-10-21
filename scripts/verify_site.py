@@ -261,6 +261,13 @@ if feed.is_file() and '<entry>' in feed.read_text(encoding='utf8'):
     errors.append('Retired Notes content remains in the public feed')
 
 if not errors:
+    from verify_publications_index import verify_publications_index
+    try:
+        verify_publications_index(ROOT)
+    except ValueError as exc:
+        errors.append('Publications index: ' + str(exc))
+
+if not errors:
     from check_browser import check_browser
     errors.extend(check_browser(ROOT))
 

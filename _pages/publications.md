@@ -9,23 +9,27 @@ nav: true
 nav_order: 2
 ---
 
+<div class="publications-index">
+<div class="publications-index-intro" markdown="1">
 {% locale publications.intro %}Journal articles, conference contributions and my doctoral thesis are listed separately below. [Research software, datasets and benchmark packages]({{ '/repositories/' | local_url | relative_url }}) have their own catalogue.{% endlocale %}
+</div>
 
 {% include bib_search.liquid %}
 
 <div class="publications" id="publication-list">
-<section aria-labelledby="journal-articles">
+<section aria-labelledby="journal-articles" data-publication-category="article">
 <h2 id="journal-articles">{{ "Journal articles" | t }}</h2>
 {% bibliography --query @article %}
 </section>
-<section aria-labelledby="conference-contributions">
+<section aria-labelledby="conference-contributions" data-publication-category="inproceedings">
 <h2 id="conference-contributions">{{ "Conference contributions" | t }}</h2>
 {% bibliography --query @inproceedings %}
 </section>
-<section aria-labelledby="doctoral-thesis">
+<section aria-labelledby="doctoral-thesis" data-publication-category="phdthesis">
 <h2 id="doctoral-thesis">{{ "Doctoral thesis" | t }}</h2>
 {% bibliography --query @phdthesis %}
 </section>
 </div>
 
 {% locale publications.dataset %}<p id="Moda2022a">The Rosenthal-solution dataset is listed under <a href="{{ '/repositories/' | local_url | relative_url }}#Moda2022a">research outputs</a>.</p>{% endlocale %}
+</div>

@@ -1,0 +1,214 @@
+// Phase 4. All new rules stay inside the Publications page.
+.publications-index {
+  width: 100%;
+  min-width: 0;
+}
+.publications-index .publications-index-intro {
+  max-width: 64ch;
+  padding-bottom: 1.35rem;
+  margin-bottom: 1.4rem;
+  border-bottom: 1px solid var(--global-divider-color);
+}
+.publications-index .publications-index-intro p { margin-bottom: 0; }
+.publications-index #publication-list > section {
+  min-width: 0;
+  scroll-margin-top: 6rem;
+}
+.publications-index #publication-list > section + section {
+  margin-top: 2rem;
+}
+
+/* The bibliography remains an editorial list, rather than a tile grid. */
+.publications-index [hidden] { display: none !important; }
+
+.publications-index .publications-index-search {
+  margin: 1.5rem 0 2.3rem;
+  padding: 1.1rem 1.2rem;
+  background: var(--global-card-bg-color, var(--global-bg-color));
+  border: 1px solid var(--global-divider-color);
+  border-top: 2px solid var(--editorial-teal);
+}
+.publications-index .publications-index-search > label {
+  display: block;
+  margin-bottom: .55rem;
+  font-weight: 600;
+  font-size: .9rem;
+}
+.publications-index #bibsearch {
+  min-height: 44px;
+  border-radius: 2px;
+  background-color: var(--global-bg-color);
+}
+.publications-index .publication-type-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: .85rem 0 0;
+}
+.publications-index .publication-type-filters button,
+.publications-index #bibsearch-clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  padding: .55rem .8rem;
+  min-height: 44px;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--global-text-color);
+  font-size: .82rem;
+  line-height: 1.35;
+  cursor: pointer;
+  text-align: center;
+}
+.publications-index .publication-type-filters button[aria-pressed="true"] {
+  border-color: var(--editorial-teal);
+  background: var(--global-code-bg-color);
+  color: var(--global-text-color);
+  font-weight: 650;
+}
+.publications-index .publication-type-count {
+  font: .78rem/1.2 ui-monospace, "SFMono-Regular", Consolas, monospace;
+  color: var(--editorial-teal);
+}
+.publications-index #bibsearch-status {
+  font: .81rem/1.5 ui-monospace, "SFMono-Regular", Consolas, monospace;
+  margin: .85rem 0 0;
+  color: var(--global-text-color);
+}
+.publications-index #bibsearch-empty {
+  margin: .75rem 0 0;
+  color: var(--global-text-color);
+}
+.publications-index #bibsearch-clear { margin-top: .7rem; }
+
+/* Scholarly sections, type and year maintain their original source ordering. */
+.publications-index .publications > section > h2 {
+  padding: .65rem 0;
+  margin: 2rem 0 1rem;
+  border-bottom: 1px solid var(--global-divider-color);
+  font-weight: 600;
+  letter-spacing: -.03em;
+}
+.publications-index .publications h2.bibliography {
+  margin: 1.6rem 0 .35rem;
+  padding: 0 0 .35rem;
+  border-bottom: 0;
+  font: 500 .84rem/1.5 ui-monospace, "SFMono-Regular", Consolas, monospace;
+  letter-spacing: .07em;
+  color: var(--editorial-teal);
+}
+.publications-index .publications ol.bibliography {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.publications-index .publications ol.bibliography > li {
+  padding: 1.2rem 0 1.45rem;
+  margin: 0;
+  border-top: 0;
+  border-bottom: 1px solid var(--global-divider-color);
+  list-style: none;
+}
+.publications-index .publications ol.bibliography > li:first-child {
+  border-top: 1px solid var(--global-divider-color);
+}
+.publications-index .publications ol.bibliography > li .row {
+  margin-left: 0;
+  margin-right: 0;
+  min-width: 0;
+}
+.publications-index .publications .row > .col-sm-10 {
+  flex: 0 0 100%;
+  width: 100%;
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+.publications-index .publications .title {
+  font-size: clamp(1.02rem, 1.3vw, 1.16rem);
+  line-height: 1.45;
+  font-weight: 650;
+  color: var(--global-text-color);
+  letter-spacing: -.02em;
+  overflow-wrap: anywhere;
+  margin-bottom: .3rem;
+}
+.publications-index .publications .author {
+  font-size: .93rem;
+  line-height: 1.58;
+  overflow-wrap: anywhere;
+}
+.publications-index .publications .periodical {
+  font-size: .88rem;
+  line-height: 1.55;
+  color: var(--global-text-color);
+  opacity: .84;
+  overflow-wrap: anywhere;
+}
+.publications-index .publications .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: .7rem;
+}
+.publications-index .publications .links .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin: 0;
+  padding: .52rem .8rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 2px;
+  font-size: .79rem;
+  line-height: 1.3;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  color: var(--global-text-color);
+  background: transparent;
+}
+.publications-index .publications .links .btn:hover,
+.publications-index .publication-type-filters button:hover,
+.publications-index #bibsearch-clear:hover {
+  border-color: var(--editorial-teal);
+}
+.publications-index .publication-details {
+  margin: .45rem 0 0;
+  min-width: 0;
+  border-left: 2px solid var(--global-divider-color);
+}
+.publications-index .publication-details summary {
+  display: list-item;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 44px;
+  padding: .6rem .3rem;
+  overflow-wrap: anywhere;
+}
+.publications-index .publication-details p,
+.publications-index .publication-details pre {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.publications-index .publication-details .highlight {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.publications-index :focus-visible {
+  outline: 2px solid var(--editorial-teal);
+  outline-offset: 3px;
+}
+
+@media (max-width: 575px) {
+  .publications-index .publications-index-search { padding: .9rem .8rem; }
+  .publications-index .publication-type-filters { gap: .4rem; }
+  .publications-index .publication-type-filters button {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: .55rem .6rem;
+  }
+  .publications-index .publications ol.bibliography > li { padding: 1rem 0 1.15rem; }
+  .publications-index .publications .title { font-size: 1.04rem; }
+}

@@ -161,6 +161,16 @@ def check_browser(root):
                             evaluate("document.querySelector('[data-filter=all]').click()")
                             expect(evaluate("document.querySelectorAll('.research-output:not([hidden])').length") == total, 'catalogue filter reset')
                     if canonical_route == '/publications/' and width == 390:
+                        expect(evaluate("document.querySelectorAll('[data-publication-filter]').length === 4 && !document.getElementById('publication-type-filters').hidden"), 'category publication filters initialized')
+                        expect(evaluate("document.querySelector('[data-publication-filter=all]').getAttribute('aria-pressed') === 'true'"), 'publication All selected by default')
+                        evaluate("document.querySelector('[data-publication-filter=article]').click()")
+                        expect(evaluate("[...document.querySelectorAll('ol.bibliography > li:not([hidden])')].every(li => li.closest('section').dataset.publicationCategory === 'article') && document.querySelectorAll('ol.bibliography > li:not([hidden])').length > 0"), 'publication article category filtering')
+                        evaluate("document.getElementById('bibsearch').value='2026'; document.getElementById('bibsearch').dispatchEvent(new Event('input'))")
+                        expect(evaluate("[...document.querySelectorAll('ol.bibliography > li:not([hidden])')].every(li => li.closest('section').dataset.publicationCategory === 'article' && /2026/.test(li.textContent + (li.closest('ol').previousElementSibling?.textContent || '')))"), 'publication combined type and year search')
+                        evaluate("document.getElementById('bibsearch').value='no-such-scientific-paper-98765'; document.getElementById('bibsearch').dispatchEvent(new Event('input'))")
+                        expect(evaluate("document.querySelectorAll('ol.bibliography > li:not([hidden])').length === 0 && !document.getElementById('bibsearch-empty').hidden && !document.getElementById('bibsearch-clear').hidden"), 'publication empty state and reset available')
+                        evaluate("document.getElementById('bibsearch-clear').click()")
+                        expect(evaluate("document.querySelector('[data-publication-filter=all]').getAttribute('aria-pressed') === 'true' && document.getElementById('bibsearch').value === '' && document.getElementById('bibsearch-empty').hidden"), 'publication clear resets category/search')
                         total_publications = evaluate("document.querySelectorAll('ol.bibliography > li').length")
                         expect(evaluate("!document.getElementById('bibsearch').hidden"), 'publication filter not initialized')
                         evaluate("document.getElementById('bibsearch').value='2026'; document.getElementById('bibsearch').dispatchEvent(new Event('input'))")
@@ -244,6 +254,21 @@ def check_browser(root):
                     command('Emulation.setEmulatedMedia', {'features': [{'name': 'prefers-reduced-motion', 'value': 'reduce'}]})
                     expect(evaluate("getComputedStyle(document.querySelector('.research-hilbert-trace')).animationName === 'none'"), f'Research reduced-motion path at {width}px on {route}')
                     command('Emulation.setEmulatedMedia', {'features': []})
+            # Scope added viewport coverage to Publications only.
+            for width in (320, 1920):
+                command('Emulation.setDeviceMetricsOverride', {'width': width, 'height': 900, 'deviceScaleFactor': 1, 'mobile': False})
+                for route in ('/publications/', '/it/publications/'):
+                    command('Page.navigate', {'url': origin + route})
+                    for _ in range(120):
+                        if evaluate("document.readyState === 'complete' && location.pathname === " + json.dumps(route)):
+                            break
+                        time.sleep(.1)
+                    expect(evaluate("document.documentElement.scrollWidth <= innerWidth + 2"), f'Publications overflow at {width}px on {route}')
+                    expect(evaluate("[...document.querySelectorAll('.publication-type-filters button, .publications-index .links .btn, .publications-index details summary')].every(el=>el.getBoundingClientRect().height >= 44)"), f'Publications controls accessible at {width}px on {route}')
+                    expect(evaluate("document.querySelectorAll('ol.bibliography > li').length > 0"), f'Publications bibliography at {width}px on {route}')
+                    evaluate("document.documentElement.setAttribute('data-theme','dark')")
+                    expect(evaluate("getComputedStyle(document.querySelector('.publications-index-search')).borderTopWidth !== '0px'"), f'Publications dark theme styles at {width}px on {route}')
+                    evaluate("document.documentElement.removeAttribute('data-theme')")
             command('Emulation.setDeviceMetricsOverride', {'width': 844, 'height': 390, 'deviceScaleFactor': 1, 'mobile': False})
             command('Page.navigate', {'url': origin + '/thesis/'})
             for _ in range(120):
@@ -264,6 +289,14 @@ def check_browser(root):
                     time.sleep(.1)
                 expect(evaluate("document.querySelector('#nav-teaching a[data-thesis]').getClientRects().length > 0"), 'thesis reachable without JavaScript')
                 expect(evaluate("document.querySelector('h1').getBoundingClientRect().top >= document.querySelector('#navbar').getBoundingClientRect().bottom"), 'no-JavaScript navigation does not obscure content')
+            for route in ('/publications/', '/it/publications/'):
+                command('Page.navigate', {'url': origin + route})
+                for _ in range(120):
+                    if evaluate("document.readyState === 'complete' && location.pathname === " + json.dumps(route)):
+                        break
+                    time.sleep(.1)
+                expect(evaluate("document.querySelectorAll('ol.bibliography > li').length > 0 && [...document.querySelectorAll('ol.bibliography > li')].every(el => !el.hidden)"), 'no-JavaScript bibliography visible on ' + route)
+                expect(evaluate("document.getElementById('bibsearch').hidden && document.getElementById('publication-type-filters').hidden"), 'no-JavaScript filters hidden on ' + route)
             print(f'PASS: {checks} browser checks at 375, 390, 768 and 1280px, including thesis and laboratory pages, courses, navigation and catalogue controls' if not errors else f'Browser checks: {len(errors)} errors')
         except Exception as exc:
             errors.append('Browser check could not complete: ' + str(exc))
