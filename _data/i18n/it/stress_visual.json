@@ -1,7 +1,7 @@
 {
   "title": "Cubo di Cauchy con tensione normale e tangenziale sfasate di 90 gradi",
-  "description": "Andamento illustrativo delle tensioni normalizzate. Le componenti assegnate sono sigma_zz / sigma_a = sin(omega t) e tau_zx / sigma_a = tau_xz / sigma_a = 0.6 sin(omega t + 90 gradi). Le altre componenti sono nulle. I valori delle onde al margine destro e il cubo rappresentano lo stesso istante. Le frecce cambiano verso al cambio di segno e scompaiono quando la componente si annulla. Il cubo non si deforma. In assenza di animazione, la figura mostra omega t = 45 gradi.",
-  "convention": "Il primo indice identifica l'asse normale alla faccia, il secondo la direzione della componente di tensione. Sono mostrate solo le tre facce positive visibili. Sulle facce opposte, non visibili, agiscono vettori di tensione opposti. Le curve e le frecce utilizzano la stessa scala delle tensioni. La figura non rappresenta dati sperimentali o una previsione della vita a fatica.",
+  "description": "Diagramma illustrativo e normalizzato dell'andamento delle tensioni. Le componenti specificate sono σ_zz / σ_a = sin(ωt) e τ_zx / σ_a = τ_xz / σ_a = 0,6 sin(ωt + 90 gradi). Tutte le altre componenti sono pari a zero. I valori indicati sulle facce del cubo rappresentano l'istante t nella storia di carico. Le frecce cambiano direzione al variare del segno e diventano invisibili quando il valore è pari a zero. Il cubo non è deformato. Senza animazione, la figura mostra ωt = 45 gradi.",
+  "convention": "Gli indici identificano in primo luogo l’asse normale alla faccia e in secondo luogo la direzione di trazione. Sono mostrate solo le tre facce positive visibili. Le facce opposte nascoste presentano vettori di trazione opposti. Sia le curve che tutte le frecce utilizzano una scala di tensione comune. Questa illustrazione non rappresenta dati sperimentali né una previsione della vita a fatica.",
   "now": "istante t",
   "play": "Avvia",
   "pause": "Pausa",

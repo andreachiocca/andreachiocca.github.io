@@ -101,6 +101,12 @@ def check_browser(root):
                     expect(evaluate("document.querySelectorAll('.language-link').length === 2 && document.querySelectorAll('.language-link[aria-current]').length === 1"), 'language selector on ' + route)
                     canonical_route = route[3:] if route.startswith('/it/') else route
                     italian = route.startswith('/it/')
+                    if is_home:
+                        expect(evaluate("[...document.querySelectorAll('.home-project p')].every(p => {const rgb = getComputedStyle(p).color.match(/\\d+/g)?.map(Number); return rgb && rgb.slice(0, 3).every(value => value >= 200);})"), 'FABER text remains light on the blue background on ' + route)
+                        expect(evaluate("[...document.querySelectorAll('.home-art-heading span, .home-art-footer span, .stress-scrub span, .stress-note p')].length >= 5 && [...document.querySelectorAll('.home-art-heading span, .home-art-footer span, .stress-scrub span, .stress-note p')].every(el => {const rgb = getComputedStyle(el).color.match(/\\d+/g)?.map(Number); return rgb && rgb.slice(0, 3).every(value => value >= 170);})"), 'home figure labels remain light on the blue background on ' + route)
+                    if width >= 992:
+                        expect(evaluate("Math.abs(document.querySelector('#light-toggle').getBoundingClientRect().top + document.querySelector('#light-toggle').getBoundingClientRect().height / 2 - (document.querySelector('#navbar .nav-link').getBoundingClientRect().top + document.querySelector('#navbar .nav-link').getBoundingClientRect().height / 2)) <= 2"), 'theme button aligns with desktop navigation on ' + route)
+                        expect(evaluate("[...document.querySelectorAll('#light-toggle i')].every(i => getComputedStyle(i).paddingTop === '0px' && getComputedStyle(i).paddingLeft === '0px')"), 'theme icon has no offset padding on ' + route)
                     if canonical_route in ('/thesis/', '/laboratory/'):
                         expect(evaluate("[...document.querySelectorAll('.feature-card')].every(card => card.getBoundingClientRect().width >= 280 && card.getBoundingClientRect().right <= innerWidth)"), f'narrow or overflowing resource cards at {width}px on {route}')
                         expect(evaluate("[...document.querySelectorAll('.feature-card .inline-links a, .contact-link, .page-paths a, .institution-list a')].every(a => a.getBoundingClientRect().height >= 44)"), 'resource touch targets on ' + route)
@@ -113,6 +119,22 @@ def check_browser(root):
                             expect(evaluate("getComputedStyle(document.querySelector('#toc-sidebar')).display === 'none'"), 'mobile CV contents must not overlay the introduction')
                         else:
                             expect(evaluate("document.querySelector('#toc-sidebar').getBoundingClientRect().right <= document.querySelector('h1').getBoundingClientRect().left"), 'CV sidebar overlaps main column')
+                    if canonical_route == '/research/':
+                        expect(evaluate("[...document.querySelectorAll('.research-figure-index span')].length === 2 && [...document.querySelectorAll('.research-figure-index span')].every(el => {const rgb = getComputedStyle(el).color.match(/\\d+/g)?.map(Number); return rgb && rgb.slice(0, 3).every(value => value >= 170);})"), 'Research figure labels remain light on the blue background on ' + route)
+                        expect(evaluate("document.querySelectorAll('.research-chapter').length === 4"), 'four Research chapters on ' + route)
+                        expect(evaluate("document.querySelectorAll('.research-chapter .research-technical-figure svg').length === 4"), 'four Research SVGs on ' + route)
+                        expect(evaluate("[...document.querySelectorAll('.research-chapter, .research-technical-figure')].every(el => {const r=el.getBoundingClientRect(); return r.left >= -2 && r.right <= innerWidth+2;})"), 'Research figures/content overflow on ' + route)
+                        expect(evaluate("[...document.querySelectorAll('.research-quick-links a, .research-chapter details summary, .research-chapter .inline-links a')].every(el => el.getBoundingClientRect().height >= 44)"), 'Research touch targets on ' + route)
+                        expect(evaluate("[...document.querySelectorAll('.research-featured-project :is(p, h3, span, li, strong, a)')].every(el => {const channels = getComputedStyle(el).color.match(/\\d+/g)?.map(Number); return channels && channels.slice(0, 3).every(value => value >= 150);})"), 'Research featured project text contrast on ' + route)
+                        if width == 390:
+                            expect(evaluate("getComputedStyle(document.querySelector('.research-chapter details summary')).display === 'list-item'"), 'Research summary retains native list-item semantics')
+                            evaluate("document.querySelector('.research-chapter details').open = false")
+                            evaluate("document.querySelector('.research-chapter details summary').focus()")
+                            expect(evaluate("document.activeElement === document.querySelector('.research-chapter details summary')"), 'Research disclosure summary receives keyboard focus')
+                            command('Input.dispatchKeyEvent', {'type':'keyDown','key':'Enter','code':'Enter','windowsVirtualKeyCode':13,'text':'\r','unmodifiedText':'\r'})
+                            command('Input.dispatchKeyEvent', {'type':'keyUp','key':'Enter','code':'Enter','windowsVirtualKeyCode':13})
+                            time.sleep(.15)
+                            expect(evaluate("document.querySelector('.research-chapter details').open"), 'Research disclosure keyboard accessible')
                     if canonical_route in ('/research/', '/cv/'):
                         expect(evaluate("[...document.querySelectorAll('[data-project=faber] .project-roles li')].some(li => li.textContent.includes('WG3,') && li.textContent.includes('Co-Leader'))"), 'FABER WG3 role missing on ' + route)
                         for group in ('WG4.3', 'WG5.3'):
@@ -202,6 +224,26 @@ def check_browser(root):
                             expect(evaluate("document.getElementById('nav-research').hidden"), 'outside click closes desktop submenu')
                         if width < 992:
                             evaluate("document.querySelector('.navbar-toggler').click()")
+            # Scoped width coverage for the new Research page at phone and large desktop.
+            for width in (320, 1920):
+                command('Emulation.setDeviceMetricsOverride', {'width': width, 'height': 900, 'deviceScaleFactor': 1, 'mobile': False})
+                for route in ('/research/', '/it/research/'):
+                    command('Page.navigate', {'url': origin + route})
+                    for _ in range(120):
+                        if evaluate("document.readyState === 'complete' && location.pathname === " + json.dumps(route)):
+                            break
+                        time.sleep(.1)
+                    expect(evaluate("document.documentElement.scrollWidth <= innerWidth + 2"), f'Research overflow at {width}px on {route}')
+                    expect(evaluate("document.querySelectorAll('.research-chapter').length === 4"), f'Research chapter count at {width}px on {route}')
+                    expect(evaluate("[...document.querySelectorAll('.research-chapter')].every(el => {const r=el.getBoundingClientRect(); return r.left >= -2 && r.right <= innerWidth+2;})"), f'Research chapter bounds at {width}px on {route}')
+                    expect(evaluate("[...document.querySelectorAll('.research-quick-links a, .research-chapter details summary')].every(el=>el.getBoundingClientRect().height >= 44)"), f'Research controls accessible at {width}px on {route}')
+                    evaluate("document.documentElement.setAttribute('data-theme','dark')")
+                    expect(evaluate("getComputedStyle(document.querySelector('.research-hero-panel')).backgroundImage !== 'none'"), f'Research dark mode rendered at {width}px on {route}')
+                    evaluate("document.documentElement.removeAttribute('data-theme')")
+                    expect(evaluate("getComputedStyle(document.querySelector('.research-hilbert-trace')).animationName === 'research-hilbert-draw'"), f'Research Hilbert path animation at {width}px on {route}')
+                    command('Emulation.setEmulatedMedia', {'features': [{'name': 'prefers-reduced-motion', 'value': 'reduce'}]})
+                    expect(evaluate("getComputedStyle(document.querySelector('.research-hilbert-trace')).animationName === 'none'"), f'Research reduced-motion path at {width}px on {route}')
+                    command('Emulation.setEmulatedMedia', {'features': []})
             command('Emulation.setDeviceMetricsOverride', {'width': 844, 'height': 390, 'deviceScaleFactor': 1, 'mobile': False})
             command('Page.navigate', {'url': origin + '/thesis/'})
             for _ in range(120):

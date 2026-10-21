@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<div class="post research-atlas">
+  <header class="research-hero">
+    <div class="research-hero-copy">
+      <p class="research-kicker">01 / {{ "Research overview" | t }}</p>
+      <h1 class="post-title">{{ page.title }}</h1>
+      <p class="research-subtitle">{{ page.description }}</p>
+      <div class="research-introduction">{% locale research.intro %}I study how materials and components respond to repeated loads, combining analytical models, finite element analysis and experiments. Explore the areas below, then follow the linked studies for technical detail.{% endlocale %}</div>
+      <nav class="research-quick-links" aria-label="{{ 'On this page' | t }}">
+        <a href="#research-areas">{{ "Research areas" | t }} <span aria-hidden="true">↗</span></a>
+        <a href="#projects">{{ "Research projects" | t }} <span aria-hidden="true">↗</span></a>
+        <a href="#international-collaborations">{{ "International collaborations" | t }} <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+    <figure class="research-hero-panel">
+      <div class="research-figure-index"><span>FIG. R01</span><span>{{ "Research overview" | t }}</span></div>
+      {% include research_overview_visual.html %}
+      <figcaption>{{ "Research overview" | t }}</figcaption>
+    </figure>
+  </header>
+  <article class="research-atlas-body">
+    {{ content }}
+  </article>
+</div>

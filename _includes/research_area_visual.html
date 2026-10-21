@@ -1,0 +1,10 @@
+{% case include.canonical_id %}
+{% when 'multiaxial-fatigue-and-critical-plane-methods' %}
+<figure class="research-technical-figure" role="group" aria-label="{{ 'Candidate-plane' | t }}">{% include research_figures/fatigue.svg %}<figcaption>FIG. R02 / {{ 'Candidate-plane' | t }}</figcaption></figure>
+{% when 'residual-stresses-and-welded-structures' %}
+<figure class="research-technical-figure" role="group" aria-label="{{ 'Welded-joint geometry schematic' | t }}">{% include research_figures/weld.svg %}<figcaption>FIG. R03 / {{ 'Welded-joint geometry schematic' | t }}</figcaption></figure>
+{% when 'additive-manufacturing-and-material-behaviour' %}
+<figure class="research-technical-figure" role="group" aria-label="{{ 'Layered structure schematic' | t }}">{% include research_figures/additive.svg %}<figcaption>FIG. R04 / {{ 'Layered structure schematic' | t }}</figcaption></figure>
+{% when 'component-testing-and-industrial-applications' %}
+<figure class="research-technical-figure" role="group" aria-label="{{ 'Axial specimen loading schematic' | t }}">{% include research_figures/testing.svg %}<figcaption>FIG. R05 / {{ 'Axial specimen loading schematic' | t }}</figcaption></figure>
+{% endcase %}

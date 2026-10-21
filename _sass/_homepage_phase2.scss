@@ -122,6 +122,8 @@ body.academic-home-v2 main#main-content {
   padding: 1rem 1.3rem 0;
   color: #c6e2ed;
 }
+.home-page--editorial .home-art-heading span,
+.home-page--editorial .home-art-footer span { color: inherit; }
 .home-page--editorial .home-art-footer {
   padding: 0 1.3rem 1.3rem;
   color: #b5cedb;
@@ -216,6 +218,7 @@ body.academic-home-v2 main#main-content {
 .home-page--editorial .home-project h2::before { color: #d7edee; }
 .home-page--editorial .home-project h2 { border-color: rgba(255,255,255,.26); }
 .home-page--editorial .home-project h3 { font-size: clamp(1.25rem, 2vw, 1.8rem); }
+.home-page--editorial .home-project p { color: #f0f7fa; }
 .home-page--editorial .home-project a { color: #b8eeee; }
 .home-page--editorial .home-project a:hover { color: white; }
 .home-page--editorial .home-project .inline-links { gap: 1.3rem; }

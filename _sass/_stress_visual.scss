@@ -13,10 +13,11 @@
 .stress-controls button { min-height: 44px; min-width: 74px; padding: .5rem .8rem; color: #e8f6f8; background: #174b70; border: 1px solid #98c8d9; border-radius: 2px; font: inherit; font-size: .85rem; cursor: pointer; }
 .stress-controls button:hover { background: #205e85; }
 .stress-scrub { display: flex; align-items: center; flex-wrap: wrap; gap: .45rem; flex: 1; min-width: 175px; margin: 0; font-size: .78rem; color: #d1e6ef; }
+.stress-scrub span { color: inherit; }
 .stress-scrub input { flex: 1; min-width: 75px; width: 100px; min-height: 44px; cursor: pointer; accent-color: #82e2de; }
 .stress-scrub output { min-width: 3.2em; text-align: right; font-family: monospace; }
 .stress-visual .stress-note { padding: 0 1.2rem .8rem; margin: 0; color: #c6dce6; font-size: .76rem; line-height: 1.6; }
 .stress-note details { margin-top: .15rem; }
 .stress-note summary { display: list-item; cursor: pointer; min-height: 44px; padding: .65rem 0; color: #d5f3ee; }
-.stress-note p { margin: .5rem 0; }
+.stress-note p { margin: .5rem 0; color: #c6dce6; }
 .stress-visual button:focus-visible, .stress-visual input:focus-visible, .stress-visual summary:focus-visible { outline: 3px solid #82e2de; outline-offset: 3px; }

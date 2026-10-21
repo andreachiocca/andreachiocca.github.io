@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="research-figure-svg" viewBox="0 0 480 320" fill="none" aria-hidden="true" focusable="false">
+<defs><pattern id="atlas-fat-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" stroke="#9fd3e4" stroke-opacity=".24"/></pattern><marker id="atlas-fat-normal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#6de0d5"/></marker><marker id="atlas-fat-shear" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#f9d292"/></marker><marker id="atlas-fat-total" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#cbdff5"/></marker></defs>
+<rect width="480" height="320" fill="#103551"/><rect width="480" height="320" fill="url(#atlas-fat-grid)"/>
+<g stroke="#a7d2e5" stroke-opacity=".5" stroke-width="1.5"><circle cx="240" cy="160" r="122" stroke-dasharray="4 10"/><path d="M65 260H410" stroke-dasharray="4 9"/></g>
+<polygon points="233.75,319.17 380.97,234.17 246.25,0.83 99.03,85.83" fill="#327b92" fill-opacity=".65" stroke="#c3e7ef" stroke-width="2"/>
+<g stroke="#acd5e9" stroke-width="1.5" stroke-dasharray="4 7"><path d="M240 160L285.93 133.48"/></g>
+<circle cx="240" cy="160" r="5" fill="#d6f2f2"/>
+<path data-stress-arrow="normal" d="M240.00 160.00 L290.52 130.83" stroke="#6de0d5" stroke-width="4" marker-end="url(#atlas-fat-normal)" />
+<path data-stress-arrow="shear" d="M240.00 160.00 L217.04 120.23" stroke="#f9d292" stroke-width="4" marker-end="url(#atlas-fat-shear)" />
+<path data-stress-arrow="resultant" d="M240.00 160.00 L267.56 91.06" stroke="#cbdff5" stroke-width="2.3" stroke-dasharray="5 4" marker-end="url(#atlas-fat-total)" />
+<g fill="#e8f4f8" font-family="Georgia,serif" font-size="21"><text x="315" y="118">σₙ</text><text x="165" y="102">τₙ</text><text x="316" y="75">t(n)</text></g>
+<g fill="#b7d5e8" font-family="monospace" font-size="11"><text x="20" y="298">σ = [0,0,0.6; 0,0,0; 0.6,0,1]</text></g>
+</svg>

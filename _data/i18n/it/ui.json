@@ -227,5 +227,9 @@
   "Research collaborations": "Collaborazioni di ricerca",
   "Master’s thesis activity": "Attività di tesi magistrale",
   "Post-graduation employment contract": "Contratto di lavoro post-laurea",
-  "Doctoral research period": "Periodo di ricerca durante il dottorato"
+  "Doctoral research period": "Periodo di ricerca durante il dottorato",
+  "Candidate-plane": "Piano candidato",
+  "Welded-joint geometry schematic": "Schema geometrico di un giunto saldato",
+  "Layered structure schematic": "Schema di una struttura a strati",
+  "Axial specimen loading schematic": "Schema di carico assiale su un provino"
 }
