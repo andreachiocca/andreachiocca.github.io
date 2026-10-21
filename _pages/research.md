@@ -11,13 +11,7 @@ nav_order: 1
 
 <div id="research-areas" class="research-areas">
 {% for canonical_area in site.data.research_areas %}{% assign area = canonical_area | localized_record: 'research_areas' %}
-<section class="research-area" aria-labelledby="{{ area.id }}">
-  <h2 id="{{ area.id }}"><i class="far {{ area.icon }} section-icon" aria-hidden="true"></i>{{ area.title }}</h2>
-  <p class="research-summary">{{ area.summary }}</p>
-  <p class="research-methods"><strong>{{ "Methods" | t }}</strong> {{ area.methods }}</p>
-  <ul class="inline-links" aria-label="{{ 'Related outputs for' | t }} {{ area.title }}">{% for link in area.links %}<li><a href="{{ link.url | local_url | relative_url }}">{{ link.label | t }}</a></li>{% endfor %}</ul>
-  <details class="context-details"><summary>{{ "Further studies and technical context" | t }}</summary><ul>{% for link in area.further %}<li><a href="{{ link.url | local_url | relative_url }}">{{ link.label | t }}</a></li>{% endfor %}</ul></details>
-</section>
+{% include research_area_panel.html area=area canonical_id=canonical_area.id ordinal=forloop.index %}
 {% endfor %}
 </div>
 

@@ -50,3 +50,35 @@ main#main-content:has(> .research-atlas) { max-width: 1160px; }
   .research-atlas .post-title { font-size: clamp(2.7rem, 14vw, 4rem); }
   .research-atlas .research-quick-links { flex-direction: column; }
 }
+
+/* Numbered research chapters; all canonical content remains in data records. */
+.research-atlas .research-areas { margin: 1.75rem 0 3rem; }
+.research-atlas .research-chapter {
+  display: grid; grid-template-columns: minmax(0, 1.28fr) minmax(0, .72fr);
+  gap: clamp(1.25rem, 3vw, 3rem); align-items: center;
+  padding: clamp(1.4rem, 3vw, 2.7rem) 0;
+  border-top: 1px solid var(--atlas-rule);
+}
+.research-atlas .research-chapter-copy,
+.research-atlas .research-chapter-visual { min-width: 0; }
+.research-atlas .research-chapter-head { display: flex; gap: 1rem; align-items: baseline; margin-bottom: 1.1rem; }
+.research-atlas .research-chapter-index {
+  color: var(--global-theme-color); white-space: nowrap;
+  font: 500 .81rem/1.5 ui-monospace, Consolas, monospace;
+}
+.research-atlas .research-chapter h2 { border: 0; padding: 0; margin: 0; font-size: clamp(1.3rem, 2vw, 1.9rem); line-height: 1.3; }
+.research-atlas .research-chapter h2::before { content: none; }
+.research-atlas .research-summary { max-width: 65ch; line-height: 1.75; }
+.research-atlas .research-methods { border-left: 2px solid var(--global-theme-color); padding: .45rem 0 .45rem 1rem; font-size: .9rem; }
+.research-atlas .research-chapter .inline-links { display: flex; flex-wrap: wrap; gap: .5rem .85rem; }
+.research-atlas .research-chapter .inline-links a,
+.research-atlas .research-chapter details summary { display: inline-flex; align-items: center; min-height: 44px; }
+.research-atlas .research-chapter-visual { min-height: 155px; }
+.research-atlas .research-chapter:nth-child(even) .research-chapter-copy { order: 2; }
+.research-atlas .research-chapter:nth-child(even) .research-chapter-visual { order: 1; }
+@media (max-width: 850px) {
+  .research-atlas .research-chapter { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .research-atlas .research-chapter:nth-child(even) .research-chapter-copy,
+  .research-atlas .research-chapter:nth-child(even) .research-chapter-visual { order: initial; }
+  .research-atlas .research-chapter-visual { min-height: 0; }
+}
