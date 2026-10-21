@@ -101,6 +101,10 @@ def check_browser(root):
                     expect(evaluate("document.querySelectorAll('.language-link').length === 2 && document.querySelectorAll('.language-link[aria-current]').length === 1"), 'language selector on ' + route)
                     canonical_route = route[3:] if route.startswith('/it/') else route
                     italian = route.startswith('/it/')
+                    if is_home:
+                        expect(evaluate("[...document.querySelectorAll('.home-project p')].every(p => {const rgb = getComputedStyle(p).color.match(/\\d+/g)?.map(Number); return rgb && rgb.slice(0, 3).every(value => value >= 200);})"), 'FABER text remains light on the blue background on ' + route)
+                    if width >= 992:
+                        expect(evaluate("Math.abs(document.querySelector('#light-toggle').getBoundingClientRect().top + document.querySelector('#light-toggle').getBoundingClientRect().height / 2 - (document.querySelector('#navbar .nav-link').getBoundingClientRect().top + document.querySelector('#navbar .nav-link').getBoundingClientRect().height / 2)) <= 2"), 'theme button aligns with desktop navigation on ' + route)
                     if canonical_route in ('/thesis/', '/laboratory/'):
                         expect(evaluate("[...document.querySelectorAll('.feature-card')].every(card => card.getBoundingClientRect().width >= 280 && card.getBoundingClientRect().right <= innerWidth)"), f'narrow or overflowing resource cards at {width}px on {route}')
                         expect(evaluate("[...document.querySelectorAll('.feature-card .inline-links a, .contact-link, .page-paths a, .institution-list a')].every(a => a.getBoundingClientRect().height >= 44)"), 'resource touch targets on ' + route)
