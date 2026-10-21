@@ -80,5 +80,70 @@ class PublicationsIndexSourceTests(unittest.TestCase):
         self.assertIn("dimensions: false", config)
         self.assertIn("enable_publication_thumbnails: false", config)
 
+
+class PublicationsIndexGeneratedTests(unittest.TestCase):
+    @staticmethod
+    def verifier():
+        import importlib.util
+        script = ROOT / "scripts/verify_publications_index.py"
+        spec = importlib.util.spec_from_file_location("publications_index_verifier", script)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+
+    @staticmethod
+    def fixture():
+        return """<!doctype html><html lang="en"><main><h1>Publications</h1>
+        <div class="publications-index">
+        <input id="bibsearch" type="search" hidden>
+        <div id="publication-type-filters" hidden>
+        <button data-publication-filter="all" aria-pressed="true"></button>
+        <button data-publication-filter="article" aria-pressed="false"></button>
+        <button data-publication-filter="inproceedings" aria-pressed="false"></button>
+        <button data-publication-filter="phdthesis" aria-pressed="false"></button></div>
+        <p id="bibsearch-status" role="status" aria-live="polite"></p>
+        <p id="bibsearch-empty" hidden></p><button id="bibsearch-clear" hidden></button>
+        <div id="publication-list">
+        <section data-publication-category="article"><h2 id="journal-articles">Journal articles</h2>
+        <h2 class="bibliography">2020</h2>
+        <ol class="bibliography"><li><div id="Alpha">
+        <script type="application/ld+json">{"@type":"ScholarlyArticle","name":"Example",
+        "datePublished":"2020","author":[{"@type":"Person","name":"Author Example"}]}</script>
+        <div class="title">Example</div></div></li></ol></section>
+        <section data-publication-category="inproceedings"><h2 id="conference-contributions">Conferences</h2></section>
+        <section data-publication-category="phdthesis"><h2 id="doctoral-thesis">Doctoral thesis</h2></section>
+        </div><p id="Moda2022a">Rosenthal dataset</p></div></main></html>"""
+
+    def test_generated_document_accepts_valid_single_entry(self):
+        verifier = self.verifier()
+        verifier.verify_document(self.fixture(),
+                                 [{"key": "Alpha", "category": "article", "year": "2020", "doi": None}],
+                                 "en")
+
+    def test_generated_document_rejects_missing_entry(self):
+        verifier = self.verifier()
+        expected = [{"key": "Alpha", "category": "article", "year": "2020", "doi": None},
+                    {"key": "Missing", "category": "article", "year": "2021", "doi": None}]
+        with self.assertRaisesRegex(ValueError, "Missing"):
+            verifier.verify_document(self.fixture(), expected, "en")
+
+    def test_generated_document_rejects_wrong_category(self):
+        verifier = self.verifier()
+        with self.assertRaisesRegex(ValueError, "category|inproceedings"):
+            verifier.verify_document(self.fixture(),
+                                     [{"key": "Alpha", "category": "inproceedings", "year": "2020", "doi": None}],
+                                     "en")
+
+    def test_generated_verifier_rejects_missing_italian_route(self):
+        import tempfile
+        verifier = self.verifier()
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            english = root / "publications/index.html"
+            english.parent.mkdir(parents=True)
+            english.write_text(self.fixture(), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "Italian|it/publications"):
+                verifier.verify_publications_index(root)
+
 if __name__ == "__main__":
     unittest.main()
