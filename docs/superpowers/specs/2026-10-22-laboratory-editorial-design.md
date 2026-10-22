@@ -1,7 +1,7 @@
 # Phase 5: Laboratory and Experimental Capabilities, editorial design
 
 **Date:** 22 October 2026  
-**Status:** Visual direction selected; new photographs, FLIR model X6901sc manufacturer specifications and historical Machine Design Group capacities incorporated for the user's review. This written specification is submitted for approval before implementation planning and page changes.  
+**Status:** Written specification approved by the user on 22 October 2026, including the Schenck 700 bar internal-pressure limit, historical equipment ratings and FLIR X6901sc identification. Detailed implementation plan prepared for separate review. No page implementation or merge approved at this stage.  
 **Repository:** https://github.com/andreachiocca/andreachiocca.github.io  
 **Target routes:** /laboratory/ and /it/laboratory/
 
@@ -130,4 +130,4 @@ Style writing must respect `andrea-chiocca-academic-writing`: concise scientific
 
 ## 6. Review and stage boundaries
 
-The **visual direction** presented in the preceding conversation is approved; the user has asked to proceed and has supplied final photographs and equipment information. This specification records that design as a durable source of truth and requires the user's **written-spec approval**. After approval, produce a task-by-task implementation plan, review it, and then execute it on the same separate branch. Until the written spec and plan are reviewed, PR changes are documentation-only; the live website stays untouched.
+The **visual direction** presented in the preceding conversation is approved; the user has asked to proceed and has supplied final photographs and equipment information. This specification records that design as a durable source of truth. The user approved the written specification on 22 October 2026. A task-by-task implementation plan is now available for a separate review, after which execution may proceed on the same draft branch. Until the implementation plan is approved, PR changes remain documentation-only; the live website stays untouched.
