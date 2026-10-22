@@ -80,7 +80,7 @@ main#main-content:has(> .laboratory-editorial) { max-width: 1160px; }
   letter-spacing: .025em; color: var(--global-text-color-light); font-weight: 400;
 }
 .laboratory-editorial .laboratory-specification dd {
-  margin: 0; font: 600 clamp(.97rem,1.25vw,1.14rem)/1.35 inherit;
+  margin: 0; font-weight: 600; font-size: clamp(.97rem,1.25vw,1.14rem); line-height: 1.35;
   color: var(--editorial-navy); overflow-wrap: anywhere;
 }
 .laboratory-editorial .laboratory-machine-note {
