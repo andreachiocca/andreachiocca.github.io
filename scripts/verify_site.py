@@ -268,6 +268,13 @@ if not errors:
         errors.append('Publications index: ' + str(exc))
 
 if not errors:
+    from verify_laboratory_editorial import verify_laboratory_editorial
+    try:
+        verify_laboratory_editorial(ROOT)
+    except ValueError as exc:
+        errors.append("Laboratory: " + str(exc))
+
+if not errors:
     from check_browser import check_browser
     errors.extend(check_browser(ROOT))
 

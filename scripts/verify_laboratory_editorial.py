@@ -93,8 +93,10 @@ def verify_document(html: str, expected: list[dict], root: Path, language: str) 
         raise ValueError(f"{language}: missing Laboratory section anchors: {sorted(set(ANCHORS) - doc.anchors)}")
     if not any(link.startswith(CONTACT) for link in doc.links):
         raise ValueError(f"{language}: Laboratory contact link missing")
-    if "IMG_0420" in html or "700 MPa" in html or "X6901sc SLS" in html:
-        raise ValueError(f"{language}: unsupported or private Laboratory content")
+    if "700 MPa" in html:
+        raise ValueError(f"{language}: Schenck internal pressure is 700 bar, not 700 MPa")
+    if "IMG_0420" in html or "X6901sc SLS" in html:
+        raise ValueError(f"{language}: private camera image or incorrect model variant")
     keys = [record["id"] for record in doc.records]
     wanted = [record["id"] for record in expected]
     if keys != wanted:
