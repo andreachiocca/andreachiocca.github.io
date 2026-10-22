@@ -113,5 +113,58 @@ class LaboratorySourceTests(unittest.TestCase):
         self.assertNotIn("IMG_0420", page)
         self.assertNotIn("700 MPa", page)
 
+
+
+class LaboratoryRenderedTests(unittest.TestCase):
+    @staticmethod
+    def verifier():
+        import importlib.util
+        path = ROOT / "scripts/verify_laboratory_editorial.py"
+        spec = importlib.util.spec_from_file_location("laboratory_verify", path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module
+
+    @staticmethod
+    def fixture(pressure="700 bar (70 MPa)", alt="Genuine mechanical specimen"):
+        return f"""<!doctype html><html lang="en"><main><h1>Laboratory</h1>
+        <section id="equipment"><h2>Equipment</h2>
+        <article data-laboratory-id="schenck-axial-torsional"
+        data-evidence-scope="current-description">
+        <h3>Schenck</h3><p>Servo-hydraulic equipment</p><dl>
+        <dt>Pressure</dt><dd>{pressure}</dd></dl>
+        </article></section>
+        <div id="research-expertise"></div><div id="instrumentation"></div>
+        <div id="laboratory-collaboration"></div>
+        <figure><picture><source srcset="/assets/img/laboratory/specimen-640.webp 640w, /assets/img/laboratory/specimen-1280.webp 1280w">
+        <img src="/assets/img/laboratory/specimen-640.webp" alt="{alt}"
+          width="640" height="853" loading="eager"></picture>
+        <figcaption>Machined specimen</figcaption></figure>
+        <a href="mailto:andrea.chiocca@unipi.it?subject=Experimental">Contact</a>
+        </main></html>"""
+
+    def test_verifier_accepts_correct_pressure_and_real_image(self):
+        module = self.verifier()
+        expected = [{"id": "schenck-axial-torsional",
+                     "evidence_scope": "current-description",
+                     "specifications": [{"label": "Internal pressure", "value": "700 bar (70 MPa)"}]}]
+        module.verify_document(self.fixture(), expected, ROOT, "en")
+
+    def test_verifier_rejects_700_mpa_typo(self):
+        module = self.verifier()
+        expected = [{"id": "schenck-axial-torsional",
+                     "evidence_scope": "current-description",
+                     "specifications": [{"label": "Internal pressure", "value": "700 bar (70 MPa)"}]}]
+        with self.assertRaisesRegex(ValueError, "700 bar|700 MPa"):
+            module.verify_document(self.fixture(pressure="700 MPa"), expected, ROOT, "en")
+
+    def test_verifier_rejects_missing_image_alt(self):
+        module = self.verifier()
+        expected = [{"id": "schenck-axial-torsional",
+                     "evidence_scope": "current-description",
+                     "specifications": [{"label": "Internal pressure", "value": "700 bar (70 MPa)"}]}]
+        with self.assertRaisesRegex(ValueError, "alt"):
+            module.verify_document(self.fixture(alt=""), expected, ROOT, "en")
+
 if __name__ == "__main__":
     unittest.main()
