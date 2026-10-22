@@ -13,7 +13,7 @@ description: Experimental facilities for fatigue, multiaxial loading, material a
   <div class="laboratory-hero-copy" markdown="1">
     <p class="laboratory-kicker">01 / {{ "Research facilities" | t }}</p>
     {% locale laboratory.intro %}Our group at the **Department of Civil and Industrial Engineering, University of Pisa** investigates fatigue, structural integrity and material behaviour through experimental mechanics and computational analysis. Research addresses metals, polymers, composites and additively manufactured materials.{% endlocale %}
-    <div class="laboratory-hero-scope" markdown="1">{% locale laboratory.scope %}This page presents research expertise and facilities within our group and department. Equipment access and the technical feasibility of a new test campaign must be agreed with the relevant laboratory staff.{% endlocale %}</div>
+    <div class="laboratory-hero-scope" markdown="1">{% locale laboratory.scope %}This page presents research expertise and departmental facilities associated with our group. Equipment access and the technical feasibility of a new test campaign must be agreed with the relevant laboratory staff.{% endlocale %}</div>
     <nav aria-label="{{ 'Research facilities' | t }}" class="laboratory-quick-links">
       <a href="#equipment">{{ "Testing systems" | t }}</a>
       <a href="#instrumentation">{{ "Experimental measurement" | t }}</a>
