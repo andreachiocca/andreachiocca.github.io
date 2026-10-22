@@ -1,0 +1,126 @@
+// Phase 5: Laboratory editorial page. Scoped without changes to other pages.
+main#main-content:has(> .laboratory-editorial) { max-width: 1160px; }
+.laboratory-editorial { min-width: 0; }
+.laboratory-editorial img { max-width: 100%; }
+.laboratory-editorial .laboratory-kicker,
+.laboratory-editorial .laboratory-section-index,
+.laboratory-editorial figcaption,
+.laboratory-editorial .laboratory-machine-kicker {
+  font: 500 .73rem/1.55 ui-monospace, Consolas, monospace;
+  letter-spacing: .07em;
+}
+.laboratory-editorial .laboratory-kicker,
+.laboratory-editorial .laboratory-section-index,
+.laboratory-editorial .laboratory-machine-kicker { color: var(--editorial-teal); text-transform: uppercase; }
+.laboratory-editorial .laboratory-hero {
+  display: grid;
+  grid-template-columns: minmax(0,1.05fr) minmax(0,.95fr);
+  column-gap: clamp(1.5rem,5vw,4rem);
+  align-items: center;
+  padding: 1.25rem 0 3rem;
+  border-bottom: 1px solid var(--global-divider-color);
+}
+.laboratory-editorial .laboratory-hero-copy { min-width: 0; }
+.laboratory-editorial .laboratory-hero-copy > p:not(.laboratory-kicker),
+.laboratory-editorial .laboratory-hero-scope { font-size: clamp(.99rem,1.2vw,1.11rem); line-height: 1.8; max-width: 58ch; }
+.laboratory-editorial .laboratory-hero-scope { color: var(--global-text-color-light); font-size: .94rem; margin-top: 1.4rem; }
+.laboratory-editorial .laboratory-hero-scope p { margin: 0; }
+.laboratory-editorial .laboratory-quick-links { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.7rem; }
+.laboratory-editorial .laboratory-quick-links a {
+  display: inline-flex; align-items: center; min-height: 44px; padding: .6rem .8rem;
+  border: 1px solid var(--global-divider-color); color: var(--global-text-color); text-decoration: none;
+  font-size: .82rem;
+}
+.laboratory-editorial .laboratory-quick-links a:first-child { background: var(--global-theme-color); color: var(--global-hover-text-color); border-color: var(--global-theme-color); }
+.laboratory-editorial .laboratory-quick-links a:hover { border-color: var(--editorial-teal); }
+.laboratory-editorial .laboratory-hero-figure,
+.laboratory-editorial .laboratory-machine-figure { margin: 0; min-width: 0; }
+.laboratory-editorial .laboratory-hero-figure { padding: .65rem; background: var(--editorial-surface); }
+.laboratory-editorial figure picture { display: block; }
+.laboratory-editorial .laboratory-hero-figure img {
+  display: block; width: 100%; height: auto; max-height: 480px;
+  object-fit: cover; object-position: center 60%;
+}
+.laboratory-editorial figcaption { padding: .65rem .35rem .15rem; color: var(--global-text-color-light); font-size: .68rem; letter-spacing: .015em; text-transform: none; }
+.laboratory-editorial .laboratory-section { padding: 3.2rem 0 .7rem; border-bottom: 1px solid var(--global-divider-color); }
+.laboratory-editorial .laboratory-section > h2 { margin: .35rem 0 1.7rem; }
+.laboratory-editorial .laboratory-section > p:not(.laboratory-section-index) { max-width: 76ch; line-height: 1.7; }
+.laboratory-editorial .laboratory-machines { border-top: 1px solid var(--global-divider-color); }
+.laboratory-editorial .laboratory-machine {
+  display: grid; grid-template-columns: minmax(0,.89fr) minmax(0,1.11fr);
+  gap: clamp(1.25rem,4vw,3.5rem); align-items: start; padding: 2rem 0 2.2rem;
+  min-width: 0; border-bottom: 1px solid var(--global-divider-color);
+  scroll-margin-top: 7rem;
+}
+.laboratory-editorial .laboratory-machine:last-child { border-bottom: 0; }
+.laboratory-editorial .laboratory-machine:nth-child(even) .laboratory-machine-figure { order: 2; }
+.laboratory-editorial .laboratory-machine--text-only { grid-template-columns: minmax(0,1fr); padding: 1.2rem 0 1.45rem; }
+.laboratory-editorial .laboratory-machine--text-only .laboratory-machine-content { max-width: 76ch; }
+.laboratory-editorial .laboratory-machine-figure {
+  background: var(--editorial-surface); padding: .6rem; overflow: hidden;
+}
+.laboratory-editorial .laboratory-machine-figure img {
+  display: block; width: 100%; height: auto; max-height: 480px;
+  object-fit: contain; background: var(--editorial-surface);
+}
+.laboratory-editorial .laboratory-machine-content { min-width: 0; }
+.laboratory-editorial .laboratory-machine-content > h3 { margin: .2rem 0 .7rem; font-size: clamp(1.24rem,1.7vw,1.55rem); letter-spacing: -.033em; line-height: 1.28; }
+.laboratory-editorial .laboratory-machine-content > p { font-size: .92rem; line-height: 1.74; }
+.laboratory-editorial .laboratory-machine-kicker { margin: 0 0 .65rem; font-size: .68rem; }
+.laboratory-editorial .laboratory-specifications {
+  display: grid; grid-template-columns: repeat(2,minmax(0,1fr));
+  column-gap: 1rem; margin: 1.2rem 0 1rem; border-top: 1px solid var(--global-divider-color);
+}
+.laboratory-editorial .laboratory-specification {
+  min-width: 0; display: flex; flex-direction: column; gap: .32rem;
+  padding: .85rem 0 .65rem; border-bottom: 1px solid var(--global-divider-color);
+}
+.laboratory-editorial .laboratory-specification dt {
+  font: .76rem/1.5 ui-monospace, Consolas, monospace;
+  letter-spacing: .025em; color: var(--global-text-color-light); font-weight: 400;
+}
+.laboratory-editorial .laboratory-specification dd {
+  margin: 0; font: 600 clamp(.97rem,1.25vw,1.14rem)/1.35 inherit;
+  color: var(--editorial-navy); overflow-wrap: anywhere;
+}
+.laboratory-editorial .laboratory-machine-note {
+  padding-left: .75rem; border-left: 2px solid var(--editorial-teal);
+  color: var(--global-text-color-light); font-size: .83rem !important; line-height: 1.7;
+}
+.laboratory-editorial .laboratory-supporting-machines .laboratory-machine {
+  padding-top: 1.6rem; padding-bottom: 1.8rem;
+}
+.laboratory-editorial .laboratory-supporting-machines .laboratory-machine-content > h3 { font-size: clamp(1.14rem,1.45vw,1.38rem); }
+.laboratory-editorial .laboratory-approaches { margin: 2rem 0; }
+.laboratory-editorial .laboratory-approaches .approach { padding: .85rem 0; }
+.laboratory-editorial .laboratory-research-domains {
+  display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 2.4rem;
+}
+.laboratory-editorial .laboratory-research-domains .feature-card {
+  min-width: 0; padding: 1.15rem 0; border: 0; border-bottom: 1px solid var(--global-divider-color);
+  border-radius: 0; background: transparent;
+}
+.laboratory-editorial .laboratory-research-domains .feature-card h3 { margin: 0 0 .55rem; }
+.laboratory-editorial .laboratory-research-domains .resource-icon { display: none; }
+.laboratory-editorial .laboratory-collaboration { padding: 1.7rem 1.5rem 1.7rem 1.8rem; margin: 3.1rem 0 2rem; background: var(--editorial-surface); border-left: 3px solid var(--editorial-teal); }
+.laboratory-editorial .laboratory-collaboration h2 { border: 0; margin-top: .4rem; }
+.laboratory-editorial .laboratory-collaboration .contact-link { display: inline-flex; align-items: center; min-height: 44px; }
+.laboratory-editorial .laboratory-related { padding: 1rem 0 2.1rem; border-top: 1px solid var(--global-divider-color); }
+.laboratory-editorial :focus-visible { outline: 2px solid var(--editorial-teal); outline-offset: 3px; }
+@media (max-width: 767px) {
+  .laboratory-editorial .laboratory-hero { grid-template-columns: 1fr; row-gap: 1.5rem; padding-bottom: 2.2rem; }
+  .laboratory-editorial .laboratory-hero-figure { max-width: 540px; }
+  .laboratory-editorial .laboratory-section { padding-top: 2.2rem; }
+  .laboratory-editorial .laboratory-machine,
+  .laboratory-editorial .laboratory-machine--text-only { grid-template-columns: 1fr; gap: 1.1rem; padding: 1.3rem 0; }
+  .laboratory-editorial .laboratory-machine:nth-child(even) .laboratory-machine-figure { order: 0; }
+  .laboratory-editorial .laboratory-research-domains { grid-template-columns: 1fr; }
+}
+@media (max-width: 400px) {
+  .laboratory-editorial .laboratory-specifications { grid-template-columns: 1fr; }
+  .laboratory-editorial .laboratory-machine-content > h3 { overflow-wrap: anywhere; }
+  .laboratory-editorial .laboratory-collaboration { padding: 1.2rem .85rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .laboratory-editorial *, .laboratory-editorial *::before, .laboratory-editorial *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+}

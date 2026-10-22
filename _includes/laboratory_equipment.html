@@ -1,5 +1,5 @@
 {% assign resource = include.resource | localized_record: 'laboratory' %}
-<article class="laboratory-machine" id="{{ resource.id | escape }}" data-laboratory-id="{{ resource.id | escape }}" data-evidence-scope="{{ resource.evidence_scope | escape }}">
+<article class="laboratory-machine{% unless resource.image %} laboratory-machine--text-only{% endunless %}" id="{{ resource.id | escape }}" data-laboratory-id="{{ resource.id | escape }}" data-evidence-scope="{{ resource.evidence_scope | escape }}">
   {% if resource.image %}
   {% assign photo_640 = resource.image.base | append: '-640.webp' | local_url | relative_url %}
   {% assign photo_1280 = resource.image.base | append: '-1280.webp' | local_url | relative_url %}
@@ -12,7 +12,7 @@
   </figure>
   {% endif %}
   <div class="laboratory-machine-content">
-    <p class="laboratory-machine-kicker">{{ resource.evidence_scope | replace: '-', ' ' | escape }}</p>
+    <p class="laboratory-machine-kicker">{% case resource.evidence_scope %}{% when "historical" %}{{ "Historical equipment information" | t }}{% when "manufacturer" %}{{ "Manufacturer specification" | t }}{% else %}{{ "Experimental facilities" | t }}{% endcase %}</p>
     <h3>{{ resource.title | escape }}</h3>
     <p>{{ resource.description | escape }}</p>
     {% if resource.specifications.size > 0 %}
