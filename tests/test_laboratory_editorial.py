@@ -112,6 +112,11 @@ class LaboratorySourceTests(unittest.TestCase):
         self.assertEqual(read("assets/css/main.scss").count('@import "laboratory_editorial";'), 1)
         self.assertNotIn("IMG_0420", page)
         self.assertNotIn("700 MPa", page)
+        dd_rule = styles.split(".laboratory-editorial .laboratory-specification dd {", 1)[1].split("}", 1)[0]
+        self.assertIn("font-weight: 600;", dd_rule)
+        self.assertIn("font-size: clamp(", dd_rule)
+        self.assertNotIn("font:", dd_rule)
+
 
 
 
