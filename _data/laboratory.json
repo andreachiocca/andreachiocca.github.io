@@ -1,15 +1,375 @@
 {
   "capabilities": [
-    {"id": "fatigue-durability", "title": "Fatigue and durability", "icon": "fa-chart-line", "description": "Investigate behaviour under repeated loading, characterise fatigue response and compare life predictions with experimental results.", "links": [{"label": "Fatigue research", "url": "/research/#multiaxial-fatigue-and-critical-plane-methods"}, {"label": "Fatigue datasets", "url": "/repositories/#zenodo-18416255"}]},
-    {"id": "mechanical-characterisation", "title": "Mechanical characterisation", "icon": "fa-ruler-combined", "description": "Study the mechanical response of engineering materials and components. Previous research includes polymer composites, hybrid joints and the influence of temperature on material behaviour.", "links": [{"label": "Materials and components", "url": "/research/#component-testing-and-industrial-applications"}, {"label": "Composite study", "url": "/publications/#Chiocca2025ab"}]},
-    {"id": "joints-structures", "title": "Joints and structural integrity", "icon": "fa-tools", "description": "Connect measurements and computational analysis to assess welded components and mechanical joints, including residual stresses and fatigue response.", "links": [{"label": "Welded structures", "url": "/research/#residual-stresses-and-welded-structures"}, {"label": "Hybrid-joint data", "url": "/repositories/#zenodo-12741922"}]},
-    {"id": "model-validation", "title": "Numerical–experimental validation", "icon": "fa-project-diagram", "description": "Combine finite element analysis with mechanical measurements to examine model predictions. Research experience includes strain, vibration and temperature measurements and component-level correlation.", "links": [{"label": "PCB dynamics study", "url": "/publications/#Fontana2023"}, {"label": "Related publications", "url": "/publications/"}]},
-    {"id": "engineering-analysis", "title": "Engineering data and methods", "icon": "fa-code", "description": "Process experimental data, develop scientific software and compare analytical or computational methods. Reproducible datasets and documented algorithms support interpretation and model validation.", "links": [{"label": "Software and datasets", "url": "/repositories/"}]}
+    {
+      "id": "fatigue-durability",
+      "title": "Fatigue and durability",
+      "icon": "fa-chart-line",
+      "description": "Investigate behaviour under repeated loading, characterise fatigue response and compare life predictions with experimental results.",
+      "links": [
+        {
+          "label": "Fatigue research",
+          "url": "/research/#multiaxial-fatigue-and-critical-plane-methods"
+        },
+        {
+          "label": "Fatigue datasets",
+          "url": "/repositories/#zenodo-18416255"
+        }
+      ]
+    },
+    {
+      "id": "mechanical-characterisation",
+      "title": "Mechanical characterisation",
+      "icon": "fa-ruler-combined",
+      "description": "Study the mechanical response of engineering materials and components. Previous research includes polymer composites, hybrid joints and the influence of temperature on material behaviour.",
+      "links": [
+        {
+          "label": "Materials and components",
+          "url": "/research/#component-testing-and-industrial-applications"
+        },
+        {
+          "label": "Composite study",
+          "url": "/publications/#Chiocca2025ab"
+        }
+      ]
+    },
+    {
+      "id": "joints-structures",
+      "title": "Joints and structural integrity",
+      "icon": "fa-tools",
+      "description": "Connect measurements and computational analysis to assess welded components and mechanical joints, including residual stresses and fatigue response.",
+      "links": [
+        {
+          "label": "Welded structures",
+          "url": "/research/#residual-stresses-and-welded-structures"
+        },
+        {
+          "label": "Hybrid-joint data",
+          "url": "/repositories/#zenodo-12741922"
+        }
+      ]
+    },
+    {
+      "id": "model-validation",
+      "title": "Numerical–experimental validation",
+      "icon": "fa-project-diagram",
+      "description": "Combine finite element analysis with mechanical measurements to examine model predictions. Research experience includes strain, vibration and temperature measurements and component-level correlation.",
+      "links": [
+        {
+          "label": "PCB dynamics study",
+          "url": "/publications/#Fontana2023"
+        },
+        {
+          "label": "Related publications",
+          "url": "/publications/"
+        }
+      ]
+    },
+    {
+      "id": "engineering-analysis",
+      "title": "Engineering data and methods",
+      "icon": "fa-code",
+      "description": "Process experimental data, develop scientific software and compare analytical or computational methods. Reproducible datasets and documented algorithms support interpretation and model validation.",
+      "links": [
+        {
+          "label": "Software and datasets",
+          "url": "/repositories/"
+        }
+      ]
+    }
   ],
   "measurement_context": [
-    {"id": "material-response", "title": "Material and joint response", "description": "Previous studies document static and fatigue characterisation of materials and joints. The specimen, loading conditions and required measurements define the feasibility of a new campaign."},
-    {"id": "physical-measurements", "title": "Strain, vibration and temperature", "description": "These measurement categories feature in existing research. Sensors, acquisition settings, operating ranges and facility access must be confirmed for each investigation."},
-    {"id": "model-correlation", "title": "Model correlation and data processing", "description": "Experimental results can be compared with finite element and analytical models, using scientific programming to evaluate predictions and document the analysis."}
+    {
+      "id": "material-response",
+      "title": "Material and joint response",
+      "description": "Previous studies document static and fatigue characterisation of materials and joints. The specimen, loading conditions and required measurements define the feasibility of a new campaign."
+    },
+    {
+      "id": "physical-measurements",
+      "title": "Strain, vibration and temperature",
+      "description": "These measurement categories feature in existing research. Sensors, acquisition settings, operating ranges and facility access must be confirmed for each investigation."
+    },
+    {
+      "id": "model-correlation",
+      "title": "Model correlation and data processing",
+      "description": "Experimental results can be compared with finite element and analytical models, using scientific programming to evaluate predictions and document the analysis."
+    }
   ],
-  "equipment": []
+  "equipment": [
+    {
+      "id": "steplab-axial-torsional",
+      "category": "featured",
+      "evidence_scope": "current-description",
+      "title": "StepLab axial–torsional electrodynamic machine",
+      "description": "Electrodynamic test system for controlled axial and torsional fatigue loading of round and flat specimens. Frequency depends on the loading mode and specimen.",
+      "specifications": [
+        {
+          "label": "Maximum static load",
+          "value": "33 kN"
+        },
+        {
+          "label": "Maximum dynamic load",
+          "value": "43.5 kN"
+        },
+        {
+          "label": "Maximum frequency",
+          "value": "250 Hz"
+        },
+        {
+          "label": "Round gripping",
+          "value": "Ø 6–12 mm"
+        },
+        {
+          "label": "Flat gripping",
+          "value": "≤15 mm thick"
+        }
+      ],
+      "status_note": "Specified limits depend on specimen, fixture and operating mode; they are not simultaneous guarantees.",
+      "image": {
+        "base": "/assets/img/laboratory/steplab-equipment",
+        "width": 640,
+        "height": 853
+      },
+      "image_alt": "StepLab machine behind its transparent protective enclosure",
+      "image_caption": "StepLab experimental testing equipment. The photograph does not identify a particular capacity variant."
+    },
+    {
+      "id": "schenck-axial-torsional",
+      "category": "featured",
+      "evidence_scope": "current-description",
+      "title": "Schenck servo-hydraulic axial–torsional system",
+      "description": "Servo-hydraulic axial–torsional testing, with a separate internal-pressure actuator for tubular specimens. The historical group inventory reports typical machine frequencies of approximately 10–20 Hz.",
+      "specifications": [
+        {
+          "label": "Axial capacity",
+          "value": "250 kN"
+        },
+        {
+          "label": "Torque",
+          "value": "2000 N·m"
+        },
+        {
+          "label": "Internal pressure",
+          "value": "700 bar (70 MPa)"
+        },
+        {
+          "label": "Round gripping",
+          "value": "Ø 5–40 mm"
+        },
+        {
+          "label": "Flat gripping",
+          "value": "8–20 mm thick"
+        }
+      ],
+      "status_note": "Force, torque, pressure and frequency limits depend on the arrangement and must not be assumed simultaneously attainable.",
+      "image": {
+        "base": "/assets/img/laboratory/schenck-actuators",
+        "width": 640,
+        "height": 853
+      },
+      "image_alt": "Two large Schenck hydraulic actuators on a steel experimental test structure",
+      "image_caption": "Schenck hydraulic actuators in the mechanical-testing laboratory."
+    },
+    {
+      "id": "rumul-resonant",
+      "category": "featured",
+      "evidence_scope": "historical",
+      "title": "Rumul resonant fatigue-testing machines",
+      "description": "The historical facilities inventory documents two resonant systems used for high-cycle fatigue and fatigue crack-growth investigations on compatible specimens.",
+      "specifications": [
+        {
+          "label": "Historical load ratings",
+          "value": "20 kN; 150 kN"
+        },
+        {
+          "label": "Typical frequency",
+          "value": "100–150 Hz"
+        }
+      ],
+      "status_note": "Historical equipment ratings only; confirm the present machine inventory and availability before a study.",
+      "image": {
+        "base": "/assets/img/laboratory/rumul",
+        "width": 640,
+        "height": 853
+      },
+      "image_alt": "Green Rumul resonant fatigue-testing frame showing its grips and load train",
+      "image_caption": "Rumul resonant fatigue-testing machine; the photographed capacity variant is not identified."
+    },
+    {
+      "id": "mts-uniaxial",
+      "category": "featured",
+      "evidence_scope": "historical",
+      "title": "MTS servo-hydraulic uniaxial systems",
+      "description": "The earlier group facilities inventory records two uniaxial servo-hydraulic machines for monotonic and cyclic material testing.",
+      "specifications": [
+        {
+          "label": "Historical load ratings",
+          "value": "25 kN; 100 kN"
+        },
+        {
+          "label": "Typical frequency",
+          "value": "10–20 Hz"
+        }
+      ],
+      "status_note": "Published historical ratings, not a statement that both systems are currently available."
+    },
+    {
+      "id": "steplab-electromechanical",
+      "category": "featured",
+      "evidence_scope": "current-description",
+      "title": "StepLab electromechanical machine",
+      "description": "Smaller-capacity electromechanical equipment for compatible axial and cyclic test configurations.",
+      "specifications": [
+        {
+          "label": "Maximum load",
+          "value": "10 kN"
+        },
+        {
+          "label": "Maximum frequency",
+          "value": "20 Hz"
+        }
+      ],
+      "status_note": "Available loading modes and frequency depend on the selected specimen and fixture."
+    },
+    {
+      "id": "three-actuator-bench",
+      "category": "supporting",
+      "evidence_scope": "current-description",
+      "title": "Reconfigurable structural test bench",
+      "description": "A configurable bench equipped, in the arrangement described by the group, with three Schenck hydraulic actuators for component-level investigations, including welded joints and vehicle frames.",
+      "specifications": [
+        {
+          "label": "Current configuration",
+          "value": "3 Schenck actuators"
+        }
+      ],
+      "status_note": "A historical facilities description refers to a full-scale bench with up to seven actuators. This is not an additional claim for the present three-actuator arrangement.",
+      "image": {
+        "base": "/assets/img/laboratory/structural-bench",
+        "width": 640,
+        "height": 480
+      },
+      "image_alt": "Wide modular heavy steel structural testing bench with a grid of threaded mounting positions",
+      "image_caption": "Reconfigurable structural test bench for tailored experimental setups."
+    },
+    {
+      "id": "vibration-testing",
+      "category": "supporting",
+      "evidence_scope": "current-description",
+      "title": "Structural vibration and dynamics",
+      "description": "Experimental shaker arrangements support vibration measurements, dynamic characterisation and suitable vibration-fatigue campaigns. Historical group activities also include robotic laser-vibrometer modal measurements.",
+      "specifications": [
+        {
+          "label": "Experimental setup",
+          "value": "Specimen- and project-dependent"
+        }
+      ],
+      "status_note": "Do not transfer the StepLab 250 Hz limit to separate vibration equipment. Modal instrumentation availability is project-dependent.",
+      "image": {
+        "base": "/assets/img/laboratory/vibration-setup",
+        "width": 640,
+        "height": 853
+      },
+      "image_alt": "TIRA electrodynamic shaker with an experimental component mounted on a test fixture",
+      "image_caption": "Vibration-testing arrangement with a TIRA shaker and experimental fixture."
+    },
+    {
+      "id": "environmental-conditioning",
+      "category": "supporting",
+      "evidence_scope": "current-description",
+      "title": "Thermal and environmental conditioning",
+      "description": "Temperature-controlled equipment for suitable fatigue, creep and creep–fatigue investigations, depending on machine compatibility and test fixtures.",
+      "specifications": [
+        {
+          "label": "Induction oven",
+          "value": "Up to 900 °C"
+        },
+        {
+          "label": "Resistance oven",
+          "value": "200–1000 °C"
+        },
+        {
+          "label": "StepLab climatic chamber",
+          "value": "−30 to +180 °C"
+        }
+      ],
+      "status_note": "The climatic chamber is one device, described in conjunction with compatible StepLab configurations; ranges cannot necessarily be combined with maximum mechanical loads."
+    },
+    {
+      "id": "specimen-preparation-metrology",
+      "category": "supporting",
+      "evidence_scope": "current-description",
+      "title": "Specimen preparation and metrology",
+      "description": "In-house CNC turning, milling and tooling for round, flat, notched and tubular specimens. Surface characterisation includes contact/optical roughness measurements and Vickers hardness testing.",
+      "specifications": [
+        {
+          "label": "Machining",
+          "value": "CNC lathe and milling"
+        },
+        {
+          "label": "Surface roughness",
+          "value": "Ra; Rz"
+        },
+        {
+          "label": "Hardness",
+          "value": "Vickers"
+        }
+      ],
+      "status_note": "The older group webpage additionally records SEM/optical microscopy, Charpy and hole-drilling measurements; their current availability is unconfirmed."
+    },
+    {
+      "id": "flir-x6901sc",
+      "category": "supporting",
+      "evidence_scope": "manufacturer",
+      "title": "FLIR X6901sc high-speed infrared camera",
+      "description": "High-speed infrared temperature-field imaging for experimental thermal measurements. Values shown are manufacturer specifications, not confirmed performance for every laboratory setup.",
+      "specifications": [
+        {
+          "label": "Detector",
+          "value": "Cooled InSb"
+        },
+        {
+          "label": "Resolution",
+          "value": "640 × 512"
+        },
+        {
+          "label": "Spectral band",
+          "value": "3–5 µm"
+        },
+        {
+          "label": "Full-frame rate",
+          "value": "Up to 1004 frames/s"
+        },
+        {
+          "label": "Thermal sensitivity",
+          "value": "≤20 mK NETD"
+        },
+        {
+          "label": "Digital range",
+          "value": "14 bit"
+        },
+        {
+          "label": "Standard temperature range",
+          "value": "−20 to 350 °C with suitable optics"
+        }
+      ],
+      "status_note": "Optics, calibration, filters and operating settings determine achievable measurements. No unverified lock-in or thermoelastic method is implied.",
+      "image": {
+        "base": "/assets/img/laboratory/flir-x6901sc",
+        "width": 640,
+        "height": 480
+      },
+      "image_alt": "FLIR X6901sc infrared camera in its protective carrying case",
+      "image_caption": "FLIR X6901sc high-speed mid-wave infrared camera."
+    }
+  ],
+  "hero": {
+    "id": "laboratory-hero",
+    "image": {
+      "base": "/assets/img/laboratory/specimen",
+      "width": 640,
+      "height": 853
+    },
+    "image_alt": "Machined, waisted metallic mechanical-test specimen on a measurement stage",
+    "image_caption": "Machined metallic specimen prepared for mechanical testing."
+  }
 }
