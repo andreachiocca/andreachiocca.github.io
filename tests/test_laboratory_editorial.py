@@ -91,5 +91,27 @@ class LaboratorySourceTests(unittest.TestCase):
             self.assertIn(token, include)
         self.assertIn("spec.label | t", include)
 
+
+    def test_page_semantics_and_anchors(self):
+        page = read("_pages/laboratory.md")
+        self.assertIn("translation_key: laboratory", page)
+        self.assertIn("layout: page", page)
+        self.assertIn('class="laboratory-editorial"', page)
+        for anchor in ("research-expertise", "instrumentation", "equipment", "laboratory-collaboration"):
+            self.assertIn('id="' + anchor + '"', page)
+        self.assertIn("include laboratory_equipment.html", page)
+        self.assertIn("site.data.laboratory.equipment", page)
+        self.assertIn("mailto:andrea.chiocca@unipi.it?subject=Experimental", page)
+        for route in ("/research/", "/publications/", "/repositories/", "/thesis/"):
+            self.assertIn(route, page)
+        styles = read("_sass/_laboratory_editorial.scss")
+        self.assertIn(".laboratory-editorial", styles)
+        self.assertIn("prefers-reduced-motion", styles)
+        self.assertIn(":focus-visible", styles)
+        self.assertNotIn("@import url(", styles)
+        self.assertEqual(read("assets/css/main.scss").count('@import "laboratory_editorial";'), 1)
+        self.assertNotIn("IMG_0420", page)
+        self.assertNotIn("700 MPa", page)
+
 if __name__ == "__main__":
     unittest.main()
