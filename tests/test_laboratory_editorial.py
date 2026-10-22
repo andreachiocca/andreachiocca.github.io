@@ -44,7 +44,8 @@ class LaboratorySourceTests(unittest.TestCase):
         self.assertEqual(self.records["rumul-resonant"]["evidence_scope"], "historical")
         self.assertIn("three", self.records["three-actuator-bench"]["description"].lower())
         self.assertIn("seven", self.records["three-actuator-bench"]["status_note"].lower())
-        self.assertEqual(combined.lower().count("climatic chamber"), 1)
+        chamber_specs = [spec for record in self.lab["equipment"] for spec in record["specifications"] if spec["label"] == "StepLab climatic chamber"]
+        self.assertEqual(len(chamber_specs), 1)
         self.assertNotIn("20 kN machine", self.records["rumul-resonant"]["image_caption"])
         self.assertNotIn("150 kN machine", self.records["rumul-resonant"]["image_caption"])
 
@@ -65,6 +66,30 @@ class LaboratorySourceTests(unittest.TestCase):
         flir = json.dumps(self.records["flir-x6901sc"], ensure_ascii=False)
         for value in ("X6901sc", "640 × 512", "3–5 µm", "1004", "20 mK"):
             self.assertIn(value, flir)
+
+
+    def test_photo_assets_and_privacy(self):
+        listed = self.lab["equipment"] + [self.lab["hero"]]
+        for record in listed:
+            photo = record.get("image")
+            if photo is None:
+                continue
+            self.assertTrue(record.get("image_alt"), record["id"])
+            self.assertTrue(record.get("image_caption"), record["id"])
+            stem = photo["base"].split("/")[-1]
+            self.assertNotIn("IMG_0420", stem)
+            self.assertTrue(stem.isascii())
+            for width in (640, 1280):
+                file = ROOT / "assets" / "img" / "laboratory" / f"{stem}-{width}.webp"
+                self.assertTrue(file.is_file(), str(file))
+                data = file.read_bytes()
+                self.assertTrue(data.startswith(b"RIFF") and data[8:12] == b"WEBP", str(file))
+                self.assertLess(len(data), 200000, str(file))
+        self.assertFalse((ROOT / "assets/img/laboratory/IMG_0420.JPG").exists())
+        include = read("_includes/laboratory_equipment.html")
+        for token in ("srcset", "image_alt", "image_caption", "specifications", "loading=", "width=", "height="):
+            self.assertIn(token, include)
+        self.assertIn("spec.label | t", include)
 
 if __name__ == "__main__":
     unittest.main()
