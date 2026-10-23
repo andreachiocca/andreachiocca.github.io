@@ -55,9 +55,10 @@ class LaboratorySourceTests(unittest.TestCase):
         self.assertEqual(self.records["steplab-axial-torsional"]["image"]["base"], "/assets/img/laboratory/steplab-electrodynamic")
         self.assertEqual(self.records["schenck-axial-torsional"]["image"]["base"], "/assets/img/laboratory/schenck-machine")
         self.assertIn("roughness", self.lab["hero"]["image_caption"])
+        self.assertNotIn("secondary_image", self.records["flir-x6901sc"])
         for machine, slug in {"mts-uniaxial": "mts-machine", "environmental-conditioning": "steplab-climatic-chamber", "vibration-testing": "vibration-large-shaker"}.items():
             self.assertEqual(self.records[machine]["image"]["base"], "/assets/img/laboratory/" + slug)
-        for machine, slug in {"rumul-resonant": "rumul-small-oven", "three-actuator-bench": "bench-small-actuator", "vibration-testing": "vibration-small-shaker", "flir-x6901sc": "flir-new"}.items():
+        for machine, slug in {"rumul-resonant": "rumul-small-oven", "three-actuator-bench": "bench-small-actuator", "vibration-testing": "vibration-small-shaker"}.items():
             self.assertEqual(self.records[machine]["secondary_image"]["base"], "/assets/img/laboratory/" + slug)
 
     def test_equipment_locale_parity_and_metadata(self):
@@ -80,6 +81,35 @@ class LaboratorySourceTests(unittest.TestCase):
         for value in ("X6901sc", "640 × 512", "3–5 µm", "1004", "20 mK"):
             self.assertIn(value, flir)
 
+
+    def test_public_copy_focuses_on_capabilities(self):
+        """Website copy describes equipment rather than editorial verification notes."""
+        disallowed = (
+            "capacity variant is not identified",
+            "capacity is not identified",
+            "capacity of the photographed",
+            "rated capacity of the machine shown",
+            "not confirmed",
+            "not verified",
+            "not assigned from the photograph",
+            "not an additional claim",
+            "do not transfer",
+            "unverified",
+            "non è identificata",
+            "non è stata verificata",
+            "non sono attribuite",
+            "non consente di identificare",
+        )
+        for record in self.lab["equipment"]:
+            for field in ("description", "status_note", "image_caption", "secondary_image_caption"):
+                content = record.get(field, "").lower()
+                for phrase in disallowed:
+                    self.assertNotIn(phrase, content, (record["id"], field))
+            translation = self.italian[record["id"]]
+            for field in ("description", "status_note", "image_caption", "secondary_image_caption"):
+                content = translation.get(field, "").lower()
+                for phrase in disallowed:
+                    self.assertNotIn(phrase, content, (record["id"], field))
 
     def test_photo_assets_and_privacy(self):
         listed = self.lab["equipment"] + [self.lab["hero"]]

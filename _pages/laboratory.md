@@ -44,7 +44,7 @@ description: Experimental facilities for fatigue, multiaxial loading, material a
       {% endif %}
     {% endfor %}
   </div>
-  {% locale laboratory.specifications %}<p class="scope-note">The values reported describe specific machines, not necessarily simultaneous operating limits. Historical equipment details and availability should be confirmed when defining a new experimental campaign.</p>{% endlocale %}
+  {% locale laboratory.specifications %}<p class="scope-note">Operating ranges depend on the specimen and experimental setup. Equipment availability and test feasibility are assessed for each project.</p>{% endlocale %}
 </section>
 
 <section class="laboratory-section laboratory-support" aria-labelledby="instrumentation">

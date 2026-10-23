@@ -100,7 +100,7 @@
       "category": "featured",
       "evidence_scope": "current-description",
       "title": "StepLab axial–torsional electrodynamic machine",
-      "description": "Large electrodynamic StepLab system for axial and torsional fatigue testing, with separate axial-force and torsional-moment actuators. The applicable frequency depends on the actuator and specimen.",
+      "description": "Electrodynamic system for axial and torsional fatigue testing, with separate actuators for axial force and torsional moment.",
       "specifications": [
         {
           "label": "Axial static force",
@@ -135,21 +135,20 @@
           "value": "≤15 mm thick"
         }
       ],
-      "status_note": "Axial and torsional actuator limits are distinct and are not necessarily simultaneously attainable. The compact electromechanical StepLab is listed separately.",
       "image": {
         "base": "/assets/img/laboratory/steplab-electrodynamic",
         "width": 640,
         "height": 853
       },
       "image_alt": "Large electrodynamic StepLab machine for axial and torsional mechanical testing",
-      "image_caption": "Large electrodynamic StepLab testing system. The axial and torsional actuator ratings are listed separately."
+      "image_caption": "StepLab electrodynamic axial–torsional testing system."
     },
     {
       "id": "schenck-axial-torsional",
       "category": "featured",
       "evidence_scope": "current-description",
       "title": "Schenck servo-hydraulic axial–torsional system",
-      "description": "Servo-hydraulic axial–torsional testing machine with a separate internal-pressure actuator for tubular specimens. This is a different system from the hydraulic actuators on the reconfigurable structural bench.",
+      "description": "Servo-hydraulic system for axial–torsional testing, with a dedicated internal-pressure actuator for tubular specimens.",
       "specifications": [
         {
           "label": "Axial capacity",
@@ -172,21 +171,20 @@
           "value": "8–20 mm thick"
         }
       ],
-      "status_note": "Force, torque and internal-pressure limits depend on the arrangement and must not be assumed simultaneously attainable.",
       "image": {
         "base": "/assets/img/laboratory/schenck-machine",
         "width": 640,
         "height": 853
       },
       "image_alt": "Schenck axial and torsional servo-hydraulic testing system",
-      "image_caption": "Schenck axial–torsional testing machine with a separate internal-pressure actuator for tubular specimens."
+      "image_caption": "Sistema servo-idraulico Schenck per prove assiali e torsionali."
     },
     {
       "id": "rumul-resonant",
       "category": "featured",
       "evidence_scope": "current-description",
       "title": "Rumul resonant fatigue-testing machines",
-      "description": "The laboratory has two Rumul resonant machines for high-cycle fatigue experiments. Historical facilities documentation reports 20 kN and 150 kN load ratings and typical frequencies of approximately 100–150 Hz, without identifying the capacity of the photographed machine.",
+      "description": "Two Rumul resonant machines for high-cycle fatigue testing and studies of fatigue crack propagation.",
       "specifications": [
         {
           "label": "Historical load ratings",
@@ -197,28 +195,27 @@
           "value": "100–150 Hz"
         }
       ],
-      "status_note": "The presence of two Rumul machines is confirmed. The reported nominal capacities come from the historical inventory and are not assigned to the specific photographed unit.",
       "image": {
         "base": "/assets/img/laboratory/rumul",
         "width": 640,
         "height": 853
       },
       "image_alt": "Green Rumul resonant fatigue-testing frame showing its grips and load train",
-      "image_caption": "Rumul resonant fatigue-testing machine; the photographed capacity variant is not identified.",
+      "image_caption": "Rumul resonant fatigue-testing machine.",
       "secondary_image": {
         "base": "/assets/img/laboratory/rumul-small-oven",
         "width": 640,
         "height": 853
       },
       "secondary_image_alt": "Rumul resonant fatigue testing system equipped with an oven",
-      "secondary_image_caption": "Additional Rumul resonant testing machine with oven. Its rated capacity is not identified."
+      "secondary_image_caption": "Rumul resonant fatigue-testing machine equipped with a heating oven."
     },
     {
       "id": "mts-uniaxial",
       "category": "featured",
       "evidence_scope": "historical",
       "title": "MTS servo-hydraulic uniaxial systems",
-      "description": "The earlier group facilities inventory records two uniaxial servo-hydraulic machines for monotonic and cyclic material testing.",
+      "description": "Servo-hydraulic uniaxial machines for static and cyclic material testing, documented in the Machine Design Group's experimental facilities.",
       "specifications": [
         {
           "label": "Historical load ratings",
@@ -229,21 +226,20 @@
           "value": "10–20 Hz"
         }
       ],
-      "status_note": "Published historical ratings, not a statement that both systems are currently available.",
       "image": {
         "base": "/assets/img/laboratory/mts-machine",
         "width": 640,
         "height": 853
       },
       "image_alt": "Servo-hydraulic MTS testing machine in the laboratory",
-      "image_caption": "One of the MTS servo-hydraulic testing machines. The rated capacity of the machine shown is not confirmed."
+      "image_caption": "Sistema servo-idraulico MTS per prove meccaniche monoassiali."
     },
     {
       "id": "steplab-electromechanical",
       "category": "featured",
       "evidence_scope": "current-description",
       "title": "StepLab electromechanical machine",
-      "description": "Compact electromechanical StepLab machine for axial loading only, including compatible static and cyclic tests.",
+      "description": "Compact electromechanical machine for static and cyclic axial testing, with a maximum load of 10 kN and a maximum frequency of 20 Hz.",
       "specifications": [
         {
           "label": "Maximum load",
@@ -254,77 +250,70 @@
           "value": "20 Hz"
         }
       ],
-      "status_note": "The 20 Hz maximum applies to this axial-only electromechanical system, not to the large electrodynamic axial–torsional StepLab.",
       "image": {
         "base": "/assets/img/laboratory/steplab-equipment",
         "width": 640,
         "height": 853
       },
       "image_alt": "Small StepLab electromechanical axial testing machine inside its transparent protective enclosure",
-      "image_caption": "Compact StepLab electromechanical machine for axial tests, up to 10 kN and 20 Hz."
+      "image_caption": "StepLab electromechanical machine for axial testing."
     },
     {
       "id": "three-actuator-bench",
       "category": "supporting",
       "evidence_scope": "current-description",
       "title": "Reconfigurable structural test bench",
-      "description": "Reconfigurable bench for experimental investigations of components, including welded joints and vehicle frames. The currently described configuration comprises three Schenck hydraulic actuators. The pair shown in the photograph belongs to this bench, not to the axial–torsional Schenck testing machine.",
+      "description": "Reconfigurable structural test bench with three Schenck hydraulic actuators for investigations of components, welded joints and vehicle frames.",
       "specifications": [
         {
           "label": "Current configuration",
           "value": "3 Schenck actuators"
         }
       ],
-      "status_note": "A historical facilities description refers to a full-scale bench with up to seven actuators. This is not an additional claim for the present three-actuator arrangement.",
+      "status_note": "Earlier large-scale experimental configurations also used up to seven actuators.",
       "image": {
         "base": "/assets/img/laboratory/schenck-actuators",
         "width": 640,
         "height": 853
       },
       "image_alt": "Two hydraulic actuators in the reconfigurable structural test bench",
-      "image_caption": "Two Schenck hydraulic actuators belonging to the reconfigurable structural test bench.",
+      "image_caption": "Schenck hydraulic actuators used on the reconfigurable structural test bench.",
       "secondary_image": {
         "base": "/assets/img/laboratory/bench-small-actuator",
         "width": 640,
         "height": 853
       },
       "secondary_image_alt": "Additional hydraulic actuator used on the reconfigurable structural testing bench",
-      "secondary_image_caption": "Hydraulic actuator associated with the reconfigurable structural test bench."
+      "secondary_image_caption": "Hydraulic actuator for the reconfigurable structural test bench."
     },
     {
       "id": "vibration-testing",
       "category": "supporting",
       "evidence_scope": "current-description",
       "title": "Structural vibration and dynamics",
-      "description": "Experimental shaker arrangements support vibration measurements, dynamic characterisation and suitable vibration-fatigue campaigns. Historical group activities also include robotic laser-vibrometer modal measurements.",
-      "specifications": [
-        {
-          "label": "Experimental setup",
-          "value": "Specimen- and project-dependent"
-        }
-      ],
-      "status_note": "Do not transfer the StepLab 250 Hz limit to separate vibration equipment. Modal instrumentation availability is project-dependent.",
+      "description": "Shaker-based experimental setups for vibration measurements, dynamic characterisation and vibration-fatigue investigations. Related research also includes laser-vibrometer modal measurements.",
+      "specifications": [],
       "image": {
         "base": "/assets/img/laboratory/vibration-large-shaker",
         "width": 640,
         "height": 853
       },
       "image_alt": "Large shaker equipment in the laboratory",
-      "image_caption": "Large shaker used in laboratory vibration experiments. No performance rating is inferred from the image.",
+      "image_caption": "Electrodynamic shaker for experimental vibration testing.",
       "secondary_image": {
         "base": "/assets/img/laboratory/vibration-small-shaker",
         "width": 640,
         "height": 853
       },
       "secondary_image_alt": "Smaller shaker equipment for experimental vibration tests",
-      "secondary_image_caption": "Smaller laboratory shaker. Its operating range is not assigned from the photograph."
+      "secondary_image_caption": "Compact shaker for dynamic characterisation and vibration testing."
     },
     {
       "id": "environmental-conditioning",
       "category": "supporting",
       "evidence_scope": "current-description",
       "title": "Thermal and environmental conditioning",
-      "description": "Temperature-controlled equipment for suitable fatigue, creep and creep–fatigue investigations, depending on machine compatibility and test fixtures.",
+      "description": "Equipment for temperature-controlled fatigue, creep and creep–fatigue testing, including induction and resistance ovens and a StepLab climatic chamber.",
       "specifications": [
         {
           "label": "Induction oven",
@@ -339,21 +328,20 @@
           "value": "−30 to +180 °C"
         }
       ],
-      "status_note": "The climatic chamber is one device, described in conjunction with compatible StepLab configurations; ranges cannot necessarily be combined with maximum mechanical loads.",
       "image": {
         "base": "/assets/img/laboratory/steplab-climatic-chamber",
         "width": 640,
         "height": 853
       },
       "image_alt": "Climatic chamber fitted to a StepLab mechanical testing setup",
-      "image_caption": "Climatic chamber installed on a StepLab testing system for temperature-controlled investigations."
+      "image_caption": "Camera climatica installata su una macchina StepLab."
     },
     {
       "id": "specimen-preparation-metrology",
       "category": "supporting",
       "evidence_scope": "current-description",
       "title": "Specimen preparation and metrology",
-      "description": "In-house CNC turning, milling and tooling for round, flat, notched and tubular specimens. Surface characterisation includes contact/optical roughness measurements and Vickers hardness testing.",
+      "description": "CNC turning, milling and tooling for round, flat, notched and tubular specimens. Surface characterisation includes contact and optical roughness measurements and Vickers hardness tests.",
       "specifications": [
         {
           "label": "Machining",
@@ -367,15 +355,14 @@
           "label": "Hardness",
           "value": "Vickers"
         }
-      ],
-      "status_note": "The older group webpage additionally records SEM/optical microscopy, Charpy and hole-drilling measurements; their current availability is unconfirmed."
+      ]
     },
     {
       "id": "flir-x6901sc",
       "category": "supporting",
       "evidence_scope": "manufacturer",
       "title": "FLIR X6901sc high-speed infrared camera",
-      "description": "High-speed infrared temperature-field imaging for experimental thermal measurements. Values shown are manufacturer specifications, not confirmed performance for every laboratory setup.",
+      "description": "High-speed infrared camera for non-contact temperature-field measurements during experimental investigations.",
       "specifications": [
         {
           "label": "Detector",
@@ -406,14 +393,13 @@
           "value": "−20 to 350 °C with suitable optics"
         }
       ],
-      "status_note": "Optics, calibration, filters and operating settings determine achievable measurements. No unverified lock-in or thermoelastic method is implied.",
       "image": {
         "base": "/assets/img/laboratory/flir-x6901sc",
         "width": 640,
         "height": 480
       },
       "image_alt": "FLIR X6901sc infrared camera in its protective carrying case",
-      "image_caption": "FLIR X6901sc high-speed mid-wave infrared camera."
+      "image_caption": "FLIR X6901sc high-speed infrared camera."
     }
   ],
   "hero": {

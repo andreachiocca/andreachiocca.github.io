@@ -37,76 +37,67 @@
   },
   "steplab-axial-torsional": {
     "title": "Macchina elettrodinamica assiale–torsionale StepLab",
-    "description": "Sistema StepLab elettrodinamico di maggiori dimensioni per prove di fatica assiali e torsionali, con attuatori distinti per la forza assiale e il momento torcente. La frequenza dipende dall'attuatore e dal provino.",
-    "status_note": "Le caratteristiche degli attuatori assiale e torsionale sono distinte e non costituiscono limiti necessariamente raggiungibili in contemporanea. La StepLab elettromeccanica di dimensioni ridotte è riportata separatamente.",
+    "description": "Sistema elettrodinamico per prove di fatica assiali e torsionali, con attuatori distinti per la forza assiale e il momento torcente.",
     "image_alt": "Macchina StepLab elettrodinamica per prove meccaniche assiali e torsionali",
-    "image_caption": "Sistema StepLab elettrodinamico di maggiori dimensioni. Le caratteristiche degli attuatori assiale e torsionale sono riportate separatamente."
+    "image_caption": "Sistema StepLab elettrodinamico per prove assiali e torsionali."
   },
   "schenck-axial-torsional": {
     "title": "Sistema servo-idraulico assiale–torsionale Schenck",
-    "description": "Macchina servo-idraulica per prove assiali–torsionali, con un attuatore separato per la pressione interna su provini tubolari. È distinta dagli attuatori idraulici impiegati sul banco strutturale riconfigurabile.",
-    "status_note": "I limiti di forza, momento torcente e pressione interna dipendono dalla configurazione e non sono necessariamente raggiungibili contemporaneamente.",
+    "description": "Sistema servo-idraulico per prove assiali e torsionali, con un attuatore dedicato alla pressione interna su provini tubolari.",
     "image_alt": "Macchina Schenck servo-idraulica assiale e torsionale",
-    "image_caption": "Macchina Schenck per prove assiali e torsionali, con attuatore separato per la pressione interna sui provini tubolari."
+    "image_caption": "Sistema servo-idraulico Schenck per prove assiali e torsionali."
   },
   "rumul-resonant": {
     "title": "Macchine di prova a risonanza Rumul",
-    "description": "Nel laboratorio sono presenti due macchine Rumul a risonanza per prove di fatica ad alto numero di cicli. La documentazione storica riporta portate di 20 e 150 kN e frequenze indicative di circa 100–150 Hz, senza consentire di identificare la portata della macchina raffigurata.",
+    "description": "Due macchine Rumul a risonanza per prove di fatica ad alto numero di cicli e studi sulla propagazione delle cricche a fatica.",
     "image_alt": "Telaio verde di una macchina Rumul a risonanza con afferraggi e linea di carico",
-    "image_caption": "Macchina per prove di fatica a risonanza Rumul; la fotografia non identifica la variante di capacità.",
-    "status_note": "La presenza di due macchine Rumul è confermata. Le portate nominali derivano dalla documentazione storica e non sono attribuite alla singola macchina fotografata.",
+    "image_caption": "Macchina per prove di fatica a risonanza Rumul.",
     "secondary_image_alt": "Macchina Rumul a risonanza con forno",
-    "secondary_image_caption": "Ulteriore macchina Rumul a risonanza dotata di forno. La portata della macchina non è identificata."
+    "secondary_image_caption": "Macchina Rumul a risonanza dotata di forno per prove a temperatura controllata."
   },
   "mts-uniaxial": {
     "title": "Sistemi servo-idraulici monoassiali MTS",
-    "description": "L'inventario precedente del gruppo documenta due macchine servo-idrauliche monoassiali per la caratterizzazione statica e a fatica dei materiali.",
-    "status_note": "Valori storicamente documentati, non una dichiarazione di disponibilità attuale di entrambe le macchine.",
+    "description": "Macchine servo-idrauliche monoassiali per prove statiche e cicliche sui materiali, documentate tra le attrezzature sperimentali del gruppo di Costruzione di Macchine.",
     "image_alt": "Macchina servo-idraulica MTS presente in laboratorio",
-    "image_caption": "Una delle macchine servo-idrauliche MTS. La portata della macchina raffigurata non è stata verificata."
+    "image_caption": "Sistema servo-idraulico MTS per prove meccaniche monoassiali."
   },
   "steplab-electromechanical": {
     "title": "Macchina elettromeccanica StepLab",
-    "description": "Macchina StepLab elettromeccanica di dimensioni ridotte, destinata esclusivamente a prove assiali statiche e cicliche compatibili.",
-    "status_note": "La frequenza massima di 20 Hz è riferita a questa macchina elettromeccanica monoassiale, non alla StepLab elettrodinamica assiale–torsionale.",
+    "description": "Macchina elettromeccanica compatta per prove assiali statiche e cicliche, con carico massimo di 10 kN e frequenza massima di 20 Hz.",
     "image_alt": "Piccola macchina StepLab elettromeccanica per prove assiali, all'interno della protezione trasparente",
-    "image_caption": "StepLab elettromeccanica di piccole dimensioni, esclusivamente assiale, fino a 10 kN e 20 Hz."
+    "image_caption": "Macchina StepLab elettromeccanica per prove assiali."
   },
   "three-actuator-bench": {
     "title": "Banco riconfigurabile per prove strutturali",
-    "description": "Banco riconfigurabile per prove sperimentali su componenti, tra cui giunti saldati e telai di veicoli. La configurazione attualmente descritta comprende tre attuatori idraulici Schenck. La coppia raffigurata appartiene a questo banco e non alla macchina Schenck assiale–torsionale.",
+    "description": "Banco riconfigurabile per prove strutturali con tre attuatori idraulici Schenck, destinato a indagini su componenti, giunti saldati e telai di veicoli.",
     "image_alt": "Due attuatori idraulici del banco riconfigurabile per prove strutturali",
-    "image_caption": "Due attuatori idraulici Schenck appartenenti al banco riconfigurabile per prove strutturali.",
-    "status_note": "Una descrizione storica dei laboratori riporta un banco in grado di utilizzare fino a sette attuatori. Tale informazione non modifica la configurazione attuale a tre attuatori qui descritta.",
+    "image_caption": "Attuatori idraulici Schenck del banco riconfigurabile per prove strutturali.",
+    "status_note": "In precedenti configurazioni sperimentali su larga scala sono stati impiegati fino a sette attuatori.",
     "secondary_image_alt": "Ulteriore attuatore idraulico del banco riconfigurabile",
-    "secondary_image_caption": "Attuatore idraulico utilizzato sul banco riconfigurabile per prove strutturali."
+    "secondary_image_caption": "Attuatore idraulico del banco riconfigurabile per prove strutturali."
   },
   "vibration-testing": {
     "title": "Vibrazioni e dinamica strutturale",
-    "description": "Allestimenti sperimentali con shaker per misure vibrazionali, caratterizzazione dinamica e campagne di fatica da vibrazioni compatibili. Le attività storiche del gruppo comprendono anche misure modali con vibrometro laser robotizzato.",
+    "description": "Allestimenti sperimentali con shaker per misure vibrazionali, caratterizzazione dinamica e prove di fatica da vibrazioni. Le attività di ricerca comprendono anche misure modali mediante vibrometro laser.",
     "image_alt": "Shaker di grandi dimensioni in laboratorio",
-    "image_caption": "Shaker utilizzato per prove vibrazionali. Non sono attribuite specifiche prestazionali sulla sola base della fotografia.",
-    "status_note": "Il limite di 250 Hz della StepLab non si applica alle altre attrezzature di vibrazione. La disponibilità della strumentazione modale dipende dal progetto.",
+    "image_caption": "Shaker elettrodinamico per prove vibrazionali.",
     "secondary_image_alt": "Shaker di dimensioni ridotte per prove vibrazionali",
-    "secondary_image_caption": "Shaker di dimensioni ridotte, senza attribuzione di limiti operativi non verificati."
+    "secondary_image_caption": "Shaker compatto per caratterizzazione dinamica e prove vibrazionali."
   },
   "environmental-conditioning": {
     "title": "Condizionamento termico e ambientale",
-    "description": "Attrezzature per prove a fatica, creep e creep–fatigue a temperatura controllata, nei limiti di compatibilità con macchina e attrezzaggio.",
-    "status_note": "La camera climatica è un'unica attrezzatura impiegabile con configurazioni StepLab compatibili; gli intervalli termici non sono necessariamente combinabili con i massimi carichi meccanici.",
+    "description": "Attrezzature per prove a fatica, creep e interazione creep–fatica a temperatura controllata, tra cui forni a induzione, forni a resistenza e una camera climatica StepLab.",
     "image_alt": "Camera climatica installata su un sistema StepLab",
-    "image_caption": "Camera climatica utilizzata su una configurazione StepLab per prove a temperatura controllata."
+    "image_caption": "Camera climatica installata su una macchina StepLab."
   },
   "specimen-preparation-metrology": {
     "title": "Preparazione dei provini e metrologia",
-    "description": "Tornitura CNC, fresatura e attrezzature per provini cilindrici, piatti, intagliati e tubolari. La caratterizzazione superficiale comprende misure di rugosità a contatto e ottiche e prove di durezza Vickers.",
-    "status_note": "Il sito storico del gruppo documenta inoltre microscopia ottica/SEM, prove Charpy e misure delle tensioni residue mediante foro cieco; la disponibilità attuale non è stata verificata."
+    "description": "Tornitura CNC, fresatura e attrezzature per la preparazione di provini cilindrici, piatti, intagliati e tubolari. La caratterizzazione superficiale comprende misure di rugosità a contatto e ottiche e prove di durezza Vickers."
   },
   "flir-x6901sc": {
     "title": "Termocamera ad alta velocità FLIR X6901sc",
-    "description": "Acquisizione di campi di temperatura mediante termografia infrarossa ad alta velocità. I valori riportati sono dati del costruttore, non prestazioni garantite per ogni configurazione sperimentale.",
+    "description": "Termocamera ad alta velocità per misure senza contatto dei campi di temperatura durante le prove sperimentali.",
     "image_alt": "Termocamera FLIR X6901sc nella propria custodia protettiva",
-    "image_caption": "Termocamera FLIR X6901sc per infrarosso a onde medie ad alta velocità.",
-    "status_note": "Ottiche, taratura, filtri e parametri di acquisizione determinano le prestazioni effettive. Non sono implicitamente dichiarate procedure lock-in o termoelastiche non verificate."
+    "image_caption": "Termocamera ad alta velocità FLIR X6901sc."
   }
 }
