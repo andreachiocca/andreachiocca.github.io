@@ -1,25 +1,30 @@
-{% assign equipment = include.resource | localized_record: 'laboratory' %}
-<article class="laboratory-machine{% unless include.featured %} laboratory-machine--compact{% endunless %}" id="{{ equipment.id | escape }}" data-laboratory-equipment="{{ equipment.id | escape }}" data-evidence-scope="{{ equipment.evidence_scope }}">
-  {% if equipment.image %}
+{% assign resource = include.resource | localized_record: 'laboratory' %}
+<article class="laboratory-machine{% unless resource.image %} laboratory-machine--text-only{% endunless %}" id="{{ resource.id | escape }}" data-laboratory-id="{{ resource.id | escape }}" data-evidence-scope="{{ resource.evidence_scope | escape }}">
+  {% if resource.image %}
+  {% assign photo_640 = resource.image.base | append: '-640.webp' | local_url | relative_url %}
+  {% assign photo_1280 = resource.image.base | append: '-1280.webp' | local_url | relative_url %}
   <figure class="laboratory-machine-figure">
-    {% assign image640 = '/assets/img/laboratory/' | append: equipment.image | append: '-640.webp' %}
-    {% assign image1280 = '/assets/img/laboratory/' | append: equipment.image | append: '-1280.webp' %}
-    <img src="{{ image640 | local_url | relative_url }}"
-         srcset="{{ image640 | local_url | relative_url }} 640w, {{ image1280 | local_url | relative_url }} 1280w"
-         sizes="(max-width: 850px) 100vw, 43vw"
-         width="640" height="800"
-         alt="{{ equipment.image_alt | escape }}" loading="lazy" decoding="async">
-    {% if equipment.image_caption %}<figcaption>{{ equipment.image_caption }}</figcaption>{% endif %}
+    <picture>
+      <source type="image/webp" srcset="{{ photo_640 }} 640w, {{ photo_1280 }} 1280w" sizes="(max-width: 767px) 100vw, 40vw">
+      <img src="{{ photo_640 }}" alt="{{ resource.image_alt | escape }}" width="{{ resource.image.width }}" height="{{ resource.image.height }}" loading="lazy" decoding="async">
+    </picture>
+    <figcaption>{{ resource.image_caption | escape }}</figcaption>
   </figure>
   {% endif %}
-  <div class="laboratory-machine-copy">
-    <p class="laboratory-machine-label">{% if equipment.evidence_scope == 'historical' %}{{ "Historical inventory" | t }}{% elsif equipment.evidence_scope == 'manufacturer' %}{{ "Manufacturer specification" | t }}{% else %}{{ "Current configuration" | t }}{% endif %}</p>
-    <h3>{{ equipment.title }}</h3>
-    <p>{{ equipment.description }}</p>
-    {% if equipment.specifications.size > 0 %}<dl class="laboratory-metrics">
-      {% for spec in equipment.specifications %}
-      <div><dt>{{ spec.label | t }}</dt><dd>{{ spec.value }}</dd></div>
+  <div class="laboratory-machine-content">
+    <p class="laboratory-machine-kicker">{% case resource.evidence_scope %}{% when "historical" %}{{ "Historical equipment information" | t }}{% when "manufacturer" %}{{ "Manufacturer specification" | t }}{% else %}{{ "Experimental facilities" | t }}{% endcase %}</p>
+    <h3>{{ resource.title | escape }}</h3>
+    <p>{{ resource.description | escape }}</p>
+    {% if resource.specifications.size > 0 %}
+    <dl class="laboratory-specifications">
+      {% for spec in resource.specifications %}
+      <div class="laboratory-specification">
+        <dt>{{ spec.label | t }}</dt>
+        <dd>{{ spec.value | escape }}</dd>
+      </div>
       {% endfor %}
-    </dl>{% endif %}
+    </dl>
+    {% endif %}
+    {% if resource.status_note %}<p class="laboratory-machine-note">{{ resource.status_note | escape }}</p>{% endif %}
   </div>
 </article>

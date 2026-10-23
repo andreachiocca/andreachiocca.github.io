@@ -270,21 +270,5 @@
   "Manufacturer specification": "Manufacturer specification",
   "Research facilities": "Research facilities",
   "Featured equipment": "Featured equipment",
-  "Supporting facilities": "Supporting facilities",
-  "Static load": "Static load",
-  "Dynamic load": "Dynamic load",
-  "Historical systems": "Historical systems",
-  "Historical capacities": "Historical capacities",
-  "Load capacity": "Load capacity",
-  "Current setup": "Current setup",
-  "Historical maximum": "Historical maximum",
-  "Test context": "Test context",
-  "Climatic chamber": "Climatic chamber",
-  "Specimen preparation": "Specimen preparation",
-  "Metrology": "Metrology",
-  "Full-frame acquisition": "Full-frame acquisition",
-  "Experimental equipment": "Experimental equipment",
-  "Historical inventory": "Historical inventory",
-  "Testing conditions and measurements": "Testing conditions and measurements",
-  "View research": "View research"
+  "Supporting facilities": "Supporting facilities"
 }

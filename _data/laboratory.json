@@ -99,32 +99,45 @@
       "id": "steplab-axial-torsional",
       "category": "featured",
       "evidence_scope": "current-description",
-      "title": "StepLab electrodynamic axial–torsional system",
-      "description": "Combined axial and torsional fatigue loading; maximum frequency depends on the operating mode and specimen. Round specimens Ø 6–12 mm and flat specimens up to 15 mm thick.",
+      "title": "StepLab axial–torsional electrodynamic machine",
+      "description": "Electrodynamic test system for controlled axial and torsional fatigue loading of round and flat specimens. Frequency depends on the loading mode and specimen.",
       "specifications": [
         {
-          "label": "Static load",
+          "label": "Maximum static load",
           "value": "33 kN"
         },
         {
-          "label": "Dynamic load",
+          "label": "Maximum dynamic load",
           "value": "43.5 kN"
         },
         {
           "label": "Maximum frequency",
           "value": "250 Hz"
+        },
+        {
+          "label": "Round gripping",
+          "value": "Ø 6–12 mm"
+        },
+        {
+          "label": "Flat gripping",
+          "value": "≤15 mm thick"
         }
       ],
-      "image": "steplab-equipment",
-      "image_alt": "StepLab experimental testing system with guarded frame",
-      "image_caption": "StepLab experimental testing equipment. The photograph is not used to identify the rated machine model."
+      "status_note": "Specified limits depend on specimen, fixture and operating mode; they are not simultaneous guarantees.",
+      "image": {
+        "base": "/assets/img/laboratory/steplab-equipment",
+        "width": 640,
+        "height": 853
+      },
+      "image_alt": "StepLab machine behind its transparent protective enclosure",
+      "image_caption": "StepLab experimental testing equipment. The photograph does not identify a particular capacity variant."
     },
     {
       "id": "schenck-axial-torsional",
       "category": "featured",
-      "evidence_scope": "historical",
+      "evidence_scope": "current-description",
       "title": "Schenck servo-hydraulic axial–torsional system",
-      "description": "Combined tension/compression and torsion with an internal-pressure actuator rated to 700 bar for tubular specimens. Historical group documentation reports approximately 10–20 Hz. Round grips Ø 5–40 mm; flat grips 8–20 mm thick. Limits depend on the test setup and are not necessarily simultaneous.",
+      "description": "Servo-hydraulic axial–torsional testing, with a separate internal-pressure actuator for tubular specimens. The historical group inventory reports typical machine frequencies of approximately 10–20 Hz.",
       "specifications": [
         {
           "label": "Axial capacity",
@@ -137,163 +150,216 @@
         {
           "label": "Internal pressure",
           "value": "700 bar (70 MPa)"
+        },
+        {
+          "label": "Round gripping",
+          "value": "Ø 5–40 mm"
+        },
+        {
+          "label": "Flat gripping",
+          "value": "8–20 mm thick"
         }
       ],
-      "image": "schenck-actuators",
-      "image_alt": "Hydraulic actuators and fixture of experimental testing system",
-      "image_caption": "Hydraulic test setup; precise actuator identity to be confirmed against the machine register."
+      "status_note": "Force, torque, pressure and frequency limits depend on the arrangement and must not be assumed simultaneously attainable.",
+      "image": {
+        "base": "/assets/img/laboratory/schenck-actuators",
+        "width": 640,
+        "height": 853
+      },
+      "image_alt": "Two large Schenck hydraulic actuators on a steel experimental test structure",
+      "image_caption": "Schenck hydraulic actuators in the mechanical-testing laboratory."
     },
     {
       "id": "rumul-resonant",
       "category": "featured",
       "evidence_scope": "historical",
-      "title": "Rumul resonant fatigue-testing systems",
-      "description": "The group's historical facilities inventory lists two resonant machines rated 20 kN and 150 kN, with typical operating frequencies of 100–150 Hz. Resonant loading and crack-growth studies depend on specimen geometry and controller configuration. The photograph is not linked to either stated capacity.",
+      "title": "Rumul resonant fatigue-testing machines",
+      "description": "The historical facilities inventory documents two resonant systems used for high-cycle fatigue and fatigue crack-growth investigations on compatible specimens.",
       "specifications": [
         {
-          "label": "Historical systems",
-          "value": "20 kN / 150 kN"
+          "label": "Historical load ratings",
+          "value": "20 kN; 150 kN"
         },
         {
           "label": "Typical frequency",
           "value": "100–150 Hz"
         }
       ],
-      "image": "rumul",
-      "image_alt": "Green Rumul resonant fatigue-testing machine with grips and load frame",
-      "image_caption": "Rumul resonant machine; the specific capacity of the pictured unit is not asserted."
+      "status_note": "Historical equipment ratings only; confirm the present machine inventory and availability before a study.",
+      "image": {
+        "base": "/assets/img/laboratory/rumul",
+        "width": 640,
+        "height": 853
+      },
+      "image_alt": "Green Rumul resonant fatigue-testing frame showing its grips and load train",
+      "image_caption": "Rumul resonant fatigue-testing machine; the photographed capacity variant is not identified."
     },
     {
       "id": "mts-uniaxial",
-      "category": "supporting",
+      "category": "featured",
       "evidence_scope": "historical",
-      "title": "MTS uniaxial servo-hydraulic systems",
-      "description": "The historical laboratory inventory reports two uniaxial testing systems, rated 25 kN and 100 kN, with frequencies typically up to 10–20 Hz. Their present availability is subject to verification.",
+      "title": "MTS servo-hydraulic uniaxial systems",
+      "description": "The earlier group facilities inventory records two uniaxial servo-hydraulic machines for monotonic and cyclic material testing.",
       "specifications": [
         {
-          "label": "Historical capacities",
-          "value": "25 kN / 100 kN"
+          "label": "Historical load ratings",
+          "value": "25 kN; 100 kN"
+        },
+        {
+          "label": "Typical frequency",
+          "value": "10–20 Hz"
         }
-      ]
+      ],
+      "status_note": "Published historical ratings, not a statement that both systems are currently available."
     },
     {
       "id": "steplab-electromechanical",
-      "category": "supporting",
+      "category": "featured",
       "evidence_scope": "current-description",
-      "title": "StepLab electromechanical testing system",
-      "description": "A smaller electromechanical machine for compatible specimens and operating modes; model-specific photograph not yet confirmed.",
+      "title": "StepLab electromechanical machine",
+      "description": "Smaller-capacity electromechanical equipment for compatible axial and cyclic test configurations.",
       "specifications": [
         {
-          "label": "Load capacity",
+          "label": "Maximum load",
           "value": "10 kN"
         },
         {
           "label": "Maximum frequency",
           "value": "20 Hz"
         }
-      ]
+      ],
+      "status_note": "Available loading modes and frequency depend on the selected specimen and fixture."
     },
     {
       "id": "three-actuator-bench",
-      "category": "featured",
+      "category": "supporting",
       "evidence_scope": "current-description",
-      "title": "Reconfigurable structural testing bench",
-      "description": "A configurable test bench with three Schenck hydraulic actuators supports research-specific setups for welded joints, structural components and vehicle frames. The older facilities page separately describes a bench with up to seven hydraulic actuators; this historical rating is not presented as the current configuration.",
+      "title": "Reconfigurable structural test bench",
+      "description": "A configurable bench equipped, in the arrangement described by the group, with three Schenck hydraulic actuators for component-level investigations, including welded joints and vehicle frames.",
       "specifications": [
         {
-          "label": "Current setup",
-          "value": "3 actuators"
-        },
-        {
-          "label": "Historical maximum",
-          "value": "up to 7 actuators"
+          "label": "Current configuration",
+          "value": "3 Schenck actuators"
         }
       ],
-      "image": "structural-bench",
-      "image_alt": "Large modular steel test bench with tiled loading surface",
-      "image_caption": "Reconfigurable structural testing bench in the Machine Design laboratory."
+      "status_note": "A historical facilities description refers to a full-scale bench with up to seven actuators. This is not an additional claim for the present three-actuator arrangement.",
+      "image": {
+        "base": "/assets/img/laboratory/structural-bench",
+        "width": 640,
+        "height": 480
+      },
+      "image_alt": "Wide modular heavy steel structural testing bench with a grid of threaded mounting positions",
+      "image_caption": "Reconfigurable structural test bench for tailored experimental setups."
     },
     {
       "id": "vibration-testing",
       "category": "supporting",
-      "evidence_scope": "historical",
-      "title": "Vibration and modal investigations",
-      "description": "Experiment-specific shaker and instrumentation arrangements support structural-dynamics measurements. The historical group inventory also describes a robotic vibrometry setup. Operating ranges depend on the actual equipment and configuration.",
+      "evidence_scope": "current-description",
+      "title": "Structural vibration and dynamics",
+      "description": "Experimental shaker arrangements support vibration measurements, dynamic characterisation and suitable vibration-fatigue campaigns. Historical group activities also include robotic laser-vibrometer modal measurements.",
       "specifications": [
         {
-          "label": "Test context",
-          "value": "Modal and vibration measurements"
+          "label": "Experimental setup",
+          "value": "Specimen- and project-dependent"
         }
       ],
-      "image": "vibration-setup",
-      "image_alt": "Electrodynamic shaker beneath mechanical component during experimental testing",
-      "image_caption": "Experimental electrodynamic shaker arrangement."
+      "status_note": "Do not transfer the StepLab 250 Hz limit to separate vibration equipment. Modal instrumentation availability is project-dependent.",
+      "image": {
+        "base": "/assets/img/laboratory/vibration-setup",
+        "width": 640,
+        "height": 853
+      },
+      "image_alt": "TIRA electrodynamic shaker with an experimental component mounted on a test fixture",
+      "image_caption": "Vibration-testing arrangement with a TIRA shaker and experimental fixture."
     },
     {
       "id": "environmental-conditioning",
       "category": "supporting",
       "evidence_scope": "current-description",
       "title": "Thermal and environmental conditioning",
-      "description": "An induction oven supports temperatures up to 900 °C, a resistance oven operates between 200 and 1000 °C, and one climatic chamber for compatible StepLab arrangements operates from −30 to +180 °C. Combined availability depends on individual systems.",
+      "description": "Temperature-controlled equipment for suitable fatigue, creep and creep–fatigue investigations, depending on machine compatibility and test fixtures.",
       "specifications": [
         {
           "label": "Induction oven",
-          "value": "up to 900 °C"
+          "value": "Up to 900 °C"
         },
         {
           "label": "Resistance oven",
           "value": "200–1000 °C"
         },
         {
-          "label": "Climatic chamber",
+          "label": "StepLab climatic chamber",
           "value": "−30 to +180 °C"
         }
-      ]
+      ],
+      "status_note": "The climatic chamber is one device, described in conjunction with compatible StepLab configurations; ranges cannot necessarily be combined with maximum mechanical loads."
     },
     {
       "id": "specimen-preparation-metrology",
       "category": "supporting",
       "evidence_scope": "current-description",
-      "title": "Specimen production and metrology",
-      "description": "In-house CNC turning, milling, and conventional tooling for round, flat, notched and tubular specimens. Surface roughness measurement (Ra/Rz) and Vickers hardness testing support material characterisation.",
+      "title": "Specimen preparation and metrology",
+      "description": "In-house CNC turning, milling and tooling for round, flat, notched and tubular specimens. Surface characterisation includes contact/optical roughness measurements and Vickers hardness testing.",
       "specifications": [
         {
-          "label": "Specimen preparation",
-          "value": "CNC turning and milling"
+          "label": "Machining",
+          "value": "CNC lathe and milling"
         },
         {
-          "label": "Metrology",
-          "value": "Ra / Rz; Vickers hardness"
+          "label": "Surface roughness",
+          "value": "Ra; Rz"
+        },
+        {
+          "label": "Hardness",
+          "value": "Vickers"
         }
-      ]
+      ],
+      "status_note": "The older group webpage additionally records SEM/optical microscopy, Charpy and hole-drilling measurements; their current availability is unconfirmed."
     },
     {
       "id": "flir-x6901sc",
       "category": "supporting",
       "evidence_scope": "manufacturer",
-      "title": "FLIR X6901sc infrared thermography",
-      "description": "High-speed cooled InSb infrared camera for experimental thermal measurements. Values are manufacturer's instrument specifications; actual calibration, optics, filters and acquisition configuration must be checked for each investigation.",
+      "title": "FLIR X6901sc high-speed infrared camera",
+      "description": "High-speed infrared temperature-field imaging for experimental thermal measurements. Values shown are manufacturer specifications, not confirmed performance for every laboratory setup.",
       "specifications": [
         {
           "label": "Detector",
-          "value": "InSb, 3–5 µm"
+          "value": "Cooled InSb"
         },
         {
           "label": "Resolution",
           "value": "640 × 512"
         },
         {
-          "label": "Full-frame acquisition",
-          "value": "up to 1004 frames/s"
+          "label": "Spectral band",
+          "value": "3–5 µm"
+        },
+        {
+          "label": "Full-frame rate",
+          "value": "Up to 1004 frames/s"
         },
         {
           "label": "Thermal sensitivity",
-          "value": "NETD ≤20 mK"
+          "value": "≤20 mK NETD"
+        },
+        {
+          "label": "Digital range",
+          "value": "14 bit"
+        },
+        {
+          "label": "Standard temperature range",
+          "value": "−20 to 350 °C with suitable optics"
         }
       ],
-      "image": "flir",
-      "image_alt": "FLIR X6901sc infrared research camera",
-      "image_caption": "FLIR X6901sc camera; acquisition parameters depend on the configuration."
+      "status_note": "Optics, calibration, filters and operating settings determine achievable measurements. No unverified lock-in or thermoelastic method is implied.",
+      "image": {
+        "base": "/assets/img/laboratory/flir-x6901sc",
+        "width": 640,
+        "height": 480
+      },
+      "image_alt": "FLIR X6901sc infrared camera in its protective carrying case",
+      "image_caption": "FLIR X6901sc high-speed mid-wave infrared camera."
     }
   ],
   "hero": {
