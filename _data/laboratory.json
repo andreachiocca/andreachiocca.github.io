@@ -100,19 +100,31 @@
       "category": "featured",
       "evidence_scope": "current-description",
       "title": "StepLab axial–torsional electrodynamic machine",
-      "description": "Electrodynamic test system for controlled axial and torsional fatigue loading of round and flat specimens. Frequency depends on the loading mode and specimen.",
+      "description": "Large electrodynamic StepLab system for axial and torsional fatigue testing, with separate axial-force and torsional-moment actuators. The applicable frequency depends on the actuator and specimen.",
       "specifications": [
         {
-          "label": "Maximum static load",
+          "label": "Axial static force",
           "value": "33 kN"
         },
         {
-          "label": "Maximum dynamic load",
-          "value": "43.5 kN"
+          "label": "Axial dynamic force",
+          "value": "35 kN"
         },
         {
-          "label": "Maximum frequency",
+          "label": "Axial maximum frequency",
           "value": "250 Hz"
+        },
+        {
+          "label": "Torsional static torque",
+          "value": "55 N·m"
+        },
+        {
+          "label": "Torsional dynamic torque",
+          "value": "80 N·m"
+        },
+        {
+          "label": "Torsional maximum frequency",
+          "value": "25 Hz"
         },
         {
           "label": "Round gripping",
@@ -123,21 +135,14 @@
           "value": "≤15 mm thick"
         }
       ],
-      "status_note": "Specified limits depend on specimen, fixture and operating mode; they are not simultaneous guarantees.",
-      "image": {
-        "base": "/assets/img/laboratory/steplab-equipment",
-        "width": 640,
-        "height": 853
-      },
-      "image_alt": "StepLab machine behind its transparent protective enclosure",
-      "image_caption": "StepLab experimental testing equipment. The photograph does not identify a particular capacity variant."
+      "status_note": "Axial and torsional actuator limits are distinct and are not necessarily simultaneously attainable. The compact electromechanical StepLab is listed separately."
     },
     {
       "id": "schenck-axial-torsional",
       "category": "featured",
       "evidence_scope": "current-description",
       "title": "Schenck servo-hydraulic axial–torsional system",
-      "description": "Servo-hydraulic axial–torsional testing, with a separate internal-pressure actuator for tubular specimens. The historical group inventory reports typical machine frequencies of approximately 10–20 Hz.",
+      "description": "Servo-hydraulic axial–torsional testing machine with a separate internal-pressure actuator for tubular specimens. This is a different system from the hydraulic actuators on the reconfigurable structural bench.",
       "specifications": [
         {
           "label": "Axial capacity",
@@ -160,21 +165,14 @@
           "value": "8–20 mm thick"
         }
       ],
-      "status_note": "Force, torque, pressure and frequency limits depend on the arrangement and must not be assumed simultaneously attainable.",
-      "image": {
-        "base": "/assets/img/laboratory/schenck-actuators",
-        "width": 640,
-        "height": 853
-      },
-      "image_alt": "Two large Schenck hydraulic actuators on a steel experimental test structure",
-      "image_caption": "Schenck hydraulic actuators in the mechanical-testing laboratory."
+      "status_note": "Force, torque and internal-pressure limits depend on the arrangement and must not be assumed simultaneously attainable."
     },
     {
       "id": "rumul-resonant",
       "category": "featured",
-      "evidence_scope": "historical",
+      "evidence_scope": "current-description",
       "title": "Rumul resonant fatigue-testing machines",
-      "description": "The historical facilities inventory documents two resonant systems used for high-cycle fatigue and fatigue crack-growth investigations on compatible specimens.",
+      "description": "The laboratory has two Rumul resonant machines for high-cycle fatigue experiments. Historical facilities documentation reports 20 kN and 150 kN load ratings and typical frequencies of approximately 100–150 Hz, without identifying the capacity of the photographed machine.",
       "specifications": [
         {
           "label": "Historical load ratings",
@@ -185,7 +183,7 @@
           "value": "100–150 Hz"
         }
       ],
-      "status_note": "Historical equipment ratings only; confirm the present machine inventory and availability before a study.",
+      "status_note": "The presence of two Rumul machines is confirmed. The reported nominal capacities come from the historical inventory and are not assigned to the specific photographed unit.",
       "image": {
         "base": "/assets/img/laboratory/rumul",
         "width": 640,
@@ -217,7 +215,7 @@
       "category": "featured",
       "evidence_scope": "current-description",
       "title": "StepLab electromechanical machine",
-      "description": "Smaller-capacity electromechanical equipment for compatible axial and cyclic test configurations.",
+      "description": "Compact electromechanical StepLab machine for axial loading only, including compatible static and cyclic tests.",
       "specifications": [
         {
           "label": "Maximum load",
@@ -228,14 +226,21 @@
           "value": "20 Hz"
         }
       ],
-      "status_note": "Available loading modes and frequency depend on the selected specimen and fixture."
+      "status_note": "The 20 Hz maximum applies to this axial-only electromechanical system, not to the large electrodynamic axial–torsional StepLab.",
+      "image": {
+        "base": "/assets/img/laboratory/steplab-equipment",
+        "width": 640,
+        "height": 853
+      },
+      "image_alt": "Small StepLab electromechanical axial testing machine inside its transparent protective enclosure",
+      "image_caption": "Compact StepLab electromechanical machine for axial tests, up to 10 kN and 20 Hz."
     },
     {
       "id": "three-actuator-bench",
       "category": "supporting",
       "evidence_scope": "current-description",
       "title": "Reconfigurable structural test bench",
-      "description": "A configurable bench equipped, in the arrangement described by the group, with three Schenck hydraulic actuators for component-level investigations, including welded joints and vehicle frames.",
+      "description": "Reconfigurable bench for experimental investigations of components, including welded joints and vehicle frames. The currently described configuration comprises three Schenck hydraulic actuators. The pair shown in the photograph belongs to this bench, not to the axial–torsional Schenck testing machine.",
       "specifications": [
         {
           "label": "Current configuration",
@@ -244,12 +249,12 @@
       ],
       "status_note": "A historical facilities description refers to a full-scale bench with up to seven actuators. This is not an additional claim for the present three-actuator arrangement.",
       "image": {
-        "base": "/assets/img/laboratory/structural-bench",
+        "base": "/assets/img/laboratory/schenck-actuators",
         "width": 640,
-        "height": 480
+        "height": 853
       },
-      "image_alt": "Wide modular heavy steel structural testing bench with a grid of threaded mounting positions",
-      "image_caption": "Reconfigurable structural test bench for tailored experimental setups."
+      "image_alt": "Two hydraulic actuators in the reconfigurable structural test bench",
+      "image_caption": "Two Schenck hydraulic actuators belonging to the reconfigurable structural test bench."
     },
     {
       "id": "vibration-testing",
@@ -369,7 +374,7 @@
       "width": 640,
       "height": 853
     },
-    "image_alt": "Machined, waisted metallic mechanical-test specimen on a measurement stage",
-    "image_caption": "Machined metallic specimen prepared for mechanical testing."
+    "image_alt": "Machined metallic specimen positioned for a surface-roughness measurement",
+    "image_caption": "Metallic specimen during surface-roughness measurement."
   }
 }

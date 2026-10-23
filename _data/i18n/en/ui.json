@@ -270,5 +270,11 @@
   "Manufacturer specification": "Manufacturer specification",
   "Research facilities": "Research facilities",
   "Featured equipment": "Featured equipment",
-  "Supporting facilities": "Supporting facilities"
+  "Supporting facilities": "Supporting facilities",
+  "Axial static force": "Axial static force",
+  "Axial dynamic force": "Axial dynamic force",
+  "Axial maximum frequency": "Axial maximum frequency",
+  "Torsional static torque": "Torsional static torque",
+  "Torsional dynamic torque": "Torsional dynamic torque",
+  "Torsional maximum frequency": "Torsional maximum frequency"
 }

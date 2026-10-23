@@ -32,29 +32,25 @@
     "description": "I risultati sperimentali possono essere confrontati con modelli analitici e agli elementi finiti, utilizzando la programmazione scientifica per valutare le previsioni e documentare l’analisi."
   },
   "laboratory-hero": {
-    "image_alt": "Provino metallico lavorato con tratto centrale raccordato, su un piano di misura",
-    "image_caption": "Provino metallico lavorato per prove meccaniche."
+    "image_alt": "Provino metallico posizionato per una misura della rugosità superficiale",
+    "image_caption": "Provino metallico durante una misura della rugosità superficiale."
   },
   "steplab-axial-torsional": {
     "title": "Macchina elettrodinamica assiale–torsionale StepLab",
-    "description": "Sistema elettrodinamico per prove di fatica con carichi assiali e torsionali controllati su provini cilindrici e piatti. La frequenza dipende dalla modalità di prova e dal provino.",
-    "image_alt": "Macchina StepLab all'interno di una protezione trasparente",
-    "image_caption": "Attrezzatura sperimentale StepLab. Dalla fotografia non è possibile identificare con certezza la variante di capacità.",
-    "status_note": "I limiti dichiarati dipendono da provino, attrezzaggio e modalità di funzionamento e non sono necessariamente raggiungibili contemporaneamente."
+    "description": "Sistema StepLab elettrodinamico di maggiori dimensioni per prove di fatica assiali e torsionali, con attuatori distinti per la forza assiale e il momento torcente. La frequenza dipende dall'attuatore e dal provino.",
+    "status_note": "Le caratteristiche degli attuatori assiale e torsionale sono distinte e non costituiscono limiti necessariamente raggiungibili in contemporanea. La StepLab elettromeccanica di dimensioni ridotte è riportata separatamente."
   },
   "schenck-axial-torsional": {
     "title": "Sistema servo-idraulico assiale–torsionale Schenck",
-    "description": "Sistema servo-idraulico per prove assiali–torsionali, dotato di un attuatore per la pressione interna su provini tubolari. L'inventario storico del gruppo riporta frequenze operative indicative di circa 10–20 Hz.",
-    "image_alt": "Due attuatori idraulici Schenck montati su una struttura sperimentale in acciaio",
-    "image_caption": "Attuatori idraulici Schenck nel laboratorio di prove meccaniche.",
-    "status_note": "I limiti di forza, momento torcente, pressione e frequenza dipendono dalla configurazione e non sono necessariamente raggiungibili contemporaneamente."
+    "description": "Macchina servo-idraulica per prove assiali–torsionali, con un attuatore separato per la pressione interna su provini tubolari. È distinta dagli attuatori idraulici impiegati sul banco strutturale riconfigurabile.",
+    "status_note": "I limiti di forza, momento torcente e pressione interna dipendono dalla configurazione e non sono necessariamente raggiungibili contemporaneamente."
   },
   "rumul-resonant": {
     "title": "Macchine di prova a risonanza Rumul",
-    "description": "L'inventario storico del laboratorio documenta due sistemi a risonanza utilizzati per prove di fatica ad alto numero di cicli e per studi di propagazione della cricca su provini compatibili.",
+    "description": "Nel laboratorio sono presenti due macchine Rumul a risonanza per prove di fatica ad alto numero di cicli. La documentazione storica riporta portate di 20 e 150 kN e frequenze indicative di circa 100–150 Hz, senza consentire di identificare la portata della macchina raffigurata.",
     "image_alt": "Telaio verde di una macchina Rumul a risonanza con afferraggi e linea di carico",
     "image_caption": "Macchina per prove di fatica a risonanza Rumul; la fotografia non identifica la variante di capacità.",
-    "status_note": "Portate riferite alla documentazione storica. La disponibilità attuale delle macchine deve essere verificata prima dello studio."
+    "status_note": "La presenza di due macchine Rumul è confermata. Le portate nominali derivano dalla documentazione storica e non sono attribuite alla singola macchina fotografata."
   },
   "mts-uniaxial": {
     "title": "Sistemi servo-idraulici monoassiali MTS",
@@ -63,14 +59,16 @@
   },
   "steplab-electromechanical": {
     "title": "Macchina elettromeccanica StepLab",
-    "description": "Sistema elettromeccanico di capacità ridotta per configurazioni di prova assiale e ciclica compatibili.",
-    "status_note": "Le modalità di carico e la frequenza applicabili dipendono dal provino e dall'attrezzaggio."
+    "description": "Macchina StepLab elettromeccanica di dimensioni ridotte, destinata esclusivamente a prove assiali statiche e cicliche compatibili.",
+    "status_note": "La frequenza massima di 20 Hz è riferita a questa macchina elettromeccanica monoassiale, non alla StepLab elettrodinamica assiale–torsionale.",
+    "image_alt": "Piccola macchina StepLab elettromeccanica per prove assiali, all'interno della protezione trasparente",
+    "image_caption": "StepLab elettromeccanica di piccole dimensioni, esclusivamente assiale, fino a 10 kN e 20 Hz."
   },
   "three-actuator-bench": {
     "title": "Banco riconfigurabile per prove strutturali",
-    "description": "Banco configurabile che, nell'allestimento descritto dal gruppo, dispone di tre attuatori idraulici Schenck per indagini su componenti, inclusi giunti saldati e telai di veicoli.",
-    "image_alt": "Ampio banco modulare per prove strutturali con griglia di punti di fissaggio",
-    "image_caption": "Banco riconfigurabile per allestimenti sperimentali dedicati.",
+    "description": "Banco riconfigurabile per prove sperimentali su componenti, tra cui giunti saldati e telai di veicoli. La configurazione attualmente descritta comprende tre attuatori idraulici Schenck. La coppia raffigurata appartiene a questo banco e non alla macchina Schenck assiale–torsionale.",
+    "image_alt": "Due attuatori idraulici del banco riconfigurabile per prove strutturali",
+    "image_caption": "Due attuatori idraulici Schenck appartenenti al banco riconfigurabile per prove strutturali.",
     "status_note": "Una descrizione storica dei laboratori riporta un banco in grado di utilizzare fino a sette attuatori. Tale informazione non modifica la configurazione attuale a tre attuatori qui descritta."
   },
   "vibration-testing": {

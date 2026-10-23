@@ -33,7 +33,9 @@ class LaboratorySourceTests(unittest.TestCase):
         self.assertIn("250 kN", str(self.records["schenck-axial-torsional"]))
         self.assertIn("2000 N·m", str(self.records["schenck-axial-torsional"]))
         self.assertIn("33 kN", str(self.records["steplab-axial-torsional"]))
-        self.assertIn("43.5 kN", str(self.records["steplab-axial-torsional"]))
+        self.assertIn("35 kN", str(self.records["steplab-axial-torsional"]))
+        for rating in ("55 N·m", "80 N·m", "25 Hz"):
+            self.assertIn(rating, str(self.records["steplab-axial-torsional"]))
         self.assertIn("250 Hz", str(self.records["steplab-axial-torsional"]))
         self.assertIn("10 kN", str(self.records["steplab-electromechanical"]))
         self.assertIn("20 Hz", str(self.records["steplab-electromechanical"]))
@@ -41,13 +43,18 @@ class LaboratorySourceTests(unittest.TestCase):
         self.assertIn("100 kN", str(self.records["mts-uniaxial"]))
         self.assertIn("20 kN", str(self.records["rumul-resonant"]))
         self.assertIn("150 kN", str(self.records["rumul-resonant"]))
-        self.assertEqual(self.records["rumul-resonant"]["evidence_scope"], "historical")
+        self.assertEqual(self.records["rumul-resonant"]["evidence_scope"], "current-description")
         self.assertIn("three", self.records["three-actuator-bench"]["description"].lower())
         self.assertIn("seven", self.records["three-actuator-bench"]["status_note"].lower())
         chamber_specs = [spec for record in self.lab["equipment"] for spec in record["specifications"] if spec["label"] == "StepLab climatic chamber"]
         self.assertEqual(len(chamber_specs), 1)
         self.assertNotIn("20 kN machine", self.records["rumul-resonant"]["image_caption"])
         self.assertNotIn("150 kN machine", self.records["rumul-resonant"]["image_caption"])
+        self.assertEqual(self.records["steplab-electromechanical"]["image"]["base"], "/assets/img/laboratory/steplab-equipment")
+        self.assertEqual(self.records["three-actuator-bench"]["image"]["base"], "/assets/img/laboratory/schenck-actuators")
+        self.assertNotIn("image", self.records["steplab-axial-torsional"])
+        self.assertNotIn("image", self.records["schenck-axial-torsional"])
+        self.assertIn("roughness", self.lab["hero"]["image_caption"])
 
     def test_equipment_locale_parity_and_metadata(self):
         all_ids = {r["id"] for r in self.lab["capabilities"] + self.lab["measurement_context"] + self.lab["equipment"]}
@@ -100,6 +107,8 @@ class LaboratorySourceTests(unittest.TestCase):
         for anchor in ("research-expertise", "instrumentation", "equipment", "laboratory-collaboration"):
             self.assertIn('id="' + anchor + '"', page)
         self.assertIn("include laboratory_equipment.html", page)
+        self.assertIn("laboratory_intro | strip | markdownify", page)
+        self.assertNotIn('markdown="1"', page)
         self.assertIn("site.data.laboratory.equipment", page)
         self.assertIn("mailto:andrea.chiocca@unipi.it?subject=Experimental", page)
         for route in ("/research/", "/publications/", "/repositories/", "/thesis/"):

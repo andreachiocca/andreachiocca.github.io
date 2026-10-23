@@ -10,10 +10,12 @@ description: Experimental facilities for fatigue, multiaxial loading, material a
 <div class="laboratory-editorial">
 
 <section class="laboratory-hero" aria-label="{{ 'Research facilities' | t }}">
-  <div class="laboratory-hero-copy" markdown="1">
+  <div class="laboratory-hero-copy">
     <p class="laboratory-kicker">01 / {{ "Research facilities" | t }}</p>
-    {% locale laboratory.intro %}Our group at the **Department of Civil and Industrial Engineering, University of Pisa** investigates fatigue, structural integrity and material behaviour through experimental mechanics and computational analysis. Research addresses metals, polymers, composites and additively manufactured materials.{% endlocale %}
-    <div class="laboratory-hero-scope" markdown="1">{% locale laboratory.scope %}This page presents research expertise and departmental facilities associated with our group. Equipment access and the technical feasibility of a new test campaign must be agreed with the relevant laboratory staff.{% endlocale %}</div>
+    {% capture laboratory_intro %}{% locale laboratory.intro %}Our group at the **Department of Civil and Industrial Engineering, University of Pisa** investigates fatigue, structural integrity and material behaviour through experimental mechanics and computational analysis. Research addresses metals, polymers, composites and additively manufactured materials.{% endlocale %}{% endcapture %}
+    {{ laboratory_intro | strip | markdownify }}
+    {% capture laboratory_scope %}{% locale laboratory.scope %}This page presents research expertise and departmental facilities associated with our group. Equipment access and the technical feasibility of a new test campaign must be agreed with the relevant laboratory staff.{% endlocale %}{% endcapture %}
+    <div class="laboratory-hero-scope">{{ laboratory_scope | strip | markdownify }}</div>
     <nav aria-label="{{ 'Research facilities' | t }}" class="laboratory-quick-links">
       <a href="#equipment">{{ "Testing systems" | t }}</a>
       <a href="#instrumentation">{{ "Experimental measurement" | t }}</a>

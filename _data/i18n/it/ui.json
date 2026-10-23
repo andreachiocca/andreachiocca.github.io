@@ -270,5 +270,11 @@
   "Manufacturer specification": "Specifiche del costruttore",
   "Research facilities": "Laboratori di ricerca",
   "Featured equipment": "Attrezzature principali",
-  "Supporting facilities": "Altre attrezzature"
+  "Supporting facilities": "Altre attrezzature",
+  "Axial static force": "Forza statica massima, attuatore assiale",
+  "Axial dynamic force": "Forza dinamica massima, attuatore assiale",
+  "Axial maximum frequency": "Frequenza massima, attuatore assiale",
+  "Torsional static torque": "Momento statico massimo, attuatore torsionale",
+  "Torsional dynamic torque": "Momento dinamico massimo, attuatore torsionale",
+  "Torsional maximum frequency": "Frequenza massima, attuatore torsionale"
 }
