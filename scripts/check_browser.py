@@ -315,6 +315,10 @@ def check_browser(root):
                     time.sleep(.1)
                 expect(evaluate("document.querySelectorAll('ol.bibliography > li').length > 0 && [...document.querySelectorAll('ol.bibliography > li')].every(el => !el.hidden)"), 'no-JavaScript bibliography visible on ' + route)
                 expect(evaluate("document.getElementById('bibsearch').hidden && document.getElementById('publication-type-filters').hidden"), 'no-JavaScript filters hidden on ' + route)
+            # The source-of-truth controls the photo count. Photo assignments
+            # can change when a machine is corrected or an asset is added.
+            laboratory_data = json.loads(Path('_data/laboratory.json').read_text(encoding='utf8'))
+            expected_laboratory_images = 1 + sum(bool(item.get('image')) for item in laboratory_data['equipment'])
             for route in ('/laboratory/', '/it/laboratory/'):
                 command('Page.navigate', {'url': origin + route})
                 for _ in range(120):
@@ -322,7 +326,9 @@ def check_browser(root):
                         break
                     time.sleep(.1)
                 expect(evaluate("document.querySelectorAll('[data-laboratory-id]').length === 10"), 'Laboratory content present with scripts disabled on '+route)
-                expect(evaluate("document.querySelectorAll('.laboratory-editorial img[alt]').length >= 7"), 'Laboratory photographs present with scripts disabled on '+route)
+                expect(evaluate(f"document.querySelectorAll('.laboratory-editorial img[alt]').length === {expected_laboratory_images}"), 'Laboratory photographs match canonical data with scripts disabled on '+route)
+                expect(evaluate("document.querySelector('.laboratory-hero-copy strong') !== null"), 'Laboratory intro renders Markdown emphasis on '+route)
+                expect(evaluate("!document.querySelector('.laboratory-hero-copy').innerText.includes('<p class=')"), 'Laboratory intro does not expose HTML source on '+route)
             print(f'PASS: {checks} browser checks at 375, 390, 768 and 1280px, including thesis and laboratory pages, courses, navigation and catalogue controls' if not errors else f'Browser checks: {len(errors)} errors')
         except Exception as exc:
             errors.append('Browser check could not complete: ' + str(exc))
