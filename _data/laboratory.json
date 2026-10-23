@@ -135,7 +135,14 @@
           "value": "≤15 mm thick"
         }
       ],
-      "status_note": "Axial and torsional actuator limits are distinct and are not necessarily simultaneously attainable. The compact electromechanical StepLab is listed separately."
+      "status_note": "Axial and torsional actuator limits are distinct and are not necessarily simultaneously attainable. The compact electromechanical StepLab is listed separately.",
+      "image": {
+        "base": "/assets/img/laboratory/steplab-electrodynamic",
+        "width": 640,
+        "height": 853
+      },
+      "image_alt": "Large electrodynamic StepLab machine for axial and torsional mechanical testing",
+      "image_caption": "Large electrodynamic StepLab testing system. The axial and torsional actuator ratings are listed separately."
     },
     {
       "id": "schenck-axial-torsional",
@@ -165,7 +172,14 @@
           "value": "8–20 mm thick"
         }
       ],
-      "status_note": "Force, torque and internal-pressure limits depend on the arrangement and must not be assumed simultaneously attainable."
+      "status_note": "Force, torque and internal-pressure limits depend on the arrangement and must not be assumed simultaneously attainable.",
+      "image": {
+        "base": "/assets/img/laboratory/schenck-machine",
+        "width": 640,
+        "height": 853
+      },
+      "image_alt": "Schenck axial and torsional servo-hydraulic testing system",
+      "image_caption": "Schenck axial–torsional testing machine with a separate internal-pressure actuator for tubular specimens."
     },
     {
       "id": "rumul-resonant",
@@ -190,7 +204,14 @@
         "height": 853
       },
       "image_alt": "Green Rumul resonant fatigue-testing frame showing its grips and load train",
-      "image_caption": "Rumul resonant fatigue-testing machine; the photographed capacity variant is not identified."
+      "image_caption": "Rumul resonant fatigue-testing machine; the photographed capacity variant is not identified.",
+      "secondary_image": {
+        "base": "/assets/img/laboratory/rumul-small-oven",
+        "width": 640,
+        "height": 853
+      },
+      "secondary_image_alt": "Rumul resonant fatigue testing system equipped with an oven",
+      "secondary_image_caption": "Additional Rumul resonant testing machine with oven. Its rated capacity is not identified."
     },
     {
       "id": "mts-uniaxial",
@@ -208,7 +229,14 @@
           "value": "10–20 Hz"
         }
       ],
-      "status_note": "Published historical ratings, not a statement that both systems are currently available."
+      "status_note": "Published historical ratings, not a statement that both systems are currently available.",
+      "image": {
+        "base": "/assets/img/laboratory/mts-machine",
+        "width": 640,
+        "height": 853
+      },
+      "image_alt": "Servo-hydraulic MTS testing machine in the laboratory",
+      "image_caption": "One of the MTS servo-hydraulic testing machines. The rated capacity of the machine shown is not confirmed."
     },
     {
       "id": "steplab-electromechanical",
@@ -254,7 +282,14 @@
         "height": 853
       },
       "image_alt": "Two hydraulic actuators in the reconfigurable structural test bench",
-      "image_caption": "Two Schenck hydraulic actuators belonging to the reconfigurable structural test bench."
+      "image_caption": "Two Schenck hydraulic actuators belonging to the reconfigurable structural test bench.",
+      "secondary_image": {
+        "base": "/assets/img/laboratory/bench-small-actuator",
+        "width": 640,
+        "height": 853
+      },
+      "secondary_image_alt": "Additional hydraulic actuator used on the reconfigurable structural testing bench",
+      "secondary_image_caption": "Hydraulic actuator associated with the reconfigurable structural test bench."
     },
     {
       "id": "vibration-testing",
@@ -270,12 +305,19 @@
       ],
       "status_note": "Do not transfer the StepLab 250 Hz limit to separate vibration equipment. Modal instrumentation availability is project-dependent.",
       "image": {
-        "base": "/assets/img/laboratory/vibration-setup",
+        "base": "/assets/img/laboratory/vibration-large-shaker",
         "width": 640,
         "height": 853
       },
-      "image_alt": "TIRA electrodynamic shaker with an experimental component mounted on a test fixture",
-      "image_caption": "Vibration-testing arrangement with a TIRA shaker and experimental fixture."
+      "image_alt": "Large shaker equipment in the laboratory",
+      "image_caption": "Large shaker used in laboratory vibration experiments. No performance rating is inferred from the image.",
+      "secondary_image": {
+        "base": "/assets/img/laboratory/vibration-small-shaker",
+        "width": 640,
+        "height": 853
+      },
+      "secondary_image_alt": "Smaller shaker equipment for experimental vibration tests",
+      "secondary_image_caption": "Smaller laboratory shaker. Its operating range is not assigned from the photograph."
     },
     {
       "id": "environmental-conditioning",
@@ -297,7 +339,14 @@
           "value": "−30 to +180 °C"
         }
       ],
-      "status_note": "The climatic chamber is one device, described in conjunction with compatible StepLab configurations; ranges cannot necessarily be combined with maximum mechanical loads."
+      "status_note": "The climatic chamber is one device, described in conjunction with compatible StepLab configurations; ranges cannot necessarily be combined with maximum mechanical loads.",
+      "image": {
+        "base": "/assets/img/laboratory/steplab-climatic-chamber",
+        "width": 640,
+        "height": 853
+      },
+      "image_alt": "Climatic chamber fitted to a StepLab mechanical testing setup",
+      "image_caption": "Climatic chamber installed on a StepLab testing system for temperature-controlled investigations."
     },
     {
       "id": "specimen-preparation-metrology",
@@ -364,7 +413,14 @@
         "height": 480
       },
       "image_alt": "FLIR X6901sc infrared camera in its protective carrying case",
-      "image_caption": "FLIR X6901sc high-speed mid-wave infrared camera."
+      "image_caption": "FLIR X6901sc high-speed mid-wave infrared camera.",
+      "secondary_image": {
+        "base": "/assets/img/laboratory/flir-new",
+        "width": 640,
+        "height": 480
+      },
+      "secondary_image_alt": "Infrared thermal camera photographed in the laboratory",
+      "secondary_image_caption": "Additional infrared-camera photograph. The equipment model and performance cannot be established from this photograph alone."
     }
   ],
   "hero": {

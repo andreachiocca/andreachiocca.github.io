@@ -45,9 +45,12 @@ class LaboratoryDocument(HTMLParser):
                 "id": attr["data-laboratory-id"],
                 "scope": attr.get("data-evidence-scope"),
                 "text": [],
+                "photos": [],
             }
         if tag == "img" and "/assets/img/laboratory/" in attr.get("src", ""):
             self.photos.append(attr)
+            if self.current is not None:
+                self.current["photos"].append(attr["src"])
         if tag == "source" and "/assets/img/laboratory/" in attr.get("srcset", ""):
             self.sources.append(attr["srcset"])
         if tag == "figcaption":
@@ -108,6 +111,9 @@ def verify_document(html: str, expected: list[dict], root: Path, language: str) 
         for spec in canonical.get("specifications", []):
             if spec["value"] not in content:
                 raise ValueError(f"{language}: {rendered['id']} missing specification {spec['label']}: {spec['value']}")
+        expected_photos = [canonical[kind]["base"] + "-640.webp" for kind in ("image", "secondary_image") if canonical.get(kind)]
+        if rendered["photos"] != expected_photos:
+            raise ValueError(f"{language}: incorrect Laboratory photo assignment for {rendered['id']}")
         if rendered["id"] == "schenck-axial-torsional" and "700 bar" not in content:
             raise ValueError(f"{language}: Schenck 700 bar internal-pressure limit missing")
 
@@ -148,7 +154,7 @@ def verify_laboratory_editorial(root: Path) -> None:
     if [r["id"] for r in english.records] != [r["id"] for r in italian.records]:
         raise ValueError("EN/IT Laboratory equipment identities diverged")
     for name, page in (("en", english), ("it", italian)):
-        expected_count = 1 + sum(bool(r.get("image")) for r in expected)
+        expected_count = 1 + sum(bool(r.get(kind)) for r in expected for kind in ("image", "secondary_image"))
         if len(page.photos) != expected_count:
             raise ValueError(f"{name}: expected {expected_count} Laboratory photos, got {len(page.photos)}")
     if english.photos[0]["alt"] == italian.photos[0]["alt"]:

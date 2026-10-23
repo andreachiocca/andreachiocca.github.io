@@ -35,6 +35,7 @@ main#main-content:has(> .laboratory-editorial) { max-width: 1160px; }
 .laboratory-editorial .laboratory-quick-links a:hover { border-color: var(--editorial-teal); }
 .laboratory-editorial .laboratory-hero-figure,
 .laboratory-editorial .laboratory-machine-figure { margin: 0; min-width: 0; }
+.laboratory-editorial .laboratory-machine-media { display: flex; flex-direction: column; gap: .85rem; min-width: 0; }
 .laboratory-editorial .laboratory-hero-figure { padding: .65rem; background: var(--editorial-surface); }
 .laboratory-editorial figure picture { display: block; }
 .laboratory-editorial .laboratory-hero-figure img {
@@ -53,7 +54,7 @@ main#main-content:has(> .laboratory-editorial) { max-width: 1160px; }
   scroll-margin-top: 7rem;
 }
 .laboratory-editorial .laboratory-machine:last-child { border-bottom: 0; }
-.laboratory-editorial .laboratory-machine:nth-child(even) .laboratory-machine-figure { order: 2; }
+.laboratory-editorial .laboratory-machine:nth-child(even) .laboratory-machine-media { order: 2; }
 .laboratory-editorial .laboratory-machine--text-only { grid-template-columns: minmax(0,1fr); padding: 1.2rem 0 1.45rem; }
 .laboratory-editorial .laboratory-machine--text-only .laboratory-machine-content { max-width: 76ch; }
 .laboratory-editorial .laboratory-machine-figure {
@@ -63,6 +64,7 @@ main#main-content:has(> .laboratory-editorial) { max-width: 1160px; }
   display: block; width: 100%; height: auto; max-height: 480px;
   object-fit: contain; background: var(--editorial-surface);
 }
+.laboratory-editorial .laboratory-machine-figure--secondary img { max-height: 245px; }
 .laboratory-editorial .laboratory-machine-content { min-width: 0; }
 .laboratory-editorial .laboratory-machine-content > h3 { margin: .2rem 0 .7rem; font-size: clamp(1.24rem,1.7vw,1.55rem); letter-spacing: -.033em; line-height: 1.28; }
 .laboratory-editorial .laboratory-machine-content > p { font-size: .92rem; line-height: 1.74; }
@@ -113,7 +115,7 @@ main#main-content:has(> .laboratory-editorial) { max-width: 1160px; }
   .laboratory-editorial .laboratory-section { padding-top: 2.2rem; }
   .laboratory-editorial .laboratory-machine,
   .laboratory-editorial .laboratory-machine--text-only { grid-template-columns: 1fr; gap: 1.1rem; padding: 1.3rem 0; }
-  .laboratory-editorial .laboratory-machine:nth-child(even) .laboratory-machine-figure { order: 0; }
+  .laboratory-editorial .laboratory-machine:nth-child(even) .laboratory-machine-media { order: 0; }
   .laboratory-editorial .laboratory-research-domains { grid-template-columns: 1fr; }
 }
 @media (max-width: 400px) {

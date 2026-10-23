@@ -318,7 +318,7 @@ def check_browser(root):
             # The source-of-truth controls the photo count. Photo assignments
             # can change when a machine is corrected or an asset is added.
             laboratory_data = json.loads(Path('_data/laboratory.json').read_text(encoding='utf8'))
-            expected_laboratory_images = 1 + sum(bool(item.get('image')) for item in laboratory_data['equipment'])
+            expected_laboratory_images = 1 + sum(bool(item.get(kind)) for item in laboratory_data['equipment'] for kind in ('image', 'secondary_image'))
             for route in ('/laboratory/', '/it/laboratory/'):
                 command('Page.navigate', {'url': origin + route})
                 for _ in range(120):

@@ -52,9 +52,13 @@ class LaboratorySourceTests(unittest.TestCase):
         self.assertNotIn("150 kN machine", self.records["rumul-resonant"]["image_caption"])
         self.assertEqual(self.records["steplab-electromechanical"]["image"]["base"], "/assets/img/laboratory/steplab-equipment")
         self.assertEqual(self.records["three-actuator-bench"]["image"]["base"], "/assets/img/laboratory/schenck-actuators")
-        self.assertNotIn("image", self.records["steplab-axial-torsional"])
-        self.assertNotIn("image", self.records["schenck-axial-torsional"])
+        self.assertEqual(self.records["steplab-axial-torsional"]["image"]["base"], "/assets/img/laboratory/steplab-electrodynamic")
+        self.assertEqual(self.records["schenck-axial-torsional"]["image"]["base"], "/assets/img/laboratory/schenck-machine")
         self.assertIn("roughness", self.lab["hero"]["image_caption"])
+        for machine, slug in {"mts-uniaxial": "mts-machine", "environmental-conditioning": "steplab-climatic-chamber", "vibration-testing": "vibration-large-shaker"}.items():
+            self.assertEqual(self.records[machine]["image"]["base"], "/assets/img/laboratory/" + slug)
+        for machine, slug in {"rumul-resonant": "rumul-small-oven", "three-actuator-bench": "bench-small-actuator", "vibration-testing": "vibration-small-shaker", "flir-x6901sc": "flir-new"}.items():
+            self.assertEqual(self.records[machine]["secondary_image"]["base"], "/assets/img/laboratory/" + slug)
 
     def test_equipment_locale_parity_and_metadata(self):
         all_ids = {r["id"] for r in self.lab["capabilities"] + self.lab["measurement_context"] + self.lab["equipment"]}
@@ -64,9 +68,11 @@ class LaboratorySourceTests(unittest.TestCase):
             self.assertTrue(translation.get("title"))
             self.assertTrue(translation.get("description"))
             self.assertNotIn("specifications", translation)
-            if record.get("image"):
-                self.assertTrue(translation.get("image_alt"))
-                self.assertTrue(translation.get("image_caption"))
+            for kind in ("image", "secondary_image"):
+                if record.get(kind):
+                    prefix = "" if kind == "image" else "secondary_"
+                    self.assertTrue(translation.get(prefix + "image_alt"))
+                    self.assertTrue(translation.get(prefix + "image_caption"))
         en = json.loads(read("_data/i18n/en/ui.json"))
         it = json.loads(read("_data/i18n/it/ui.json"))
         self.assertEqual(set(en), set(it))
@@ -78,25 +84,28 @@ class LaboratorySourceTests(unittest.TestCase):
     def test_photo_assets_and_privacy(self):
         listed = self.lab["equipment"] + [self.lab["hero"]]
         for record in listed:
-            photo = record.get("image")
-            if photo is None:
-                continue
-            self.assertTrue(record.get("image_alt"), record["id"])
-            self.assertTrue(record.get("image_caption"), record["id"])
-            stem = photo["base"].split("/")[-1]
-            self.assertNotIn("IMG_0420", stem)
-            self.assertTrue(stem.isascii())
-            for width in (640, 1280):
-                file = ROOT / "assets" / "img" / "laboratory" / f"{stem}-{width}.webp"
-                self.assertTrue(file.is_file(), str(file))
-                data = file.read_bytes()
-                self.assertTrue(data.startswith(b"RIFF") and data[8:12] == b"WEBP", str(file))
-                self.assertLess(len(data), 200000, str(file))
+            for kind in ("image", "secondary_image"):
+                photo = record.get(kind)
+                if photo is None:
+                    continue
+                prefix = "" if kind == "image" else "secondary_"
+                self.assertTrue(record.get(prefix + "image_alt"), record["id"])
+                self.assertTrue(record.get(prefix + "image_caption"), record["id"])
+                stem = photo["base"].split("/")[-1]
+                self.assertNotIn("IMG_0420", stem)
+                self.assertTrue(stem.isascii())
+                for width in (640, 1280):
+                    file = ROOT / "assets" / "img" / "laboratory" / f"{stem}-{width}.webp"
+                    self.assertTrue(file.is_file(), str(file))
+                    data = file.read_bytes()
+                    self.assertTrue(data.startswith(b"RIFF") and data[8:12] == b"WEBP", str(file))
+                    self.assertLess(len(data), 200000, str(file))
         self.assertFalse((ROOT / "assets/img/laboratory/IMG_0420.JPG").exists())
         include = read("_includes/laboratory_equipment.html")
         for token in ("srcset", "image_alt", "image_caption", "specifications", "loading=", "width=", "height="):
             self.assertIn(token, include)
         self.assertIn("spec.label | t", include)
+        self.assertIn("secondary_image", include)
 
 
     def test_page_semantics_and_anchors(self):
