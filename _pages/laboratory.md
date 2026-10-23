@@ -12,69 +12,83 @@ description: Experimental facilities for fatigue, multiaxial loading, material a
 <section class="laboratory-hero" aria-label="{{ 'Research facilities' | t }}">
   <div class="laboratory-hero-copy" markdown="1">
     <p class="laboratory-kicker">01 / {{ "Research facilities" | t }}</p>
-    {% locale laboratory.intro %}Our group at the **Department of Civil and Industrial Engineering, University of Pisa** investigates fatigue, structural integrity and material behaviour through experimental mechanics and computational analysis. Research addresses metals, polymers, composites and additively manufactured materials.{% endlocale %}
-    <div class="laboratory-hero-scope" markdown="1">{% locale laboratory.scope %}This page presents research expertise and departmental facilities associated with our group. Equipment access and the technical feasibility of a new test campaign must be agreed with the relevant laboratory staff.{% endlocale %}</div>
-    <nav aria-label="{{ 'Research facilities' | t }}" class="laboratory-quick-links">
-      <a href="#equipment">{{ "Testing systems" | t }}</a>
-      <a href="#instrumentation">{{ "Experimental measurement" | t }}</a>
-      <a href="#laboratory-collaboration">{{ "Discuss a collaboration" | t }}</a>
-    </nav>
-  </div>
-  {% assign hero = site.data.laboratory.hero | localized_record: 'laboratory' %}
-  {% assign hero_640 = hero.image.base | append: '-640.webp' | local_url | relative_url %}
-  {% assign hero_1280 = hero.image.base | append: '-1280.webp' | local_url | relative_url %}
-  <figure class="laboratory-hero-figure">
-    <picture>
-      <source type="image/webp" srcset="{{ hero_640 }} 640w, {{ hero_1280 }} 1280w" sizes="(max-width: 767px) 92vw, 38vw">
-      <img src="{{ hero_640 }}" alt="{{ hero.image_alt | escape }}" width="{{ hero.image.width }}" height="{{ hero.image.height }}" loading="eager" decoding="async" fetchpriority="high">
-    </picture>
-    <figcaption>{{ hero.image_caption | escape }}</figcaption>
-  </figure>
-</section>
+    <div class="laboratory-editorial">
+  <section class="laboratory-hero" aria-labelledby="laboratory-hero-label">
+    <div class="laboratory-hero-copy">
+      <p class="laboratory-eyebrow" id="laboratory-hero-label">{{ "Experimental equipment" | t }} / 01</p>
+      {% locale laboratory.intro %}<p>Our research investigates fatigue, material response and structural integrity in metallic, polymeric, composite and additively manufactured materials. Experimental work is combined with structural analysis and numerical–experimental correlation.</p>{% endlocale %}
+      <p class="laboratory-hero-brief">{% locale laboratory.hero_note %}The equipment described below includes facilities recently documented by the research group and capabilities recorded in the historical Machine Design laboratory inventory. Operating limits and current availability depend on the experimental setup.{% endlocale %}</p>
+    </div>
+    <figure class="laboratory-hero-figure">
+      <div class="laboratory-hero-image" aria-label="{{ "Machined fatigue specimen" | t }}">
+        <img src="{{ '/assets/img/laboratory/specimen-640.webp' | local_url | relative_url }}"
+          srcset="{{ '/assets/img/laboratory/specimen-640.webp' | local_url | relative_url }} 640w, {{ '/assets/img/laboratory/specimen-1280.webp' | local_url | relative_url }} 1280w"
+          sizes="(max-width: 850px) 100vw, 44vw"
+          width="640" height="800" alt="{{ "Machined fatigue specimen" | t }}" fetchpriority="high" decoding="async">
+      </div>
+      <figcaption>{% locale laboratory.hero_caption %}Machined specimen prepared for mechanical testing. No experimental result is implied by this photograph.{% endlocale %}</figcaption>
+    </figure>
+  </section>
 
-<section class="laboratory-section laboratory-testing-systems" aria-labelledby="equipment">
-  <p class="laboratory-section-index">02 / {{ "Featured equipment" | t }}</p>
-  <h2 id="equipment">{{ "Experimental facilities" | t }}</h2>
-  <div class="laboratory-machines">
-    {% for canonical_resource in site.data.laboratory.equipment %}
-      {% if canonical_resource.category == "featured" %}
-        {% include laboratory_equipment.html resource=canonical_resource %}
-      {% endif %}
-    {% endfor %}
-  </div>
-  {% locale laboratory.specifications %}<p class="scope-note">The values reported describe specific machines, not necessarily simultaneous operating limits. Historical equipment details and availability should be confirmed when defining a new experimental campaign.</p>{% endlocale %}
-</section>
+  {% locale laboratory.scope %}<p class="laboratory-scope-note">This page presents research capabilities, not an accredited commercial testing service. Test feasibility and access to individual systems must be confirmed with the relevant laboratory staff.</p>{% endlocale %}
 
-<section class="laboratory-section laboratory-support" aria-labelledby="instrumentation">
-  <p class="laboratory-section-index">03 / {{ "Experimental measurement" | t }}</p>
-  <h2 id="instrumentation">{{ "Instrumentation and experimental methods" | t }}</h2>
-  {% locale laboratory.methods %}<p>Additional facilities support structural testing, vibration measurements, thermal investigations and specimen preparation. The experimental arrangement and acquisition settings depend on the specific research question.</p>{% endlocale %}
-  <div class="laboratory-machines laboratory-supporting-machines">
-    {% for canonical_resource in site.data.laboratory.equipment %}
-      {% if canonical_resource.category == "supporting" %}
-        {% include laboratory_equipment.html resource=canonical_resource %}
-      {% endif %}
-    {% endfor %}
-  </div>
-  <div class="approach-list laboratory-approaches">
-    {% for canonical_method in site.data.laboratory.measurement_context %}
+  <nav class="laboratory-local-nav" aria-label="{{ "Laboratory page sections" | t }}">
+    <a href="#equipment">{{ "Experimental equipment" | t }}</a>
+    <a href="#instrumentation">{{ "Instrumentation and measurements" | t }}</a>
+    <a href="#research-expertise">{{ "Research expertise" | t }}</a>
+    <a href="#laboratory-collaboration">{{ "Discuss a collaboration" | t }}</a>
+  </nav>
+
+  <section class="laboratory-equipment-section" aria-labelledby="equipment">
+    <div class="laboratory-section-heading">
+      <p class="laboratory-eyebrow">02 / {{ "Experimental equipment" | t }}</p>
+      <h2 id="equipment">{{ "Verified instrumentation" | t }}</h2>
+      {% locale laboratory.equipment_intro %}<p>Principal machines and experimental rigs. Maximum values refer to specific machines or operating modes and must not be interpreted as simultaneous loading limits.</p>{% endlocale %}
+    </div>
+    <div class="laboratory-featured-list">
+      {% for canonical_resource in site.data.laboratory.equipment %}{% if canonical_resource.category == 'featured' %}
+      {% include laboratory_equipment.html resource=canonical_resource featured=true %}
+      {% endif %}{% endfor %}
+    </div>
+    <div class="laboratory-secondary-list">
+      {% for canonical_resource in site.data.laboratory.equipment %}{% if canonical_resource.category == 'supporting' %}
+      {% include laboratory_equipment.html resource=canonical_resource featured=false %}
+      {% endif %}{% endfor %}
+    </div>
+  </section>
+
+  <section class="laboratory-methods-section" aria-labelledby="instrumentation">
+    <p class="laboratory-eyebrow">03 / {{ "Instrumentation and measurements" | t }}</p>
+    <h2 id="instrumentation">{{ "Instrumentation and experimental methods" | t }}</h2>
+    {% locale laboratory.methods %}<p>Our experimental work encompasses specimen and component loading, deformation and vibration measurements, environmental conditioning, thermal imaging and comparison with numerical models. The specific sensors and procedures are selected for each research question.</p>{% endlocale %}
+    <div class="laboratory-methods-grid">
+      {% for canonical_method in site.data.laboratory.measurement_context %}
       {% assign method = canonical_method | localized_record: 'laboratory' %}
-      <section class="approach"><h3>{{ method.title }}</h3><p>{{ method.description }}</p></section>
-    {% endfor %}
-  </div>
-</section>
+      <section class="laboratory-method" id="{{ method.id | escape }}">
+        <h3>{{ method.title }}</h3><p>{{ method.description }}</p>
+      </section>
+      {% endfor %}
+    </div>
+  </section>
 
-<section class="laboratory-section laboratory-research" aria-labelledby="research-expertise">
-  <p class="laboratory-section-index">04 / {{ "Research facilities" | t }}</p>
-  <h2 id="research-expertise">{{ "What we can investigate" | t }}</h2>
-  {% locale laboratory.evidence %}<p>The studies and datasets linked below document existing research experience. Each new material, component and loading configuration requires a project-specific feasibility assessment.</p>{% endlocale %}
-  <div class="laboratory-research-domains">
-    {% for canonical_resource in site.data.laboratory.capabilities %}
-      {% include resource_card.html resource=canonical_resource group="laboratory" kind="capability-card" %}
-    {% endfor %}
-  </div>
-</section>
+  <section class="laboratory-research" aria-labelledby="research-expertise">
+    <p class="laboratory-eyebrow">04 / {{ "Research expertise" | t }}</p>
+    <h2 id="research-expertise">{{ "What we can investigate" | t }}</h2>
+    {% locale laboratory.evidence %}<p>Documented publications and data illustrate previous experimental experience. A new material, structure or loading scenario requires a project-specific assessment.</p>{% endlocale %}
+    <div class="laboratory-research-list">
+      {% for canonical_resource in site.data.laboratory.capabilities %}
+      {% assign capability = canonical_resource | localized_record: 'laboratory' %}
+      <section class="laboratory-research-row">
+        <h3>{{ capability.title }}</h3>
+        <div><p>{{ capability.description }}</p>
+        {% if capability.links.size > 0 %}<ul class="inline-links">{% for link in capability.links %}<li><a href="{{ link.url | local_url | relative_url }}">{{ link.label | t }}</a></li>{% endfor %}</ul>{% endif %}
+        </div>
+      </section>
+      {% endfor %}
+    </div>
+  </section>
 
+  {% locale laboratory.specifications %}<p class="laboratory-scope-note">Published maximum capacities and frequencies are indicative of specific machines and historical configurations. They do not replace equipment documentation or project-level feasibility checks.</p>{% endlocale %}
 <section id="laboratory-collaboration" class="collaboration-panel laboratory-collaboration" aria-labelledby="laboratory-contact-title">
   <p class="laboratory-section-index">05 / {{ "Discuss a collaboration" | t }}</p>
   <h2 id="laboratory-contact-title">{{ "Discuss an investigation or research collaboration" | t }}</h2>
@@ -88,5 +102,7 @@ description: Experimental facilities for fatigue, multiaxial loading, material a
   <li><a href="{{ '/repositories/' | local_url | relative_url }}">{{ "Software and research data" | t }}</a></li>
   <li><a href="{{ '/thesis/' | local_url | relative_url }}">{{ "Thesis opportunities" | t }}</a></li>
 </ul>
+
+</div>
 
 </div>
