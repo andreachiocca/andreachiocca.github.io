@@ -413,14 +413,7 @@
         "height": 480
       },
       "image_alt": "FLIR X6901sc infrared camera in its protective carrying case",
-      "image_caption": "FLIR X6901sc high-speed mid-wave infrared camera.",
-      "secondary_image": {
-        "base": "/assets/img/laboratory/flir-new",
-        "width": 640,
-        "height": 480
-      },
-      "secondary_image_alt": "Infrared thermal camera photographed in the laboratory",
-      "secondary_image_caption": "Additional infrared-camera photograph. The equipment model and performance cannot be established from this photograph alone."
+      "image_caption": "FLIR X6901sc high-speed mid-wave infrared camera."
     }
   ],
   "hero": {

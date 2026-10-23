@@ -107,8 +107,6 @@
     "description": "Acquisizione di campi di temperatura mediante termografia infrarossa ad alta velocità. I valori riportati sono dati del costruttore, non prestazioni garantite per ogni configurazione sperimentale.",
     "image_alt": "Termocamera FLIR X6901sc nella propria custodia protettiva",
     "image_caption": "Termocamera FLIR X6901sc per infrarosso a onde medie ad alta velocità.",
-    "status_note": "Ottiche, taratura, filtri e parametri di acquisizione determinano le prestazioni effettive. Non sono implicitamente dichiarate procedure lock-in o termoelastiche non verificate.",
-    "secondary_image_alt": "Ulteriore termocamera fotografata in laboratorio",
-    "secondary_image_caption": "Ulteriore fotografia di una termocamera. Il modello e le prestazioni non sono identificati sulla sola base dell'immagine."
+    "status_note": "Ottiche, taratura, filtri e parametri di acquisizione determinano le prestazioni effettive. Non sono implicitamente dichiarate procedure lock-in o termoelastiche non verificate."
   }
 }
