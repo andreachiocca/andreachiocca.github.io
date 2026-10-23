@@ -270,5 +270,21 @@
   "Manufacturer specification": "Specifiche del costruttore",
   "Research facilities": "Laboratori di ricerca",
   "Featured equipment": "Attrezzature principali",
-  "Supporting facilities": "Altre attrezzature"
+  "Supporting facilities": "Altre attrezzature",
+  "Static load": "Carico statico",
+  "Dynamic load": "Carico dinamico",
+  "Historical systems": "Sistemi storicamente disponibili",
+  "Historical capacities": "Capacità riportate nell'inventario storico",
+  "Load capacity": "Capacità di carico",
+  "Current setup": "Configurazione attuale",
+  "Historical maximum": "Massimo storico",
+  "Test context": "Ambito sperimentale",
+  "Climatic chamber": "Camera climatica",
+  "Specimen preparation": "Preparazione dei provini",
+  "Metrology": "Metrologia",
+  "Full-frame acquisition": "Acquisizione a pieno formato",
+  "Experimental equipment": "Attrezzature sperimentali",
+  "Historical inventory": "Inventario storico",
+  "Testing conditions and measurements": "Condizioni di prova e misure",
+  "View research": "Consulta le ricerche"
 }
