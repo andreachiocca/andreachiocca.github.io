@@ -276,5 +276,19 @@
   "Axial maximum frequency": "Axial maximum frequency",
   "Torsional static torque": "Torsional static torque",
   "Torsional dynamic torque": "Torsional dynamic torque",
-  "Torsional maximum frequency": "Torsional maximum frequency"
+  "Torsional maximum frequency": "Torsional maximum frequency",
+  "Scientific software and research data": "Scientific software and research data",
+  "Catalogue overview": "Catalogue overview",
+  "Research outputs": "Research outputs",
+  "Software projects": "Software projects",
+  "Selected outputs": "Selected outputs",
+  "View in catalogue": "View in catalogue",
+  "Complete catalogue": "Complete catalogue",
+  "Explore resources": "Explore resources",
+  "Search by title, method, material or DOI": "Search by title, method, material or DOI",
+  "e.g. fatigue, ECP, Zenodo": "e.g. fatigue, ECP, Zenodo",
+  "No research outputs match the selected filters.": "No research outputs match the selected filters.",
+  "Clear catalogue filters": "Clear catalogue filters",
+  "Jump to selected outputs": "Jump to selected outputs",
+  "Jump to full catalogue": "Jump to full catalogue"
 }

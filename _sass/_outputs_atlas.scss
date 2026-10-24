@@ -1,0 +1,120 @@
+// Technical Editorial Outputs Atlas, limited to the catalogue page.
+.output-atlas {
+  --atlas-rule: var(--global-divider-color);
+  --atlas-accent: var(--editorial-teal);
+  margin-top: .5rem;
+  min-width: 0;
+}
+.output-atlas .output-atlas-index {
+  font: 500 .75rem/1.5 ui-monospace, Consolas, monospace;
+  color: var(--atlas-accent);
+  letter-spacing: .04em;
+  margin: 0 0 .85rem;
+}
+.output-atlas .output-atlas-hero {
+  display: grid;
+  grid-template-columns: minmax(0,1.5fr) minmax(200px,1fr);
+  align-items: end;
+  gap: clamp(1.25rem,4vw,2.5rem);
+  padding: clamp(1.2rem,3vw,2.1rem);
+  background: linear-gradient(145deg,var(--editorial-surface),var(--global-bg-color));
+  border: 1px solid var(--atlas-rule);
+  border-top: 3px solid var(--atlas-accent);
+}
+.output-atlas .output-atlas-intro { min-width: 0; }
+.output-atlas .output-atlas-intro > p:not(.output-atlas-index) {
+  font-size: clamp(1rem,1.7vw,1.18rem);
+  line-height: 1.7;
+  margin: 0 0 1.2rem;
+}
+.output-atlas .output-atlas-jump { display: flex; flex-wrap: wrap; gap: .25rem 1.2rem; }
+.output-atlas .output-atlas-jump a, .output-atlas .output-atlas-feature-link {
+  display: inline-flex; align-items: center; gap: .4rem;
+  min-height: 44px; font-weight: 600; font-size: .86rem;
+  text-decoration: underline; text-underline-offset: .22em;
+}
+.output-atlas .output-atlas-numbers {
+  display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .75rem; margin: 0;
+}
+.output-atlas .output-atlas-numbers > div {
+  min-width: 0; border-top: 1px solid var(--atlas-rule); padding-top: .7rem;
+}
+.output-atlas .output-atlas-numbers > div:first-child {
+  grid-column: 1/-1; padding: 0 0 .8rem; border: 0; border-bottom: 1px solid var(--atlas-rule);
+}
+.output-atlas .output-atlas-numbers dt {
+  color: var(--global-text-color-light);
+  font: 400 .75rem/1.45 ui-monospace, Consolas, monospace;
+}
+.output-atlas .output-atlas-numbers dd {
+  font: 500 clamp(1.85rem,3.5vw,2.7rem)/1.1 ui-monospace, Consolas, monospace;
+  letter-spacing: -.05em; color: var(--editorial-navy); margin: .3rem 0 0;
+}
+.output-atlas .output-atlas-selected, .output-atlas .output-atlas-full {
+  border-top: 1px solid var(--atlas-rule); padding-top: 1.7rem; margin-top: 2rem;
+  scroll-margin-top: var(--navigation-offset,80px);
+}
+.output-atlas .output-atlas-selected h2, .output-atlas .output-atlas-full h2 {
+  font: 500 clamp(1.3rem,2.8vw,1.75rem)/1.35 ui-monospace, Consolas, monospace;
+  letter-spacing: -.04em; color: var(--editorial-navy);
+  padding: 0; border: 0; margin: 0 0 1.2rem;
+}
+.output-atlas .output-atlas-selected h2::before, .output-atlas .output-atlas-full h2::before { content: none !important; }
+.output-atlas .output-atlas-featured-grid {
+  display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .9rem;
+}
+.output-atlas .output-atlas-feature {
+  min-width: 0; padding: 1.15rem 1.25rem; display: flex; flex-direction: column;
+  background: var(--global-bg-color); border: 1px solid var(--atlas-rule);
+  border-left: 3px solid var(--editorial-blue);
+}
+.output-atlas .output-atlas-feature:nth-child(even) { border-left-color: var(--editorial-teal); }
+.output-atlas .output-atlas-feature-kind {
+  font: 500 .73rem/1.5 ui-monospace, Consolas, monospace;
+  color: var(--global-text-color-light); margin-bottom: .7rem;
+}
+.output-atlas .output-atlas-feature h3 {
+  font-size: clamp(1.06rem,1.7vw,1.25rem); line-height: 1.35;
+  font-weight: 600; margin: 0 0 .75rem;
+}
+.output-atlas .output-atlas-feature h3 a { color: var(--global-text-color); }
+.output-atlas .output-atlas-feature-description { font-size: .9rem; line-height: 1.65; margin-bottom: .8rem; }
+.output-atlas .output-atlas-feature-link { margin-top: auto; align-self: flex-start; }
+.output-atlas .output-atlas-full .catalogue-coverage {
+  color: var(--global-text-color-light); margin: -.4rem 0 1.3rem;
+}
+.output-atlas .output-atlas-search {
+  background: var(--editorial-surface); border: 1px solid var(--atlas-rule);
+  padding: 1rem 1.1rem; margin-bottom: .7rem;
+}
+.output-atlas .output-atlas-search label { display: block; font-size: .87rem; font-weight: 600; margin-bottom: .45rem; }
+.output-atlas .output-atlas-search input {
+  display: block; width: 100%; min-height: 44px; padding: .6rem .75rem;
+  border: 1px solid var(--atlas-rule); border-radius: .15rem;
+  background: var(--global-bg-color); color: var(--global-text-color); font: inherit;
+}
+.output-atlas .catalogue-filters { margin: .55rem 0; }
+.output-atlas .catalogue-filters button { min-height: 44px; }
+.output-atlas .output-atlas-empty { color: var(--global-text-color-light); margin: .85rem 0; }
+.output-atlas .output-atlas-reset {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: .5rem .85rem; margin-bottom: .9rem;
+  background: transparent; color: var(--global-theme-color);
+  border: 1px solid var(--global-theme-color); border-radius: .15rem;
+  font: inherit; font-size: .85rem; cursor: pointer;
+}
+.output-atlas .catalogue-count { margin: .6rem 0 .75rem; }
+.output-atlas .output-grid { gap: .85rem; }
+.output-atlas .catalogue-footnote {
+  border-top: 1px solid var(--atlas-rule); padding-top: 1rem; margin-top: 2rem;
+}
+@media(max-width:699px) {
+  .output-atlas .output-atlas-hero { grid-template-columns: minmax(0,1fr); }
+  .output-atlas .output-atlas-featured-grid { grid-template-columns: minmax(0,1fr); }
+}
+@media(max-width:370px) {
+  .output-atlas .output-atlas-numbers { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media(prefers-reduced-motion:reduce) {
+  .output-atlas .research-output { transition: none; }
+}
