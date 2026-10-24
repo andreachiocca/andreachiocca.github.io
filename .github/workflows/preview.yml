@@ -89,6 +89,7 @@ jobs:
           python scripts/verify_site.py _site
           python scripts/verify_languages.py _site
           python scripts/verify_research_atlas.py _site
+          python scripts/verify_outputs_atlas.py _site
           python scripts/verify_preview.py _site "$SITE_ORIGIN"
 
       - name: Publish Cloudflare Pages branch preview
