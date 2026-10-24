@@ -234,6 +234,24 @@ def check_browser(root):
                             expect(evaluate("document.getElementById('nav-research').hidden"), 'outside click closes desktop submenu')
                         if width < 992:
                             evaluate("document.querySelector('.navbar-toggler').click()")
+            # Additional, page-scoped checks for bilingual Laboratory and equipment photos.
+            for width in (320, 375, 390, 768, 1280, 1920):
+                command('Emulation.setDeviceMetricsOverride', {'width': width, 'height': 900, 'deviceScaleFactor': 1, 'mobile': False})
+                for route in ('/laboratory/', '/it/laboratory/'):
+                    command('Page.navigate', {'url': origin + route})
+                    for _ in range(120):
+                        if evaluate("document.readyState === 'complete' && location.pathname === " + json.dumps(route)):
+                            break
+                        time.sleep(.1)
+                    expect(evaluate("document.querySelectorAll('[data-laboratory-id]').length === 10"), f'Laboratory equipment records at {width}px on {route}')
+                    expect(evaluate("document.documentElement.scrollWidth <= innerWidth + 2"), f'Laboratory horizontal overflow at {width}px on {route}')
+                    expect(evaluate("[...document.querySelectorAll('.laboratory-editorial img')].every(el=>{const r=el.getBoundingClientRect();return r.left>=-2&&r.right<=innerWidth+2;})"), f'Laboratory photographs fit at {width}px on {route}')
+                    expect(evaluate("[...document.querySelectorAll('.laboratory-quick-links a, .laboratory-collaboration .contact-link')].every(el=>el.getBoundingClientRect().height >= 44)"), f'Laboratory accessible targets at {width}px on {route}')
+                    expect(evaluate("document.querySelector('#schenck-axial-torsional').textContent.includes('700 bar')"), f'Laboratory pressure correct at {width}px on {route}')
+                    expect(evaluate("[...document.querySelectorAll('.laboratory-editorial img')].every(el=>el.alt.length>0&&el.width>0&&el.height>0)"), f'Laboratory images have alt and dimensions at {width}px on {route}')
+                    evaluate("document.documentElement.setAttribute('data-theme','dark')")
+                    expect(evaluate("getComputedStyle(document.querySelector('.laboratory-hero-figure')).backgroundColor !== 'rgba(0, 0, 0, 0)'"), f'Laboratory dark theme at {width}px on {route}')
+                    evaluate("document.documentElement.removeAttribute('data-theme')")
             # Scoped width coverage for the new Research page at phone and large desktop.
             for width in (320, 1920):
                 command('Emulation.setDeviceMetricsOverride', {'width': width, 'height': 900, 'deviceScaleFactor': 1, 'mobile': False})
@@ -297,6 +315,20 @@ def check_browser(root):
                     time.sleep(.1)
                 expect(evaluate("document.querySelectorAll('ol.bibliography > li').length > 0 && [...document.querySelectorAll('ol.bibliography > li')].every(el => !el.hidden)"), 'no-JavaScript bibliography visible on ' + route)
                 expect(evaluate("document.getElementById('bibsearch').hidden && document.getElementById('publication-type-filters').hidden"), 'no-JavaScript filters hidden on ' + route)
+            # The source-of-truth controls the photo count. Photo assignments
+            # can change when a machine is corrected or an asset is added.
+            laboratory_data = json.loads(Path('_data/laboratory.json').read_text(encoding='utf8'))
+            expected_laboratory_images = 1 + sum(bool(item.get(kind)) for item in laboratory_data['equipment'] for kind in ('image', 'secondary_image'))
+            for route in ('/laboratory/', '/it/laboratory/'):
+                command('Page.navigate', {'url': origin + route})
+                for _ in range(120):
+                    if evaluate("document.readyState === 'complete' && location.pathname === " + json.dumps(route)):
+                        break
+                    time.sleep(.1)
+                expect(evaluate("document.querySelectorAll('[data-laboratory-id]').length === 10"), 'Laboratory content present with scripts disabled on '+route)
+                expect(evaluate(f"document.querySelectorAll('.laboratory-editorial img[alt]').length === {expected_laboratory_images}"), 'Laboratory photographs match canonical data with scripts disabled on '+route)
+                expect(evaluate("document.querySelector('.laboratory-hero-copy strong') !== null"), 'Laboratory intro renders Markdown emphasis on '+route)
+                expect(evaluate("!document.querySelector('.laboratory-hero-copy').innerText.includes('<p class=')"), 'Laboratory intro does not expose HTML source on '+route)
             print(f'PASS: {checks} browser checks at 375, 390, 768 and 1280px, including thesis and laboratory pages, courses, navigation and catalogue controls' if not errors else f'Browser checks: {len(errors)} errors')
         except Exception as exc:
             errors.append('Browser check could not complete: ' + str(exc))

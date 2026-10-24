@@ -1,0 +1,43 @@
+{% assign resource = include.resource | localized_record: 'laboratory' %}
+<article class="laboratory-machine{% unless resource.image %} laboratory-machine--text-only{% endunless %}" id="{{ resource.id | escape }}" data-laboratory-id="{{ resource.id | escape }}" data-evidence-scope="{{ resource.evidence_scope | escape }}">
+  {% if resource.image %}
+  <div class="laboratory-machine-media">
+    {% assign photo_640 = resource.image.base | append: '-640.webp' | local_url | relative_url %}
+    {% assign photo_1280 = resource.image.base | append: '-1280.webp' | local_url | relative_url %}
+    <figure class="laboratory-machine-figure">
+      <picture>
+        <source type="image/webp" srcset="{{ photo_640 }} 640w, {{ photo_1280 }} 1280w" sizes="(max-width: 767px) 100vw, 40vw">
+        <img src="{{ photo_640 }}" alt="{{ resource.image_alt | escape }}" width="{{ resource.image.width }}" height="{{ resource.image.height }}" loading="lazy" decoding="async">
+      </picture>
+      <figcaption>{{ resource.image_caption | escape }}</figcaption>
+    </figure>
+    {% if resource.secondary_image %}
+      {% assign secondary_640 = resource.secondary_image.base | append: '-640.webp' | local_url | relative_url %}
+      {% assign secondary_1280 = resource.secondary_image.base | append: '-1280.webp' | local_url | relative_url %}
+      <figure class="laboratory-machine-figure laboratory-machine-figure--secondary">
+        <picture>
+          <source type="image/webp" srcset="{{ secondary_640 }} 640w, {{ secondary_1280 }} 1280w" sizes="(max-width: 767px) 100vw, 40vw">
+          <img src="{{ secondary_640 }}" alt="{{ resource.secondary_image_alt | escape }}" width="{{ resource.secondary_image.width }}" height="{{ resource.secondary_image.height }}" loading="lazy" decoding="async">
+        </picture>
+        <figcaption>{{ resource.secondary_image_caption | escape }}</figcaption>
+      </figure>
+    {% endif %}
+  </div>
+  {% endif %}
+  <div class="laboratory-machine-content">
+    <p class="laboratory-machine-kicker">{% case resource.evidence_scope %}{% when "historical" %}{{ "Historical equipment information" | t }}{% when "manufacturer" %}{{ "Manufacturer specification" | t }}{% else %}{{ "Experimental facilities" | t }}{% endcase %}</p>
+    <h3>{{ resource.title | escape }}</h3>
+    <p>{{ resource.description | escape }}</p>
+    {% if resource.specifications.size > 0 %}
+    <dl class="laboratory-specifications">
+      {% for spec in resource.specifications %}
+      <div class="laboratory-specification">
+        <dt>{{ spec.label | t }}</dt>
+        <dd>{{ spec.value | escape }}</dd>
+      </div>
+      {% endfor %}
+    </dl>
+    {% endif %}
+    {% if resource.status_note %}<p class="laboratory-machine-note">{{ resource.status_note | escape }}</p>{% endif %}
+  </div>
+</article>
