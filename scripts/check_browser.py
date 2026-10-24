@@ -170,7 +170,7 @@ def check_browser(root):
                             expect(evaluate("document.querySelectorAll('.research-output:not([hidden])').length === 0 && !document.getElementById('output-empty').hidden && !document.getElementById('output-reset').hidden"), 'catalogue empty-state and clear button')
                             evaluate("document.getElementById('output-reset').click()")
                             expect(evaluate("document.querySelectorAll('.research-output:not([hidden])').length === 14 && document.getElementById('output-search').value === '' && document.getElementById('output-empty').hidden"), 'catalogue clear restores all records')
-                            expect(evaluate("[...document.querySelectorAll('.output-atlas-feature a[href^="#"]')].every(a => document.getElementById(a.hash.slice(1)))"), 'featured catalogue links resolve')
+                            expect(evaluate("Array.from(document.querySelectorAll('.output-atlas-feature a')).every(a => a.getAttribute('href')?.startsWith('#') && document.getElementById(a.hash.slice(1)))"), 'featured catalogue links resolve')
                     if canonical_route == '/publications/' and width == 390:
                         expect(evaluate("document.querySelectorAll('[data-publication-filter]').length === 4 && !document.getElementById('publication-type-filters').hidden"), 'category publication filters initialized')
                         expect(evaluate("document.querySelector('[data-publication-filter=all]').getAttribute('aria-pressed') === 'true'"), 'publication All selected by default')
