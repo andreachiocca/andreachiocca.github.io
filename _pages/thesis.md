@@ -10,7 +10,7 @@ section: teaching
 
 {% locale thesis.intro %}Interested in understanding why materials and structures fail and how to improve predictions? Bachelor’s and master’s students in mechanical engineering and related disciplines can discuss a thesis combining **mechanics, simulations, programming or laboratory work**.{% endlocale %}
 
-{% locale thesis.scope %}Two specific projects, one computational and one experimental, are proposed alongside broader research directions. The thesis objectives will be agreed according to your background, interests and available research activities.{% endlocale %}
+{% locale thesis.scope %}Three computational and experimental thesis projects are proposed alongside broader research directions. The thesis objectives will be agreed according to your background, interests and available research activities.{% endlocale %}
 
 <section class="thesis-editorial thesis-editorial-banner">
 <div class="thesis-editorial-banner-copy">

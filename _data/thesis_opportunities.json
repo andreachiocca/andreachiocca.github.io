@@ -137,6 +137,25 @@
           "label": "Research context",
           "url": "/research/#multiaxial-fatigue-and-critical-plane-methods"
         }
+      ],
+      "tags": [
+        "Open source",
+        "Multiaxial fatigue",
+        "Python"
+      ],
+      "related_papers": [
+        {
+          "title": "An efficient algorithm for critical plane factors evaluation",
+          "year": 2023,
+          "doi": "10.1016/j.ijmecsci.2022.107974",
+          "url": "/publications/#Chiocca2023"
+        },
+        {
+          "title": "A closed-form solution for evaluating the Findley critical plane factor",
+          "year": 2024,
+          "doi": "10.1016/j.euromechsol.2024.105274",
+          "url": "/publications/#Chiocca2024a"
+        }
       ]
     },
     {
@@ -158,6 +177,67 @@
         {
           "label": "Related publication",
           "url": "/publications/#Fontana2023"
+        }
+      ],
+      "tags": [
+        "PCBA",
+        "Vibration testing",
+        "Component reliability"
+      ],
+      "related_papers": [
+        {
+          "title": "Numerical-experimental characterization of the dynamic behavior of PCB for the fatigue analysis of PCBa",
+          "year": 2023,
+          "doi": "10.1016/j.prostr.2023.07.043",
+          "url": "/publications/#Fontana2023"
+        },
+        {
+          "title": "Board-Level Vibration Failure Criteria for Printed Circuit Assemblies: An Experimental Approach",
+          "year": 2010,
+          "doi": "10.1109/TEPM.2010.2084092",
+          "url": "https://doi.org/10.1109/TEPM.2010.2084092"
+        }
+      ]
+    },
+    {
+      "id": "coated-lattice-fatigue",
+      "title": "Fatigue of lattice structures and effects of surface coating",
+      "mode": "Experimental and computational research · Thermal imaging",
+      "description": "Investigate the fatigue resistance of additively manufactured lattice structures and the effect of surface coating. The project combines experimental tests on coated and uncoated specimens with infrared thermography and the assessment of fatigue behaviour using available methods.",
+      "activities": "Design or selection of lattice specimens; coating and specimen preparation; static and cyclic tests; infrared thermal measurements; comparison of fatigue results and failure mechanisms.",
+      "image": "/assets/img/thesis/lattice-thermal-imaging.webp",
+      "image_width": 825,
+      "image_height": 590,
+      "image_original": "/assets/img/thesis/lattice-thermal-imaging-original.gif",
+      "image_alt": "Infrared image of a lattice specimen mounted in a test rig, showing temperature variation and a colour scale.",
+      "image_caption": "Thermal image of a lattice specimen during mechanical testing.",
+      "tags": [
+        "Lattice structures",
+        "Surface coating",
+        "Thermal imaging"
+      ],
+      "links": [
+        {
+          "label": "Experimental laboratory",
+          "url": "/laboratory/"
+        },
+        {
+          "label": "Related research",
+          "url": "/research/#component-testing-and-industrial-applications"
+        }
+      ],
+      "related_papers": [
+        {
+          "title": "Effects of coating on the fatigue endurance of FDM lattice structures",
+          "year": 2022,
+          "doi": "10.1016/j.prostr.2022.12.101",
+          "url": "/publications/#Chiocca2022a"
+        },
+        {
+          "title": "Strain-based method for fatigue failure prediction of additively manufactured lattice structures",
+          "year": 2023,
+          "doi": "10.1038/s41598-023-49846-z",
+          "url": "https://doi.org/10.1038/s41598-023-49846-z"
         }
       ]
     }

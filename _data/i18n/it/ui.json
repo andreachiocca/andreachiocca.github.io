@@ -144,7 +144,7 @@
   "Fork of": "Fork di",
   "Upstream authorship is retained.": "L’attribuzione agli autori del progetto originale è mantenuta.",
   "Mirror of": "Mirror di",
-  "Related publications": "Pubblicazioni collegate",
+  "Related publications": "Pubblicazioni correlate",
   "bibliography entry": "voce bibliografica",
   "Version DOI": "DOI della versione",
   "All versions": "Tutte le versioni",
@@ -314,5 +314,15 @@
   "Related publication": "Pubblicazione correlata",
   "Research-led thesis opportunities": "Opportunità di tesi legate alla ricerca",
   "Numerical methods, experimental mechanics and structural integrity": "Metodi numerici, meccanica sperimentale e integrità strutturale",
-  "Conceptual illustration of a robotic inspection arm beside a lattice structure": "Illustrazione concettuale di un braccio robotico di ispezione accanto a una struttura reticolare"
+  "Conceptual illustration of a robotic inspection arm beside a lattice structure": "Illustrazione concettuale di un braccio robotico di ispezione accanto a una struttura reticolare",
+  "View original thermal image": "Apri l'immagine termografica originale",
+  "Open source": "Open source",
+  "Multiaxial fatigue": "Fatica multiassiale",
+  "Python": "Python",
+  "PCBA": "PCBA",
+  "Vibration testing": "Prove vibrazionali",
+  "Component reliability": "Affidabilità dei componenti",
+  "Lattice structures": "Strutture reticolari",
+  "Surface coating": "Rivestimenti superficiali",
+  "Thermal imaging": "Termografia"
 }

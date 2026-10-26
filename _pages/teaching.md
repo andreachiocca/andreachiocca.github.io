@@ -20,7 +20,7 @@ nav_order: 4
 </nav>
 </section>
 
-<section class="collaboration-panel teaching-editorial" aria-labelledby="teaching-thesis-title"><h2 id="teaching-thesis-title"><i class="far fa-lightbulb section-icon" aria-hidden="true"></i>{{ "Looking for a thesis topic?" | t }}</h2>{% locale teaching.thesis %}<p>Two specific thesis projects are available for discussion, covering open-source implementation of multiaxial fatigue methods and vibration testing of capacitor assemblies. Other research directions remain open for exploration.</p>{% endlocale %}<a class="contact-link" href="{{ '/thesis/' | local_url | relative_url }}">{{ "Explore thesis opportunities" | t }} <span aria-hidden="true">→</span></a></section>
+<section class="collaboration-panel teaching-editorial" aria-labelledby="teaching-thesis-title"><h2 id="teaching-thesis-title"><i class="far fa-lightbulb section-icon" aria-hidden="true"></i>{{ "Looking for a thesis topic?" | t }}</h2>{% locale teaching.thesis %}<p>Three thesis projects are available for discussion, covering open-source multiaxial fatigue methods, vibration testing of capacitor assemblies and the fatigue behaviour of coated lattice structures. Other research directions remain open for exploration.</p>{% endlocale %}<a class="contact-link" href="{{ '/thesis/' | local_url | relative_url }}">{{ "Explore thesis opportunities" | t }} <span aria-hidden="true">→</span></a></section>
 
 <h2 id="recent-teaching">{{ "Recent teaching" | t }}</h2>
 
