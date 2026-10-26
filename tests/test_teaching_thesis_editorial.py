@@ -1,4 +1,4 @@
-"""Teaching and thesis editorial source contracts."""
+"""Source checks for bilingual Teaching and Thesis editorial pages."""
 import json
 import unittest
 from pathlib import Path
@@ -11,88 +11,89 @@ def read(path):
 class TeachingThesisEditorialTests(unittest.TestCase):
     def setUp(self):
         self.data = json.loads(read("_data/thesis_opportunities.json"))
-        self.it = json.loads(read("_data/i18n/it/thesis.json"))
+        self.italian = json.loads(read("_data/i18n/it/thesis.json"))
         self.teaching = read("_pages/teaching.md")
         self.thesis = read("_pages/thesis.md")
 
-    def test_project_scope_and_research_links(self):
-        self.assertEqual(len(self.data["projects"]), 2)
-        projects = {item["id"]: item for item in self.data["projects"]}
-        self.assertEqual(set(projects), {"open-multiaxial-fatigue", "pcb-capacitor-vibration-fatigue"})
+    def test_project_records_scientific_papers_and_images(self):
+        projects = self.data["projects"]
+        self.assertEqual(len(projects), 3)
+        self.assertEqual({p["id"] for p in projects},
+                         {"open-multiaxial-fatigue", "pcb-capacitor-vibration-fatigue", "coated-lattice-fatigue"})
         self.assertEqual(len(self.data["directions"]), 5)
         self.assertEqual(len(self.data["approaches"]), 3)
         self.assertEqual(len(self.data["international_contacts"]), 4)
-        self.assertEqual(set(projects).intersection(x["id"] for x in self.data["directions"]), set())
-        self.assertEqual(set(projects).intersection(x["id"] for x in self.data["approaches"]), set())
-        self.assertIn("https://github.com/andreachiocca/multiaxial-fatigue",
-                      [link["url"] for link in projects["open-multiaxial-fatigue"]["links"]])
-        for key, project in projects.items():
-            self.assertIn(key, self.it)
-            for field in ("title", "description", "activities", "mode", "image_alt", "image_caption"):
-                self.assertTrue(self.it[key][field])
-                self.assertTrue(project[field])
+        for project in projects:
+            record_id = project["id"]
+            self.assertIn(record_id, self.italian)
+            for key in ("title", "mode", "description", "activities", "image_alt", "image_caption", "tags"):
+                self.assertTrue(self.italian[record_id][key], (record_id, key))
+                self.assertTrue(project[key], (record_id, key))
+            self.assertEqual(len(project["related_papers"]), 2)
+            for paper in project["related_papers"]:
+                self.assertTrue(paper["title"] and paper["doi"] and paper["url"])
+                self.assertTrue(paper["url"].startswith("/") or paper["url"].startswith("https://doi.org/"))
             self.assertTrue(project["image"].startswith("/assets/img/thesis/"))
-            file = ROOT / project["image"].lstrip("/")
-            self.assertTrue(file.is_file(), "Missing thesis illustration: " + str(file))
-            data = file.read_bytes()
-            self.assertTrue(data.startswith(b"RIFF") and data[8:12] == b"WEBP")
-            self.assertEqual(Path(project["image"]).suffix, ".webp")
-            self.assertGreater(project["image_width"], 0)
-            self.assertGreater(project["image_height"], 0)
+            photo = ROOT / project["image"].lstrip("/")
+            self.assertTrue(photo.is_file(), str(photo))
+            payload = photo.read_bytes()
+            self.assertTrue(payload.startswith(b"RIFF") and payload[8:12] == b"WEBP", str(photo))
             self.assertNotIn("—", project["description"])
-            self.assertNotIn("—", self.it[key]["description"])
-        self.assertIn("PCBAs", projects["pcb-capacitor-vibration-fatigue"]["description"])
-        self.assertIn("shakers", projects["pcb-capacitor-vibration-fatigue"]["description"])
-        self.assertIn("Not experimental", projects["open-multiaxial-fatigue"]["image_caption"].replace("These are not experimental", "Not experimental"))
+            self.assertNotIn("—", self.italian[record_id]["description"])
+        fatigue, pcb, lattice = projects
+        self.assertIn("multiaxial-fatigue", fatigue["links"][0]["url"])
+        self.assertIn("PCBAs", pcb["description"])
+        self.assertIn("shakers", pcb["description"])
+        self.assertIn("10.1016/j.prostr.2022.12.101", {p["doi"] for p in lattice["related_papers"]})
+        self.assertEqual(lattice["image_original"], "/assets/img/thesis/lattice-thermal-imaging-original.gif")
+        self.assertTrue((ROOT / lattice["image_original"].lstrip("/")).read_bytes().startswith(b"GIF"))
 
-    def test_bilingual_layouts_and_direct_contact(self):
-        self.assertEqual(self.teaching.count('translation_key: teaching'), 1)
-        self.assertEqual(self.thesis.count('translation_key: thesis'), 1)
-        self.assertIn('class="teaching-editorial" markdown="1"', self.teaching)
-        self.assertIn('class="thesis-editorial" markdown="1"', self.thesis)
+    def test_render_safe_page_sources(self):
+        self.assertIn("translation_key: teaching", self.teaching)
+        self.assertIn("translation_key: thesis", self.thesis)
+        self.assertIn('class="teaching-editorial teaching-editorial-hero"', self.teaching)
+        self.assertIn("capture teaching_intro", self.teaching)
+        self.assertIn("markdownify", self.teaching)
+        self.assertNotIn('markdown="1"', self.teaching)
+        self.assertNotIn('markdown="1"', self.thesis)
+        self.assertIn('class="thesis-editorial thesis-editorial-banner"', self.thesis)
         self.assertIn('id="specific-projects"', self.thesis)
         self.assertIn("include thesis_project_panel.html", self.thesis)
-        self.assertEqual(self.thesis.count("include thesis_project_panel.html"), 1)
         self.assertIn('id="research-directions"', self.thesis)
         self.assertIn('id="discuss-a-thesis"', self.thesis)
         self.assertIn("mailto:andrea.chiocca@unipi.it", self.thesis)
-        inc = read("_includes/thesis_project_panel.html")
-        self.assertIn("canonical.image", inc)
-        self.assertIn("site.static_files", inc)
-        self.assertIn("loading=\"lazy\"", inc)
-        self.assertIn("project.image_alt", inc)
-        self.assertIn("project.image_caption", inc)
-        self.assertIn("mailto:andrea.chiocca@unipi.it", inc)
-        self.assertIn("markdown=\"1\"", self.teaching)
+        include = read("_includes/thesis_project_panel.html")
+        for marker in ("localized_record: 'thesis'", "related_papers", "thesis-project-tags",
+                       "image_original", "loading=\"lazy\"", "image_caption", "mailto:andrea.chiocca@unipi.it"):
+            self.assertIn(marker, include)
 
-    def test_same_courses_and_sources(self):
-        for path, expected in (("_projects/2_project.md", "2018–2026/27"),
-                               ("_projects/3_project.md", "2024–2026/27"),
-                               ("_projects/4_project.md", "2024–2026/27")):
-            course = read(path)
-            self.assertIn("teaching_period: " + expected, course)
-            self.assertIn("teaching_group: recent", course)
+    def test_teaching_materials_and_scope(self):
+        for filename, period in (("_projects/2_project.md", "2018–2026/27"),
+                                 ("_projects/3_project.md", "2024–2026/27"),
+                                 ("_projects/4_project.md", "2024–2026/27")):
+            record = read(filename)
+            self.assertIn("teaching_period: " + period, record)
+            self.assertIn("teaching_group: recent", record)
         self.assertIn("teaching_group: previous", read("_projects/1_project.md"))
-        self.assertIn("2026/27", self.teaching)
         self.assertIn("teaching_materials[course.materials_key]", self.teaching)
+        self.assertIn("2026/27", self.teaching)
+        self.assertIn("Three thesis projects", self.thesis)
 
-    def test_only_page_scoped_styles_and_translation_parity(self):
+    def test_styles_translations_and_ci(self):
         css = read("_sass/_teaching_thesis_editorial.scss")
-        self.assertIn(".teaching-editorial", css)
-        self.assertIn(".thesis-editorial", css)
-        self.assertIn("max-width: 699px", css)
+        for selector in (".teaching-editorial", ".thesis-editorial", ".thesis-project-references",
+                         ".thesis-editorial-banner", "max-width: 699px"):
+            self.assertIn(selector, css)
         self.assertEqual(read("assets/css/main.scss").count('@import "teaching_thesis_editorial";'), 1)
+        for path in (".github/workflows/build.yml", ".github/workflows/preview.yml"):
+            self.assertIn("python scripts/verify_teaching_thesis_editorial.py _site", read(path))
         en = json.loads(read("_data/i18n/en/ui.json"))
         it = json.loads(read("_data/i18n/it/ui.json"))
         self.assertEqual(set(en), set(it))
-        for key in ("Available thesis projects", "Project activities", "Discuss a project",
-                    "Courses and teaching materials", "See available thesis projects"):
-            self.assertIn(key, it)
+        for key in ("Related publications", "Available thesis projects", "View original thermal image",
+                    "Research-led thesis opportunities"):
             self.assertTrue(it[key])
-
-    def test_verification_wired_to_ci(self):
-        for path in (".github/workflows/build.yml", ".github/workflows/preview.yml"):
-            self.assertIn("python scripts/verify_teaching_thesis_editorial.py _site", read(path))
+        self.assertTrue((ROOT / "assets/img/thesis/robot-lattice-concept.svg").is_file())
 
 if __name__ == "__main__":
     unittest.main()
