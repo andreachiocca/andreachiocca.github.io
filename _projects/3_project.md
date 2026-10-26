@@ -6,7 +6,7 @@ layout: page
 title: Laboratorio di progettazione assistita
 description: TECNICHE PER LA MECCANICA E LA PRODUZIONE - 2167Z
 img: assets/img/FEM_3.jpg
-teaching_period: 2024–present
+teaching_period: 2024–2026/27
 teaching_role: Co-teaching; 24 lecture hours
 importance: 3
 category: 
