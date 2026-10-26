@@ -1,0 +1,29 @@
+{% assign project = include.project | localized_record: 'thesis' %}
+{% assign canonical = include.project %}
+<article class="thesis-project-panel" id="{{ canonical.id | escape }}" aria-labelledby="{{ canonical.id | escape }}-title">
+  <header class="thesis-project-head">
+    <p class="thesis-project-number">0{{ include.ordinal }} / {{ project.mode | escape }}</p>
+    <h3 id="{{ canonical.id | escape }}-title">{{ project.title | escape }}</h3>
+    <p>{{ project.description | escape }}</p>
+  </header>
+  {% if canonical.image %}
+    {% assign matching_image = site.static_files | where: 'path', canonical.image | first %}
+    {% if matching_image %}
+      <figure class="thesis-project-figure">
+        <a href="{{ canonical.image | local_url | relative_url }}" aria-label="{{ project.image_alt | escape }}">
+          <img src="{{ canonical.image | local_url | relative_url }}" alt="{{ project.image_alt | escape }}" width="{{ canonical.image_width }}" height="{{ canonical.image_height }}" loading="lazy" decoding="async">
+        </a>
+        <figcaption>{{ project.image_caption | escape }}</figcaption>
+      </figure>
+    {% endif %}
+  {% endif %}
+  <div class="thesis-project-bottom">
+    <p class="thesis-project-activities"><strong>{{ 'Project activities' | t }}</strong> {{ project.activities | escape }}</p>
+    {% if project.links.size > 0 %}
+      <ul class="thesis-project-links" aria-label="{{ 'Project information' | t }}">
+      {% for link in project.links %}<li><a href="{{ link.url | local_url | relative_url }}">{{ link.label | t }}</a></li>{% endfor %}
+      </ul>
+    {% endif %}
+    <a class="thesis-project-contact" href="mailto:andrea.chiocca@unipi.it?subject=Thesis%20project%20enquiry">{{ 'Discuss a project' | t }} <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
