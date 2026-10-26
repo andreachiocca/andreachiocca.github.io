@@ -126,3 +126,43 @@ jobs:
           assert "10.1016/j.prostr.2022.12.101" in {z["doi"] for z in lattice["related_papers"]}
           assert lattice["image_original"]=="/assets/img/thesis/lattice-thermal-imaging-original.gif"
           PY
+      - name: Validate multiaxial WebP
+        if: success() || failure()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("assets/img/thesis/multiaxial-phase-comparison.webp")
+          assert p.is_file(),str(p)
+          b=p.read_bytes()
+          assert b.startswith(b'RIFF') and b[8:12] == b'WEBP',(str(p),b[:12])
+          PY
+      - name: Validate PCBA WebP
+        if: success() || failure()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("assets/img/thesis/pcb-bending-setup.webp")
+          assert p.is_file(),str(p)
+          b=p.read_bytes()
+          assert b.startswith(b'RIFF') and b[8:12] == b'WEBP',(str(p),b[:12])
+          PY
+      - name: Validate lattice WebP
+        if: success() || failure()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("assets/img/thesis/lattice-thermal-imaging.webp")
+          assert p.is_file(),str(p)
+          b=p.read_bytes()
+          assert b.startswith(b'RIFF') and b[8:12] == b'WEBP',(str(p),b[:12])
+          PY
+      - name: Validate thermal GIF
+        if: success() || failure()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("assets/img/thesis/lattice-thermal-imaging-original.gif")
+          assert p.is_file(),str(p)
+          b=p.read_bytes()
+          assert b.startswith(b'GIF'),(str(p),b[:12])
+          PY
