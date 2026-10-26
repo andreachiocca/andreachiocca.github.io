@@ -68,6 +68,8 @@ jobs:
         run: python scripts/verify_research_atlas.py _site
       - name: Verify Outputs Atlas generated pages
         run: python scripts/verify_outputs_atlas.py _site
+      - name: Verify Teaching and Thesis generated pages
+        run: python scripts/verify_teaching_thesis_editorial.py _site
 
       - name: Save website preview for review
         if: always() && github.event_name == 'pull_request' && steps.jekyll_build.outcome == 'success'

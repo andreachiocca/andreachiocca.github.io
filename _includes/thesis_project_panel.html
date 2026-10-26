@@ -1,0 +1,47 @@
+{% assign project = include.project | localized_record: 'thesis' %}
+{% assign canonical = include.project %}
+<article class="thesis-project-panel" id="{{ canonical.id | escape }}" aria-labelledby="{{ canonical.id | escape }}-title">
+  <header class="thesis-project-head">
+    <p class="thesis-project-number">0{{ include.ordinal }} / {{ project.mode | escape }}</p>
+    <h3 id="{{ canonical.id | escape }}-title">{{ project.title | escape }}</h3>
+    <p>{{ project.description | escape }}</p>
+    {% if project.tags.size > 0 %}
+    <ul class="thesis-project-tags" aria-label="{{ 'Research topics' | t }}">
+      {% for tag in project.tags %}<li>{{ tag | escape }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+  </header>
+  {% if canonical.image %}
+    {% assign matching_image = site.static_files | where: 'path', canonical.image | first %}
+    {% if matching_image %}
+      <figure class="thesis-project-figure">
+        <a href="{{ canonical.image | local_url | relative_url }}" aria-label="{{ project.image_alt | escape }}">
+          <img src="{{ canonical.image | local_url | relative_url }}" alt="{{ project.image_alt | escape }}" width="{{ canonical.image_width }}" height="{{ canonical.image_height }}" loading="lazy" decoding="async">
+        </a>
+        <figcaption>{{ project.image_caption | escape }}</figcaption>
+        {% if canonical.image_original %}
+        <p class="thesis-project-original"><a href="{{ canonical.image_original | local_url | relative_url }}">{{ 'View original thermal image' | t }}</a></p>
+        {% endif %}
+      </figure>
+    {% endif %}
+  {% endif %}
+  <div class="thesis-project-bottom">
+    <p class="thesis-project-activities"><strong>{{ 'Project activities' | t }}</strong> {{ project.activities | escape }}</p>
+    {% if project.links.size > 0 %}
+      <ul class="thesis-project-links" aria-label="{{ 'Project information' | t }}">
+      {% for link in project.links %}<li><a href="{{ link.url | local_url | relative_url }}">{{ link.label | t }}</a></li>{% endfor %}
+      </ul>
+    {% endif %}
+    {% if canonical.related_papers.size > 0 %}
+    <section class="thesis-project-references" aria-label="{{ 'Related publications' | t }}">
+      <h4>{{ 'Related publications' | t }}</h4>
+      <ol>
+      {% for paper in canonical.related_papers %}
+        <li><a href="{{ paper.url | local_url | relative_url }}">{{ paper.title | escape }}</a> <span class="thesis-paper-year">({{ paper.year }})</span> <a class="thesis-paper-doi" href="https://doi.org/{{ paper.doi | escape }}" aria-label="DOI {{ paper.doi | escape }}">DOI</a></li>
+      {% endfor %}
+      </ol>
+    </section>
+    {% endif %}
+    <a class="thesis-project-contact" href="mailto:andrea.chiocca@unipi.it?subject=Thesis%20project%20enquiry">{{ 'Discuss a project' | t }} <span aria-hidden="true">↗</span></a>
+  </div>
+</article>

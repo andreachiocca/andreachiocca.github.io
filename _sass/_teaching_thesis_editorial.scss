@@ -1,0 +1,150 @@
+// Phase 7. Scoped Teaching and Thesis editorial layouts.
+.teaching-editorial, .thesis-editorial {
+  --student-rule: var(--global-divider-color);
+  --student-accent: var(--editorial-teal);
+  min-width: 0;
+  margin-top: .75rem;
+}
+.teaching-editorial .editorial-index, .thesis-editorial .editorial-index {
+  font: 500 .76rem/1.5 ui-monospace, Consolas, monospace;
+  letter-spacing: .035em;
+  color: var(--student-accent);
+  margin: 0 0 .65rem;
+}
+.teaching-editorial.teaching-editorial-hero {
+  padding: clamp(1.15rem,3.5vw,2rem);
+  border: 1px solid var(--student-rule);
+  border-top: 3px solid var(--student-accent);
+  background: linear-gradient(145deg,var(--editorial-surface),var(--global-bg-color));
+  margin-bottom: 2rem;
+}
+.teaching-editorial.teaching-editorial-hero h2 {
+  margin: 0 0 1rem;
+  border: 0;
+  padding: 0;
+  font: 500 clamp(1.4rem,3vw,1.85rem)/1.25 ui-monospace, Consolas, monospace;
+  color: var(--editorial-navy);
+}
+.teaching-editorial.teaching-editorial-hero h2::before { content: none !important; }
+.teaching-editorial.teaching-editorial-hero > p:not(.editorial-index) {
+  font-size: .96rem;
+  line-height: 1.7;
+  max-width: 66ch;
+}
+.teaching-editorial .teaching-editorial-links { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
+.teaching-editorial .teaching-editorial-links a, .thesis-editorial .thesis-project-contact {
+  display: inline-flex; align-items: center; min-height: 44px;
+  gap: .35rem; font-weight: 600; font-size: .9rem;
+  text-decoration: underline; text-underline-offset: .2em;
+}
+.teaching-editorial h2#recent-teaching { scroll-margin-top: var(--navigation-offset, 80px); }
+.teaching-editorial.teaching-editorial-course-grid {
+  display: grid; grid-template-columns: repeat(2,minmax(0,1fr));
+  align-items: stretch; gap: .85rem; margin: 1rem 0 1.8rem;
+}
+.teaching-editorial .course-summary {
+  min-width: 0; padding: 1.2rem;
+  border: 1px solid var(--student-rule); border-left: 3px solid var(--editorial-blue);
+}
+.teaching-editorial .course-summary:nth-child(even) { border-left-color: var(--editorial-teal); }
+.teaching-editorial .course-summary h3 { font-size: 1.1rem; line-height: 1.35; }
+.teaching-editorial .course-summary a { overflow-wrap: anywhere; }
+.teaching-editorial .course-summary p { font-size: .9rem; }
+.teaching-editorial.collaboration-panel {
+  border-left: 3px solid var(--student-accent);
+  background: var(--editorial-surface); padding: 1rem 1.2rem;
+}
+.thesis-editorial .page-paths { margin: 1.5rem 0 1.5rem; }
+.thesis-editorial .page-paths a { min-height: 44px; }
+.thesis-editorial#specific-projects { scroll-margin-top: var(--navigation-offset,80px); }
+.thesis-editorial.thesis-editorial-projects {
+  border-top: 1px solid var(--student-rule);
+  padding-top: 1.7rem; margin-top: 1.7rem;
+}
+.thesis-editorial.thesis-editorial-projects > h2 {
+  font: 500 clamp(1.4rem,3vw,1.85rem)/1.3 ui-monospace, Consolas, monospace;
+  margin: .1rem 0 1.25rem; border: 0; padding: 0;
+  color: var(--editorial-navy);
+}
+.thesis-editorial.thesis-editorial-projects > h2::before { content: none !important; }
+.thesis-editorial .thesis-editorial-project-list { display: grid; grid-template-columns: minmax(0,1fr); gap: 1.25rem; }
+.thesis-editorial .thesis-project-panel {
+  min-width: 0; border: 1px solid var(--student-rule);
+  border-top: 3px solid var(--editorial-blue);
+  background: var(--global-bg-color);
+  scroll-margin-top: var(--navigation-offset,80px);
+}
+.thesis-editorial .thesis-project-panel:nth-child(2) { border-top-color: var(--editorial-teal); }
+.thesis-editorial .thesis-project-head, .thesis-editorial .thesis-project-bottom {
+  padding: clamp(1rem,2.5vw,1.5rem);
+}
+.thesis-editorial .thesis-project-number {
+  font: 500 .76rem/1.5 ui-monospace, Consolas, monospace;
+  color: var(--student-accent); margin-bottom: .7rem;
+}
+.thesis-editorial .thesis-project-head h3 {
+  font: 500 clamp(1.2rem,2.5vw,1.55rem)/1.35 ui-monospace, Consolas, monospace;
+  margin: 0 0 .9rem; color: var(--editorial-navy);
+}
+.thesis-editorial .thesis-project-head > p:last-child { margin-bottom: 0; line-height: 1.7; }
+.thesis-editorial .thesis-project-figure { padding: 0; margin: 0; border-block: 1px solid var(--student-rule); background: var(--editorial-surface); }
+.thesis-editorial .thesis-project-figure img {
+  display: block; width: 100%; height: auto; max-height: 420px;
+  object-fit: contain; background: var(--editorial-surface);
+}
+.thesis-editorial .thesis-project-figure figcaption {
+  font-size: .8rem; line-height: 1.6;
+  padding: .55rem 1rem; color: var(--global-text-color-light);
+}
+.thesis-editorial .thesis-project-bottom { border-top: 1px solid var(--student-rule); }
+.thesis-editorial .thesis-project-activities { font-size: .91rem; line-height: 1.7; }
+.thesis-editorial .thesis-project-activities strong { display: block; color: var(--editorial-navy); margin-bottom: .3rem; }
+.thesis-editorial .thesis-project-links {
+  display: flex; flex-wrap: wrap; gap: .25rem 1rem;
+  list-style: none; padding: 0; margin: .6rem 0;
+}
+.thesis-editorial .thesis-project-links a { display: inline-flex; align-items: center; min-height: 44px; font-size: .88rem; }
+.thesis-editorial .thesis-project-contact { margin-top: .4rem; }
+.thesis-editorial #research-directions { scroll-margin-top: var(--navigation-offset,80px); }
+.thesis-editorial .thesis-topics { margin-top: 1rem; }
+.thesis-editorial .thesis-topics .feature-card { border-radius: .15rem; border-top: 2px solid var(--editorial-blue); }
+.thesis-editorial#discuss-a-thesis { background: var(--editorial-surface); padding: 1.25rem; }
+@media (max-width: 699px) {
+  .teaching-editorial.teaching-editorial-course-grid { grid-template-columns: minmax(0,1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .thesis-editorial .thesis-project-panel, .teaching-editorial .course-summary { transition: none; }
+}
+
+.teaching-editorial .teaching-editorial-description p { font-size: .95rem; line-height: 1.7; }
+.teaching-editorial .teaching-editorial-description p:last-child { margin-bottom: 1rem; }
+.thesis-editorial.thesis-editorial-banner { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: center; gap: 1.25rem; padding: clamp(1.1rem,3vw,1.75rem); background: var(--editorial-surface); border: 1px solid var(--student-rule); border-top: 3px solid var(--student-accent); margin: 1.5rem 0; }
+.thesis-editorial .thesis-editorial-banner-copy h2 { font: 500 clamp(1.25rem,2.7vw,1.7rem)/1.3 ui-monospace,Consolas,monospace; color:var(--editorial-navy); border:0; padding:0; margin:.25rem 0 .85rem; }
+.thesis-editorial .thesis-editorial-banner-copy h2::before {content:none!important}
+.thesis-editorial .thesis-editorial-banner-copy > p:not(.editorial-index) {font-size:.94rem;line-height:1.65}
+.thesis-editorial .thesis-editorial-banner-copy a {display:inline-flex;align-items:center;min-height:44px;font-size:.88rem;font-weight:600;text-decoration:underline;text-underline-offset:.2em}
+.thesis-editorial .thesis-editorial-banner-illustration {margin:0;min-width:0}
+.thesis-editorial .thesis-editorial-banner-illustration img {display:block;width:100%;height:auto;border-radius:.2rem}
+@media(max-width:699px){.thesis-editorial.thesis-editorial-banner{grid-template-columns:minmax(0,1fr)}}
+
+/* Compact research project panels with illustrated specimen and reference list. */
+.thesis-editorial .thesis-project-panel { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(0,1fr); grid-template-areas:"intro media" "details details"; overflow: hidden; }
+.thesis-editorial .thesis-project-head { grid-area:intro; }
+.thesis-editorial .thesis-project-figure { grid-area:media; display:flex; flex-direction:column; justify-content:center; border-block:0; border-left:1px solid var(--student-rule); }
+.thesis-editorial .thesis-project-figure img { max-height: 295px; aspect-ratio: 825 / 590; object-fit:contain; }
+.thesis-editorial .thesis-project-bottom { grid-area:details; }
+.thesis-editorial .thesis-project-tags { list-style:none; padding:0; margin:.95rem 0 0; display:flex; gap:.35rem; flex-wrap:wrap; }
+.thesis-editorial .thesis-project-tags li { background:var(--editorial-surface); border:1px solid var(--student-rule); border-radius:1rem; padding:.22rem .65rem; font-size:.75rem; line-height:1.5; color:var(--global-text-color); }
+.thesis-editorial .thesis-project-original { margin:0; padding:.45rem .95rem .75rem; font-size:.78rem; }
+.thesis-editorial .thesis-project-references { margin:1rem 0 .45rem; border-top:1px solid var(--student-rule); padding-top:1rem; }
+.thesis-editorial .thesis-project-references h4 { font:600 .88rem/1.4 ui-monospace,Consolas,monospace; margin:0 0 .65rem; color:var(--editorial-navy); }
+.thesis-editorial .thesis-project-references ol { margin:0; padding-left:1.2rem; }
+.thesis-editorial .thesis-project-references li { margin:0 0 .65rem; font-size:.85rem; line-height:1.55; }
+.thesis-editorial .thesis-project-references li > a:first-child { text-decoration:underline; text-underline-offset:.15em; }
+.thesis-editorial .thesis-paper-doi { font:600 .72rem ui-monospace,Consolas,monospace; margin-left:.45rem; }
+.thesis-editorial .thesis-project-references .thesis-paper-year { white-space:nowrap; color:var(--global-text-color-light); }
+@media(max-width:699px){
+.thesis-editorial .thesis-project-panel { grid-template-columns:minmax(0,1fr); grid-template-areas:"intro" "media" "details"; }
+.thesis-editorial .thesis-project-figure { border-left:0; border-block:1px solid var(--student-rule); }
+.thesis-editorial .thesis-project-figure img { max-height:340px; }
+}
