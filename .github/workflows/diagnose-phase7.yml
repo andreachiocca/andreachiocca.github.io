@@ -1,0 +1,48 @@
+name: Diagnose Phase 7 Source Tests
+
+on:
+  push:
+    branches: ["fix/phase7-deployment-diagnostics"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnostics:
+    name: Isolated Python source tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.11'
+      - name: Set up notebook utilities
+        run: python -m pip install jupyter nbconvert
+      - name: Laboratory tests
+        if: success() || failure()
+        run: python -m unittest discover -s tests -p test_laboratory_editorial.py -v
+      - name: Outputs Atlas tests
+        if: success() || failure()
+        run: python -m unittest discover -s tests -p test_outputs_atlas.py -v
+      - name: Publications tests
+        if: success() || failure()
+        run: python -m unittest discover -s tests -p test_publications_index.py -v
+      - name: Research Atlas tests
+        if: success() || failure()
+        run: python -m unittest discover -s tests -p test_research_atlas.py -v
+      - name: Research Atlas feedback tests
+        if: success() || failure()
+        run: python -m unittest discover -s tests -p test_research_atlas_feedback.py -v
+      - name: Research catalogue tests
+        if: success() || failure()
+        run: python -m unittest discover -s tests -p test_research_catalogue.py -v
+      - name: Stress visualization tests
+        if: success() || failure()
+        run: python -m unittest discover -s tests -p test_stress_visual.py -v
+      - name: Teaching and Thesis tests
+        if: success() || failure()
+        run: python -m unittest discover -s tests -p test_teaching_thesis_editorial.py -v
