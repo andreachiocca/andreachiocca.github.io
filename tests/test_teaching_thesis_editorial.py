@@ -77,7 +77,7 @@ class TeachingThesisEditorialTests(unittest.TestCase):
         self.assertIn("teaching_group: previous", read("_projects/1_project.md"))
         self.assertIn("teaching_materials[course.materials_key]", self.teaching)
         self.assertIn("2026/27", self.teaching)
-        self.assertIn("Three thesis projects", self.thesis)
+        self.assertIn("Three computational and experimental thesis projects", self.thesis)
 
     def test_styles_translations_and_ci(self):
         css = read("_sass/_teaching_thesis_editorial.scss")
