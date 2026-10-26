@@ -12,12 +12,20 @@ section: teaching
 
 {% locale thesis.scope %}Two specific projects, one computational and one experimental, are proposed alongside broader research directions. The thesis objectives will be agreed according to your background, interests and available research activities.{% endlocale %}
 
-<div class="thesis-editorial" markdown="1">
+<section class="thesis-editorial thesis-editorial-banner">
+<div class="thesis-editorial-banner-copy">
 <p class="editorial-index">01 / {{ 'Thesis topics and projects' | t }}</p>
+<h2>{{ 'Research-led thesis opportunities' | t }}</h2>
+<p>{{ 'Numerical methods, experimental mechanics and structural integrity' | t }}</p>
+<a href="#specific-projects">{{ 'See available thesis projects' | t }} <span aria-hidden="true">↗</span></a>
+</div>
+<figure class="thesis-editorial-banner-illustration"><img src="{{ '/assets/img/thesis/robot-lattice-concept.svg' | local_url | relative_url }}" alt="{{ 'Conceptual illustration of a robotic inspection arm beside a lattice structure' | t }}" width="960" height="440" loading="eager" decoding="async"></figure>
+</section>
+
 <ul class="inline-links page-paths"><li><a href="#specific-projects">{{ "Specific thesis projects" | t }}</a></li><li><a href="#research-directions">{{ "Research topics" | t }}</a></li><li><a href="#ways-of-working">{{ "Ways of working" | t }}</a></li><li><a href="#italy-and-abroad">{{ "Italy and abroad" | t }}</a></li><li><a href="#discuss-a-thesis">{{ "Discuss a thesis" | t }}</a></li></ul>
 
 {% if site.data.thesis_opportunities.projects.size > 0 %}
-<section class="thesis-editorial-projects" id="specific-projects" aria-labelledby="thesis-projects-title">
+<section class="thesis-editorial thesis-editorial-projects" id="specific-projects" aria-labelledby="thesis-projects-title">
   <p class="editorial-index">02 / {{ 'Student projects' | t }}</p>
   <h2 id="thesis-projects-title">{{ 'Available thesis projects' | t }}</h2>
   <div class="thesis-editorial-project-list">
@@ -47,6 +55,5 @@ section: teaching
   {% locale thesis.conditions %}<p class="scope-note">These contacts do not imply permanently open or guaranteed placements. Any international thesis depends on project availability, agreement of potential supervisors, host-institution acceptance, academic requirements, and funding and mobility arrangements where relevant.</p>{% endlocale %}
 </section>
 
-<section id="discuss-a-thesis" class="collaboration-panel" aria-labelledby="thesis-contact-title"><h2 id="thesis-contact-title">{{ "Interested in one of these topics?" | t }}</h2>{% locale thesis.contact %}<p>Contact me directly by email with your degree programme, interests, relevant experience and expected timeframe. If one of the specific projects interests you, please mention its title.</p>{% endlocale %}<a class="contact-link" href="mailto:andrea.chiocca@unipi.it?subject=Thesis%20Opportunity%20Research%20Interest">andrea.chiocca@unipi.it</a></section>
+<section id="discuss-a-thesis" class="collaboration-panel thesis-editorial" aria-labelledby="thesis-contact-title"><h2 id="thesis-contact-title">{{ "Interested in one of these topics?" | t }}</h2>{% locale thesis.contact %}<p>Contact me directly by email with your degree programme, interests, relevant experience and expected timeframe. If one of the specific projects interests you, please mention its title.</p>{% endlocale %}<a class="contact-link" href="mailto:andrea.chiocca@unipi.it?subject=Thesis%20Opportunity%20Research%20Interest">andrea.chiocca@unipi.it</a></section>
 
-</div>
