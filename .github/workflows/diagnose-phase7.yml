@@ -46,3 +46,15 @@ jobs:
       - name: Teaching and Thesis tests
         if: success() || failure()
         run: python -m unittest discover -s tests -p test_teaching_thesis_editorial.py -v
+      - name: Phase 7 assertion - test_project_records_scientific_papers_and_images
+        if: success() || failure()
+        run: PYTHONPATH=tests python -m unittest test_teaching_thesis_editorial.TeachingThesisEditorialTests.test_project_records_scientific_papers_and_images -v
+      - name: Phase 7 assertion - test_render_safe_page_sources
+        if: success() || failure()
+        run: PYTHONPATH=tests python -m unittest test_teaching_thesis_editorial.TeachingThesisEditorialTests.test_render_safe_page_sources -v
+      - name: Phase 7 assertion - test_teaching_materials_and_scope
+        if: success() || failure()
+        run: PYTHONPATH=tests python -m unittest test_teaching_thesis_editorial.TeachingThesisEditorialTests.test_teaching_materials_and_scope -v
+      - name: Phase 7 assertion - test_styles_translations_and_ci
+        if: success() || failure()
+        run: PYTHONPATH=tests python -m unittest test_teaching_thesis_editorial.TeachingThesisEditorialTests.test_styles_translations_and_ci -v
