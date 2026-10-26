@@ -29,10 +29,31 @@ jobs:
           persist-credentials: false
 
       - name: Install image and document tools
+        shell: bash
         run: |
-          # Bound package-mirror stalls so CI reports a useful failure before job timeout.
-          sudo apt-get update -o Acquire::Retries=2 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20
-          sudo apt-get install -y -o Acquire::Retries=2 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 imagemagick webp pandoc
+          set -euo pipefail
+          # Hosted runners do not ship ImageMagick, cwebp and Pandoc together.
+          # Mirror stalls must not consume the entire job timeout.
+          options=(-o Acquire::Retries=0 -o Acquire::http::Timeout=15 -o Acquire::https::Timeout=15)
+          update_packages() {
+            timeout --kill-after=10s 120s sudo apt-get update "${options[@]}"
+          }
+          install_packages() {
+            timeout --kill-after=10s 180s sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y "${options[@]}" imagemagick webp pandoc
+          }
+          if ! update_packages || ! install_packages; then
+            echo "::warning::Default Ubuntu package mirror failed or timed out. Retrying against archive.ubuntu.com."
+            for source in /etc/apt/sources.list /etc/apt/sources.list.d/*.sources /etc/apt/sources.list.d/*.list; do
+              if [ -f "$source" ]; then
+                sudo sed -i 's|azure.archive.ubuntu.com|archive.ubuntu.com|g' "$source"
+              fi
+            done
+            update_packages
+            install_packages
+          fi
+          command -v convert
+          command -v cwebp
+          command -v pandoc
 
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
