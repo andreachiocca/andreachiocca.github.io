@@ -135,7 +135,7 @@
   "New resource; description awaiting review.": "Nuova risorsa, descrizione da verificare.",
   "Access": "Accesso",
   "Documentation": "Documentazione",
-  "Research context": "Contesto di ricerca",
+  "Research context": "Contesto della ricerca",
   "Record details": "Dettagli della risorsa",
   "Official title": "Titolo ufficiale",
   "Creators": "Autori",
@@ -308,5 +308,8 @@
   "See available thesis projects": "Consulta i progetti di tesi",
   "Browse teaching materials": "Consulta i materiali didattici",
   "Teaching at the University of Pisa": "Didattica all'Università di Pisa",
-  "Research topic catalogue": "Catalogo delle tematiche di ricerca"
+  "Research topic catalogue": "Catalogo delle tematiche di ricerca",
+  "Public GitHub repository": "Repository GitHub pubblico",
+  "Experimental laboratory": "Laboratorio sperimentale",
+  "Related publication": "Pubblicazione correlata"
 }
