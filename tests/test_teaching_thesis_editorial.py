@@ -52,8 +52,8 @@ class TeachingThesisEditorialTests(unittest.TestCase):
         self.assertIn("PCBAs", pcb["description"])
         self.assertIn("shakers", pcb["description"])
         self.assertIn("10.1016/j.prostr.2022.12.101", {p["doi"] for p in lattice["related_papers"]})
-        self.assertEqual(lattice["image_original"], "/assets/img/thesis/lattice-thermal-imaging-original.gif")
-        self.assertTrue((ROOT / lattice["image_original"].lstrip("/")).read_bytes().startswith(b"GIF"))
+        self.assertEqual(lattice["image_original"], "/assets/img/thesis/lattice-thermal-imaging-original.png")
+        self.assertTrue((ROOT / lattice["image_original"].lstrip("/")).read_bytes().startswith(b"\x89PNG\r\n\x1a\n"))
 
     def test_render_safe_page_sources(self):
         self.assertIn("translation_key: teaching", self.teaching)
