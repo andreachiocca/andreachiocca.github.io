@@ -1,0 +1,27 @@
+name: Cancel obsolete stalled Pages deployment
+on:
+  push:
+    branches: ["fix/phase7-deployment-diagnostics"]
+permissions:
+  actions: write
+  contents: read
+jobs:
+  unblock:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Cancel the older stuck production run only
+        env:
+          GH_TOKEN: ${{ github.token }}
+          STALE_RUN: "40332358177"
+          STALE_SHA: "2d744b1b5283a55929d192ba686e3533c083f889"
+        run: |
+          set -euo pipefail
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$STALE_RUN" > stale.json
+          jq -e --arg sha "$STALE_SHA" '.head_sha == $sha and .name == "Build and Deploy Jekyll (with plugins)"' stale.json > /dev/null
+          STATUS="$(jq -r .status stale.json)"
+          if [ "$STATUS" = "in_progress" ] || [ "$STATUS" = "queued" ]; then
+            gh api --method POST "repos/$GITHUB_REPOSITORY/actions/runs/$STALE_RUN/cancel"
+          else
+            echo "Obsolete deployment run is already $STATUS"
+          fi
