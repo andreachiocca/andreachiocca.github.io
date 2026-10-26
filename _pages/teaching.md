@@ -9,8 +9,8 @@ nav: true
 nav_order: 4
 ---
 
-<div class="teaching-editorial">
-  <section class="teaching-editorial-hero" aria-labelledby="teaching-editorial-title">
+<div class="teaching-editorial" markdown="1">
+  <section class="teaching-editorial-hero" markdown="1" aria-labelledby="teaching-editorial-title">
     <p class="editorial-index">01 / {{ 'Teaching at the University of Pisa' | t }}</p>
     <h2 id="teaching-editorial-title">{{ 'Courses and teaching materials' | t }}</h2>
     {% locale teaching.intro %}Find your course below for slides, notes, exercises and tutorials. These resources complement the [official course catalogue](https://unipi.coursecatalogue.cineca.it/) and [Engineering e-learning platform](https://elearn.ing.unipi.it/).{% endlocale %}

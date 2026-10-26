@@ -12,7 +12,7 @@ section: teaching
 
 {% locale thesis.scope %}Two specific projects, one computational and one experimental, are proposed alongside broader research directions. The thesis objectives will be agreed according to your background, interests and available research activities.{% endlocale %}
 
-<div class="thesis-editorial">
+<div class="thesis-editorial" markdown="1">
 <p class="editorial-index">01 / {{ 'Thesis topics and projects' | t }}</p>
 <ul class="inline-links page-paths"><li><a href="#specific-projects">{{ "Specific thesis projects" | t }}</a></li><li><a href="#research-directions">{{ "Research topics" | t }}</a></li><li><a href="#ways-of-working">{{ "Ways of working" | t }}</a></li><li><a href="#italy-and-abroad">{{ "Italy and abroad" | t }}</a></li><li><a href="#discuss-a-thesis">{{ "Discuss a thesis" | t }}</a></li></ul>
 
