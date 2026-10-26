@@ -29,7 +29,14 @@ class TeachingThesisEditorialTests(unittest.TestCase):
             for key in ("title", "mode", "description", "activities", "image_alt", "image_caption", "tags"):
                 self.assertTrue(self.italian[record_id][key], (record_id, key))
                 self.assertTrue(project[key], (record_id, key))
-            self.assertEqual(len(project["related_papers"]), 2)
+            self.assertEqual(
+                [paper["doi"].lower() for paper in project["related_papers"]],
+                {
+                    "open-multiaxial-fatigue": ["10.1016/j.ijmecsci.2022.107974",
+                                                "10.1016/j.euromechsol.2024.105274"],
+                    "pcb-capacitor-vibration-fatigue": ["10.1016/j.prostr.2023.07.043"],
+                    "coated-lattice-fatigue": ["10.1016/j.prostr.2022.12.101"],
+                }[record_id])
             for paper in project["related_papers"]:
                 self.assertTrue(paper["title"] and paper["doi"] and paper["url"])
                 self.assertTrue(paper["url"].startswith("/") or paper["url"].startswith("https://doi.org/"))
@@ -94,6 +101,19 @@ class TeachingThesisEditorialTests(unittest.TestCase):
                     "Research-led thesis opportunities"):
             self.assertTrue(it[key])
         self.assertTrue((ROOT / "assets/img/thesis/robot-lattice-concept.svg").is_file())
+        illustration = read("assets/img/thesis/robot-lattice-concept.svg")
+        self.assertIn("M100 350L175 265L300 296L394 169", illustration)
+        for marker in ('cx="100" cy="350"', 'cx="175" cy="265"', 'cx="300" cy="296"'):
+            self.assertIn(marker, illustration)
+        for removed in ("M385 170L429 140", "M449 168L482 165", "M482 175L515 175"):
+            self.assertNotIn(removed, illustration)
+        import re
+        entries = re.split(r"(?=@[A-Za-z]+\{)", read("_bibliography/PersonalPub.bib"))
+        for project in self.data["projects"]:
+            for paper in project["related_papers"]:
+                matches = [entry for entry in entries if paper["doi"].lower() in entry.lower()]
+                self.assertEqual(len(matches), 1, paper["doi"])
+                self.assertIn("Chiocca", matches[0])
 
 if __name__ == "__main__":
     unittest.main()

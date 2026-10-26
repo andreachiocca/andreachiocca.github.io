@@ -19,7 +19,7 @@ section: teaching
 <p>{{ 'Numerical methods, experimental mechanics and structural integrity' | t }}</p>
 <a href="#specific-projects">{{ 'See available thesis projects' | t }} <span aria-hidden="true">↗</span></a>
 </div>
-<figure class="thesis-editorial-banner-illustration"><img src="{{ '/assets/img/thesis/robot-lattice-concept.svg' | local_url | relative_url }}" alt="{{ 'Conceptual illustration of a robotic inspection arm beside a lattice structure' | t }}" width="960" height="440" loading="eager" decoding="async"></figure>
+<figure class="thesis-editorial-banner-illustration"><img src="{{ '/assets/img/thesis/robot-lattice-concept.svg' | local_url | relative_url }}" alt="{{ 'Simplified blue connected segments and teal circular markers beside a lattice structure' | t }}" width="960" height="440" loading="eager" decoding="async"></figure>
 </section>
 
 <ul class="inline-links page-paths"><li><a href="#specific-projects">{{ "Specific thesis projects" | t }}</a></li><li><a href="#research-directions">{{ "Research topics" | t }}</a></li><li><a href="#ways-of-working">{{ "Ways of working" | t }}</a></li><li><a href="#italy-and-abroad">{{ "Italy and abroad" | t }}</a></li><li><a href="#discuss-a-thesis">{{ "Discuss a thesis" | t }}</a></li></ul>
