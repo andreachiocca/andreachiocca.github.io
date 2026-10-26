@@ -11,11 +11,11 @@ nav_order: 4
 
 {% locale teaching.intro %}Find your course below for slides, notes, exercises and tutorials. These resources complement the [official course catalogue](https://unipi.coursecatalogue.cineca.it/) and [Engineering e-learning platform](https://elearn.ing.unipi.it/).{% endlocale %}
 
-<section class="collaboration-panel" aria-labelledby="teaching-thesis-title"><h2 id="teaching-thesis-title"><i class="far fa-lightbulb section-icon" aria-hidden="true"></i>{{ "Looking for a thesis topic?" | t }}</h2>{% locale teaching.thesis %}<p>Explore five research directions, from welded structures and multiaxial fatigue to polymers, PCB reliability and prospective AI applications. Choose numerical, experimental or combined work and discuss possibilities in Pisa or abroad.</p>{% endlocale %}<a class="contact-link" href="{{ '/thesis/' | local_url | relative_url }}">{{ "Explore thesis opportunities" | t }} <span aria-hidden="true">→</span></a></section>
+<section class="collaboration-panel" aria-labelledby="teaching-thesis-title"><h2 id="teaching-thesis-title"><i class="far fa-lightbulb section-icon" aria-hidden="true"></i>{{ "Looking for a thesis topic?" | t }}</h2>{% locale teaching.thesis %}<p>Two specific thesis projects are available for discussion, covering open-source implementation of multiaxial fatigue methods and vibration testing of capacitor assemblies. Other research directions remain open for exploration.</p>{% endlocale %}<a class="contact-link" href="{{ '/thesis/' | local_url | relative_url }}">{{ "Explore thesis opportunities" | t }} <span aria-hidden="true">→</span></a></section>
 
 ## {{ "Recent teaching" | t }}
 
-{% locale teaching.periods %}The latest documented teaching periods extend through 2026; current academic-year details are available through the university platforms.{% endlocale %}
+{% locale teaching.periods %}Teaching continues in the 2026/27 academic year with the same courses and roles as the preceding year. For current requirements and schedules, consult the official university platforms.{% endlocale %}
 
 {% assign courses = site.projects | sort: 'importance' %}
 {% for group in (1..2) %}

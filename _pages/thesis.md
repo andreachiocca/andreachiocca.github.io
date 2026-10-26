@@ -10,7 +10,7 @@ section: teaching
 
 {% locale thesis.intro %}Interested in understanding why materials and structures fail and how to improve predictions? Bachelor’s and master’s students in mechanical engineering and related disciplines can discuss a thesis combining **mechanics, simulations, programming or laboratory work**.{% endlocale %}
 
-{% locale thesis.scope %}These are research directions to develop together, rather than a list of current vacancies. The topic and scope will reflect your background, interests and the available projects.{% endlocale %}
+{% locale thesis.scope %}Two specific projects, one computational and one experimental, are proposed alongside broader research directions. The thesis objectives will be agreed according to your background, interests and available research activities.{% endlocale %}
 
 <ul class="inline-links page-paths"><li><a href="#research-directions">{{ "Research topics" | t }}</a></li><li><a href="#ways-of-working">{{ "Ways of working" | t }}</a></li><li><a href="#italy-and-abroad">{{ "Italy and abroad" | t }}</a></li><li><a href="#discuss-a-thesis">{{ "Discuss a thesis" | t }}</a></li></ul>
 
@@ -35,4 +35,4 @@ section: teaching
   {% locale thesis.conditions %}<p class="scope-note">These contacts do not imply permanently open or guaranteed placements. Any international thesis depends on project availability, agreement of potential supervisors, host-institution acceptance, academic requirements, and funding and mobility arrangements where relevant.</p>{% endlocale %}
 </section>
 
-<section id="discuss-a-thesis" class="collaboration-panel" aria-labelledby="thesis-contact-title"><h2 id="thesis-contact-title">{{ "Interested in one of these topics?" | t }}</h2>{% locale thesis.contact %}<p>Tell me about your degree programme, research interests, background, preferred type of work and possible timeframe. We can discuss suitable projects and whether work in Pisa or abroad is feasible.</p>{% endlocale %}<a class="contact-link" href="mailto:andrea.chiocca@unipi.it?subject=Thesis%20Opportunity%20Research%20Interest">andrea.chiocca@unipi.it</a></section>
+<section id="discuss-a-thesis" class="collaboration-panel" aria-labelledby="thesis-contact-title"><h2 id="thesis-contact-title">{{ "Interested in one of these topics?" | t }}</h2>{% locale thesis.contact %}<p>Contact me directly by email with your degree programme, interests, relevant experience and expected timeframe. If one of the specific projects interests you, please mention its title.</p>{% endlocale %}<a class="contact-link" href="mailto:andrea.chiocca@unipi.it?subject=Thesis%20Opportunity%20Research%20Interest">andrea.chiocca@unipi.it</a></section>
