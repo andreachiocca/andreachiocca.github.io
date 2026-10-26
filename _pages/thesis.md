@@ -12,8 +12,23 @@ section: teaching
 
 {% locale thesis.scope %}Two specific projects, one computational and one experimental, are proposed alongside broader research directions. The thesis objectives will be agreed according to your background, interests and available research activities.{% endlocale %}
 
-<ul class="inline-links page-paths"><li><a href="#research-directions">{{ "Research topics" | t }}</a></li><li><a href="#ways-of-working">{{ "Ways of working" | t }}</a></li><li><a href="#italy-and-abroad">{{ "Italy and abroad" | t }}</a></li><li><a href="#discuss-a-thesis">{{ "Discuss a thesis" | t }}</a></li></ul>
+<div class="thesis-editorial">
+<p class="editorial-index">01 / {{ 'Thesis topics and projects' | t }}</p>
+<ul class="inline-links page-paths"><li><a href="#specific-projects">{{ "Specific thesis projects" | t }}</a></li><li><a href="#research-directions">{{ "Research topics" | t }}</a></li><li><a href="#ways-of-working">{{ "Ways of working" | t }}</a></li><li><a href="#italy-and-abroad">{{ "Italy and abroad" | t }}</a></li><li><a href="#discuss-a-thesis">{{ "Discuss a thesis" | t }}</a></li></ul>
 
+{% if site.data.thesis_opportunities.projects.size > 0 %}
+<section class="thesis-editorial-projects" id="specific-projects" aria-labelledby="thesis-projects-title">
+  <p class="editorial-index">02 / {{ 'Student projects' | t }}</p>
+  <h2 id="thesis-projects-title">{{ 'Available thesis projects' | t }}</h2>
+  <div class="thesis-editorial-project-list">
+    {% for canonical_project in site.data.thesis_opportunities.projects %}
+      {% include thesis_project_panel.html project=canonical_project ordinal=forloop.index %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<p class="editorial-index">03 / {{ "Research topics" | t }}</p>
 <h2 id="research-directions">{{ "Explore a research direction" | t }}</h2>
 <div class="feature-grid thesis-topics">{% for canonical_resource in site.data.thesis_opportunities.directions %}{% include resource_card.html resource=canonical_resource group="thesis" kind="thesis-topic" %}{% endfor %}</div>
 
@@ -22,10 +37,7 @@ section: teaching
 <div class="approach-list">{% for canonical_approach in site.data.thesis_opportunities.approaches %}{% assign approach = canonical_approach | localized_record: 'thesis' %}<section class="approach"><h3>{{ approach.title }}</h3><p>{{ approach.description }}</p></section>{% endfor %}</div>
 <ul class="inline-links"><li><a href="{{ '/laboratory/' | local_url | relative_url }}">{{ "Explore experimental capabilities" | t }}</a></li><li><a href="{{ '/teaching/' | local_url | relative_url }}">{{ "Courses and materials" | t }}</a></li></ul>
 
-{% if site.data.thesis_opportunities.projects.size > 0 %}
-<h2 id="specific-projects">{{ "Specific thesis projects" | t }}</h2>
-<div class="feature-grid">{% for canonical_resource in site.data.thesis_opportunities.projects %}{% include resource_card.html resource=canonical_resource group="thesis" kind="thesis-project" %}{% endfor %}</div>
-{% endif %}
+
 
 <section class="opportunity-context" aria-labelledby="italy-and-abroad">
   <h2 id="italy-and-abroad">{{ "Thesis activities in Italy and abroad" | t }}</h2>
@@ -36,3 +48,5 @@ section: teaching
 </section>
 
 <section id="discuss-a-thesis" class="collaboration-panel" aria-labelledby="thesis-contact-title"><h2 id="thesis-contact-title">{{ "Interested in one of these topics?" | t }}</h2>{% locale thesis.contact %}<p>Contact me directly by email with your degree programme, interests, relevant experience and expected timeframe. If one of the specific projects interests you, please mention its title.</p>{% endlocale %}<a class="contact-link" href="mailto:andrea.chiocca@unipi.it?subject=Thesis%20Opportunity%20Research%20Interest">andrea.chiocca@unipi.it</a></section>
+
+</div>
