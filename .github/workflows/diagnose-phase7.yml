@@ -58,3 +58,71 @@ jobs:
       - name: Phase 7 assertion - test_styles_translations_and_ci
         if: success() || failure()
         run: PYTHONPATH=tests python -m unittest test_teaching_thesis_editorial.TeachingThesisEditorialTests.test_styles_translations_and_ci -v
+      - name: Thesis record counts and locale fields
+        if: success() || failure()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("_data/thesis_opportunities.json").read_text())
+          it=json.loads(Path("_data/i18n/it/thesis.json").read_text())
+          p=d["projects"]
+          assert len(p)==3 and len(d["directions"])==5 and len(d["approaches"])==3 and len(d["international_contacts"])==4
+          assert {x["id"] for x in p} == {"open-multiaxial-fatigue","pcb-capacitor-vibration-fatigue","coated-lattice-fatigue"}
+          for x in p:
+           assert x["id"] in it
+           for k in ("title","mode","description","activities","image_alt","image_caption","tags"):
+            assert it[x["id"]][k] and x[k]
+          PY
+      - name: Thesis related papers assertions
+        if: success() || failure()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("_data/thesis_opportunities.json").read_text())
+          it=json.loads(Path("_data/i18n/it/thesis.json").read_text())
+          p=d["projects"]
+          want={"open-multiaxial-fatigue":["10.1016/j.ijmecsci.2022.107974","10.1016/j.euromechsol.2024.105274"],"pcb-capacitor-vibration-fatigue":["10.1016/j.prostr.2023.07.043"],"coated-lattice-fatigue":["10.1016/j.prostr.2022.12.101"]}
+          for x in p:
+           assert [z["doi"].lower() for z in x["related_papers"]] == want[x["id"]]
+           for z in x["related_papers"]:
+            assert z["title"] and z["doi"] and z["url"]
+            assert z["url"].startswith("/") or z["url"].startswith("https://doi.org/")
+          PY
+      - name: Thesis binary image assertions
+        if: success() || failure()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("_data/thesis_opportunities.json").read_text())
+          it=json.loads(Path("_data/i18n/it/thesis.json").read_text())
+          p=d["projects"]
+          for x in p:
+           assert x["image"].startswith("/assets/img/thesis/")
+           path=Path(x["image"].lstrip("/"))
+           assert path.is_file(),str(path)
+           b=path.read_bytes()
+           assert b.startswith(b"RIFF") and b[8:12]==b"WEBP",str(path)
+          assert Path(p[2]["image_original"].lstrip("/")).read_bytes().startswith(b"GIF")
+          PY
+      - name: Thesis project-specific assertions
+        if: success() || failure()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("_data/thesis_opportunities.json").read_text())
+          it=json.loads(Path("_data/i18n/it/thesis.json").read_text())
+          p=d["projects"]
+          for x in p:
+           assert "—" not in x["description"]
+           assert "—" not in it[x["id"]]["description"]
+          fatigue,pcb,lattice=p
+          assert "multiaxial-fatigue" in fatigue["links"][0]["url"]
+          assert "PCBAs" in pcb["description"]
+          assert "shakers" in pcb["description"]
+          assert "10.1016/j.prostr.2022.12.101" in {z["doi"] for z in lattice["related_papers"]}
+          assert lattice["image_original"]=="/assets/img/thesis/lattice-thermal-imaging-original.gif"
+          PY
