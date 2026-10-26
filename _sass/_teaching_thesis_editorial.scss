@@ -126,3 +126,25 @@
 .thesis-editorial .thesis-editorial-banner-illustration {margin:0;min-width:0}
 .thesis-editorial .thesis-editorial-banner-illustration img {display:block;width:100%;height:auto;border-radius:.2rem}
 @media(max-width:699px){.thesis-editorial.thesis-editorial-banner{grid-template-columns:minmax(0,1fr)}}
+
+/* Compact research project panels with illustrated specimen and reference list. */
+.thesis-editorial .thesis-project-panel { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(0,1fr); grid-template-areas:"intro media" "details details"; overflow: hidden; }
+.thesis-editorial .thesis-project-head { grid-area:intro; }
+.thesis-editorial .thesis-project-figure { grid-area:media; display:flex; flex-direction:column; justify-content:center; border-block:0; border-left:1px solid var(--student-rule); }
+.thesis-editorial .thesis-project-figure img { max-height: 295px; aspect-ratio: 825 / 590; object-fit:contain; }
+.thesis-editorial .thesis-project-bottom { grid-area:details; }
+.thesis-editorial .thesis-project-tags { list-style:none; padding:0; margin:.95rem 0 0; display:flex; gap:.35rem; flex-wrap:wrap; }
+.thesis-editorial .thesis-project-tags li { background:var(--editorial-surface); border:1px solid var(--student-rule); border-radius:1rem; padding:.22rem .65rem; font-size:.75rem; line-height:1.5; color:var(--global-text-color); }
+.thesis-editorial .thesis-project-original { margin:0; padding:.45rem .95rem .75rem; font-size:.78rem; }
+.thesis-editorial .thesis-project-references { margin:1rem 0 .45rem; border-top:1px solid var(--student-rule); padding-top:1rem; }
+.thesis-editorial .thesis-project-references h4 { font:600 .88rem/1.4 ui-monospace,Consolas,monospace; margin:0 0 .65rem; color:var(--editorial-navy); }
+.thesis-editorial .thesis-project-references ol { margin:0; padding-left:1.2rem; }
+.thesis-editorial .thesis-project-references li { margin:0 0 .65rem; font-size:.85rem; line-height:1.55; }
+.thesis-editorial .thesis-project-references li > a:first-child { text-decoration:underline; text-underline-offset:.15em; }
+.thesis-editorial .thesis-paper-doi { font:600 .72rem ui-monospace,Consolas,monospace; margin-left:.45rem; }
+.thesis-editorial .thesis-project-references .thesis-paper-year { white-space:nowrap; color:var(--global-text-color-light); }
+@media(max-width:699px){
+.thesis-editorial .thesis-project-panel { grid-template-columns:minmax(0,1fr); grid-template-areas:"intro" "media" "details"; }
+.thesis-editorial .thesis-project-figure { border-left:0; border-block:1px solid var(--student-rule); }
+.thesis-editorial .thesis-project-figure img { max-height:340px; }
+}
