@@ -166,3 +166,15 @@ jobs:
           b=p.read_bytes()
           assert b.startswith(b'GIF'),(str(p),b[:12])
           PY
+      - name: Host has ImageMagick
+        if: success() || failure()
+        run: command -v convert
+      - name: Host has Pandoc
+        if: success() || failure()
+        run: command -v pandoc
+      - name: Host has cwebp
+        if: success() || failure()
+        run: command -v cwebp
+      - name: ImageMagick supports WebP
+        if: success() || failure()
+        run: convert -list format | grep -q WEBP
