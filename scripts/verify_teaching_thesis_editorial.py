@@ -81,8 +81,8 @@ def verify(root):
             for paper in project["related_papers"]:
                 if not any(paper["doi"] in href for href in doc.links):
                     raise ValueError(locale + ": missing publication DOI " + paper["doi"])
-        if not any("lattice-thermal-imaging-original.gif" in href for href in doc.links):
-            raise ValueError(locale + ": original thermal GIF link absent")
+        if not any("lattice-thermal-imaging-original.png" in href for href in doc.links):
+            raise ValueError(locale + ": original thermal PNG link absent")
         if not any("github.com/andreachiocca/multiaxial-fatigue" in href for href in doc.links):
             raise ValueError(locale + ": multiaxial repository link absent")
         if not any(href.startswith("mailto:andrea.chiocca@unipi.it") for href in doc.links):
