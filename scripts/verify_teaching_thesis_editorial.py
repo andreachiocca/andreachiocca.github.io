@@ -57,12 +57,12 @@ def verify(root):
         if not any("github.com/andreachiocca/multiaxial-fatigue" in link for link in doc.links):
             raise ValueError(language + ": public fatigue repository missing")
         for project in projects:
-            if not any(p["image"] in source for source, alt in doc.image_sources):
-                # The user uploads the optimized photos to the PR branch separately.
-                # Until then, the existing conditional include prevents broken HTML.
-                continue
-            if not any(p["image"] in source and alt for source, alt in doc.image_sources):
-                raise ValueError(language + ": thesis image without alternative text")
+            image = project["image"]
+            static_path = root / image.lstrip("/")
+            if not static_path.is_file():
+                raise ValueError(language + ": thesis illustration missing from generated site " + image)
+            if not any(image in source and alt for source, alt in doc.image_sources):
+                raise ValueError(language + ": thesis illustration absent or lacking alternative text " + image)
         if len([c for c in doc.classes if c=="thesis-project-panel"]) != len(expected):
             raise ValueError(language + ": unexpected project panel count")
     print("PASS: two bilingual thesis project panels, five topic directions and preserved course navigation")
