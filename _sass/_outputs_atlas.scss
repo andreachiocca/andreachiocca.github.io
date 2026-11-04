@@ -6,7 +6,7 @@
   min-width: 0;
 }
 .output-atlas .output-atlas-index {
-  font: 500 .75rem/1.5 ui-monospace, Consolas, monospace;
+  font: 500 .75rem/1.5 var(--font-mono);
   color: var(--atlas-accent);
   letter-spacing: .04em;
   margin: 0 0 .85rem;
@@ -44,10 +44,10 @@
 }
 .output-atlas .output-atlas-numbers dt {
   color: var(--global-text-color-light);
-  font: 400 .75rem/1.45 ui-monospace, Consolas, monospace;
+  font: 400 .75rem/1.45 var(--font-mono);
 }
 .output-atlas .output-atlas-numbers dd {
-  font: 500 clamp(1.85rem,3.5vw,2.7rem)/1.1 ui-monospace, Consolas, monospace;
+  font: 500 clamp(1.85rem,3.5vw,2.7rem)/1.1 var(--font-mono);
   letter-spacing: -.05em; color: var(--editorial-navy); margin: .3rem 0 0;
 }
 .output-atlas .output-atlas-selected, .output-atlas .output-atlas-full {
@@ -55,7 +55,7 @@
   scroll-margin-top: var(--navigation-offset,80px);
 }
 .output-atlas .output-atlas-selected h2, .output-atlas .output-atlas-full h2 {
-  font: 500 clamp(1.3rem,2.8vw,1.75rem)/1.35 ui-monospace, Consolas, monospace;
+  font: 500 clamp(1.3rem,2.8vw,1.75rem)/1.35 var(--font-mono);
   letter-spacing: -.04em; color: var(--editorial-navy);
   padding: 0; border: 0; margin: 0 0 1.2rem;
 }
@@ -70,7 +70,7 @@
 }
 .output-atlas .output-atlas-feature:nth-child(even) { border-left-color: var(--editorial-teal); }
 .output-atlas .output-atlas-feature-kind {
-  font: 500 .73rem/1.5 ui-monospace, Consolas, monospace;
+  font: 500 .73rem/1.5 var(--font-mono);
   color: var(--global-text-color-light); margin-bottom: .7rem;
 }
 .output-atlas .output-atlas-feature h3 {

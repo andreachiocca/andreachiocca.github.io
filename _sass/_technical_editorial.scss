@@ -23,7 +23,7 @@ body { font-feature-settings: "kern"; }
   text-wrap: balance;
 }
 .post-title {
-  font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-family: var(--font-mono);
   font-weight: 500;
   letter-spacing: -.055em;
   line-height: 1.14;
@@ -40,12 +40,12 @@ body { font-feature-settings: "kern"; }
 .post h2:not(.bibliography)::before {
   content: "/ ";
   color: var(--editorial-teal);
-  font-family: ui-monospace, Consolas, monospace;
+  font-family: var(--font-mono);
   font-weight: 400;
 }
 #navbar { border-bottom: 1px solid var(--global-divider-color); }
 #navbar .navbar-brand {
-  font-family: ui-monospace, Consolas, monospace;
+  font-family: var(--font-mono);
   font-weight: 600;
   letter-spacing: -.04em;
 }
@@ -73,7 +73,7 @@ body { font-feature-settings: "kern"; }
 }
 .research-output h2 { letter-spacing: -.02em; }
 .output-source, .output-meta, .output-topic, .output-date, .catalogue-count {
-  font-family: ui-monospace, Consolas, monospace;
+  font-family: var(--font-mono);
   font-size: .78rem;
 }
 .catalogue-filters button { border-radius: .15rem; }
