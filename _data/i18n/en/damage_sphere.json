@@ -1,0 +1,23 @@
+{
+  "eyebrow": "Interactive figure",
+  "title": "Where does the critical plane sit?",
+  "intro": "Each point of the sphere is a material plane, identified by its normal. The colour is the Findley damage parameter on that plane for combined axial and torsional loading. Change the shear-to-normal amplitude ratio and the phase shift, and watch the critical planes move.",
+  "lambda": "Amplitude ratio λ = τa/σa",
+  "phase": "Phase shift Δφ",
+  "max": "Maximum DP/σa",
+  "normal": "Critical normal n*",
+  "hover": "Hover on the sphere",
+  "hover_empty": "Point at the sphere to read DP/σa",
+  "pause": "Pause rotation",
+  "play": "Rotate",
+  "legend_low": "low",
+  "legend_high": "high DP/σa",
+  "legend_critical": "within 1.5 % of the maximum",
+  "drag": "Drag or use the arrow keys to rotate.",
+  "label": "Findley damage parameter on the unit sphere of plane normals, λ = %l, Δφ = %p°, maximum DP/σa = %d.",
+  "provenance": "Computed with multifat (multiaxial-fatigue) at commit %commit%: evaluate_findley with MCC shear amplitude, one call per plane on a %step%° grid, k = %k%. Loading: σxx = σa sin ωt, τxy = λσa sin(ωt − Δφ), zero mean. Illustrative coefficient, not a material calibration.",
+  "error": "The precomputed data could not be loaded.",
+  "noscript": "This interactive figure needs JavaScript. The data file and the script that generated it are listed in the provenance note.",
+  "data": "Data (JSON)",
+  "code": "Generator script"
+}

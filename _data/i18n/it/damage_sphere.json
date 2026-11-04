@@ -1,0 +1,23 @@
+{
+  "eyebrow": "Figura interattiva",
+  "title": "Dove si trova il piano critico?",
+  "intro": "Ogni punto della sfera è un piano del materiale, individuato dalla sua normale. Il colore indica il parametro di danno di Findley su quel piano per un carico combinato assiale e torsionale. Variando il rapporto tra le ampiezze di taglio e normale e lo sfasamento, si vede come si spostano i piani critici.",
+  "lambda": "Rapporto di ampiezza λ = τa/σa",
+  "phase": "Sfasamento Δφ",
+  "max": "DP/σa massimo",
+  "normal": "Normale critica n*",
+  "hover": "Puntatore sulla sfera",
+  "hover_empty": "Punta la sfera per leggere DP/σa",
+  "pause": "Ferma la rotazione",
+  "play": "Ruota",
+  "legend_low": "basso",
+  "legend_high": "DP/σa alto",
+  "legend_critical": "entro l’1,5 % del massimo",
+  "drag": "Trascina o usa i tasti freccia per ruotare.",
+  "label": "Parametro di danno di Findley sulla sfera unitaria delle normali ai piani, λ = %l, Δφ = %p°, DP/σa massimo = %d.",
+  "provenance": "Calcolato con multifat (multiaxial-fatigue) al commit %commit%: evaluate_findley con ampiezza di taglio MCC, una chiamata per piano su una griglia di %step%°, k = %k%. Carico: σxx = σa sin ωt, τxy = λσa sin(ωt − Δφ), media nulla. Coefficiente illustrativo, non una calibrazione del materiale.",
+  "error": "Non è stato possibile caricare i dati precalcolati.",
+  "noscript": "Questa figura interattiva richiede JavaScript. Il file dei dati e lo script che li ha generati sono indicati nella nota sulla provenienza.",
+  "data": "Dati (JSON)",
+  "code": "Script di generazione"
+}
