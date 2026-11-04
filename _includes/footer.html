@@ -11,15 +11,25 @@
       </div>
     </footer>
     {%- else -%}
-    <footer class="sticky-bottom mt-5">
-      <div class="container">
-        &copy; Copyright {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}. {{ site.footer_text }}
-        {%- if site.impressum_path -%}
-        <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>.
-        {%- endif -%}
-        {%- if site.last_updated -%}
-        Last updated: {{ "now" | date: '%B %d, %Y' }}.
-        {%- endif %}
+    <footer class="sticky-bottom mt-5 site-footer">
+      <div class="container site-footer-grid">
+        <div class="site-footer-identity">
+          <p class="site-footer-name">{{ site.first_name }} {{ site.last_name }}</p>
+          <p>{{ "Department of Civil and Industrial Engineering, University of Pisa" | institution_display }}</p>
+          <p>Largo Lucio Lazzarino 2, 56123 Pisa</p>
+        </div>
+        <nav class="site-footer-links" aria-label="{{ 'Academic profiles' | t }}">
+          <ul>
+            {%- if site.orcid_id %}<li><a href="https://orcid.org/{{ site.orcid_id }}">ORCID</a></li>{% endif -%}
+            {%- if site.scholar_userid %}<li><a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}">Google Scholar</a></li>{% endif -%}
+            {%- if site.scopus_id %}<li><a href="https://www.scopus.com/authid/detail.uri?authorId={{ site.scopus_id }}">Scopus</a></li>{% endif -%}
+            {%- if site.research_gate_profile %}<li><a href="https://www.researchgate.net/profile/{{ site.research_gate_profile }}/">ResearchGate</a></li>{% endif -%}
+            {%- if site.github_username %}<li><a href="https://github.com/{{ site.github_username }}">GitHub</a></li>{% endif -%}
+            {%- if site.linkedin_username %}<li><a href="https://www.linkedin.com/in/{{ site.linkedin_username }}">LinkedIn</a></li>{% endif -%}
+          </ul>
+        </nav>
+        <p class="site-footer-meta">&copy; {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.last_name }} · {{ "Last updated" | t }} <time datetime="{{ site.time | date: '%Y-%m-%d' }}">{{ site.time | date: '%Y-%m-%d' }}</time>{% if site.footer_text != blank %} · {{ site.footer_text }}{% endif %}
+        {%- if site.impressum_path %} · <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>{% endif %}</p>
       </div>
     </footer>
     {%- endif %}
