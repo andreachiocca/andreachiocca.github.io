@@ -106,6 +106,36 @@ class DiscoveryTests(unittest.TestCase):
             refreshed, _ = catalogue.build_catalogue(old)
         self.assertTrue(all(catalogue.included_entry(item) for item in refreshed))
 
+    def test_repository_transferred_between_owned_accounts_keeps_its_card(self):
+        # A transfer achiocca1 -> andreachiocca must refresh the URL, not duplicate the card or change its anchor.
+        repo = {"full_name": "andreachiocca/ECP", "name": "ECP", "html_url": "https://github.com/andreachiocca/ECP", "size": 0, "fork": False, "archived": False, "language": "MATLAB"}
+        existing = {"id": "github-achiocca1-ECP", "title": "Effective Critical Plane (ECP)", "kind": "software", "description": "Reviewed scope.",
+                    "url": "https://github.com/achiocca1/ECP", "github_url": "https://github.com/achiocca1/ECP", "github_full_name": "achiocca1/ECP"}
+        with patch.object(catalogue, "github_repositories", side_effect=[[], [repo]]), patch.object(catalogue, "zenodo_search", return_value=[deposit(11)]), patch.object(catalogue, "REQUIRED_RECORDS", {11}):
+            entries, _ = catalogue.build_catalogue([existing])
+        software = [item for item in entries if item.get("github_full_name")]
+        self.assertEqual(len(software), 1)
+        self.assertEqual(software[0]["id"], "github-achiocca1-ECP")
+        self.assertEqual(software[0]["github_full_name"], "andreachiocca/ECP")
+        self.assertEqual(software[0]["url"], "https://github.com/andreachiocca/ECP")
+        self.assertEqual(software[0]["description"], "Reviewed scope.")
+
+    def test_exclusion_follows_a_transfer_between_owned_accounts(self):
+        self.assertTrue(catalogue.excluded_repository("achiocca1/Awesome-CV"))
+        self.assertTrue(catalogue.excluded_repository("andreachiocca/Awesome-CV"))
+        self.assertTrue(catalogue.excluded_repository("andreachiocca/FatPy"))
+        self.assertFalse(catalogue.excluded_repository("someone-else/FatPy"))
+        self.assertFalse(catalogue.excluded_repository("andreachiocca/sharCP"))
+
+    def test_snapshot_lists_sharcp_and_never_fatpy(self):
+        root = Path(__file__).parents[1]
+        entries = json.loads((root / "_data/research_outputs.json").read_text(encoding="utf8"))
+        names = {item.get("github_full_name") for item in entries}
+        self.assertIn("andreachiocca/sharCP", names)
+        self.assertFalse(any("fatpy" in (name or "").casefold() for name in names))
+        # Owned repositories now live under andreachiocca; no card may still point to the old owner.
+        self.assertFalse(any("github.com/achiocca1/" in (item.get("url", "") + item.get("github_url", "")) for item in entries))
+
     def test_validation_rejects_an_excluded_repository(self):
         entry = {'id': 'excluded', 'title': 'Excluded', 'description': 'Existing', 'kind': 'other',
                  'url': 'https://github.com/andreachiocca/FatPy', 'github_full_name': 'andreachiocca/FatPy'}

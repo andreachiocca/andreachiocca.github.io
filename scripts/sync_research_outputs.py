@@ -23,11 +23,20 @@ ACCOUNTS = ("achiocca1", "andreachiocca")
 ORCID = "0000-0002-1472-4398"
 ZENODO_OWNER = "275783"  # Owner of the explicitly supplied deposits, verified by ORCID.
 REQUIRED_RECORDS = {21875885, 21534682, 18416255, 14198237, 12721131}
-EXCLUDED_REPOSITORIES = frozenset(name.casefold() for name in json.loads((ROOT / '_data/catalogue_exclusions.json').read_text(encoding='utf8')))
+OWNED_ACCOUNTS = frozenset(account.casefold() for account in ACCOUNTS)
+
+
+def repository_key(full_name):
+    """Identity of a repository that survives transfers between the owner's own accounts."""
+    owner, _, name = (full_name or '').casefold().partition('/')
+    return ('owned', name) if owner in OWNED_ACCOUNTS else ('external', owner, name)
+
+
+EXCLUDED_REPOSITORIES = frozenset(repository_key(name) for name in json.loads((ROOT / '_data/catalogue_exclusions.json').read_text(encoding='utf8')))
 
 
 def excluded_repository(name):
-    return (name or '').casefold() in EXCLUDED_REPOSITORIES
+    return repository_key(name) in EXCLUDED_REPOSITORIES
 
 
 def included_entry(entry):
@@ -195,14 +204,15 @@ def build_catalogue(existing):
     if not REQUIRED_RECORDS.issubset({int(record["id"]) for record in verified}):
         raise ValueError("A required Zenodo record was not discovered and identity-verified")
     # Match existing records by URL on the first refresh, then by stable concept ID.
-    repo_map = {item.get("github_full_name") or item["url"].removeprefix("https://github.com/"): item for item in existing if item.get("github_full_name") or item["url"].startswith("https://github.com/")}
+    # Keys ignore which owned account holds the repository, so a transfer keeps the card and its anchor.
+    repo_map = {repository_key(item.get("github_full_name") or item["url"].removeprefix("https://github.com/")): item for item in existing if item.get("github_full_name") or item["url"].startswith("https://github.com/")}
     groups = group_versions(verified)
     used = set()
     entries = []
     for repo in repos:
         if excluded_repository(repo['full_name']):
             continue
-        original = repo_map.get(repo["full_name"])
+        original = repo_map.get(repository_key(repo["full_name"]))
         if original:
             used.add(original["id"])
         entries.append(github_entry(repo, original))
