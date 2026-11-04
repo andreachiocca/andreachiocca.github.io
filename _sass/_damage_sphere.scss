@@ -1,0 +1,59 @@
+// FIG. R02 critical plane explorer: navy technical panel shared with FIG. 01.
+.damage-sphere-section { margin: 3rem 0; }
+.damage-sphere-section .ds-eyebrow {
+  font: 500 .72rem/1.4 var(--font-mono, monospace);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--global-theme-color);
+  margin-bottom: .6rem;
+}
+.damage-sphere-section .ds-eyebrow span { opacity: .7; margin-right: .6rem; }
+.damage-sphere-section .ds-intro { max-width: 68ch; }
+.damage-sphere { margin: 1.4rem 0 0; }
+.damage-sphere .ds-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 460px) minmax(0, 1fr);
+  gap: 1.5rem 2rem;
+  align-items: center;
+  padding: 1.4rem;
+  color: #d8e9f0;
+  background:
+    linear-gradient(rgba(166, 196, 225, .07) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, rgba(166, 196, 225, .07) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(160deg, #123a5e, #0e2a49);
+  border-bottom: 3px solid #2e9aa0;
+}
+.damage-sphere .ds-stage { min-width: 0; text-align: center; }
+.damage-sphere canvas { display: block; margin: 0 auto; max-width: 100%; aspect-ratio: 1; cursor: grab; touch-action: none; }
+.damage-sphere canvas:active { cursor: grabbing; }
+.damage-sphere canvas:focus-visible { outline: 3px solid #82e2de; outline-offset: 4px; }
+.damage-sphere .ds-drag { margin: .4rem 0 0; font-size: .74rem; color: #a9c6d4; }
+.damage-sphere .ds-side { min-width: 0; display: grid; gap: 1.2rem; }
+.damage-sphere .ds-controls[hidden] { display: none; }
+.damage-sphere .ds-controls { display: grid; gap: .25rem; }
+.damage-sphere .ds-controls label,
+.damage-sphere .ds-controls label span { display: flex; justify-content: space-between; gap: 1rem; margin: .4rem 0 0; font-size: .82rem; color: #d1e6ef; }
+.damage-sphere .ds-controls label span { display: inline; margin: 0; }
+.damage-sphere .ds-controls output { font-family: var(--font-mono, monospace); color: #82e2de; }
+.damage-sphere .ds-controls input { width: 100%; min-height: 44px; accent-color: #82e2de; cursor: pointer; }
+.damage-sphere .ds-controls button {
+  justify-self: start; margin-top: .5rem; min-height: 44px; padding: .5rem .9rem;
+  color: #e8f6f8; background: #174b70; border: 1px solid #98c8d9; border-radius: 2px; font-size: .82rem; cursor: pointer;
+}
+.damage-sphere .ds-controls button:hover { background: #205e85; }
+.damage-sphere .ds-readout { display: grid; gap: .55rem; margin: 0; }
+.damage-sphere .ds-readout div { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px solid rgba(179, 217, 234, .18); padding-bottom: .4rem; }
+.damage-sphere .ds-readout dt { font-weight: 400; font-size: .78rem; color: #a9c6d4; }
+.damage-sphere .ds-readout dd { margin: 0; font-family: var(--font-mono, monospace); font-size: .82rem; color: #ecf5f7; text-align: right; }
+.damage-sphere .ds-legend { display: grid; gap: .3rem; font: .7rem/1.4 var(--font-mono, monospace); color: #a9c6d4; }
+.damage-sphere .ds-ramp { height: 8px; background: linear-gradient(90deg, #0f2f4f, #1d5f86, #2e9aa0, #82e2de, #f2fbfa); border: 1px solid rgba(179, 217, 234, .3); }
+.damage-sphere .ds-legend-labels { display: flex; justify-content: space-between; }
+.damage-sphere .ds-critical { display: flex; align-items: center; gap: .45rem; }
+.damage-sphere .ds-critical i { width: 12px; height: 12px; background: #e7b25f; display: inline-block; }
+.damage-sphere .ds-error { margin: .8rem 0 0; color: var(--global-text-color-light); }
+// Reset the uppercase mono caption style used by the Research Atlas figures.
+.research-atlas .damage-sphere figcaption,
+.damage-sphere figcaption { margin-top: .8rem; padding: 0; background: none; font: .8rem/1.6 var(--font-sans, sans-serif); letter-spacing: 0; text-transform: none; color: var(--global-text-color-light); max-width: 90ch; }
+@media (max-width: 760px) {
+  .damage-sphere .ds-panel { grid-template-columns: minmax(0, 1fr); padding: 1rem; }
+}

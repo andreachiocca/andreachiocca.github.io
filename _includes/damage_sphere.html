@@ -1,0 +1,41 @@
+{% assign ds_lang = page.lang | default: 'en' %}
+{% assign ds = site.data.i18n[ds_lang].damage_sphere | default: site.data.i18n.en.damage_sphere %}
+{% assign ds_data = '/assets/data/figures/damage-sphere-findley.json' %}
+{% assign ds_commit = '5cd5124' %}
+<section id="critical-plane-explorer" class="damage-sphere-section" aria-labelledby="critical-plane-explorer-title">
+  <p class="ds-eyebrow"><span>FIG. R02</span> {{ ds.eyebrow }}</p>
+  <h2 id="critical-plane-explorer-title">{{ ds.title }}</h2>
+  <p class="ds-intro">{{ ds.intro }}</p>
+  <figure class="damage-sphere" data-damage-sphere data-src="{{ ds_data | relative_url }}" data-label-template="{{ ds.label | escape }}">
+    <div class="ds-panel">
+      <div class="ds-stage">
+        <canvas tabindex="0" role="img" aria-label="{{ ds.title | escape }}" aria-describedby="ds-provenance"></canvas>
+        <p class="ds-drag">{{ ds.drag }}</p>
+      </div>
+      <div class="ds-side">
+        <div class="ds-controls" data-ds-controls hidden>
+          <label for="ds-lambda"><span>{{ ds.lambda }}</span><output data-ds-lambda-out>0.50</output></label>
+          <input id="ds-lambda" type="range" min="0" max="4" step="1" value="2" data-ds-lambda>
+          <label for="ds-phase"><span>{{ ds.phase }}</span><output data-ds-phase-out>45°</output></label>
+          <input id="ds-phase" type="range" min="0" max="6" step="1" value="3" data-ds-phase>
+          <button type="button" data-ds-toggle data-pause="{{ ds.pause | escape }}" data-play="{{ ds.play | escape }}" aria-pressed="false">{{ ds.pause }}</button>
+        </div>
+        <dl class="ds-readout" aria-live="polite">
+          <div><dt>{{ ds.max }}</dt><dd data-ds-max>–</dd></div>
+          <div><dt>{{ ds.normal }}</dt><dd data-ds-normal>–</dd></div>
+          <div><dt>{{ ds.hover }}</dt><dd data-ds-hover data-empty="{{ ds.hover_empty | escape }}">{{ ds.hover_empty }}</dd></div>
+        </dl>
+        <div class="ds-legend" aria-hidden="true">
+          <span class="ds-ramp"></span>
+          <span class="ds-legend-labels"><span>{{ ds.legend_low }}</span><span>{{ ds.legend_high }}</span></span>
+          <span class="ds-critical"><i></i>{{ ds.legend_critical }}</span>
+        </div>
+      </div>
+    </div>
+    <p class="ds-error" data-ds-error hidden>{{ ds.error }}</p>
+    <noscript><p class="ds-error">{{ ds.noscript }}</p></noscript>
+    <figcaption id="ds-provenance">{{ ds.provenance | replace: '%commit%', ds_commit | replace: '%step%', '3' | replace: '%k%', '0.3' }}
+      <a href="{{ ds_data | relative_url }}">{{ ds.data }}</a> · <a href="https://github.com/andreachiocca/andreachiocca.github.io/blob/master/scripts/generate_damage_sphere.py">{{ ds.code }}</a> · <a href="https://github.com/andreachiocca/multiaxial-fatigue/tree/5cd5124362c02fe83ec40ffa8bf93e4d12ccc782">multifat@{{ ds_commit }}</a></figcaption>
+  </figure>
+</section>
+<script defer src="{{ '/assets/js/damage-sphere.js' | relative_url | bust_file_cache }}"></script>
