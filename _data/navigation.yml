@@ -21,7 +21,6 @@
   url: /teaching/
   section: teaching
   pages: [teaching, thesis, course-1, course-2, course-3, course-4]
-  courses: true
   children:
     - title: Teaching overview
       url: /teaching/
