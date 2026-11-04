@@ -4,7 +4,7 @@ translation_key: research
 layout: research_atlas
 title: Research
 permalink: /research/
-description: Fatigue assessment, welded structures, additive manufacturing and component testing at the University of Pisa.
+description: Fatigue assessment, critical plane methods, welded structures, additive manufacturing and component testing at the University of Pisa.
 nav: true
 nav_order: 1
 ---

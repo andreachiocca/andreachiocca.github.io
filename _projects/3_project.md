@@ -5,6 +5,7 @@ section: teaching
 layout: page
 title: Laboratorio di progettazione assistita
 description: TECNICHE PER LA MECCANICA E LA PRODUZIONE - 2167Z
+seo_description: "Computer-aided design laboratory (Mechanical and Production Techniques degree, University of Pisa): course information, taught in Italian."
 img: assets/img/FEM_3.jpg
 teaching_period: 2024–2026/27
 teaching_role: Co-teaching; 24 lecture hours

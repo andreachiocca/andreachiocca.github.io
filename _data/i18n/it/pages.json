@@ -1,47 +1,48 @@
 {
   "home": {
     "title": "Home",
-    "description": "Andrea Chiocca, ricerca su fatica e integrità strutturale, attività sperimentali, pubblicazioni e opportunità di tesi.",
-    "subtitle": "Ricercatore in progettazione meccanica (contratto di ricerca)"
+    "description": "Andrea Chiocca, Università di Pisa: fatica multiassiale, metodi del piano critico, giunti saldati e tensioni residue. Pubblicazioni, software e tesi.",
+    "subtitle": "Ricercatore in progettazione meccanica (contratto di ricerca)",
+    "seo_title": "Ricerca sulla fatica, Università di Pisa"
   },
   "research": {
     "title": "Ricerca",
-    "description": "Analisi a fatica, giunti saldati, manifattura additiva e caratterizzazione di materiali e componenti presso l’Università di Pisa."
+    "description": "Analisi a fatica, metodi del piano critico, strutture saldate, manifattura additiva e prove su componenti all’Università di Pisa."
   },
   "publications": {
     "title": "Pubblicazioni",
-    "description": "Articoli su rivista, contributi a conferenze e tesi di dottorato di Andrea Chiocca, suddivisi per tipo e anno."
+    "description": "Articoli su rivista, contributi a conferenze e tesi di dottorato di Andrea Chiocca su fatica multiassiale, giunti saldati e tensioni residue."
   },
   "repositories": {
     "title": "Repository e prodotti della ricerca",
-    "description": "Software scientifico, strumenti di analisi, benchmark di fatica e dati di ricerca di Andrea Chiocca."
+    "description": "Software open source per la fatica (Python, MATLAB), strumenti per il piano critico e dataset di ricerca di Andrea Chiocca, Università di Pisa."
   },
   "laboratory": {
     "title": "Laboratorio e attrezzature sperimentali",
-    "description": "Meccanica sperimentale, caratterizzazione di materiali e componenti, fatica e correlazione numerico-sperimentale per collaborazioni accademiche e industriali."
+    "description": "Prove di fatica anche multiassiale, caratterizzazione di materiali e componenti e ricerca numerico-sperimentale all’Università di Pisa."
   },
   "teaching": {
     "title": "Didattica",
-    "description": "Corsi, materiali didattici pubblici in italiano e opportunità di tesi in meccanica computazionale e sperimentale presso l’Università di Pisa."
+    "description": "Corsi all’Università di Pisa di costruzione di macchine e metodo degli elementi finiti, con materiali didattici pubblici."
   },
   "thesis": {
     "title": "Opportunità di tesi",
-    "description": "Temi di tesi in meccanica computazionale, prove sperimentali, fatica e integrità strutturale, a Pisa e con possibili contatti di ricerca all’estero."
+    "description": "Tesi di laurea triennale e magistrale su fatica, meccanica computazionale e prove sperimentali all’Università di Pisa."
   },
   "cv": {
     "title": "Curriculum",
-    "description": "Formazione, esperienze di ricerca, progetti e responsabilità scientifiche di Andrea Chiocca."
+    "description": "CV accademico di Andrea Chiocca: posizioni, formazione, progetti di ricerca e riconoscimenti. Disponibile in PDF."
   },
   "course-1": {
-    "description": "Materiali didattici in italiano e informazioni sul corso presso l’Università di Pisa."
+    "description": "Progettazione meccanica col metodo degli elementi finiti (Ingegneria Energetica, Università di Pisa, 2021–2024): slide ed esercitazioni con Ansys Workbench."
   },
   "course-2": {
-    "description": "Materiali didattici in italiano e informazioni sul corso presso l’Università di Pisa."
+    "description": "Esercitazioni agli elementi finiti per Costruzione di macchine (Ingegneria Aerospaziale, Università di Pisa): slide ed esercizi con Ansys Workbench."
   },
   "course-3": {
-    "description": "Materiali didattici in italiano e informazioni sul corso presso l’Università di Pisa."
+    "description": "Laboratorio di progettazione assistita (Tecniche per la meccanica e la produzione, Università di Pisa): informazioni sul corso."
   },
   "course-4": {
-    "description": "Materiali didattici in italiano e informazioni sul corso presso l’Università di Pisa."
+    "description": "Costruzione di macchine per il percorso PF60, classe A042, Università di Pisa: programma, dispensa manoscritta ed esercitazioni."
   }
 }

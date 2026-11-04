@@ -3,6 +3,8 @@ lang: en
 translation_key: home
 layout: about
 title: Home
+description: "Andrea Chiocca, University of Pisa: multiaxial fatigue, critical plane methods, welded joints and residual stresses. Publications, software and theses."
+seo_title: Fatigue Research, University of Pisa
 permalink: /
 subtitle: Researcher in machine design (research contract)
 
