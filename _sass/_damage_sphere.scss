@@ -23,6 +23,8 @@
     linear-gradient(160deg, #123a5e, #0e2a49);
   border-bottom: 3px solid #2e9aa0;
 }
+// The theme colours every span/div/p with the page ink; text on the navy panel inherits the panel colour.
+.damage-sphere .ds-panel :where(span, div, p, strong, em) { color: inherit; }
 .damage-sphere .ds-stage { min-width: 0; text-align: center; }
 .damage-sphere canvas { display: block; margin: 0 auto; max-width: 100%; aspect-ratio: 1; cursor: grab; touch-action: none; }
 .damage-sphere canvas:active { cursor: grabbing; }
