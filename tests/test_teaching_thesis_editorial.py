@@ -100,13 +100,10 @@ class TeachingThesisEditorialTests(unittest.TestCase):
         for key in ("Related publications", "Available thesis projects", "View original thermal image",
                     "Research-led thesis opportunities"):
             self.assertTrue(it[key])
-        self.assertTrue((ROOT / "assets/img/thesis/robot-lattice-concept.svg").is_file())
-        illustration = read("assets/img/thesis/robot-lattice-concept.svg")
-        self.assertIn("M100 350L175 265L300 296L394 169", illustration)
-        for marker in ('cx="100" cy="350"', 'cx="175" cy="265"', 'cx="300" cy="296"'):
-            self.assertIn(marker, illustration)
-        for removed in ("M385 170L429 140", "M449 168L482 165", "M482 175L515 175"):
-            self.assertNotIn(removed, illustration)
+        # The thesis banner opens with the interactive damage sphere (FIG. R02), not a static illustration.
+        self.assertIn('<div class="thesis-editorial-banner-illustration">{% include damage_sphere.html %}</div>', self.thesis)
+        self.assertNotIn("damage_sphere.html", read("_pages/research.md"))
+        self.assertFalse((ROOT / "assets/img/thesis/robot-lattice-concept.svg").exists())
         import re
         entries = re.split(r"(?=@[A-Za-z]+\{)", read("_bibliography/PersonalPub.bib"))
         for project in self.data["projects"]:

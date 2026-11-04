@@ -118,14 +118,15 @@
 
 .teaching-editorial .teaching-editorial-description p { font-size: .95rem; line-height: 1.7; }
 .teaching-editorial .teaching-editorial-description p:last-child { margin-bottom: 1rem; }
-.thesis-editorial.thesis-editorial-banner { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: center; gap: 1.25rem; padding: clamp(1.1rem,3vw,1.75rem); background: var(--editorial-surface); border: 1px solid var(--student-rule); border-top: 3px solid var(--student-accent); margin: 1.5rem 0; }
+.thesis-editorial.thesis-editorial-banner { display: grid; grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); align-items: start; gap: clamp(1.25rem,3vw,2.25rem); padding: clamp(1.1rem,3vw,1.75rem); background: var(--editorial-surface); border: 1px solid var(--student-rule); border-top: 3px solid var(--student-accent); margin: 1.5rem 0; }
 .thesis-editorial .thesis-editorial-banner-copy h2 { font: 500 clamp(1.25rem,2.7vw,1.7rem)/1.3 var(--font-mono); color:var(--editorial-navy); border:0; padding:0; margin:.25rem 0 .85rem; }
 .thesis-editorial .thesis-editorial-banner-copy h2::before {content:none!important}
 .thesis-editorial .thesis-editorial-banner-copy > p:not(.editorial-index) {font-size:.94rem;line-height:1.65}
+.thesis-editorial .thesis-editorial-banner-text p {font-size:.94rem;line-height:1.65;margin:0 0 .8rem}
 .thesis-editorial .thesis-editorial-banner-copy a {display:inline-flex;align-items:center;min-height:44px;font-size:.88rem;font-weight:600;text-decoration:underline;text-underline-offset:.2em}
 .thesis-editorial .thesis-editorial-banner-illustration {margin:0;min-width:0}
 .thesis-editorial .thesis-editorial-banner-illustration img {display:block;width:100%;height:auto;border-radius:.2rem}
-@media(max-width:699px){.thesis-editorial.thesis-editorial-banner{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:699px){.thesis-editorial.thesis-editorial-banner{grid-template-columns:minmax(0,1fr)}.thesis-editorial .thesis-editorial-banner-illustration{order:-1}}
 
 /* Compact research project panels with illustrated specimen and reference list. */
 .thesis-editorial .thesis-project-panel { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(0,1fr); grid-template-areas:"intro media" "details details"; overflow: hidden; }

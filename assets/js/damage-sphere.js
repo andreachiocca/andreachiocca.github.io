@@ -116,7 +116,7 @@
     lambdaOut.textContent = fmt(c.lambda, 2);
     phaseOut.textContent = c.dphi_deg + '°';
     maxOut.textContent = fmt(c.dp_max, 3);
-    normalOut.textContent = 'θ = ' + fmt(theta, 0) + '°, φ = ' + fmt(phi, 0) + '°';
+    normalOut.textContent = fmt(theta, 0) + '°, ' + fmt(phi, 0) + '°';
     canvas.setAttribute('aria-label', root.dataset.labelTemplate.replace('%l', fmt(c.lambda, 2)).replace('%p', c.dphi_deg).replace('%d', fmt(c.dp_max, 3)));
   }
 
