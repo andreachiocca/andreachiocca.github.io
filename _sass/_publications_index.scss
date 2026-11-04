@@ -69,11 +69,11 @@
   font-weight: 650;
 }
 .publications-index .publication-type-count {
-  font: .78rem/1.2 ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font: .78rem/1.2 var(--font-mono);
   color: var(--editorial-teal);
 }
 .publications-index #bibsearch-status {
-  font: .81rem/1.5 ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font: .81rem/1.5 var(--font-mono);
   margin: .85rem 0 0;
   color: var(--global-text-color);
 }
@@ -95,7 +95,7 @@
   margin: 1.6rem 0 .35rem;
   padding: 0 0 .35rem;
   border-bottom: 0;
-  font: 500 .84rem/1.5 ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font: 500 .84rem/1.5 var(--font-mono);
   letter-spacing: .07em;
   color: var(--editorial-teal);
 }

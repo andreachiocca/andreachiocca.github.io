@@ -6,7 +6,7 @@ main#main-content:has(> .laboratory-editorial) { max-width: 1160px; }
 .laboratory-editorial .laboratory-section-index,
 .laboratory-editorial figcaption,
 .laboratory-editorial .laboratory-machine-kicker {
-  font: 500 .73rem/1.55 ui-monospace, Consolas, monospace;
+  font: 500 .73rem/1.55 var(--font-mono);
   letter-spacing: .07em;
 }
 .laboratory-editorial .laboratory-kicker,
@@ -78,7 +78,7 @@ main#main-content:has(> .laboratory-editorial) { max-width: 1160px; }
   padding: .85rem 0 .65rem; border-bottom: 1px solid var(--global-divider-color);
 }
 .laboratory-editorial .laboratory-specification dt {
-  font: .76rem/1.5 ui-monospace, Consolas, monospace;
+  font: .76rem/1.5 var(--font-mono);
   letter-spacing: .025em; color: var(--global-text-color-light); font-weight: 400;
 }
 .laboratory-editorial .laboratory-specification dd {

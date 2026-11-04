@@ -6,7 +6,7 @@
   margin-top: .75rem;
 }
 .teaching-editorial .editorial-index, .thesis-editorial .editorial-index {
-  font: 500 .76rem/1.5 ui-monospace, Consolas, monospace;
+  font: 500 .76rem/1.5 var(--font-mono);
   letter-spacing: .035em;
   color: var(--student-accent);
   margin: 0 0 .65rem;
@@ -22,7 +22,7 @@
   margin: 0 0 1rem;
   border: 0;
   padding: 0;
-  font: 500 clamp(1.4rem,3vw,1.85rem)/1.25 ui-monospace, Consolas, monospace;
+  font: 500 clamp(1.4rem,3vw,1.85rem)/1.25 var(--font-mono);
   color: var(--editorial-navy);
 }
 .teaching-editorial.teaching-editorial-hero h2::before { content: none !important; }
@@ -62,7 +62,7 @@
   padding-top: 1.7rem; margin-top: 1.7rem;
 }
 .thesis-editorial.thesis-editorial-projects > h2 {
-  font: 500 clamp(1.4rem,3vw,1.85rem)/1.3 ui-monospace, Consolas, monospace;
+  font: 500 clamp(1.4rem,3vw,1.85rem)/1.3 var(--font-mono);
   margin: .1rem 0 1.25rem; border: 0; padding: 0;
   color: var(--editorial-navy);
 }
@@ -79,11 +79,11 @@
   padding: clamp(1rem,2.5vw,1.5rem);
 }
 .thesis-editorial .thesis-project-number {
-  font: 500 .76rem/1.5 ui-monospace, Consolas, monospace;
+  font: 500 .76rem/1.5 var(--font-mono);
   color: var(--student-accent); margin-bottom: .7rem;
 }
 .thesis-editorial .thesis-project-head h3 {
-  font: 500 clamp(1.2rem,2.5vw,1.55rem)/1.35 ui-monospace, Consolas, monospace;
+  font: 500 clamp(1.2rem,2.5vw,1.55rem)/1.35 var(--font-mono);
   margin: 0 0 .9rem; color: var(--editorial-navy);
 }
 .thesis-editorial .thesis-project-head > p:last-child { margin-bottom: 0; line-height: 1.7; }
@@ -119,7 +119,7 @@
 .teaching-editorial .teaching-editorial-description p { font-size: .95rem; line-height: 1.7; }
 .teaching-editorial .teaching-editorial-description p:last-child { margin-bottom: 1rem; }
 .thesis-editorial.thesis-editorial-banner { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: center; gap: 1.25rem; padding: clamp(1.1rem,3vw,1.75rem); background: var(--editorial-surface); border: 1px solid var(--student-rule); border-top: 3px solid var(--student-accent); margin: 1.5rem 0; }
-.thesis-editorial .thesis-editorial-banner-copy h2 { font: 500 clamp(1.25rem,2.7vw,1.7rem)/1.3 ui-monospace,Consolas,monospace; color:var(--editorial-navy); border:0; padding:0; margin:.25rem 0 .85rem; }
+.thesis-editorial .thesis-editorial-banner-copy h2 { font: 500 clamp(1.25rem,2.7vw,1.7rem)/1.3 var(--font-mono); color:var(--editorial-navy); border:0; padding:0; margin:.25rem 0 .85rem; }
 .thesis-editorial .thesis-editorial-banner-copy h2::before {content:none!important}
 .thesis-editorial .thesis-editorial-banner-copy > p:not(.editorial-index) {font-size:.94rem;line-height:1.65}
 .thesis-editorial .thesis-editorial-banner-copy a {display:inline-flex;align-items:center;min-height:44px;font-size:.88rem;font-weight:600;text-decoration:underline;text-underline-offset:.2em}
@@ -137,11 +137,11 @@
 .thesis-editorial .thesis-project-tags li { background:var(--editorial-surface); border:1px solid var(--student-rule); border-radius:1rem; padding:.22rem .65rem; font-size:.75rem; line-height:1.5; color:var(--global-text-color); }
 .thesis-editorial .thesis-project-original { margin:0; padding:.45rem .95rem .75rem; font-size:.78rem; }
 .thesis-editorial .thesis-project-references { margin:1rem 0 .45rem; border-top:1px solid var(--student-rule); padding-top:1rem; }
-.thesis-editorial .thesis-project-references h4 { font:600 .88rem/1.4 ui-monospace,Consolas,monospace; margin:0 0 .65rem; color:var(--editorial-navy); }
+.thesis-editorial .thesis-project-references h4 { font:600 .88rem/1.4 var(--font-mono); margin:0 0 .65rem; color:var(--editorial-navy); }
 .thesis-editorial .thesis-project-references ol { margin:0; padding-left:1.2rem; }
 .thesis-editorial .thesis-project-references li { margin:0 0 .65rem; font-size:.85rem; line-height:1.55; }
 .thesis-editorial .thesis-project-references li > a:first-child { text-decoration:underline; text-underline-offset:.15em; }
-.thesis-editorial .thesis-paper-doi { font:600 .72rem ui-monospace,Consolas,monospace; margin-left:.45rem; }
+.thesis-editorial .thesis-paper-doi { font:600 .72rem var(--font-mono); margin-left:.45rem; }
 .thesis-editorial .thesis-project-references .thesis-paper-year { white-space:nowrap; color:var(--global-text-color-light); }
 @media(max-width:699px){
 .thesis-editorial .thesis-project-panel { grid-template-columns:minmax(0,1fr); grid-template-areas:"intro" "media" "details"; }

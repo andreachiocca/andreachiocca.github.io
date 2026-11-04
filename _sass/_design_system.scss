@@ -1,0 +1,137 @@
+/*******************************************************************************
+ * Design system: technical warm minimal (Step 3a).
+ * Imported last so its tokens override the theme and the editorial layers.
+ * Typefaces are self-hosted variable WOFF2 files (SIL OFL 1.1, see
+ * assets/fonts/licenses), subset to Latin and Greek for σ, τ, φ, Δ labels.
+ ******************************************************************************/
+
+$latin-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+$greek-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+
+@mixin variable-face($family, $file, $weights, $range, $style: normal) {
+  @font-face {
+    font-family: $family;
+    font-style: $style;
+    font-display: swap;
+    font-weight: $weights;
+    src: url("../fonts/#{$file}") format("woff2-variations"), url("../fonts/#{$file}") format("woff2");
+    unicode-range: $range;
+  }
+}
+
+@include variable-face("Inter Variable", "inter-latin-wght-normal.woff2", 100 900, $latin-range);
+@include variable-face("Inter Variable", "inter-greek-wght-normal.woff2", 100 900, $greek-range);
+@include variable-face("Inter Variable", "inter-latin-wght-italic.woff2", 100 900, $latin-range, italic);
+@include variable-face("Source Serif 4 Variable", "source-serif-4-latin-wght-normal.woff2", 200 900, $latin-range);
+@include variable-face("Source Serif 4 Variable", "source-serif-4-greek-wght-normal.woff2", 200 900, $greek-range);
+@include variable-face("Source Serif 4 Variable", "source-serif-4-latin-wght-italic.woff2", 200 900, $latin-range, italic);
+@include variable-face("JetBrains Mono Variable", "jetbrains-mono-latin-wght-normal.woff2", 100 800, $latin-range);
+@include variable-face("JetBrains Mono Variable", "jetbrains-mono-greek-wght-normal.woff2", 100 800, $greek-range);
+
+:root {
+  --font-sans: "Inter Variable", Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-serif: "Source Serif 4 Variable", "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  // Warm paper and ink; one terracotta accent. Contrast on paper: ink 15.8:1, muted 6.5:1, accent 5.4:1.
+  --ds-paper: #faf9f5;
+  --ds-surface: #f3f0e8;
+  --ds-card: #ffffff;
+  --ds-ink: #1f1e1b;
+  --ds-muted: #5e5a53;
+  --ds-rule: #e6e1d6;
+  --ds-accent: #a84b25;
+  --ds-accent-strong: #8a3c1c;
+  // Stress components keep the FIG. 01 code: teal for normal, amber for shear.
+  --ds-sigma: #2a8c82;
+  --ds-tau: #c27a1e;
+
+  --global-bg-color: var(--ds-paper);
+  --global-card-bg-color: var(--ds-card);
+  --global-text-color: var(--ds-ink);
+  --global-text-color-light: var(--ds-muted);
+  --global-divider-color: var(--ds-rule);
+  --global-theme-color: var(--ds-accent);
+  --global-hover-color: var(--ds-accent-strong);
+  --editorial-blue: var(--ds-accent);
+  --editorial-navy: var(--ds-accent-strong);
+  --editorial-surface: var(--ds-surface);
+  --editorial-grid: rgba(168, 75, 37, .045);
+
+  --motion-duration: 480ms;
+  --motion-ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+html[data-theme='dark'] {
+  // Contrast on background: ink 14.2:1, muted 8.2:1, accent 7.2:1.
+  --ds-paper: #1c1b18;
+  --ds-surface: #24221e;
+  --ds-card: #24221e;
+  --ds-ink: #ece9e2;
+  --ds-muted: #b8b2a7;
+  --ds-rule: #36332d;
+  --ds-accent: #e2956d;
+  --ds-accent-strong: #eba27c;
+  --ds-sigma: #6fd0c4;
+  --ds-tau: #e7b25f;
+  // Re-map here: theme layers declare these on html[data-theme='dark'], which outranks :root.
+  --global-bg-color: var(--ds-paper);
+  --global-card-bg-color: var(--ds-card);
+  --global-text-color: var(--ds-ink);
+  --global-text-color-light: var(--ds-muted);
+  --global-divider-color: var(--ds-rule);
+  --global-theme-color: var(--ds-accent);
+  --global-hover-color: var(--ds-accent-strong);
+  --editorial-blue: var(--ds-accent);
+  --editorial-navy: var(--ds-accent-strong);
+  --editorial-surface: var(--ds-surface);
+  --editorial-grid: rgba(226, 149, 109, .05);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--global-bg-color);
+  color: var(--global-text-color);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+// Section headings take the serif voice; page titles keep the technical mono signature.
+.post h2:not(.bibliography),
+.post h3,
+.home-page--editorial h2,
+.research-output h2 {
+  font-family: var(--font-serif);
+  font-weight: 560;
+  letter-spacing: -.01em;
+}
+.post-title,
+.navbar-brand {
+  font-family: var(--font-mono);
+}
+code, pre, kbd, samp { font-family: var(--font-mono); }
+
+.navbar,
+.navbar.navbar-light,
+html[data-theme='dark'] .navbar {
+  background-color: var(--global-bg-color) !important;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--ds-accent) 22%, transparent);
+}
+
+/* Motion kit: blocks fade in once as they enter the viewport. Opacity only, so layout
+   and hit areas never move. Content stays visible without JavaScript, when printing
+   and with reduced motion. */
+html.motion-ready [data-reveal] {
+  opacity: 0;
+  transition: opacity var(--motion-duration) var(--motion-ease);
+}
+html.motion-ready [data-reveal].is-revealed { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  html.motion-ready [data-reveal] { opacity: 1; transition: none; }
+}
+@media print {
+  html.motion-ready [data-reveal] { opacity: 1 !important; }
+}

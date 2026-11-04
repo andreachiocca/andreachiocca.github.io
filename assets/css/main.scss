@@ -28,3 +28,6 @@ $max-content-width: {{ site.max_width }};
 @import "laboratory_editorial";
 @import "outputs_atlas";
 @import "teaching_thesis_editorial";
+
+// Tokens, typefaces and motion; must stay last.
+@import "design_system";
