@@ -243,6 +243,12 @@ html[data-theme='dark'] .home-page--editorial .home-paths li:first-child a {
 }
 @media (max-width: 900px) {
   .home-page--editorial .home-hero { grid-template-columns: minmax(0,1fr); gap: 1.7rem; }
+  /* Stacked layout: show FIG. 01 and the portrait right after the name, before the biography. */
+  .home-page--editorial .home-hero-copy { display: contents; }
+  .home-page--editorial .home-eyebrow { order: 1; margin-bottom: 0; }
+  .home-page--editorial .home-hero-header { order: 2; margin-bottom: 0; }
+  .home-page--editorial .home-hero-aside { order: 3; }
+  .home-page--editorial .home-summary { order: 4; }
   .home-page--editorial .home-hero-aside { grid-template-columns: minmax(0,1.3fr) minmax(0,.8fr); align-items: start; }
   .home-page--editorial .home-hero-art { align-self: stretch; }
   .home-page--editorial .home-technical-figure { max-height: 330px; }

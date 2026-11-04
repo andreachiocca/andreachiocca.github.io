@@ -352,7 +352,11 @@ blockquote {
   text-align: center;
 
   .contact-icons {
-    font-size: 4rem;
+    font-size: 1.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .35rem 1.1rem;
 
     a {
       i::before {
@@ -430,6 +434,45 @@ footer.sticky-bottom {
   padding-top: 40px;
   padding-bottom: 40px;
   font-size: 0.9rem;
+}
+
+// Two-column academic footer: identity on the left, profile links on the right.
+.site-footer-grid {
+  display: grid;
+  grid-template-columns: minmax(18rem, 1fr) minmax(0, 1fr);
+  gap: 1rem 2.5rem;
+  align-items: start;
+  color: var(--global-text-color-light);
+  font-size: .84rem;
+  line-height: 1.6;
+
+  p { margin: 0; }
+  .site-footer-name { color: var(--global-text-color); font-weight: 600; }
+  .site-footer-links ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: .25rem 1.1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font: 500 .74rem/1.9 ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .site-footer-links a { color: var(--global-text-color); }
+  .site-footer-links a:hover, .site-footer-links a:focus-visible { color: var(--global-theme-color); }
+  .site-footer-meta {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--global-divider-color);
+    padding-top: .9rem;
+    font: .72rem/1.6 ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  }
+}
+
+@media (max-width: 620px) {
+  .site-footer-grid { grid-template-columns: minmax(0, 1fr); }
+  .site-footer-grid .site-footer-links ul { justify-content: flex-start; }
 }
 
 // CV
