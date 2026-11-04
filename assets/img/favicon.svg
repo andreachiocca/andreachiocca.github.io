@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Isometric stress cube from FIG. 01, simplified for 16-180 px icons. -->
+  <rect width="64" height="64" rx="12" fill="#123451"/>
+  <path d="M32 12 50 22.5 32 33 14 22.5Z" fill="#3279A1"/>
+  <path d="M14 22.5 32 33V54L14 43.5Z" fill="#16486C"/>
+  <path d="M50 22.5 32 33V54L50 43.5Z" fill="#1F587C"/>
+  <path d="M32 12 50 22.5V43.5L32 54 14 43.5V22.5Z M32 33V54 M14 22.5 32 33 50 22.5" fill="none" stroke="#B3D9EA" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M32 22.5V5.5M28.5 9.5 32 5 35.5 9.5" fill="none" stroke="#77D5D0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

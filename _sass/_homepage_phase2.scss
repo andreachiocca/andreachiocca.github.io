@@ -21,7 +21,7 @@ body.academic-home-v2 main#main-content {
 .home-page--editorial .home-identity-label,
 .home-page--editorial .home-art-heading,
 .home-page--editorial .home-art-footer {
-  font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-family: var(--font-mono);
   letter-spacing: .08em;
   font-size: .72rem;
   font-weight: 500;
@@ -180,7 +180,7 @@ body.academic-home-v2 main#main-content {
 .home-page--editorial .home-open-science h2::before,
 .home-page--editorial .collaboration-panel h2::before {
   color: var(--global-theme-color);
-  font-family: ui-monospace, Consolas, monospace;
+  font-family: var(--font-mono);
   font-size: .72rem;
   letter-spacing: 0;
   vertical-align: middle;
@@ -209,7 +209,7 @@ body.academic-home-v2 main#main-content {
   position: absolute;
   right: -.08em;
   bottom: -.16em;
-  font: 700 clamp(5rem,12vw,10rem)/1 ui-monospace, Consolas, monospace;
+  font: 700 clamp(5rem,12vw,10rem)/1 var(--font-mono);
   color: rgba(202,237,238,.065);
   pointer-events: none;
 }
@@ -243,6 +243,12 @@ html[data-theme='dark'] .home-page--editorial .home-paths li:first-child a {
 }
 @media (max-width: 900px) {
   .home-page--editorial .home-hero { grid-template-columns: minmax(0,1fr); gap: 1.7rem; }
+  /* Stacked layout: show FIG. 01 and the portrait right after the name, before the biography. */
+  .home-page--editorial .home-hero-copy { display: contents; }
+  .home-page--editorial .home-eyebrow { order: 1; margin-bottom: 0; }
+  .home-page--editorial .home-hero-header { order: 2; margin-bottom: 0; }
+  .home-page--editorial .home-hero-aside { order: 3; }
+  .home-page--editorial .home-summary { order: 4; }
   .home-page--editorial .home-hero-aside { grid-template-columns: minmax(0,1.3fr) minmax(0,.8fr); align-items: start; }
   .home-page--editorial .home-hero-art { align-self: stretch; }
   .home-page--editorial .home-technical-figure { max-height: 330px; }
@@ -297,7 +303,7 @@ html[data-theme='dark'] .home-page--editorial .home-paths li:first-child a {
   color: var(--global-text-color-light);
 }
 .home-page--editorial .home-pathway-caption {
-  font: 500 .66rem/1.3 ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font: 500 .66rem/1.3 var(--font-mono);
   letter-spacing: .06em;
   white-space: nowrap;
   color: var(--global-theme-color);

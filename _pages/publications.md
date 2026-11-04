@@ -11,7 +11,7 @@ nav_order: 2
 
 <div class="publications-index">
 <div class="publications-index-intro" markdown="1">
-{% locale publications.intro %}Journal articles, conference contributions and my doctoral thesis are listed separately below. [Research software, datasets and benchmark packages]({{ '/repositories/' | local_url | relative_url }}) have their own catalogue.{% endlocale %}
+{% locale publications.intro %}[Research software, datasets and benchmark packages]({{ '/repositories/' | local_url | relative_url }}) linked to these papers have their own catalogue.{% endlocale %}
 </div>
 
 {% include bib_search.liquid %}
