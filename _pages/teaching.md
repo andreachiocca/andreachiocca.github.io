@@ -12,7 +12,7 @@ nav_order: 4
 <section class="teaching-editorial teaching-editorial-hero" aria-labelledby="teaching-editorial-title">
 <p class="editorial-index">01 / {{ 'Teaching at the University of Pisa' | t }}</p>
 <h2 id="teaching-editorial-title">{{ 'Courses and teaching materials' | t }}</h2>
-{% capture teaching_intro %}{% locale teaching.intro %}Find your course below for slides, notes, exercises and tutorials. These resources complement the [official course catalogue](https://unipi.coursecatalogue.cineca.it/) and [Engineering e-learning platform](https://elearn.ing.unipi.it/).{% endlocale %}{% endcapture %}
+{% capture teaching_intro %}{% locale teaching.intro %}Slides, notes, exercises and tutorials for each course. See also the [official course catalogue](https://unipi.coursecatalogue.cineca.it/) and the [Engineering e-learning platform](https://elearn.ing.unipi.it/).{% endlocale %}{% endcapture %}
 <div class="teaching-editorial-description">{{ teaching_intro | strip | markdownify }}</div>
 <nav class="teaching-editorial-links" aria-label="{{ 'Teaching resources' | t }}">
 <a href="#recent-teaching">{{ 'Browse teaching materials' | t }} <span aria-hidden="true">↓</span></a>
@@ -20,11 +20,11 @@ nav_order: 4
 </nav>
 </section>
 
-<section class="collaboration-panel teaching-editorial" aria-labelledby="teaching-thesis-title"><h2 id="teaching-thesis-title"><i class="far fa-lightbulb section-icon" aria-hidden="true"></i>{{ "Looking for a thesis topic?" | t }}</h2>{% locale teaching.thesis %}<p>Three thesis projects are available for discussion, covering open-source multiaxial fatigue methods, vibration testing of capacitor assemblies and the fatigue behaviour of coated lattice structures. Other research directions remain open for exploration.</p>{% endlocale %}<a class="contact-link" href="{{ '/thesis/' | local_url | relative_url }}">{{ "Explore thesis opportunities" | t }} <span aria-hidden="true">→</span></a></section>
+<section class="collaboration-panel teaching-editorial" aria-labelledby="teaching-thesis-title"><h2 id="teaching-thesis-title"><i class="far fa-lightbulb section-icon" aria-hidden="true"></i>{{ "Looking for a thesis topic?" | t }}</h2>{% locale teaching.thesis %}<p>Three thesis projects: open-source multiaxial fatigue methods, vibration testing of capacitors on circuit boards, and fatigue of coated lattice structures.</p>{% endlocale %}<a class="contact-link" href="{{ '/thesis/' | local_url | relative_url }}">{{ "Explore thesis opportunities" | t }} <span aria-hidden="true">→</span></a></section>
 
 <h2 id="recent-teaching">{{ "Recent teaching" | t }}</h2>
 
-{% locale teaching.periods %}Teaching continues in the 2026/27 academic year with the same courses and roles as the preceding year. For current requirements and schedules, consult the official university platforms.{% endlocale %}
+{% locale teaching.periods %}Same courses and roles in 2026/27. Check the official university platforms for schedules and requirements.{% endlocale %}
 
 {% assign courses = site.projects | sort: 'importance' %}
 {% for group in (1..2) %}
@@ -46,7 +46,7 @@ nav_order: 4
 
 ## {{ "Supervision and research mentoring" | t }}
 
-{% locale teaching.supervision %}I have supervised or co-supervised master's theses on welded joints, polymer composites, hybrid SPR joints, additively manufactured aluminium structures, elastomers and automotive PCB assemblies. In August–October 2026, I also mentor a FABER short-term scientific mission involving the National Engineering School of Monastir (ENIM).{% endlocale %}
+{% locale teaching.supervision %}Master’s theses supervised or co-supervised on welded joints, polymer composites, hybrid SPR joints, additively manufactured aluminium, elastomers and automotive PCB assemblies. August–October 2026: mentor of a FABER short-term scientific mission with the National Engineering School of Monastir (ENIM).{% endlocale %}
 
-{% locale teaching.contact %}For materials, thesis topics or project questions, [contact me by email](mailto:andrea.chiocca@unipi.it).{% endlocale %}
+{% locale teaching.contact %}Questions on materials, theses or projects: [email me](mailto:andrea.chiocca@unipi.it).{% endlocale %}
 

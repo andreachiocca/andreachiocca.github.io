@@ -11,7 +11,7 @@ layout: default
   </header>
 
   <article>
-    {% locale cv.context %}<p>Current international responsibilities are described under <a href="{{ '/research/' | local_url | relative_url }}#international-collaborations">research activities</a>; course periods and supervision are listed under <a href="{{ '/teaching/' | local_url | relative_url }}">teaching</a>.</p>{% endlocale %}
+    {% locale cv.context %}<p>Current roles: <a href="{{ '/research/' | local_url | relative_url }}#international-collaborations">research</a>. Courses and supervision: <a href="{{ '/teaching/' | local_url | relative_url }}">teaching</a>.</p>{% endlocale %}
     <div class="cv">
       {% for entry in site.data.cv %}
         <a class="anchor" id="{{ entry.title }}"></a>
@@ -47,7 +47,7 @@ layout: default
   </header>
 
   <article>
-    {% locale cv.context %}<p>Current international responsibilities are described under <a href="{{ '/research/' | local_url | relative_url }}#international-collaborations">research activities</a>; course periods and supervision are listed under <a href="{{ '/teaching/' | local_url | relative_url }}">teaching</a>.</p>{% endlocale %}
+    {% locale cv.context %}<p>Current roles: <a href="{{ '/research/' | local_url | relative_url }}#international-collaborations">research</a>. Courses and supervision: <a href="{{ '/teaching/' | local_url | relative_url }}">teaching</a>.</p>{% endlocale %}
     <div class="cv">
       {% for data in site.data.resume %}
         {% if site.jsonresume and site.jsonresume.size > 0 %}

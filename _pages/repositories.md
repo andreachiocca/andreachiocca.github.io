@@ -19,7 +19,7 @@ catalogue: true
   <section class="output-atlas-hero" aria-label="{{ 'Catalogue overview' | t }}">
     <div class="output-atlas-intro">
       <p class="output-atlas-index">01 / {{ 'Scientific software and research data' | t }}</p>
-      {% locale repositories.intro %}<p>Code and data supporting my <a href="{{ '/research/' | local_url | relative_url }}">research</a> and <a href="{{ '/publications/' | local_url | relative_url }}">publications</a>. Forks retain upstream attribution.</p>{% endlocale %}
+      {% locale repositories.intro %}<p>Code and data behind my <a href="{{ '/research/' | local_url | relative_url }}">research</a> and <a href="{{ '/publications/' | local_url | relative_url }}">publications</a>.</p>{% endlocale %}
       <nav class="output-atlas-jump" aria-label="{{ 'Explore resources' | t }}">
         <a href="#selected-outputs">{{ 'Jump to selected outputs' | t }} <span aria-hidden="true">↘</span></a>
         <a href="#complete-catalogue">{{ 'Jump to full catalogue' | t }} <span aria-hidden="true">↓</span></a>
@@ -69,7 +69,7 @@ catalogue: true
     <div id="output-grid" class="output-grid">
       {% for canonical_output in site.data.research_outputs %}{% include research_output.html output=canonical_output %}{% endfor %}
     </div>
-    {% locale repositories.snapshot %}<p class="catalogue-footnote">Catalogue snapshot verified {{ site.data.catalogue_status.verified_on | date: '%-d %B %Y' }}. Records link to original sources. Version history and access conditions are available under “Record details”. Code-update dates do not indicate scientific validation.</p>{% endlocale %}
+    {% locale repositories.snapshot %}<p class="catalogue-footnote">Catalogue verified {{ site.data.catalogue_status.verified_on | date: '%-d %B %Y' }}. Commit dates show code activity, not scientific validation.</p>{% endlocale %}
   </section>
 </div>
 <script defer src="{{ '/assets/js/research_outputs.js' | local_url | relative_url | bust_file_cache }}"></script>

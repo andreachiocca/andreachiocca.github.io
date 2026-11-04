@@ -2,7 +2,7 @@
   {
     "id": "multiaxial-fatigue-and-critical-plane-methods",
     "title": "Fatigue assessment",
-    "summary": "I study how repeated loading damages engineering components, especially when forces act in several directions. My work develops and compares critical plane methods that connect local stresses and strains to fatigue life. The aim is to make assessments of notched and welded components more practical and reproducible.",
+    "summary": "Fatigue of components under loads acting in several directions. I develop and compare critical plane methods that link local stresses and strains to fatigue life, for notched and welded components.",
     "methods": "Analytical and semi-analytical models; finite element post-processing; comparison with fatigue tests.",
     "links": [
       {
@@ -41,7 +41,7 @@
   {
     "id": "residual-stresses-and-welded-structures",
     "title": "Welded structures and residual stresses",
-    "summary": "Welding leaves stresses in a component even before it enters service. I investigate how these residual stresses interact with applied loads and affect fatigue life. My work combines simulations and measurements to study welded joints and to relate manufacturing conditions to their structural response.",
+    "summary": "Welding leaves residual stresses before a part enters service. I study how they combine with applied loads and affect fatigue life, through simulations and measurements.",
     "methods": "Thermal–structural finite element analysis; residual stress evaluation; experimental fatigue testing.",
     "links": [
       {
@@ -72,7 +72,7 @@
   {
     "id": "additive-manufacturing-and-material-behaviour",
     "title": "Additive manufacturing",
-    "summary": "I investigate the mechanical behaviour of additively manufactured structures and the thermal effects of manufacturing processes. My work includes representative structure elements for fatigue assessment and analytical descriptions of welding and metal additive manufacturing. These approaches connect process conditions, material behaviour and component-scale analysis.",
+    "summary": "Mechanical behaviour of additively manufactured structures and thermal effects of the process, from representative structure elements to analytical models of welding and metal additive manufacturing.",
     "methods": "Analytical heat-flow models; finite element analysis; experimental characterisation.",
     "links": [
       {
@@ -99,7 +99,7 @@
   {
     "id": "component-testing-and-industrial-applications",
     "title": "Materials and component testing",
-    "summary": "I characterise how materials and joints respond to static and repeated loads, including changes in temperature. Applications include polymer composites, hybrid riveted joints, automotive components and printed circuit board assemblies. The work links laboratory measurements with computational models to understand structural behaviour in engineering applications.",
+    "summary": "Static, cyclic and temperature-dependent response of materials, joints and components: polymer composites, hybrid riveted joints, automotive parts and circuit board assemblies.",
     "methods": "Static and fatigue tests; strain, vibration and temperature measurements; computational modelling.",
     "links": [
       {

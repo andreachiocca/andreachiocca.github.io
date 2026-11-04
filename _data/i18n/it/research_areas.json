@@ -1,22 +1,22 @@
 {
   "multiaxial-fatigue-and-critical-plane-methods": {
     "title": "Analisi a fatica",
-    "summary": "Studio il danneggiamento dei componenti meccanici sottoposti a carichi ciclici, anche multiassiali. Sviluppo e confronto metodi basati sul piano critico che mettono in relazione le tensioni e le deformazioni locali con la vita a fatica. L’obiettivo è migliorare l’affidabilità dell’analisi a fatica di componenti intagliati e strutture saldate.",
+    "summary": "Fatica di componenti con carichi agenti in più direzioni. Sviluppo e confronto metodi basati sul piano critico che legano tensioni e deformazioni locali alla vita a fatica, per componenti intagliati e saldati.",
     "methods": "Modelli analitici e semianalitici; elaborazione dei risultati agli elementi finiti; confronto con prove di fatica."
   },
   "residual-stresses-and-welded-structures": {
     "title": "Strutture saldate e tensioni residue",
-    "summary": "Il processo di saldatura genera tensioni residue nel componente, già prima della sua entrata in servizio. Studio l’interazione tra queste tensioni e i carichi applicati e i suoi effetti sulla vita a fatica. Il mio lavoro combina simulazioni numeriche e misurazioni sperimentali per analizzare i giunti saldati e collegare le condizioni di fabbricazione alla risposta strutturale.",
+    "summary": "La saldatura lascia tensioni residue prima dell’entrata in servizio. Studio come si combinano con i carichi applicati e come influenzano la vita a fatica, con simulazioni e misure.",
     "methods": "Analisi termostrutturali agli elementi finiti; valutazione delle tensioni residue; prove sperimentali di fatica."
   },
   "additive-manufacturing-and-material-behaviour": {
     "title": "Manifattura additiva",
-    "summary": "Studio il comportamento meccanico delle strutture prodotte mediante manifattura additiva e gli effetti termici dei processi di fabbricazione. Il lavoro comprende elementi strutturali rappresentativi per la valutazione a fatica e modelli analitici dei processi di saldatura e manifattura additiva dei metalli. Questi approcci collegano condizioni di processo, comportamento del materiale e analisi del componente.",
+    "summary": "Comportamento meccanico delle strutture da manifattura additiva ed effetti termici del processo, dagli elementi strutturali rappresentativi ai modelli analitici di saldatura e manifattura additiva dei metalli.",
     "methods": "Modelli analitici di trasmissione del calore; analisi agli elementi finiti; caratterizzazione sperimentale."
   },
   "component-testing-and-industrial-applications": {
     "title": "Prove su materiali e componenti",
-    "summary": "Caratterizzo la risposta di materiali e giunti a carichi statici e ciclici, considerando anche gli effetti della temperatura. Le applicazioni comprendono compositi polimerici, giunti ibridi rivettati, componenti automobilistici e assemblaggi di circuiti stampati. Il lavoro combina misurazioni di laboratorio e modelli numerici per comprendere il comportamento strutturale nelle applicazioni ingegneristiche.",
+    "summary": "Risposta statica, ciclica e in temperatura di materiali, giunti e componenti: compositi polimerici, giunti ibridi rivettati, componenti automobilistici e assemblaggi di circuiti stampati.",
     "methods": "Prove statiche e di fatica; misure di deformazione, vibrazione e temperatura; modellazione computazionale."
   }
 }

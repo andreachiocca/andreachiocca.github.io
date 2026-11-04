@@ -17,15 +17,15 @@ profile:
 
 news: false  # includes a list of news items
 recent_papers: true # five most recent published bibliography records
-social: true  # includes social icons at the bottom of the page
+social: false  # profile links live in the footer
 ---
 
-{% locale home.intro %}I study **fatigue and structural integrity**, examining how repeated loads affect notched and welded components, materials and joints. My work combines **finite element modelling, analytical methods and experimental testing**, with applications in mechanical design, automotive components and additive manufacturing.{% endlocale %}
+{% locale home.intro %}I study **fatigue and structural integrity** of notched and welded components, combining **finite element modelling, analytical methods and experiments**. Applications include automotive components and additive manufacturing.{% endlocale %}
 
 <section id="research-environment" aria-label="{{ 'Research environment' | t }}">
-{% locale home.context %}<p>I work in the machine design research group (<em>Gruppo di Costruzione di Macchine</em>) within the <a href="https://www.dici.unipi.it/">Department of Civil and Industrial Engineering (DICI)</a>, <a href="https://www.unipi.it/">University of Pisa</a>. The group’s expertise in experimental mechanics and modelling provides the context for my research on fatigue and structural integrity.</p>{% endlocale %}
+{% locale home.context %}<p>Machine design group (<em>Gruppo di Costruzione di Macchine</em>), <a href="https://www.dici.unipi.it/">Department of Civil and Industrial Engineering (DICI)</a>, <a href="https://www.unipi.it/">University of Pisa</a>.</p>{% endlocale %}
 </section>
 
-{% locale home.bio %}I hold a research contract at the University of Pisa and am **Co-Leader of FABER WG3 (Fatigue Estimation Competition)**. I received my PhD in Industrial Engineering from Pisa in 2021.{% endlocale %}
+{% locale home.bio %}**Co-Leader of FABER WG3 (Fatigue Estimation Competition)**. PhD in Industrial Engineering, Pisa, 2021.{% endlocale %}
 
 <ul class="inline-links home-paths"><li><a href="{{ '/research/' | local_url | relative_url }}">{{ "Research areas" | t }}</a></li><li><a href="{{ '/repositories/' | local_url | relative_url }}">{{ "Software & data" | t }}</a></li><li><a href="{{ '/teaching/' | local_url | relative_url }}">{{ "For students" | t }}</a></li><li><a href="#collaboration">{{ "Contact" | t }}</a></li></ul>

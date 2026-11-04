@@ -5,7 +5,7 @@
       "title": "Welded structures",
       "icon": "fa-tools",
       "mode": "Numerical + experimental",
-      "description": "Explore how welding affects the stresses and fatigue life of a component. A thesis can connect process simulations with measurements and tests on welded joints.",
+      "description": "How welding affects stresses and fatigue life, connecting process simulations with measurements and tests.",
       "activities": "Welding simulation; thermomechanical finite element models; residual stress evaluation; fatigue testing and numerical–experimental comparison.",
       "links": [
         {
@@ -19,7 +19,7 @@
       "title": "Multiaxial fatigue of metals",
       "icon": "fa-chart-line",
       "mode": "Numerical / computational",
-      "description": "Study how metals accumulate fatigue damage when loads act in several directions. Develop and compare assessment methods, with opportunities for students interested in mechanics, programming and scientific computing.",
+      "description": "How metals accumulate damage under multiaxial loads; develop and compare assessment methods, with programming and scientific computing.",
       "activities": "Critical-plane criteria; efficient algorithms; model benchmarking; validation against experimental datasets; Python-based scientific software.",
       "links": [
         {
@@ -37,7 +37,7 @@
       "title": "Fatigue behaviour of polymers",
       "icon": "fa-flask",
       "mode": "Experimental + numerical",
-      "description": "Investigate how polymeric materials behave under repeated loading and how to predict the life of polymer components. The balance between testing and modelling can follow your interests and the agreed project.",
+      "description": "Cyclic behaviour and life prediction of polymer components, balancing testing and modelling as you prefer.",
       "activities": "Mechanical and cyclic characterisation; constitutive and fatigue-life models; component simulations; experimental validation. Temperature effects may be considered where feasible.",
       "links": [
         {
@@ -51,7 +51,7 @@
       "title": "PCB fatigue and reliability",
       "icon": "fa-microchip",
       "mode": "Numerical + experimental",
-      "description": "Explore the mechanical reliability of printed circuit boards and electronic assemblies. Potential applications include components exposed to cyclic or vibration loading in automotive and other engineering environments.",
+      "description": "Mechanical reliability of circuit boards and electronic assemblies under cyclic or vibration loading.",
       "activities": "Finite element models of boards and components; mechanical response and failure mechanisms; fatigue-life estimation; comparison with measurements.",
       "links": [
         {
@@ -65,7 +65,7 @@
       "title": "AI for structural integrity",
       "icon": "fa-brain",
       "mode": "Numerical / computational · exploratory",
-      "description": "Explore whether data-driven methods can support fatigue prediction and structural assessment. Specific AI projects depend on suitable datasets, research collaborators and agreed thesis objectives; these are potential directions, not claims of established or validated tools.",
+      "description": "Whether data-driven methods can support fatigue prediction. Exploratory: depends on suitable datasets and collaborators; no validated tool is implied.",
       "activities": "Machine-learning benchmarks; physics-based and data-driven models; surrogate modelling; interpretation of experimental data against reference results.",
       "links": [
         {
@@ -79,17 +79,17 @@
     {
       "id": "computational",
       "title": "Numerical / computational",
-      "description": "Finite element simulations, analytical methods, programming and algorithm development. Compare models and check their predictions against reference data."
+      "description": "Simulations, analytical methods and programming, checked against reference data."
     },
     {
       "id": "experimental",
       "title": "Experimental",
-      "description": "Laboratory testing, specimen characterisation, measurements and data acquisition. Interpret results to understand material and component behaviour."
+      "description": "Laboratory tests, measurements and data analysis on materials and components."
     },
     {
       "id": "combined",
       "title": "Combined",
-      "description": "Build a numerical model and support it with experiments. Correlate simulations with measurements and validate structural or fatigue assessment methods."
+      "description": "A numerical model supported and validated by experiments."
     }
   ],
   "international_contacts": [
