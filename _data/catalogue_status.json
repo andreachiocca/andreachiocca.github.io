@@ -5,19 +5,20 @@
     "andreachiocca"
   ],
   "github_full_names": [
-    "achiocca1/APDL-WB-ssr-v1.0",
-    "achiocca1/Awesome-CV",
-    "achiocca1/CPOpt-v1.0",
-    "achiocca1/ECP",
-    "achiocca1/FI-Sol",
-    "achiocca1/FS-Sol",
-    "achiocca1/SeAn-CP",
-    "andreachiocca/FatPy",
     "andreachiocca/andreachiocca.github.io",
+    "andreachiocca/APDL-WB-ssr-v1.0",
+    "andreachiocca/Awesome-CV",
+    "andreachiocca/CPOpt-v1.0",
+    "andreachiocca/ECP",
+    "andreachiocca/FatPy",
+    "andreachiocca/FI-Sol",
+    "andreachiocca/FS-Sol",
     "andreachiocca/moloch",
-    "andreachiocca/multiaxial-fatigue"
+    "andreachiocca/multiaxial-fatigue",
+    "andreachiocca/SeAn-CP",
+    "andreachiocca/sharCP"
   ],
-  "github_repositories": 11,
+  "github_repositories": 12,
   "zenodo_record_ids": [
     "12721131",
     "12734069",
@@ -40,12 +41,12 @@
     "2608559",
     "8214402"
   ],
-  "total_cards": 14,
+  "total_cards": 15,
   "excluded_github_full_names": [
-    "achiocca1/Awesome-CV",
-    "andreachiocca/FatPy",
     "andreachiocca/andreachiocca.github.io",
+    "andreachiocca/Awesome-CV",
+    "andreachiocca/FatPy",
     "andreachiocca/moloch"
   ],
-  "github_repositories_included": 7
+  "github_repositories_included": 8
 }
