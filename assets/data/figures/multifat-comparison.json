@@ -51,229 +51,534 @@
    "id": "FIN",
    "family": "cp_methods",
    "citation": "Findley (1959), A theory for the effect of mean stress on fatigue of metals under combined torsion and axial load or bending",
-   "url": "https://doi.org/10.1115/1.4008327"
+   "url": "https://doi.org/10.1115/1.4008327",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "k_FI"
+   ],
+   "optional_constants": []
   },
   {
    "id": "SWT",
    "family": "cp_methods",
    "citation": "Smith, Watson & Topper (1970), A stress-strain function for the fatigue of metals, Journal of Materials 5(4), 767–778",
-   "url": ""
+   "url": "",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [],
+   "optional_constants": []
   },
   {
    "id": "NINIC",
    "family": "cp_methods",
    "citation": "Ninic (2006), A stress-based multiaxial high-cycle fatigue damage criterion, Eqs. (1)-(4)",
-   "url": "https://doi.org/10.1016/j.ijfatigue.2005.04.014"
+   "url": "https://doi.org/10.1016/j.ijfatigue.2005.04.014",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": [
+    "k_NIN"
+   ]
   },
   {
    "id": "MWCM",
    "family": "cp_methods",
    "citation": "Susmel & Lazzarin (2002), A bi-parametric Wöhler curve for high cycle multiaxial fatigue assessment, Eqs. (5), (8)-(13)",
-   "url": "https://doi.org/10.1046/j.1460-2695.2002.00462.x"
+   "url": "https://doi.org/10.1046/j.1460-2695.2002.00462.x",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": []
   },
   {
    "id": "LI",
    "family": "cp_methods",
    "citation": "Li et al. (2021), Multiaxial fatigue life prediction for metals by means of an improved strain energy density-based critical plane criterion",
-   "url": "https://doi.org/10.1016/j.euromechsol.2021.104353"
+   "url": "https://doi.org/10.1016/j.euromechsol.2021.104353",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [],
+   "optional_constants": [
+    "L_LI"
+   ]
   },
   {
    "id": "MATAKE",
    "family": "cp_methods",
    "citation": "Matake (1977), An explanation on fatigue limit under combined stress",
-   "url": "https://doi.org/10.1299/jsme1958.20.257"
+   "url": "https://doi.org/10.1299/jsme1958.20.257",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": []
   },
   {
    "id": "MDC",
    "family": "cp_methods",
    "citation": "Margetin, Ďurka & Chmelko (2016), Multiaxial fatigue criterion based on parameters from torsion and axial S-N curve, Eqs. (4)-(8)",
-   "url": "https://doi.org/10.3221/IGF-ESIS.37.20"
+   "url": "https://doi.org/10.3221/IGF-ESIS.37.20",
+   "inputs": "stress",
+   "life_law": "native",
+   "constants": [
+    "b0",
+    "b_fat",
+    "sigma_f",
+    "tau_f"
+   ],
+   "optional_constants": []
   },
   {
    "id": "MGSE_ZHU",
    "family": "cp_methods",
    "citation": "Zhu et al. (2018), Evaluation and comparison of critical plane criteria for multiaxial fatigue analysis of ductile and brittle materials",
-   "url": "https://doi.org/10.1016/j.ijfatigue.2018.03.028"
+   "url": "https://doi.org/10.1016/j.ijfatigue.2018.03.028",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [],
+   "optional_constants": [
+    "k_MGSE"
+   ]
   },
   {
    "id": "MMCCM",
    "family": "cp_methods",
    "citation": "Wang & Susmel (2016), The Modified Manson-Coffin Curve Method to estimate fatigue lifetime under complex constant and variable amplitude multiaxial fatigue loading, Eqs. (1)-(8)",
-   "url": "https://doi.org/10.1016/j.ijfatigue.2015.10.005"
+   "url": "https://doi.org/10.1016/j.ijfatigue.2015.10.005",
+   "inputs": "stress_strain",
+   "life_law": "native",
+   "constants": [
+    "E",
+    "b0",
+    "b_fat",
+    "c0",
+    "c_fat",
+    "epsilon_f",
+    "gamma_f",
+    "nu",
+    "sigma_f",
+    "tau_f"
+   ],
+   "optional_constants": [
+    "nu_p"
+   ]
   },
   {
    "id": "MSWT",
    "family": "cp_methods",
    "citation": "Modified SWT form reported by Zhu et al. (2018), Evaluation and comparison of critical plane criteria for multiaxial fatigue analysis of ductile and brittle materials",
-   "url": "https://doi.org/10.1016/j.ijfatigue.2018.03.028"
+   "url": "https://doi.org/10.1016/j.ijfatigue.2018.03.028",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [],
+   "optional_constants": [
+    "a_MSWT"
+   ]
   },
   {
    "id": "DANGVAN",
    "family": "cp_methods",
    "citation": "Dang Van (1973), Sur la résistance à la fatigue des métaux, Sciences et Technique de l'Armement 47, 647–722",
-   "url": ""
+   "url": "",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": []
   },
   {
    "id": "MKBM",
    "family": "cp_methods",
    "citation": "Li et al. (2011), Multiaxial fatigue life prediction for various metallic materials based on the critical plane approach",
-   "url": "https://doi.org/10.1016/j.ijfatigue.2010.07.003"
+   "url": "https://doi.org/10.1016/j.ijfatigue.2010.07.003",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [
+    "Sy"
+   ],
+   "optional_constants": []
   },
   {
    "id": "VSE",
    "family": "cp_methods",
    "citation": "Liu (1993), A method based on virtual strain-energy parameters for multiaxial fatigue life prediction, ASTM STP 1191, Eqs. (7)-(11)",
-   "url": "https://doi.org/10.1520/STP24796S"
+   "url": "https://doi.org/10.1520/STP24796S",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [],
+   "optional_constants": [
+    "vse_mode"
+   ]
   },
   {
    "id": "MCD",
    "family": "cp_methods",
    "citation": "McDiarmid (1991), A general criterion for high cycle multiaxial fatigue failure",
-   "url": "https://doi.org/10.1111/j.1460-2695.1991.tb00673.x"
+   "url": "https://doi.org/10.1111/j.1460-2695.1991.tb00673.x",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Su",
+    "Taum1"
+   ],
+   "optional_constants": []
   },
   {
    "id": "MWHS",
    "family": "cp_methods",
    "citation": "Wu, Li, Fang & Song (2017), Evaluation of multiaxial fatigue life prediction criteria for Ni-based superalloy GH4169, Eq. (19)",
-   "url": "https://doi.org/10.1177/0954406217708214"
+   "url": "https://doi.org/10.1177/0954406217708214",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [
+    "E",
+    "Sy"
+   ],
+   "optional_constants": []
   },
   {
    "id": "FS",
    "family": "cp_methods",
    "citation": "Fatemi & Socie (1988), A critical plane approach to multiaxial fatigue damage including out-of-phase loading",
-   "url": "https://doi.org/10.1111/j.1460-2695.1988.tb01169.x"
+   "url": "https://doi.org/10.1111/j.1460-2695.1988.tb01169.x",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [
+    "Sy",
+    "k_FS"
+   ],
+   "optional_constants": []
   },
   {
    "id": "LIU2021",
    "family": "cp_methods",
    "citation": "Liu, Ran, Wei & Zhang (2021), A critical plane-based multiaxial fatigue life prediction method considering the material sensitivity and the shear stress",
-   "url": "https://doi.org/10.1016/j.ijpvp.2021.104532"
+   "url": "https://doi.org/10.1016/j.ijpvp.2021.104532",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [
+    "E",
+    "Su",
+    "nu"
+   ],
+   "optional_constants": [
+    "tau_f"
+   ]
   },
   {
    "id": "GSE",
    "family": "cp_methods",
    "citation": "Ince & Glinka (2014), A generalized fatigue damage parameter for multiaxial fatigue life prediction under proportional and non-proportional loadings",
-   "url": "https://doi.org/10.1016/j.ijfatigue.2013.10.007"
+   "url": "https://doi.org/10.1016/j.ijfatigue.2013.10.007",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [
+    "E",
+    "nu"
+   ],
+   "optional_constants": []
   },
   {
    "id": "MGSE_YU",
    "family": "cp_methods",
    "citation": "Yu, Zhu, Liu & Liu (2017), Multiaxial fatigue damage parameter and life prediction without any additional material constants, Eq. (11)",
-   "url": "https://doi.org/10.3390/ma10080923"
+   "url": "https://doi.org/10.3390/ma10080923",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [],
+   "optional_constants": []
   },
   {
    "id": "GSA",
    "family": "cp_methods",
    "citation": "Ince & Glinka (2014), A generalized fatigue damage parameter for multiaxial fatigue life prediction under proportional and non-proportional loadings",
-   "url": "https://doi.org/10.1016/j.ijfatigue.2013.10.007"
+   "url": "https://doi.org/10.1016/j.ijfatigue.2013.10.007",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [
+    "E",
+    "nu"
+   ],
+   "optional_constants": [
+    "Su",
+    "sigma_f",
+    "tau_f"
+   ]
   },
   {
    "id": "LIU2025",
    "family": "cp_methods",
    "citation": "Liu, Xie & Hao (2025), A multiaxial high-cycle fatigue life evaluation model based on the critical plane method, Eqs. (21)-(27)",
-   "url": "https://doi.org/10.1007/s11665-025-11163-z"
+   "url": "https://doi.org/10.1007/s11665-025-11163-z",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Su"
+   ],
+   "optional_constants": [
+    "Tu"
+   ]
   },
   {
    "id": "MMMH",
    "family": "invariant_methods",
    "citation": "Mertens & Liebich (2017), A time dependent equivalent stress function for proportional and non-proportional transient loaded and notched metallic components, Eqs. (1), (4), (20)-(25), smooth surface; endurance-limit Haigh line with M of Dubbel (2004) E1",
-   "url": "https://doi.org/10.1016/j.ijfatigue.2017.06.003"
+   "url": "https://doi.org/10.1016/j.ijfatigue.2017.06.003",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": [
+    "M_MMMH",
+    "Sig0",
+    "Su"
+   ]
   },
   {
    "id": "VHN",
    "family": "invariant_methods",
    "citation": "Vu, Halm & Nadot (2010), Multiaxial fatigue criterion for complex loading based on stress invariants, Eqs. (6)-(21)",
-   "url": "https://doi.org/10.1016/j.ijfatigue.2009.11.006"
+   "url": "https://doi.org/10.1016/j.ijfatigue.2009.11.006",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Su",
+    "Taum1"
+   ],
+   "optional_constants": []
   },
   {
    "id": "GAM",
    "family": "invariant_methods",
    "citation": "Goncalves, Araujo & Mamiya (2005), Multiaxial fatigue: a stress based criterion for hard metals, Eqs. (11)-(13), (A.17)",
-   "url": "https://doi.org/10.1016/j.ijfatigue.2004.05.006"
+   "url": "https://doi.org/10.1016/j.ijfatigue.2004.05.006",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": []
   },
   {
    "id": "COIN",
    "family": "invariant_methods",
    "citation": "Schmidt & Kraft (2023), A new equivalent stress approach based on complex invariants: The COIN LiWI method, Eqs. (21)-(32)",
-   "url": "https://doi.org/10.1016/j.ijfatigue.2022.107474"
+   "url": "https://doi.org/10.1016/j.ijfatigue.2022.107474",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": [
+    "k_phi"
+   ]
   },
   {
    "id": "CROSSLAND",
    "family": "invariant_methods",
    "citation": "Crossland (1956), Effect of large hydrostatic pressures on the torsional fatigue strength of an alloy steel; as restated by Papadopoulos et al. (1997), A comparative study of multiaxial high-cycle fatigue criteria for metals, Eqs. (44), (65)-(66)",
-   "url": "https://doi.org/10.1016/S0142-1123(96)00064-3"
+   "url": "https://doi.org/10.1016/S0142-1123(96)00064-3",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": []
   },
   {
    "id": "PBP",
    "family": "invariant_methods",
    "citation": "Cristofori, Susmel & Tovo (2008), A stress invariant based criterion to estimate fatigue damage under multiaxial loading, Eqs. (4)-(13)",
-   "url": "https://doi.org/10.1016/j.ijfatigue.2007.11.006"
+   "url": "https://doi.org/10.1016/j.ijfatigue.2007.11.006",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": []
   },
   {
    "id": "SINES",
    "family": "invariant_methods",
    "citation": "Sines (1959), Behavior of metals under complex static and alternating stresses; as restated by Papadopoulos et al. (1997), A comparative study of multiaxial high-cycle fatigue criteria for metals, Eqs. (44), (62)-(64)",
-   "url": "https://doi.org/10.1016/S0142-1123(96)00064-3"
+   "url": "https://doi.org/10.1016/S0142-1123(96)00064-3",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Su",
+    "Taum1"
+   ],
+   "optional_constants": []
   },
   {
    "id": "OTT",
    "family": "invariant_methods",
    "citation": "Tveit et al. (2024), A continuum approach to multiaxial high-cycle fatigue modeling for ductile metallic materials",
-   "url": "https://doi.org/10.1016/j.rineng.2024.102171"
+   "url": "https://doi.org/10.1016/j.rineng.2024.102171",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": [
+    "A_OTT",
+    "Sig0",
+    "Su",
+    "m_OTT"
+   ]
   },
   {
    "id": "CAIM",
    "family": "integral_methods",
    "citation": "Boehme, Papuga & Lange (2026), Decoupling amplitude and mean stress effects in multiaxial fatigue: A critical–integral approach",
-   "url": "https://doi.org/10.1111/ffe.70244"
+   "url": "https://doi.org/10.1111/ffe.70244",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": [
+    "Sig0",
+    "Su",
+    "Tau0"
+   ]
   },
   {
    "id": "BP",
    "family": "integral_methods",
    "citation": "Boehme & Papuga (2024), Advancements in stress-based multiaxial fatigue prediction: A data-driven approach and a new criterion",
-   "url": "https://doi.org/10.1111/ffe.14281"
+   "url": "https://doi.org/10.1111/ffe.14281",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": [
+    "Sig0",
+    "Su",
+    "Tau0"
+   ]
   },
   {
    "id": "PCR",
    "family": "integral_methods",
    "citation": "Papuga & Růžička (2008), Two new multiaxial criteria for high cycle fatigue computation, Eq. (17), Appendix B",
-   "url": "https://doi.org/10.1016/j.ijfatigue.2007.02.015"
+   "url": "https://doi.org/10.1016/j.ijfatigue.2007.02.015",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": [
+    "Sig0",
+    "Su"
+   ]
   },
   {
    "id": "MOREL",
    "family": "integral_methods",
    "citation": "Morel (1998), A fatigue life prediction method based on a mesoscopic approach in constant amplitude multiaxial loading, Eqs. (9)-(11), (33)-(38)",
-   "url": "https://doi.org/10.1046/j.1460-2695.1998.00452.x"
+   "url": "https://doi.org/10.1046/j.1460-2695.1998.00452.x",
+   "inputs": "stress",
+   "life_law": "native",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": []
   },
   {
    "id": "PI",
    "family": "integral_methods",
    "citation": "Papuga & Růžička (2008), Two new multiaxial criteria for high cycle fatigue computation, Eq. (16), Appendix A",
-   "url": "https://doi.org/10.1016/j.ijfatigue.2007.02.015"
+   "url": "https://doi.org/10.1016/j.ijfatigue.2007.02.015",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": []
   },
   {
    "id": "PAPADOPOULOS",
    "family": "integral_methods",
    "citation": "Papadopoulos (2001), Long life fatigue under multiaxial loading, Eqs. (10), (25), (41)",
-   "url": "https://doi.org/10.1016/S0142-1123(01)00059-7"
+   "url": "https://doi.org/10.1016/S0142-1123(01)00059-7",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": []
   },
   {
    "id": "RFB",
    "family": "integral_methods",
    "citation": "Robert, Fogue & Bahuaud (1994), Fatigue life prediction under periodical or random multiaxial stress states, ASTM STP 1231, Eqs. (8), (15)-(25), Appendix",
-   "url": "https://doi.org/10.1520/STP13959S"
+   "url": "https://doi.org/10.1520/STP13959S",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": [
+    "Sig0",
+    "Su"
+   ]
   },
   {
    "id": "EK",
    "family": "energy_based_methods",
    "citation": "Ellyin & Kujawski (1993), A multiaxial fatigue criterion including mean-stress effect, ASTM STP 1191, Eqs. (5b), (11)-(18), high-cycle elastic form",
-   "url": "https://doi.org/10.1520/STP24795S"
+   "url": "https://doi.org/10.1520/STP24795S",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [
+    "E",
+    "nu"
+   ],
+   "optional_constants": [
+    "K_prime",
+    "alpha_EK",
+    "n_EK",
+    "n_prime"
+   ]
   },
   {
    "id": "SWTD",
    "family": "energy_based_methods",
    "citation": "Kujawski (2014), A deviatoric version of the SWT parameter",
-   "url": "https://doi.org/10.1016/j.ijfatigue.2013.12.002"
+   "url": "https://doi.org/10.1016/j.ijfatigue.2013.12.002",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [],
+   "optional_constants": []
   }
  ],
  "cells": [

@@ -63,6 +63,17 @@ class MultifatComparisonDataTests(unittest.TestCase):
             if c['within10'] == 1:
                 self.assertLessEqual(abs(c['mean']), math.log(1 / 0.9) + 1e-12, c)
 
+    def test_complexity_facets_are_declared(self):
+        # Complexity is reported beside the score, as declared by multifat, never as a fitted score.
+        for m in DATA['methods']:
+            self.assertIn(m['inputs'], ('stress', 'stress_strain'), m['id'])
+            self.assertIn(m['life_law'], ('master_curve', 'native'), m['id'])
+            self.assertIsInstance(m['constants'], list)
+            self.assertIsInstance(m['optional_constants'], list)
+            if m['inputs'] == 'stress':
+                self.assertNotIn('E', m['constants'], m['id'])
+        self.assertNotIn('score', json.dumps(DATA['methods']))
+
     def test_figure_is_bound_to_the_multiaxial_chapter(self):
         areas = json.loads((ROOT / '_data/research_areas.json').read_text(encoding='utf8'))
         chapter = next(a for a in areas if a['id'] == 'multiaxial-fatigue-and-critical-plane-methods')

@@ -36,18 +36,25 @@
   function build() {
     var width = Math.max(300, Math.round(root.querySelector('.mc-stage').clientWidth));
     var labelW = 86, headH = 74, rowH = 15, famH = 20;
-    var cellW = Math.min(78, (width - labelW - 8) / data.materials.length);
+    // Two narrow facet columns on the right: needs strain, native life law.
+    var facetW = 16, facetGap = 12;
+    var cellW = Math.min(78, (width - labelW - 8 - facetGap - 2 * facetW) / data.materials.length);
     var rows = [], y = headH, family = null;
     data.methods.forEach(function (m) {
       if (m.family !== family) { family = m.family; rows.push({ family: family, y: y }); y += famH; }
       rows.push({ method: m, y: y }); y += rowH;
     });
+    var facetX = labelW + cellW * data.materials.length + facetGap;
     layout = { width: width, labelW: labelW, headH: headH, rowH: rowH, cellW: cellW, rows: rows, height: y + 4 };
     svg.textContent = ''; rects = [];
     svg.setAttribute('viewBox', '0 0 ' + width + ' ' + layout.height);
     data.materials.forEach(function (mat, j) {
       var x = labelW + (j + 0.5) * cellW;
       node('text', { class: 'mc-col', x: x, y: headH - 8, transform: 'rotate(-45 ' + x + ' ' + (headH - 8) + ')' }).textContent = pretty(mat.id);
+    });
+    // Short symbols as headers (ε: needs strain, N: native life law); the legend spells them out.
+    ['ε', 'N'].forEach(function (label, k) {
+      node('text', { class: 'mc-facet-col', x: facetX + (k + 0.5) * facetW, y: headH - 8, 'text-anchor': 'middle' }).textContent = label;
     });
     var i = 0;
     rows.forEach(function (row) {
@@ -58,6 +65,9 @@
       }
       row.index = i;
       node('text', { class: 'mc-row', x: labelW - 8, y: row.y + rowH - 4 }).textContent = row.method.id;
+      [row.method.inputs === 'stress_strain', row.method.life_law === 'native'].forEach(function (on, k) {
+        node('circle', { class: on ? 'mc-facet mc-facet-on' : 'mc-facet', cx: facetX + (k + 0.5) * facetW, cy: row.y + rowH / 2, r: on ? 3.4 : 1.4 });
+      });
       rects[i] = data.materials.map(function (mat, j) {
         var cell = lookup[row.method.id + '|' + mat.id];
         var r = node('rect', { x: labelW + j * cellW + 1, y: row.y + 1, width: cellW - 2, height: rowH - 2, class: cell ? 'mc-cell' : 'mc-cell mc-missing' });
@@ -100,6 +110,10 @@
     if (m.url) link.href = m.url; else link.removeAttribute('href');
     root.querySelector('[data-mc-family]').textContent = ' · ' + (root.dataset[FAMILY_KEY[m.family]] || m.family);
     root.querySelector('[data-mc-material]').textContent = pretty(mat.id);
+    root.querySelector('[data-mc-inputs]').textContent = m.inputs === 'stress' ? root.dataset.inputsStress : root.dataset.inputsStrain;
+    root.querySelector('[data-mc-life]').textContent = m.life_law === 'native' ? root.dataset.lifeNative : m.life_law === 'master_curve' ? root.dataset.lifeMaster : '–';
+    var constants = m.constants.concat(m.optional_constants.map(function (c) { return c + '*'; }));
+    root.querySelector('[data-mc-constants]').textContent = constants.length ? constants.join(', ') : '–';
     root.querySelector('[data-mc-n]').textContent = cell ? cell.n : '–';
     root.querySelector('[data-mc-w10]').textContent = cell ? pct(cell.within10) : '–';
     root.querySelector('[data-mc-w20]').textContent = cell ? pct(cell.within20) : '–';

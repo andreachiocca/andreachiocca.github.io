@@ -41,15 +41,33 @@ def run_pipeline(clone, results, jobs):
     return code
 
 
-def method_info():
-    """Family and citation of every registered method, read from the installed multifat."""
+def method_info(results):
+    """Family, citation and complexity facets of every registered method, read from multifat.
+
+    Facets are taken as declared by the code, not scored: the inputs the criterion needs
+    (stress only, or also strain through E and nu), the life law of the pipeline run
+    (calibrated master curve DP = A N^b, or the criterion's native life law) and the
+    material constants it requires or optionally reads.
+    """
     from multifat.models import registry
     from multifat.models.references import method_reference
     models = {**registry._available_cp_methods(), **registry._available_direct_models()}
+    stress_only = registry.stress_only_models()
+    params = {name: (required, sorted(optional)) for name, required, optional in registry.param_table()}
+    routes = {}
+    with (results / 'Comparison/comparison_capabilities.csv').open(encoding='utf8') as handle:
+        for row in csv.DictReader(handle):
+            routes.setdefault(row['Method'], set()).add(row['Life_prediction_source'])
     info = {}
     for key, model in models.items():
         ref = method_reference(key)
-        info[key] = {'family': type(model).__module__.split('.')[2], 'citation': ref['citation'], 'url': ref['url']}
+        route = routes.get(key, set())
+        info[key] = {
+            'family': type(model).__module__.split('.')[2], 'citation': ref['citation'], 'url': ref['url'],
+            'inputs': 'stress' if key in stress_only else 'stress_strain',
+            'life_law': route.pop() if len(route) == 1 else ('mixed' if route else None),
+            'constants': params[key][0], 'optional_constants': params[key][1],
+        }
     return info
 
 
@@ -123,7 +141,7 @@ def main():
     with tempfile.TemporaryDirectory() as tmp:
         results = args.results or Path(tmp) / 'results'
         code = None if args.results else run_pipeline(args.multifat.resolve(), results.resolve(), args.jobs)
-        data = build(collect(results), method_info(), args.commit, code)
+        data = build(collect(results), method_info(results), args.commit, code)
     OUT.write_text(json.dumps(data, indent=1, ensure_ascii=False) + '\n', encoding='utf8')
     print(f'Wrote {OUT.relative_to(ROOT)}: {len(data["methods"])} methods x {len(data["materials"])} materials')
 

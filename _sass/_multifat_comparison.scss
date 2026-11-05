@@ -29,6 +29,15 @@
 // Thin outline keeps 0 % and near-zero-bias cells distinct from the panel and from missing cells.
 .multifat-comparison .mc-cell { cursor: pointer; stroke: rgba(179, 217, 234, .28); stroke-width: .6; transition: fill 320ms ease; }
 .multifat-comparison .mc-missing { fill: none; stroke: rgba(179, 217, 234, .3); stroke-width: .8; stroke-dasharray: 1.5 2.5; }
+.multifat-comparison .mc-facet { fill: rgba(179, 217, 234, .35); }
+.multifat-comparison .mc-facet-on { fill: #e7d9b5; }
+.multifat-comparison .mc-facet-col { fill: #e7d9b5; font: 600 11px var(--font-mono, monospace); }
+.multifat-comparison .mc-legend-facet { display: inline-flex; align-items: center; gap: .4rem; }
+.multifat-comparison .mc-legend-facet b { width: 7px; height: 7px; border-radius: 50%; background: #e7d9b5; margin: 0 3px; }
+.multifat-comparison .mc-constants { flex-wrap: wrap; }
+.multifat-comparison .mc-constants dd { flex: 1 1 100%; text-align: left; font-size: .74rem; overflow-wrap: anywhere; }
+.multifat-comparison figcaption .mc-metric ul { margin: .4rem 0 0; padding-left: 1.1rem; }
+.multifat-comparison figcaption .mc-metric li { margin: .25rem 0; }
 .multifat-comparison .mc-marker { fill: none; stroke: #ffffff; stroke-width: 2; pointer-events: none; }
 .multifat-comparison .mc-side { position: sticky; top: 5rem; display: grid; gap: 1rem; min-width: 0; }
 .multifat-comparison .mc-legend { display: grid; gap: .3rem; font: .72rem/1.4 var(--font-mono, monospace); color: #b3d9e8; }
