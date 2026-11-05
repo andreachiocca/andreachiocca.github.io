@@ -191,6 +191,7 @@ exclude:
   - tests
   - README.md
   - AGENTS.md
+  - CLAUDE.md
   - WRITING_STYLE.md
   - CONTRIBUTING.md
   - CUSTOMIZE.md
