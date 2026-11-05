@@ -32,5 +32,5 @@ nav_order: 1
 
 <section class="research-contact" aria-labelledby="research-environment">
   <h2 id="research-environment">{{ "Research collaborations" | t }}</h2>
-  {% locale research.contact %}<p>For potential academic or industrial research collaborations, <a href="mailto:andrea.chiocca@unipi.it">contact me</a>.</p>{% endlocale %}
+  {% locale research.contact %}<p>For academic or industrial collaborations, <a href="mailto:andrea.chiocca@unipi.it">contact me</a>.</p>{% endlocale %}
 </section>

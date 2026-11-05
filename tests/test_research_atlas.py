@@ -20,7 +20,7 @@ class ResearchAtlasSourceTests(unittest.TestCase):
         self.assertIn("layout: default", shell)
         self.assertEqual(shell.count("<h1"), 1)
         self.assertEqual(shell.count("{% locale research.intro %}"), 1)
-        self.assertIn("I study how materials and components respond to repeated loads", shell)
+        self.assertIn("How materials and components respond to repeated loads", shell)
         self.assertNotIn("{% locale research.intro %}", page)
         self.assertIn("{{ content }}", shell)
         self.assertEqual(source("assets/css/main.scss").count('@import "research_atlas";'), 1)

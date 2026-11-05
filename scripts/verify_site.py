@@ -166,7 +166,8 @@ for label, url in expected_navigation:
     if ORIGIN + url not in locations:
         errors.append('Missing navigation destination in sitemap: ' + label)
 areas = json.loads(Path('_data/research_areas.json').read_text(encoding='utf8'))
-if any(not 40 <= len(area['summary'].split()) <= 70 for area in areas):
+# Owner request (Nov 2026): short summaries, one or two sentences.
+if any(not 20 <= len(area['summary'].split()) <= 45 for area in areas):
     errors.append('Research summaries exceed the agreed brief scope')
 materials = json.loads(Path('_data/teaching_materials.json').read_text(encoding='utf8'))
 for course, resources in materials.items():
