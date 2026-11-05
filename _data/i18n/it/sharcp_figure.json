@@ -1,0 +1,21 @@
+{
+  "title": "ECP per intagli acuti",
+  "heading": "Una master curve, geometrie saldate indipendenti",
+  "caption": "Parametro di piano critico mediato al raggio di controllo r_c in funzione dei cicli a rottura. Vuoti: serie di calibrazione dalla letteratura. Pieni: geometrie di validazione indipendenti. Banda: ±2σ della curva di calibrazione.",
+  "xlabel": "Cicli a rottura N_f",
+  "ylabel_FI": "Parametro di Findley [MPa]",
+  "ylabel_FS": "Parametro di Fatemi–Socie [–]",
+  "ylabel_SWT": "Parametro SWT [MPa]",
+  "cal": "Calibrazione",
+  "val": "Validazione",
+  "rc": "Raggio di controllo r_c",
+  "t": "Indice di dispersione T",
+  "inside": "Validazione nella banda ±2σ",
+  "label": "Master curve %c per intagli saldati acuti: %i prove di validazione su %n cadono nella banda di calibrazione ±2σ.",
+  "details": "Come è calcolata",
+  "provenance": "Ottenuta eseguendo gli script di calibrazione e previsione di sharCP (commit %commit%) con le impostazioni illustrative del README, stato piano di deformazione globale in Modo I e banda comune ±2σ. Non è la calibrazione pubblicata nell’articolo associato. Le vite sperimentali delle serie di calibrazione provengono dalla letteratura citata.",
+  "data": "Dati (JSON)",
+  "code": "Script di generazione",
+  "error": "Non è stato possibile caricare i dati precalcolati.",
+  "noscript": "Questa figura interattiva richiede JavaScript."
+}
