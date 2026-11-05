@@ -76,6 +76,9 @@ main#main-content:has(> .research-atlas) { max-width: 1160px; }
 /* Preserve native summary list-item behaviour for keyboard disclosure activation. */
 .research-atlas .research-chapter details summary { display: list-item; min-height: 44px; padding: .65rem 0; }
 .research-atlas .research-chapter-visual { min-height: 155px; }
+/* Data figure computed from the owner's code: full width, after copy and illustration. */
+.research-atlas .research-chapter-evidence { grid-column: 1 / -1; order: 3; min-width: 0; }
+.research-atlas .research-chapter-evidence > figure { margin: 0; }
 .research-atlas .research-chapter:nth-child(even) .research-chapter-copy { order: 2; }
 .research-atlas .research-chapter:nth-child(even) .research-chapter-visual { order: 1; }
 @media (max-width: 850px) {

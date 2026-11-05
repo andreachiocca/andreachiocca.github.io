@@ -100,7 +100,7 @@ class TeachingThesisEditorialTests(unittest.TestCase):
         for key in ("Related publications", "Available thesis projects", "View original thermal image",
                     "Research-led thesis opportunities"):
             self.assertTrue(it[key])
-        # The thesis banner opens with the interactive damage sphere (FIG. R02), not a static illustration.
+        # The thesis banner opens with the interactive damage sphere (FIG. T01), not a static illustration.
         self.assertIn('<div class="thesis-editorial-banner-illustration">{% include damage_sphere.html %}</div>', self.thesis)
         self.assertNotIn("damage_sphere.html", read("_pages/research.md"))
         self.assertFalse((ROOT / "assets/img/thesis/robot-lattice-concept.svg").exists())

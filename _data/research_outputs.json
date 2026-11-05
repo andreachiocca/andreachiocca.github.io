@@ -99,7 +99,7 @@
     "last_code_update": "2026-10-27",
     "related_publications": [],
     "topic": "Multiaxial fatigue",
-    "research_anchor": "multiaxial-fatigue-and-critical-plane-methods",
+    "research_anchor": "sharcp-ecp",
     "access_right": "public",
     "access_label": "Public repository"
   },
@@ -125,7 +125,7 @@
       "Sgamma2024a"
     ],
     "topic": "Critical plane methods",
-    "research_anchor": "multiaxial-fatigue-and-critical-plane-methods",
+    "research_anchor": "seancp-paths",
     "access_right": "public",
     "access_label": "Public repository",
     "license": "GPL-3.0"
@@ -156,7 +156,7 @@
     "earlier_versions": [],
     "display_title": "Sharp-notch fatigue: Mode I and Mode III",
     "topic": "Multiaxial fatigue",
-    "research_anchor": "multiaxial-fatigue-and-critical-plane-methods"
+    "research_anchor": "sharcp-ecp"
   },
   {
     "id": "zenodo-18416255",

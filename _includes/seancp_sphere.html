@@ -1,11 +1,11 @@
-{% comment %} FIG. R04: SeAn-CP search paths on the FS_ext sphere (data precomputed with seancp). {% endcomment %}
+{% comment %} FIG. R02.1: SeAn-CP search paths on the FS_ext sphere (data precomputed with seancp). {% endcomment %}
 {% assign sc_lang = page.lang | default: 'en' %}
 {% assign sc = site.data.i18n[sc_lang].seancp_sphere | default: site.data.i18n.en.seancp_sphere %}
 {% assign sc_data = '/assets/data/figures/seancp-paths-fs-ext.json' %}
 {% assign sc_commit = 'a3ade97' %}
 <figure id="seancp-paths" class="seancp-sphere" data-seancp-sphere data-src="{{ sc_data | relative_url }}" data-initial-case="5" data-label-template="{{ sc.label | escape }}" data-coincide="{{ sc.coincide | escape }}" data-distinct="{{ sc.distinct | escape }}">
   <div class="sc-panel">
-    <p class="sc-heading"><span>FIG. R04</span><span>{{ sc.title }}</span></p>
+    <p class="sc-heading"><span>FIG. R02.1</span><span>{{ sc.title }}</span></p>
     <p class="sc-title">{{ sc.heading }}</p>
     <div class="sc-controls" data-sc-controls hidden>
       <div class="sc-cases" role="group" aria-label="{{ sc.title | escape }}">

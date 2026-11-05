@@ -1,4 +1,4 @@
-// FIG. R02: Findley damage parameter on the sphere of plane normals.
+// FIG. T01: Findley damage parameter on the sphere of plane normals.
 // Draws values precomputed by multifat (assets/data/figures/damage-sphere-findley.json);
 // no fatigue criterion is evaluated in the browser.
 (function () {

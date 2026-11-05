@@ -1,4 +1,4 @@
-"""FIG. R04 data checks: provenance, Phase 3 reference values and SeAn-CP path geometry."""
+"""FIG. R02.1 data checks: provenance, Phase 3 reference values and SeAn-CP path geometry."""
 import base64
 import hashlib
 import json

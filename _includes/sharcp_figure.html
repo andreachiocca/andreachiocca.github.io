@@ -1,4 +1,4 @@
-{% comment %} FIG. R03: ECP master curves for sharp notches (data precomputed by running sharCP). {% endcomment %}
+{% comment %} FIG. R03.1: ECP master curves for sharp notches (data precomputed by running sharCP). {% endcomment %}
 {% assign sf_lang = page.lang | default: 'en' %}
 {% assign sf = site.data.i18n[sf_lang].sharcp_figure | default: site.data.i18n.en.sharcp_figure %}
 {% assign sf_data = '/assets/data/figures/sharcp-ecp-validation.json' %}
@@ -7,7 +7,7 @@
   data-xlabel="{{ sf.xlabel | escape }}" data-ylabel-f-i="{{ sf.ylabel_FI | escape }}" data-ylabel-f-s="{{ sf.ylabel_FS | escape }}" data-ylabel-s-w-t="{{ sf.ylabel_SWT | escape }}"
   data-cal="{{ sf.cal | escape }}" data-val="{{ sf.val | escape }}" data-label="{{ sf.label | escape }}">
   <div class="sf-panel">
-    <p class="sf-heading"><span>FIG. R03</span><span>{{ sf.title }}</span></p>
+    <p class="sf-heading"><span>FIG. R03.1</span><span>{{ sf.title }}</span></p>
     <p class="sf-title">{{ sf.heading }}</p>
     <div class="sf-controls" data-sf-controls hidden>
       <div class="sf-tabs" role="group" aria-label="{{ sf.title | escape }}">

@@ -1,4 +1,4 @@
-"""FIG. R02 data checks: integrity, provenance and agreement with closed-form Findley solutions."""
+"""FIG. T01 data checks: integrity, provenance and agreement with closed-form Findley solutions."""
 import base64
 import hashlib
 import json

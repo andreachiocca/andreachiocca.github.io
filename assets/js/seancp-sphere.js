@@ -1,4 +1,4 @@
-// FIG. R04: SeAn-CP candidate-plane paths on the FS_ext damage sphere.
+// FIG. R02.1: SeAn-CP candidate-plane paths on the FS_ext damage sphere.
 // Draws values precomputed by seancp (assets/data/figures/seancp-paths-fs-ext.json);
 // no fatigue criterion is evaluated in the browser.
 (function () {
@@ -10,7 +10,7 @@
   var toggle = root.querySelector('[data-sc-toggle]');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Same sequential map as FIG. R02; path colours stay distinct from its bright end.
+  // Same sequential map as FIG. T01 (Findley sphere); path colours stay distinct from its bright end.
   var STOPS = [[15, 47, 79], [29, 95, 134], [46, 154, 160], [130, 226, 222], [242, 251, 250]];
   var PATH_COLOURS = ['#e7b25f', '#f08a6c', '#c3a6ff'];
 

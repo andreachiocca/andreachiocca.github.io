@@ -61,7 +61,8 @@ class ResearchPage(HTMLParser):
             self.caption = True
         elif tag == "details":
             self.details_depth += 1
-            if self.chapter is not None:
+            # Count the chapter's own "further studies" disclosure, not the captions of embedded data figures.
+            if self.chapter is not None and "context-details" in classes:
                 self.chapter["details"] += 1
             if "previous-projects" in classes:
                 self.previous_projects = True

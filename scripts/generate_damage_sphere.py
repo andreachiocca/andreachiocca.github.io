@@ -1,4 +1,4 @@
-"""Precompute the Findley damage sphere (FIG. R02) with the original multifat code.
+"""Precompute the Findley damage sphere (FIG. T01) with the original multifat code.
 
 Every plane value comes from multifat's own ``evaluate_findley`` called on a single
 candidate plane, so the website reimplements no fatigue criterion. The browser only
@@ -80,7 +80,7 @@ def main():
     vmax = float(max(field.max() for field in fields))
     packed = np.concatenate([np.round(field / vmax * 255.0) for field in fields]).astype(np.uint8)
     payload = {
-        'figure': 'FIG. R02',
+        'figure': 'FIG. T01',
         'quantity': 'Findley damage parameter DP / sigma_a',
         'source': {'repository': 'https://github.com/andreachiocca/multiaxial-fatigue', 'commit': args.commit,
                    'function': 'multifat.models.cp_methods.fin_harmonic.evaluate_findley',

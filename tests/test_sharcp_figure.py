@@ -1,4 +1,4 @@
-"""FIG. R03 data checks: provenance, band consistency and validation counts from sharCP outputs."""
+"""FIG. R03.1 data checks: provenance, band consistency and validation counts from sharCP outputs."""
 import json
 import math
 from pathlib import Path

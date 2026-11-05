@@ -1,4 +1,4 @@
-"""Precompute FIG. R04 (SeAn-CP search paths on the FS_ext damage sphere) with the original seancp code.
+"""Precompute FIG. R02.1 (SeAn-CP search paths on the FS_ext damage sphere) with the original seancp code.
 
 For each load case on the thick-walled tube of the SeAn-CP Phase 3 study, this script
 stores, all computed by seancp itself:
@@ -76,7 +76,7 @@ def main():
 
     packed = np.concatenate([np.round(np.clip(f, 0, 1) * 255) for f in fields]).astype(np.uint8)
     payload = {
-        'figure': 'FIG. R04',
+        'figure': 'FIG. R02.1',
         'quantity': 'FS_ext / FS_ext,ref (full-plane reference maximum)',
         'source': {'repository': 'https://github.com/andreachiocca/SeAn-CP', 'commit': args.commit,
                    'functions': ['seancp.evaluate_fs_ext', 'seancp.seancp_fs_ext', 'seancp.full_plane_scan'],
