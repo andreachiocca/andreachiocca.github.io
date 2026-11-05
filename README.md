@@ -16,8 +16,9 @@ Personal academic website at [andreachiocca.github.io](https://andreachiocca.git
 | Teaching overview | `_pages/teaching.md` |
 | Course pages | `_projects/*.md` |
 | Teaching downloads | `TeachingMaterial/` |
-| Thesis directions, approaches and international contacts | `_data/thesis_opportunities.json` |
-| Laboratory expertise, measurement context and future equipment | `_data/laboratory.json` |
+| Thesis projects, directions, approaches and international contacts | `_data/thesis_opportunities.json` |
+| Laboratory expertise, measurement context and equipment | `_data/laboratory.json` |
+| FIG. R02 Findley damage sphere (Thesis page) | `scripts/generate_damage_sphere.py` → `assets/data/figures/damage-sphere-findley.json`, drawn by `_includes/damage_sphere.html` |
 | Retired Notes source (unpublished) | `docs/retired-notes/` |
 | Site identity and optional features | `_config.yml` |
 | Targeted visual refinements | `_sass/_academic.scss` |
@@ -26,7 +27,7 @@ The active CV uses JSON Resume. `_data/cv.yml` is a minimal fallback, not a seco
 
 ## Preview and verification
 
-Use Ruby 3.3, Bundler, ImageMagick with WebP support, and Pandoc. Python 3.11 with Jupyter and nbconvert supports the existing notebook plugin.
+Use Ruby 3.3, Bundler, ImageMagick with WebP support, and Pandoc. Python 3.11 runs the tests and verification scripts. The site publishes no notebooks and does not use Jupyter.
 
 ```sh
 bundle install
@@ -67,7 +68,7 @@ Keep existing post dates and public URLs stable, even when a filename has a hist
 
 ## Optional integrations and privacy
 
-Google Analytics, Cronitor, publication badge widgets, and the decorative reading progress bar are disabled by default. Existing integration settings remain available in `_config.yml`. Review privacy requirements before enabling analytics or third-party widgets; this configuration is not a legal compliance certification. Google Fonts and some script libraries still use third-party hosts.
+Google Analytics, Cronitor, publication badge widgets, and the decorative reading progress bar are disabled by default. Existing integration settings remain available in `_config.yml`. Review privacy requirements before enabling analytics or third-party widgets; this configuration is not a legal compliance certification. Fonts are self-hosted in `assets/fonts/` and declared in `_sass/_design_system.scss`. Some script libraries (jQuery, Bootstrap/MDB, MathJax, medium-zoom) still load from CDNs.
 
 Bootstrap Table loads only on pages with `table: true` in front matter. Native HTML tables do not need it. MathJax loads on research-note (Distill) pages or pages with `math: true`. Masonry is disabled because the teaching overview now uses a plain list.
 
@@ -105,15 +106,15 @@ Preserve the restricted access label on deposit 21875885. Two older supporting-d
 
 `earlier_versions` keeps the DOI and record URL of each version; `doi` identifies the displayed version and `concept_doi` links all versions. Keep `related_publications` as stable BibTeX keys. FABER WG3 co-leadership, WG4.3 software and the upstream FatPy WG6 activity are distinct.
 
-PR builds run catalogue unit checks, the Jekyll build and generated-site/browser checks. They retain a seven-day `website-preview` artifact containing the generated pages and their CSS, scripts and fonts for review. This artifact does not deploy the site. The existing Pages deployment remains limited to `master`.
+PR builds run catalogue unit checks, the Jekyll build and generated-site/browser checks. They retain a seven-day `website-preview` artifact containing the generated pages and their CSS, scripts and fonts for review. This artifact does not deploy the site. `.github/workflows/preview.yml` also deploys each same-repository PR against `master` to `https://pr-<N>.academic-website-preview.pages.dev/` (Cloudflare Pages, `noindex`). The GitHub Pages deployment remains limited to `master`. SEO conventions (titles, descriptions, sitemap) are documented in `docs/seo.md`.
 
 See [the catalogue audit](docs/REPOSITORIES_UPDATE.md) for the coverage inventory and implementation decisions.
 
 ## Navigation, research and student resources
 
-`_data/navigation.yml` is the single ordered menu for desktop and mobile. Keep a short label and a stable URL for each section. Teaching course pages and Thesis Opportunities retain Teaching as their parent. Laboratory is a direct navigation entry. The shared navigation controller handles focus, Escape, background interaction and header spacing on every layout.
+`_data/navigation.yml` is the single ordered menu for desktop and mobile. Keep a short label and a stable URL for each section. Teaching course pages and Thesis Opportunities retain Teaching as their parent. The Teaching submenu lists only the overview and Thesis opportunities; courses are reached from `/teaching/`. Laboratory is a direct navigation entry. The shared navigation controller handles focus, Escape, background interaction and header spacing on every layout.
 
-Edit `_data/research_areas.json` for the brief research summaries (40–70 words), methods and evidence links. Preserve the existing `id` values: datasets and other pages link to these anchors. Publications provide the detailed scientific evidence. Project records live in `assets/json/resume.json` and render consistently on Research and CV. FABER's `working_groups` array is the shared responsibility list. WG3 is Fatigue Estimation Competition (Co-Leader); WG4.3 is Multiaxial fatigue (Participant), officially Load Multiaxiality Effect; WG5.3 is Welding (Participant), officially Welded Joints. Official names and links were checked on the FABER working-group pages; roles follow the owner's current instructions. `periodLabel` can distinguish an Action's overall lifetime from a person's role dates. Do not infer appointment dates from an Action's duration. A one-year project is displayed as one year.
+Edit `_data/research_areas.json` for the brief research summaries (20–45 words, enforced by `scripts/verify_site.py`), methods and evidence links. Preserve the existing `id` values: datasets and other pages link to these anchors. Publications provide the detailed scientific evidence. Project records live in `assets/json/resume.json` and render consistently on Research and CV. FABER's `working_groups` array is the shared responsibility list. WG3 is Fatigue Estimation Competition (Co-Leader); WG4.3 is Multiaxial fatigue (Participant), officially Load Multiaxiality Effect; WG5.3 is Welding (Participant), officially Welded Joints. Official names and links were checked on the FABER working-group pages; roles follow the owner's current instructions. `periodLabel` can distinguish an Action's overall lifetime from a person's role dates. Do not infer appointment dates from an Action's duration. A one-year project is displayed as one year.
 
 Public educational resources live in `_data/teaching_materials.json`, keyed by the existing course filename. Each entry has `title`, `url`, `format`, `type` and optional `academic_year`. Add an approved public PDF/ZIP to the existing `TeachingMaterial/` directory (or an authorized external repository URL), then add its entry. Course pages automatically group by academic year, when known, and material type. Leave `academic_year` null when the source does not identify it; do not infer a material's year from the teaching appointment. Existing shared resources have no fabricated year labels. Keep restricted materials on the official university platform.
 
@@ -121,9 +122,11 @@ The course front matter identifies `materials_key`, `teaching_period`, `teaching
 
 ### Thesis opportunities and laboratory capabilities
 
-`_pages/thesis.md` presents potential directions, not current vacancies. Edit `directions`, `approaches` and `international_contacts` in `_data/thesis_opportunities.json`. The `projects` array stays empty until a specific proposal is confirmed. Each future project can use `id`, `title`, `description`, `activities`, `mode`, `level`, `status`, `supervisors`, `host`, `location`, `links`, and optional image fields. Use `links` for supporting papers, repositories, official opportunities or a verified contact. Keep availability accurate and retain the international-placement qualifications. No empty project section is rendered.
+`_pages/thesis.md` presents potential directions, not current vacancies. Edit `directions`, `approaches` and `international_contacts` in `_data/thesis_opportunities.json`. The `projects` array holds three confirmed projects. Each project uses `id`, `title`, `mode`, `description`, `activities`, `tags`, `links`, `related_papers` and optional image fields (`image`, `image_width`, `image_height`, `image_alt`, `image_caption`, `image_original`). Use `links` for supporting repositories, official opportunities or a verified contact. Add a project only once the proposal is confirmed. Keep availability accurate and retain the international-placement qualifications. No empty project section is rendered.
 
-`_pages/laboratory.md` distinguishes documented research expertise from facilities that need feasibility and access checks. Edit `capabilities` and `measurement_context` in `_data/laboratory.json`. The `equipment` array stays empty until an inventory is verified. Each future instrument uses `id`, `title`, `description`, optional `image`, `image_alt`, `image_width`, `image_height`, supporting `links` and a `specifications` array of `{ "label": "…", "value": "…" }` pairs. Add only confirmed manufacturer/model, force/torque, loading modes, static/cyclic/dynamic capability, frequency, specimen limits, environmental conditions, sensors and acquisition details; omit unknown fields. Record provenance in a `verification_source` field. Do not infer standards, accreditation or commercial service availability. The equipment heading and cards are omitted when the array is empty.
+The Thesis page also shows FIG. R02, the Findley damage sphere. The browser only draws `assets/data/figures/damage-sphere-findley.json`, which `scripts/generate_damage_sphere.py` computes offline with the owner's `multifat` library at a pinned commit. The commit shown in `_includes/damage_sphere.html` must match the JSON; `tests/test_damage_sphere.py` checks the data against closed-form Findley solutions.
+
+`_pages/laboratory.md` distinguishes documented research expertise from facilities that need feasibility and access checks. Edit `capabilities` and `measurement_context` in `_data/laboratory.json`. The `equipment` array lists the verified testing systems and instrumentation, rendered by `_includes/laboratory_equipment.html`. Each instrument uses `id`, `category` (`featured` or `supporting`), `evidence_scope`, `title`, `description`, optional `image` (`base`, `width`, `height`), `image_alt`, `image_caption`, optional secondary image fields, an optional `status_note` and a `specifications` array of `{ "label": "…", "value": "…" }` pairs. Add only confirmed manufacturer/model, force/torque, loading modes, static/cyclic/dynamic capability, frequency, specimen limits, environmental conditions, sensors and acquisition details; omit unknown fields. Record provenance through `evidence_scope` (for example `historical` or `manufacturer`). Do not infer standards, accreditation or commercial service availability.
 
 Both pages share `_includes/resource_card.html`. Approved photographs belong in `assets/img/`; give their relative path, descriptive alternative text and actual pixel dimensions. The component reserves image proportions and adapts to one mobile column or two wider columns. Do not add placeholder images or unverified proposals to demonstrate the layout.
 
