@@ -1,0 +1,32 @@
+{
+  "title": "SeAn-CP search paths",
+  "heading": "Three great circles instead of the whole sphere",
+  "cases": [
+    "Proportional (control)",
+    "Torsion 90° (control)",
+    "Mixed 90°",
+    "Mean shifted",
+    "General phase",
+    "Torque 90°"
+  ],
+  "ref": "Full-sphere maximum FS_ext",
+  "sea": "SeAn-CP maximum",
+  "err": "SeAn-CP error",
+  "legend_paths": "SeAn-CP plane families: strain range, stress at t₀, stress at t₀+π",
+  "legend_ref": "full-sphere maximum",
+  "legend_sea": "SeAn-CP maximum",
+  "pause": "Pause",
+  "play": "Rotate",
+  "label": "FS_ext on the sphere of plane normals for the %c case, with the three SeAn-CP search paths; SeAn-CP error %e percent.",
+  "caption": "Colour: Fatemi–Socie extended parameter on every plane, relative to the full-sphere maximum. Lines: the only planes SeAn-CP evaluates. Thick-walled tube under axial force, torque and internal pressure. Drag to rotate.",
+  "details": "How it is computed",
+  "provenance": "Computed with seancp (SeAn-CP) at commit %commit%: evaluate_fs_ext on a 3° grid, seancp_fs_ext for the paths and full_plane_scan for the reference, MCE shear amplitude, outer surface. Load cases from the Phase 3 study (seed 23109), with its four largest underpredictions; k_FS = 0.4 and S_y = 900 MPa are illustrative constants.",
+  "data": "Data (JSON)",
+  "code": "Generator script",
+  "error": "The precomputed data could not be loaded.",
+  "noscript": "This interactive figure needs JavaScript.",
+  "families": "Plane families",
+  "coincide": "3 coincident",
+  "distinct": "3 distinct",
+  "scale": "FS_ext / FS_ext,max"
+}

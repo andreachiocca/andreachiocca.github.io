@@ -1,0 +1,40 @@
+{% comment %} FIG. R04: SeAn-CP search paths on the FS_ext sphere (data precomputed with seancp). {% endcomment %}
+{% assign sc_lang = page.lang | default: 'en' %}
+{% assign sc = site.data.i18n[sc_lang].seancp_sphere | default: site.data.i18n.en.seancp_sphere %}
+{% assign sc_data = '/assets/data/figures/seancp-paths-fs-ext.json' %}
+{% assign sc_commit = 'a3ade97' %}
+<figure id="seancp-paths" class="seancp-sphere" data-seancp-sphere data-src="{{ sc_data | relative_url }}" data-initial-case="5" data-label-template="{{ sc.label | escape }}" data-coincide="{{ sc.coincide | escape }}" data-distinct="{{ sc.distinct | escape }}">
+  <div class="sc-panel">
+    <p class="sc-heading"><span>FIG. R04</span><span>{{ sc.title }}</span></p>
+    <p class="sc-title">{{ sc.heading }}</p>
+    <div class="sc-controls" data-sc-controls hidden>
+      <div class="sc-cases" role="group" aria-label="{{ sc.title | escape }}">
+        {% for label in sc.cases %}<button type="button" data-sc-case="{{ forloop.index0 }}" aria-pressed="false">{{ label }}</button>{% endfor %}
+      </div>
+    </div>
+    <div class="sc-body">
+      <div class="sc-stage"><canvas tabindex="0" role="img" aria-label="{{ sc.title | escape }}" aria-describedby="sc-caption"></canvas></div>
+      <div class="sc-side">
+        <dl class="sc-readout" aria-live="polite">
+          <div><dt>{{ sc.ref | replace: 'FS_ext', 'FS<sub>ext</sub>' }}</dt><dd data-sc-ref>–</dd></div>
+          <div><dt>{{ sc.sea }}</dt><dd data-sc-sea>–</dd></div>
+          <div><dt>{{ sc.err }}</dt><dd data-sc-err>–</dd></div>
+          <div><dt>{{ sc.families }}</dt><dd data-sc-fam>–</dd></div>
+        </dl>
+        <div class="sc-scale" aria-hidden="true"><span class="sc-ramp"></span><span class="sc-scale-labels"><span>0</span><span>{{ sc.scale | replace: 'FS_ext,max', 'FS<sub>ext,max</sub>' | replace: 'FS_ext', 'FS<sub>ext</sub>' }}</span><span>1</span></span></div>
+        <ul class="sc-legend">
+          <li><span class="sc-swatch-paths" aria-hidden="true"><i></i><i></i><i></i></span>{{ sc.legend_paths }}</li>
+          <li><span class="sc-swatch-ref" aria-hidden="true"></span>{{ sc.legend_ref }}</li>
+          <li><span class="sc-swatch-sea" aria-hidden="true"></span>{{ sc.legend_sea }}</li>
+        </ul>
+        <button type="button" class="sc-toggle" data-sc-toggle data-pause="{{ sc.pause | escape }}" data-play="{{ sc.play | escape }}" aria-pressed="false">{{ sc.pause }}</button>
+      </div>
+    </div>
+    <p class="sc-error" data-sc-error hidden>{{ sc.error }}</p>
+    <noscript><p class="sc-error">{{ sc.noscript }}</p></noscript>
+  </div>
+  <figcaption id="sc-caption">{{ sc.caption }}
+    <details><summary>{{ sc.details }}</summary><p>{{ sc.provenance | replace: '%commit%', sc_commit }}</p>
+    <p><a href="{{ sc_data | relative_url }}">{{ sc.data }}</a> · <a href="https://github.com/andreachiocca/andreachiocca.github.io/blob/master/scripts/generate_seancp_sphere.py">{{ sc.code }}</a> · <a href="https://github.com/andreachiocca/SeAn-CP/tree/a3ade97b47d3c98734f7da34c4d76fc9c112d7ae">SeAn-CP@{{ sc_commit }}</a></p></details></figcaption>
+</figure>
+<script defer src="{{ '/assets/js/seancp-sphere.js' | relative_url | bust_file_cache }}"></script>

@@ -1,0 +1,32 @@
+{
+  "title": "Percorsi di ricerca SeAn-CP",
+  "heading": "Tre cerchi massimi invece dell’intera sfera",
+  "cases": [
+    "Proporzionale (controllo)",
+    "Torsione 90° (controllo)",
+    "Misto 90°",
+    "Con media",
+    "Fase generica",
+    "Torsione 90°"
+  ],
+  "ref": "Massimo FS_ext sulla sfera",
+  "sea": "Massimo SeAn-CP",
+  "err": "Errore SeAn-CP",
+  "legend_paths": "Famiglie di piani SeAn-CP: campo di deformazione, tensione in t₀, tensione in t₀+π",
+  "legend_ref": "massimo sulla sfera",
+  "legend_sea": "massimo SeAn-CP",
+  "pause": "Pausa",
+  "play": "Ruota",
+  "label": "FS_ext sulla sfera delle normali per il caso %c, con i tre percorsi di ricerca SeAn-CP; errore SeAn-CP %e per cento.",
+  "caption": "Colore: parametro di Fatemi–Socie esteso su ogni piano, rispetto al massimo sull’intera sfera. Linee: gli unici piani valutati da SeAn-CP. Tubo a parete spessa con forza assiale, torsione e pressione interna. Trascina per ruotare.",
+  "details": "Come è calcolata",
+  "provenance": "Calcolata con seancp (SeAn-CP) al commit %commit%: evaluate_fs_ext su griglia di 3°, seancp_fs_ext per i percorsi e full_plane_scan per il riferimento, ampiezza di taglio MCE, superficie esterna. Casi di carico dello studio Phase 3 (seed 23109), con le sue quattro sottostime maggiori; k_FS = 0,4 e S_y = 900 MPa sono costanti illustrative.",
+  "data": "Dati (JSON)",
+  "code": "Script di generazione",
+  "error": "Non è stato possibile caricare i dati precalcolati.",
+  "noscript": "Questa figura interattiva richiede JavaScript.",
+  "families": "Famiglie di piani",
+  "coincide": "3 coincidenti",
+  "distinct": "3 distinte",
+  "scale": "FS_ext / FS_ext,max"
+}
