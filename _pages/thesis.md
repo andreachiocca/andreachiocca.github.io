@@ -8,18 +8,17 @@ description: Explore thesis directions in computational mechanics, experimental 
 section: teaching
 ---
 
-{% locale thesis.intro %}Interested in understanding why materials and structures fail and how to improve predictions? Bachelor’s and master’s students in mechanical engineering and related disciplines can discuss a thesis combining **mechanics, simulations, programming or laboratory work**.{% endlocale %}
-
-{% locale thesis.scope %}Three computational and experimental thesis projects are proposed alongside broader research directions. The thesis objectives will be agreed according to your background, interests and available research activities.{% endlocale %}
-
 <section class="thesis-editorial thesis-editorial-banner">
 <div class="thesis-editorial-banner-copy">
 <p class="editorial-index">01 / {{ 'Thesis topics and projects' | t }}</p>
 <h2>{{ 'Research-led thesis opportunities' | t }}</h2>
-<p>{{ 'Numerical methods, experimental mechanics and structural integrity' | t }}</p>
+{% capture thesis_intro %}{% locale thesis.intro %}Interested in understanding why materials and structures fail and how to improve predictions? Bachelor’s and master’s students in mechanical engineering and related disciplines can discuss a thesis combining **mechanics, simulations, programming or laboratory work**.{% endlocale %}
+
+{% locale thesis.scope %}Three computational and experimental thesis projects are proposed alongside broader research directions. The thesis objectives will be agreed according to your background, interests and available research activities.{% endlocale %}{% endcapture %}
+<div class="thesis-editorial-banner-text">{{ thesis_intro | strip | markdownify }}</div>
 <a href="#specific-projects">{{ 'See available thesis projects' | t }} <span aria-hidden="true">↗</span></a>
 </div>
-<figure class="thesis-editorial-banner-illustration"><img src="{{ '/assets/img/thesis/robot-lattice-concept.svg' | local_url | relative_url }}" alt="{{ 'Simplified blue connected segments and teal circular markers beside a lattice structure' | t }}" width="960" height="440" loading="eager" decoding="async"></figure>
+<div class="thesis-editorial-banner-illustration">{% include damage_sphere.html %}</div>
 </section>
 
 <ul class="inline-links page-paths"><li><a href="#specific-projects">{{ "Specific thesis projects" | t }}</a></li><li><a href="#research-directions">{{ "Research topics" | t }}</a></li><li><a href="#ways-of-working">{{ "Ways of working" | t }}</a></li><li><a href="#italy-and-abroad">{{ "Italy and abroad" | t }}</a></li><li><a href="#discuss-a-thesis">{{ "Discuss a thesis" | t }}</a></li></ul>

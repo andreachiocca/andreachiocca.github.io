@@ -58,7 +58,9 @@ def verify(root):
             if cls not in teach.classes:
                 raise ValueError(locale + ": missing Teaching editorial hero")
         if "thesis-editorial-banner" not in doc.classes:
-            raise ValueError(locale + ": missing thesis conceptual illustration")
+            raise ValueError(locale + ": missing thesis banner")
+        if "damage-sphere" not in doc.classes or "critical-plane-explorer" not in doc.ids:
+            raise ValueError(locale + ": thesis banner must open with the damage sphere")
         if any(term in "".join(teach.code_text) for term in ("editorial-index", "teaching-editorial-links", "teaching-editorial-title", "<p class=")):
             raise ValueError(locale + ": HTML rendered as code in Teaching page")
         if any(term in "".join(doc.code_text) for term in ("thesis-editorial-banner", "thesis-project-panel", "<section class=")):

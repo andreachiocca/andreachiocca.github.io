@@ -233,7 +233,7 @@ def check_browser(root):
                         if width < 992:
                             expect(evaluate("document.querySelector('.navbar-toggler').getAttribute('aria-expanded') === 'true'"), 'submenu Escape preserves mobile menu')
                         evaluate("document.getElementById('nav-teaching-toggle').click()")
-                        expect(evaluate("document.querySelectorAll('#nav-teaching a[data-course]').length === 4 && document.querySelector('#nav-teaching a[data-thesis]').getClientRects().length > 0"), 'courses and thesis reachable from teaching submenu')
+                        expect(evaluate("document.querySelectorAll('#nav-teaching a').length === 2 && document.querySelectorAll('#nav-teaching a[data-course]').length === 0 && document.querySelector('#nav-teaching a[data-thesis]').getClientRects().length > 0"), 'teaching submenu lists only overview and thesis opportunities')
                         expect(evaluate("document.getElementById('nav-research').hidden"), 'only one submenu opens at a time')
                         expect(evaluate("[...document.querySelectorAll('.nav-submenu:not([hidden])')].every(menu => {const r=menu.getBoundingClientRect(); return r.left >= 0 && r.right <= innerWidth;})"), 'expanded submenu stays within viewport')
                         evaluate("document.getElementById('nav-teaching-toggle').click()")
@@ -307,7 +307,8 @@ def check_browser(root):
             evaluate("document.querySelector('.navbar-toggler').click()")
             evaluate("document.getElementById('nav-teaching-toggle')?.click()")
             expect(evaluate("document.getElementById('navbarNav').getBoundingClientRect().bottom <= innerHeight + 1"), 'landscape menu extends past viewport')
-            expect(evaluate("document.getElementById('navbarNav').scrollHeight > document.getElementById('navbarNav').clientHeight"), 'landscape menu cannot scroll')
+            # The open menu must expose all of its content: either it fits, or it scrolls.
+            expect(evaluate("(() => { const n = document.getElementById('navbarNav'); const o = getComputedStyle(n).overflowY; return n.scrollHeight <= n.clientHeight + 1 || o === 'auto' || o === 'scroll'; })()"), 'landscape menu content unreachable')
             command('Emulation.setScriptExecutionDisabled', {'value': True})
             for width in (375, 1280):
                 command('Emulation.setDeviceMetricsOverride', {'width': width, 'height': 900, 'deviceScaleFactor': 1, 'mobile': False})
