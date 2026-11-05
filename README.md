@@ -27,7 +27,7 @@ The active CV uses JSON Resume. `_data/cv.yml` is a minimal fallback, not a seco
 
 ## Preview and verification
 
-Use Ruby 3.3, Bundler, ImageMagick with WebP support, and Pandoc. Python 3.11 runs the tests and verification scripts. No notebooks are published, so the build does not need Jupyter.
+Use Ruby 3.3, Bundler, ImageMagick with WebP support, and Pandoc. Python 3.11 runs the tests and verification scripts. The site publishes no notebooks and does not use Jupyter.
 
 ```sh
 bundle install
