@@ -5,7 +5,7 @@ layout: page
 permalink: /repositories/
 title: Repositories & Research Outputs
 nav_title: Repositories
-description: Scientific software, engineering tools, fatigue benchmarks and archived research data by Andrea Chiocca.
+description: Open-source fatigue software (Python, MATLAB), critical plane tools and research datasets by Andrea Chiocca, University of Pisa.
 nav: true
 nav_order: 3.5
 catalogue: true

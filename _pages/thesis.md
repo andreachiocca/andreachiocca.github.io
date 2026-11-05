@@ -4,7 +4,7 @@ translation_key: thesis
 layout: page
 title: Thesis Opportunities
 permalink: /thesis/
-description: Explore thesis directions in computational mechanics, experimental testing, fatigue and structural integrity at the University of Pisa and with potential research contacts abroad.
+description: Bachelor’s and master’s thesis projects in fatigue, computational mechanics and experimental testing at the University of Pisa.
 section: teaching
 ---
 

@@ -5,6 +5,7 @@ section: teaching
 layout: page
 title: Progettazione meccanica col metodo degli elementi finiti 
 description: INGEGNERIA ENERGETICA - 923II
+seo_description: "Mechanical design with the finite element method (Energy Engineering, University of Pisa, 2021–2024): slides and Ansys Workbench exercises in Italian."
 img: assets/img/FEM_1.jpg
 teaching_period: 2021–2024
 teaching_role: Course lecturer; 30 lecture hours

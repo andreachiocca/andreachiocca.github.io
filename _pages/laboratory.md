@@ -4,7 +4,7 @@ translation_key: laboratory
 layout: page
 title: Laboratory & Experimental Capabilities
 permalink: /laboratory/
-description: Experimental facilities for fatigue, multiaxial loading, material and component characterisation and numerical–experimental research at the University of Pisa.
+description: Fatigue and multiaxial testing, material and component characterisation and numerical–experimental research at the University of Pisa.
 ---
 
 <div class="laboratory-editorial">

@@ -7,7 +7,7 @@ title: CV
 nav: true
 nav_order: 5
 cv_pdf: resume_ENG.pdf
-description: Academic positions, education, research experience, and awards. Download the public academic CV in English as a PDF.
+description: "Academic CV of Andrea Chiocca: positions, education, research projects and awards. PDF download available."
 toc:
   sidebar: left
 ---

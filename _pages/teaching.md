@@ -4,7 +4,7 @@ translation_key: teaching
 layout: page
 permalink: /teaching/
 title: Teaching
-description: University of Pisa courses, public teaching materials and thesis opportunities in computational and experimental mechanics. Public course materials are in Italian.
+description: Courses at the University of Pisa on machine design and finite element methods, with public teaching materials (in Italian).
 nav: true
 nav_order: 4
 ---

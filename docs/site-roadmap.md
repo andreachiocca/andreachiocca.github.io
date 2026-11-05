@@ -86,6 +86,11 @@ Pagina Talks & service da YAML, più una timeline della ricerca (R3) con un'anim
 
 ---
 
+## Step 10: SEO
+
+- **10a (fatto):** titoli e descrizioni ottimizzati e verificati in CI, dati strutturati `Person` completi, sitemap pulita, verifica Bing condizionale. Checklist delle azioni esterne in `docs/seo.md`.
+- **10b:** una pagina per pubblicazione, con meta tag `citation_*` per Google Scholar, abstract e link a codice e dati. Richiede il controllo delle licenze dei PDF (M6).
+
 ## Ordine e dipendenze
 
 ```

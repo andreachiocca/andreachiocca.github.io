@@ -1,4 +1,5 @@
 """Check generated academic pages without additional Python packages."""
+import html as html_module
 import json
 import os
 import re
@@ -165,6 +166,32 @@ expected_navigation = [('Home', '/'), ('Research', '/research/'), ('Publications
 for label, url in expected_navigation:
     if ORIGIN + url not in locations:
         errors.append('Missing navigation destination in sitemap: ' + label)
+# Search snippets: every indexable page has a unique title and a description that fits a results page.
+seo_titles = {}
+for loc in locations:
+    path = ROOT / unquote(urlsplit(loc).path).lstrip('/')
+    if path.is_dir() or not path.suffix:
+        path /= 'index.html'
+    if not path.is_file():
+        continue
+    text = path.read_text(encoding='utf-8')
+    title = re.search(r'<title>(.*?)</title>', text, re.S)
+    description = re.search(r'<meta name="description" content="([^"]*)"', text)
+    title = ' '.join(title.group(1).split()) if title else ''
+    length = len(html_module.unescape(description.group(1))) if description else 0
+    if not 50 <= length <= 160:
+        errors.append(f'SEO description length {length} outside 50-160: {loc}')
+    if title in seo_titles:
+        errors.append(f'Duplicate SEO title "{title}": {loc} and {seo_titles[title]}')
+    seo_titles[title] = loc
+    if '/404' in loc:
+        errors.append('Error page listed in sitemap: ' + loc)
+for home in ('index.html', 'it/index.html'):
+    home_text = (ROOT / home).read_text(encoding='utf-8')
+    if 'University of Pisa' not in home_text.split('</title>')[0] and 'Università di Pisa' not in home_text.split('</title>')[0]:
+        errors.append('Home title lacks affiliation keywords: ' + home)
+    if '"knowsAbout"' not in home_text:
+        errors.append('Person structured data lacks research topics: ' + home)
 areas = json.loads(Path('_data/research_areas.json').read_text(encoding='utf8'))
 # Owner request (Nov 2026): short summaries, one or two sentences.
 if any(not 20 <= len(area['summary'].split()) <= 45 for area in areas):
