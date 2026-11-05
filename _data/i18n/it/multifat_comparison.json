@@ -1,0 +1,29 @@
+{
+  "title": "Criteri a confronto",
+  "heading": "Ogni criterio sulla stessa scala di errore in carico",
+  "view_within": "Entro ±10 % del carico",
+  "view_bias": "Scostamento medio e_L",
+  "families": {
+    "cp_methods": "Piano critico",
+    "invariant_methods": "Invarianti",
+    "integral_methods": "Integrali",
+    "energy_based_methods": "Energetici"
+  },
+  "legend_within": "quota di prove entro ±10 % del carico",
+  "legend_bias": "e_L medio: non conservativo ← 0 → conservativo",
+  "legend_missing": "non applicabile",
+  "method": "Criterio",
+  "material": "Materiale",
+  "n": "Prove di verifica",
+  "within10": "Entro ±10 %",
+  "within20": "Entro ±20 %",
+  "mean": "e_L medio ± dev. std.",
+  "label": "Matrice di %m criteri di fatica multiassiale per %n materiali, colorata per %v. Usa i tasti freccia per spostarti tra le celle.",
+  "caption": "Righe: criteri implementati in multifat, per famiglia. Colonne: materiali con dati di vita a fatica. Colore: quota di prove indipendenti previste entro ±10 % del carico, oppure errore medio in carico e_L. Seleziona una cella per le sue statistiche.",
+  "details": "Come è calcolata",
+  "provenance": "Risultato di multifat-pipeline --all (multiaxial-fatigue, commit %commit%), che calibra ed esegue ogni criterio registrato su ciascun file di dati. e_L = ln(1/s*), dove s* scala la storia di carico finché il criterio calibrato prevede la vita osservata; e_L > 0 è conservativo. Sono contate solo le rotture non usate per la calibrazione; run-out e file con soli limiti di fatica sono esclusi. I dati di prova provengono dalle fonti pubblicate elencate nel PROVENANCE.md della repository.",
+  "data": "Dati (JSON)",
+  "code": "Script di generazione",
+  "error": "Non è stato possibile caricare i dati precalcolati.",
+  "noscript": "Questa figura interattiva richiede JavaScript."
+}

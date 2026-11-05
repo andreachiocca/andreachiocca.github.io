@@ -2,6 +2,7 @@
 import base64
 import hashlib
 import json
+import re
 import math
 from pathlib import Path
 import unittest
@@ -29,9 +30,12 @@ class DamageSphereDataTests(unittest.TestCase):
     def test_provenance_is_pinned_and_shown(self):
         commit = DATA['source']['commit']
         self.assertRegex(commit, r'^[0-9a-f]{40}$')
-        include = (ROOT / '_includes/damage_sphere.html').read_text(encoding='utf8')
-        self.assertIn(commit, include)
-        self.assertIn(commit[:7], include)
+        # Includes read the commit from _data/figure_sources.yml; it must match the data file.
+        sources = (ROOT / '_data/figure_sources.yml').read_text(encoding='utf8')
+        pinned = re.search(r'^damage_sphere:\n  repository: [^\n]+\n  commit: ([0-9a-f]{40})$', sources, re.M)
+        self.assertIsNotNone(pinned)
+        self.assertEqual(pinned.group(1), commit)
+        self.assertIn('site.data.figure_sources.damage_sphere', (ROOT / '_includes/damage_sphere.html').read_text(encoding='utf8'))
         self.assertEqual(DATA['source']['function'], 'multifat.models.cp_methods.fin_harmonic.evaluate_findley')
 
     def test_uniaxial_matches_closed_form(self):

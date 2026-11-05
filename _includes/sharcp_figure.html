@@ -2,7 +2,7 @@
 {% assign sf_lang = page.lang | default: 'en' %}
 {% assign sf = site.data.i18n[sf_lang].sharcp_figure | default: site.data.i18n.en.sharcp_figure %}
 {% assign sf_data = '/assets/data/figures/sharcp-ecp-validation.json' %}
-{% assign sf_commit = 'e87d01d' %}
+{% assign sf_source = site.data.figure_sources.sharcp_figure %}{% assign sf_commit = sf_source.commit | slice: 0, 7 %}
 <figure id="sharcp-ecp" class="sharcp-figure" data-sharcp-figure data-src="{{ sf_data | relative_url }}"
   data-xlabel="{{ sf.xlabel | escape }}" data-ylabel-f-i="{{ sf.ylabel_FI | escape }}" data-ylabel-f-s="{{ sf.ylabel_FS | escape }}" data-ylabel-s-w-t="{{ sf.ylabel_SWT | escape }}"
   data-cal="{{ sf.cal | escape }}" data-val="{{ sf.val | escape }}" data-label="{{ sf.label | escape }}">
@@ -32,6 +32,6 @@
   </div>
   <figcaption id="sf-caption">{{ sf.caption | replace: 'r_c', 'r<sub>c</sub>' }}
     <details><summary>{{ sf.details }}</summary><p>{{ sf.provenance | replace: '%commit%', sf_commit }}</p>
-    <p><a href="{{ sf_data | relative_url }}">{{ sf.data }}</a> · <a href="https://github.com/andreachiocca/andreachiocca.github.io/blob/master/scripts/generate_sharcp_figure.py">{{ sf.code }}</a> · <a href="https://github.com/andreachiocca/sharCP/tree/e87d01d70aec5992720df584dae82d7d224bc616">sharCP@{{ sf_commit }}</a></p></details></figcaption>
+    <p><a href="{{ sf_data | relative_url }}">{{ sf.data }}</a> · <a href="https://github.com/andreachiocca/andreachiocca.github.io/blob/master/scripts/generate_sharcp_figure.py">{{ sf.code }}</a> · <a href="https://github.com/{{ sf_source.repository }}/tree/{{ sf_source.commit }}">sharCP@{{ sf_commit }}</a></p></details></figcaption>
 </figure>
 <script defer src="{{ '/assets/js/sharcp-figure.js' | relative_url | bust_file_cache }}"></script>

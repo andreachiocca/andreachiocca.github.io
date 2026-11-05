@@ -1,0 +1,29 @@
+{
+  "title": "Criteria compared",
+  "heading": "Every criterion on one load-error scale",
+  "view_within": "Within ±10 % load",
+  "view_bias": "Mean bias e_L",
+  "families": {
+    "cp_methods": "Critical plane",
+    "invariant_methods": "Invariant",
+    "integral_methods": "Integral",
+    "energy_based_methods": "Energy"
+  },
+  "legend_within": "share of tests within ±10 % of the load",
+  "legend_bias": "mean e_L: non-conservative ← 0 → conservative",
+  "legend_missing": "not applicable",
+  "method": "Criterion",
+  "material": "Material",
+  "n": "Assessment tests",
+  "within10": "Within ±10 %",
+  "within20": "Within ±20 %",
+  "mean": "Mean e_L ± SD",
+  "label": "Matrix of %m multiaxial fatigue criteria by %n materials, coloured by %v. Use the arrow keys to move between cells.",
+  "caption": "Rows: criteria implemented in multifat, by family. Columns: materials with fatigue-life data. Colour: share of independent tests predicted within ±10 % of the load, or mean load error e_L. Select a cell for its statistics.",
+  "details": "How it is computed",
+  "provenance": "Output of multifat-pipeline --all (multiaxial-fatigue, commit %commit%), which calibrates and runs every registered criterion on each workbook. e_L = ln(1/s*), where s* scales the load history until the calibrated criterion predicts the observed life; e_L > 0 is conservative. Only failures not used for calibration are counted; run-outs and fatigue-limit-only workbooks are excluded. Test data come from the published sources listed in the repository's PROVENANCE.md.",
+  "data": "Data (JSON)",
+  "code": "Generator script",
+  "error": "The precomputed data could not be loaded.",
+  "noscript": "This interactive figure needs JavaScript."
+}

@@ -1,0 +1,58 @@
+// FIG. R02.2 criteria x materials matrix: navy technical panel shared with FIG. R02.1 and R03.1.
+.multifat-comparison { margin: 2.5rem 0; min-width: 0; }
+.multifat-comparison .mc-panel {
+  display: grid; gap: .8rem; padding: 1rem 1.1rem 1.1rem; color: #d8e9f0;
+  background:
+    linear-gradient(rgba(166, 196, 225, .07) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, rgba(166, 196, 225, .07) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(160deg, #123a5e, #0e2a49);
+  border-bottom: 3px solid #2e9aa0;
+}
+.multifat-comparison .mc-panel :where(span, div, p, label, i) { color: inherit; }
+.multifat-comparison .mc-heading { display: flex; justify-content: space-between; gap: 1rem; margin: 0; font: 500 .68rem/1.4 var(--font-mono, monospace); letter-spacing: .08em; text-transform: uppercase; color: #b3d9e8; }
+.multifat-comparison .mc-title { margin: 0; font: 560 1.15rem/1.35 var(--font-serif, serif); color: #ecf5f7; }
+.multifat-comparison .mc-controls[hidden] { display: none; }
+.multifat-comparison .mc-tabs { display: flex; flex-wrap: wrap; gap: .35rem; }
+.multifat-comparison .mc-tabs button {
+  min-height: 44px; padding: .4rem .8rem; color: #d1e6ef; background: transparent;
+  border: 1px solid rgba(152, 200, 217, .5); border-radius: 2px; font-size: .8rem; cursor: pointer;
+}
+.multifat-comparison .mc-tabs button[aria-pressed="true"] { color: #0b2339; background: #82e2de; border-color: #82e2de; }
+.multifat-comparison .mc-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 280px); gap: 1.4rem; align-items: start; }
+.multifat-comparison .mc-stage { min-width: 0; }
+.multifat-comparison svg { display: block; width: 100%; height: auto; overflow: visible; }
+.multifat-comparison svg:focus { outline: 1px dashed rgba(179, 217, 234, .6); outline-offset: 4px; }
+.multifat-comparison .mc-col, .multifat-comparison .mc-row { fill: #b3d9e8; font: 10.5px var(--font-mono, monospace); }
+.multifat-comparison .mc-row { text-anchor: end; }
+.multifat-comparison .mc-fam { fill: #ecf5f7; font: 600 10px var(--font-mono, monospace); letter-spacing: .08em; text-transform: uppercase; }
+.multifat-comparison .mc-rule { stroke: rgba(179, 217, 234, .25); }
+// Thin outline keeps 0 % and near-zero-bias cells distinct from the panel and from missing cells.
+.multifat-comparison .mc-cell { cursor: pointer; stroke: rgba(179, 217, 234, .28); stroke-width: .6; transition: fill 320ms ease; }
+.multifat-comparison .mc-missing { fill: none; stroke: rgba(179, 217, 234, .3); stroke-width: .8; stroke-dasharray: 1.5 2.5; }
+.multifat-comparison .mc-marker { fill: none; stroke: #ffffff; stroke-width: 2; pointer-events: none; }
+.multifat-comparison .mc-side { position: sticky; top: 5rem; display: grid; gap: 1rem; min-width: 0; }
+.multifat-comparison .mc-legend { display: grid; gap: .3rem; font: .72rem/1.4 var(--font-mono, monospace); color: #b3d9e8; }
+.multifat-comparison .mc-ramp { display: block; height: 10px; border: 1px solid rgba(179, 217, 234, .3); }
+.multifat-comparison .mc-ramp-ticks { display: flex; justify-content: space-between; }
+.multifat-comparison .mc-legend-missing { display: inline-flex; align-items: center; gap: .4rem; }
+.multifat-comparison .mc-legend-missing i { width: 14px; height: 10px; border: 1px dashed rgba(179, 217, 234, .5); }
+.multifat-comparison .mc-readout { display: grid; gap: .45rem; margin: 0; }
+.multifat-comparison .mc-readout div { display: flex; justify-content: space-between; align-items: baseline; gap: .8rem; border-top: 1px solid rgba(179, 217, 234, .2); padding-top: .35rem; }
+.multifat-comparison .mc-readout dt { font-weight: 400; font-size: .72rem; color: #a9c6d4; }
+.multifat-comparison .mc-readout dd { margin: 0; font-family: var(--font-mono, monospace); font-size: .8rem; color: #ecf5f7; text-align: right; }
+.multifat-comparison .mc-readout a { color: #82e2de; }
+.multifat-comparison .mc-readout a:not([href]) { color: inherit; }
+.multifat-comparison .mc-family { color: #a9c6d4; }
+.multifat-comparison .mc-error { margin: 0; color: #d1e6ef; }
+// Reset the uppercase mono caption style of the Research Atlas figures.
+.research-atlas .multifat-comparison figcaption,
+.multifat-comparison figcaption { margin-top: .6rem; padding: 0; background: none; font: .8rem/1.55 var(--font-sans, sans-serif); letter-spacing: 0; text-transform: none; color: var(--global-text-color-light); }
+.multifat-comparison figcaption summary { cursor: pointer; color: var(--global-theme-color); min-height: 28px; }
+.multifat-comparison figcaption p { margin: .35rem 0 0; }
+@media (prefers-reduced-motion: reduce) { .multifat-comparison .mc-cell { transition: none !important; } }
+@media (max-width: 760px) {
+  .multifat-comparison .mc-body { grid-template-columns: minmax(0, 1fr); }
+  // Legend above the matrix, statistics below it.
+  .multifat-comparison .mc-side { display: contents; }
+  .multifat-comparison .mc-legend { order: -1; }
+}

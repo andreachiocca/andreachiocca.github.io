@@ -1,0 +1,85 @@
+name: Refresh figures from research code
+
+# Regenerates the figures computed from the owner's research repositories when their default
+# branch moves past the commit pinned in _data/figure_sources.yml, then opens (or updates) a PR.
+# PRs opened with GITHUB_TOKEN start no workflows, so the build and preview are dispatched explicitly.
+on:
+  schedule:
+    - cron: '17 4 * * 1'   # Mondays 04:17 UTC
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Regenerate every figure even if its source is unchanged"
+        type: boolean
+        default: false
+  repository_dispatch:
+    types: [research-code-updated]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: refresh-figures
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: write
+    env:
+      BRANCH: automation/refresh-figures
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: master
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.11'
+
+      - name: Regenerate changed figures
+        env:
+          FORCE: ${{ inputs.force && '--force' || '' }}
+        run: |
+          python -m venv "$RUNNER_TEMP/venv"
+          "$RUNNER_TEMP/venv/bin/python" scripts/refresh_figures.py $FORCE --summary "$RUNNER_TEMP/summary.md"
+          cat "$RUNNER_TEMP/summary.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Source-level tests on the new data
+        run: python -m unittest discover -s tests -v
+
+      - name: Open or update the refresh PR
+        id: pr
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "No figure changed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C "$BRANCH"
+          git add _data/figure_sources.yml assets/data/figures
+          git commit -m "Refresh figures generated from research code" -m "$(cat "$RUNNER_TEMP/summary.md")"
+          git push --force origin "$BRANCH"
+          body="$(printf 'Automatic refresh: the source repositories moved past the pinned commits.\n\n%s\n\nCheck the figures on the preview before merging.\n' "$(cat "$RUNNER_TEMP/summary.md")")"
+          number="$(gh pr list --head "$BRANCH" --base master --state open --json number --jq '.[0].number // empty')"
+          if [ -z "$number" ]; then
+            gh pr create --head "$BRANCH" --base master --title "Refresh figures generated from research code" --body "$body"
+            number="$(gh pr list --head "$BRANCH" --base master --state open --json number --jq '.[0].number')"
+          else
+            gh pr edit "$number" --body "$body"
+          fi
+          echo "number=$number" >> "$GITHUB_OUTPUT"
+
+      - name: Dispatch build checks and preview
+        if: steps.pr.outputs.number != ''
+        run: |
+          gh workflow run build.yml --ref "$BRANCH"
+          gh workflow run preview.yml --ref "$BRANCH" -f pr_number="${{ steps.pr.outputs.number }}"

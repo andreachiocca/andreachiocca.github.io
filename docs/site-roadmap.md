@@ -60,12 +60,13 @@ Pipeline: `scripts/generate_code_figures.py` installa ciascun pacchetto **a un c
 | Figura | Sorgente | Cosa mostra | Interazione |
 |---|---|---|---|
 | **5a Sfera del danno** | `multifat` (`_findley_plane_value`, `_fatemi_socie_plane_value`, griglia piani da `multifat.planes`) | Parametro di danno $D(\theta,\varphi)$ sulla semisfera delle normali, per carico assiale-torsionale con $\lambda=\tau_a/\sigma_a$ e sfasamento $\Delta\varphi$; marcatore del piano critico $\mathbf{n}^\ast$. | Slider $\lambda$ e $\Delta\varphi$ su una griglia precalcolata (es. 5×7 casi). Rotazione della sfera trascinando. Transizioni morbide tra casi. |
-| **5b Confronto criteri** | `multifat` (`Results/current`) | Errore di vita per criterio e materiale (dot plot ordinato), dai risultati già pubblicati del repo. | Hover per i dettagli; filtro per materiale. |
+| **5b Confronto criteri** ✅ FIG. R02.2 | `multifat-pipeline --all` (`Comparison/summary_error_stats_by_role.csv`) | Matrice criteri × materiali: quota di prove di verifica entro ±10 % del carico ed errore medio in carico $e_L=\ln(1/s^\ast)$. | Hover o frecce per le statistiche della cella; vista quota/scostamento. |
 | **5c ECP su intagli acuti** | `sharCP` (`data/validation/*`) | Vita predetta vs sperimentale, con banda di dispersione, per le geometrie di validazione. | Hover per geometria e modo (I/III). |
 | **5d Convergenza SeAn-CP** | `SeAn-CP` (`results/phase3_reference`) | Convergenza del metodo semi-analitico contro la scansione dei piani. | Statica con *line drawing*. |
 | **5e Hero** | stesso motore di 5a | La FIG. 01 attuale resta. In seconda fase le onde $\sigma$/$\tau$ possono venire da un caso reale di 5a, con stessi valori e stessa didascalia. | Invariata. |
 
 - Effort: 5a L, poi M per ciascuna delle altre.
+- Aggiornamento automatico: `scripts/refresh_figures.py` e `.github/workflows/refresh-figures.yml` rigenerano ogni settimana le figure il cui repository sorgente ha nuovi commit e aprono una PR con anteprima.
 - Da confermare con l'autore prima di pubblicare: quali materiali e casi mostrare, e che i risultati del repo siano quelli "ufficiali" (non *pre-audit*).
 
 ## Step 6: card software di nuova generazione

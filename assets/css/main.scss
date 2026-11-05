@@ -31,6 +31,7 @@ $max-content-width: {{ site.max_width }};
 @import "damage_sphere";
 @import "sharcp_figure";
 @import "seancp_sphere";
+@import "multifat_comparison";
 
 // Tokens, typefaces and motion; must stay last.
 @import "design_system";
