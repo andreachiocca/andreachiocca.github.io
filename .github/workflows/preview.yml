@@ -58,7 +58,7 @@ jobs:
         run: |
           # Bound package-mirror stalls so CI reports a useful failure before job timeout.
           sudo apt-get update -o Acquire::Retries=2 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20
-          sudo apt-get install -y -o Acquire::Retries=2 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 imagemagick webp pandoc
+          sudo apt-get install -y --no-install-recommends -o Acquire::Retries=2 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 imagemagick webp pandoc
 
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:

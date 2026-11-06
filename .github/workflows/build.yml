@@ -34,16 +34,19 @@ jobs:
           set -euo pipefail
           # Hosted runners do not ship ImageMagick, cwebp and Pandoc together.
           # Mirror stalls must not consume the entire job timeout.
+          # Recommended packages (Ghostscript, URW fonts, netpbm) are not needed for the
+          # JPEG/PNG -> WebP conversions and add ~45 MB of downloads that often stall.
           options=(-o Acquire::Retries=0 -o Acquire::http::Timeout=15 -o Acquire::https::Timeout=15)
           update_packages() {
             timeout --kill-after=10s 120s sudo apt-get update "${options[@]}"
           }
           install_packages() {
-            timeout --kill-after=10s 180s sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y "${options[@]}" imagemagick webp pandoc
+            timeout --kill-after=10s 180s sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends "${options[@]}" imagemagick webp pandoc
           }
           if ! update_packages || ! install_packages; then
             echo "::warning::Default Ubuntu package mirror failed or timed out. Retrying against archive.ubuntu.com."
-            for source in /etc/apt/sources.list /etc/apt/sources.list.d/*.sources /etc/apt/sources.list.d/*.list; do
+            # Ubuntu 24.04 runners resolve their sources through the apt-mirrors.txt mirror list.
+            for source in /etc/apt/apt-mirrors.txt /etc/apt/sources.list /etc/apt/sources.list.d/*.sources /etc/apt/sources.list.d/*.list; do
               if [ -f "$source" ]; then
                 sudo sed -i 's|azure.archive.ubuntu.com|archive.ubuntu.com|g' "$source"
               fi
