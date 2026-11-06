@@ -1,11 +1,10 @@
-{% comment %} FIG. R04.1: Rosenthal map of metal AM (data precomputed from the Moda et al. 2022 review workbook). {% endcomment %}
+{% comment %} FIG. R04.1: Rosenthal map of welding and metal AM (data precomputed from the Moda et al. 2022 review workbooks). {% endcomment %}
 {% assign rm_lang = page.lang | default: 'en' %}
 {% assign rm = site.data.i18n[rm_lang].rosenthal_map | default: site.data.i18n.en.rosenthal_map %}
 {% assign rm_data = '/assets/data/figures/rosenthal-process-map.json' %}
 <figure id="rosenthal-map" class="rosenthal-map" data-rosenthal-map data-src="{{ rm_data | relative_url }}"
   data-label="{{ rm.label | escape }}" data-xlabel="{{ rm.xlabel | escape }}" data-ylabel="{{ rm.ylabel | escape }}"
   data-boundary="{{ rm.boundary | escape }}" data-feasible="{{ rm.feasible | escape }}"
-  data-proc-slm="{{ rm.processes.SLM | escape }}" data-proc-lmd="{{ rm.processes.LMD | escape }}"
   data-fam-steel="{{ rm.families.steel | escape }}" data-fam-al="{{ rm.families.al | escape }}" data-fam-ti="{{ rm.families.ti | escape }}"
   data-fam-ni="{{ rm.families.ni | escape }}" data-fam-cu="{{ rm.families.cu | escape }}" data-fam-co="{{ rm.families.co | escape }}">
   <div class="rm-panel">
@@ -16,8 +15,7 @@
         {% for f in rm.families %}<button type="button" class="rm-chip" data-rm-family="{{ f[0] }}" aria-pressed="true"><i aria-hidden="true"></i>{{ f[1] }}</button>{% endfor %}
       </div>
       <div class="rm-chips" role="group" aria-label="{{ rm.process | escape }}">
-        <button type="button" class="rm-chip rm-proc" data-rm-process="SLM" aria-pressed="true"><b class="rm-glyph-slm" aria-hidden="true"></b>SLM</button>
-        <button type="button" class="rm-chip rm-proc" data-rm-process="LMD" aria-pressed="true"><b class="rm-glyph-lmd" aria-hidden="true"></b>LMD</button>
+        {% for pr in rm.processes %}<button type="button" class="rm-chip rm-proc" data-rm-process="{{ pr[0] }}" aria-pressed="true" title="{{ pr[1] | escape }}"><b class="rm-glyph rm-glyph-{{ pr[0] | downcase }}" aria-hidden="true"></b>{{ pr[0] }}</button>{% endfor %}
       </div>
     </div>
     <div class="rm-body">

@@ -7,10 +7,6 @@ import unittest
 ROOT = Path(__file__).parents[1]
 DATA = json.loads((ROOT / 'assets/data/figures/spr-fatigue.json').read_text(encoding='utf8'))
 VARIANTS = ('one_parameter', 'two_parameter')
-# Row 5 of Data/FATICA/LAP/2_15_NO_GLUE/2_15_NO.txt reads Fmax 2860, Fmin 286, Fa 1400, Fm 1573: Fa and
-# the stress column fit Fmax ~ 3111 N, Fmax/Fmin/Fm fit Fa = 1287 N. The article's stress uses Fa = 1400;
-# the figure reproduces it until the author resolves the row.
-KNOWN_FORCE_MISMATCH = {'LAP_2_15_NO_FILTERED_5'}
 
 
 def fit(points):
@@ -32,8 +28,7 @@ class SprFatigueTests(unittest.TestCase):
             self.assertIn((t['t_al'], t['t_steel']), {(1.5, 1.5), (1.5, 1.8), (2.0, 1.5), (2.0, 1.8)})
             self.assertAlmostEqual(t['R'], 0.1)
             # Force amplitude at R = 0.1: Fa = (1 - R) Fmax / 2.
-            consistent = math.isclose(t['Fa'], (1 - t['R']) * t['Fmax'] / 2, rel_tol=1e-9)
-            self.assertEqual(consistent, t['id'] not in KNOWN_FORCE_MISMATCH, t['id'])
+            self.assertTrue(math.isclose(t['Fa'], (1 - t['R']) * t['Fmax'] / 2, rel_tol=1e-6), t['id'])
             self.assertGreater(t['N'], 0)
             self.assertEqual(set(t['sigma']), set(VARIANTS))
 

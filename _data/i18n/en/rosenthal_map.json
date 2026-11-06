@@ -1,11 +1,13 @@
 {
-  "title": "Rosenthal map of metal AM",
-  "heading": "Hundreds of process windows, two dimensionless numbers",
+  "title": "Rosenthal map of melting processes",
+  "heading": "Welding and metal AM, two dimensionless numbers",
   "xlabel": "Dimensionless velocity Ũ = U R̄ / 2α",
   "ylabel": "Dimensionless power P̃ = P / 2πλR̄ΔT_m",
   "processes": {
-    "SLM": "Selective laser melting",
-    "LMD": "Laser metal deposition"
+    "AW": "Arc welding",
+    "BW": "Beam welding: laser, electron beam, hybrid",
+    "LMD": "Laser metal deposition",
+    "SLM": "Selective laser melting"
   },
   "families": {
     "steel": "Steels",
@@ -26,10 +28,10 @@
   "rbar": "Required half-width R̄",
   "ry": "Rykalin number Ry",
   "ar": "Aspect ratio A_r = L / 2R",
-  "label": "Log–log map of %n literature operating conditions of metal additive manufacturing in dimensionless velocity and power. Selected: %m by %p, aspect ratio %a.",
-  "caption": "Each point is a published operating condition, made dimensionless with the Rosenthal moving-point-source solution: alloys and machines collapse onto one plane. Lines of constant aspect ratio A_r run diagonally; below the white curve the melt pool is narrower than the required half-width R̄. Select a point for its melt-pool shape.",
+  "label": "Log–log map of %n literature operating conditions of welding and metal additive manufacturing in dimensionless velocity and power. Selected: %m by %p, aspect ratio %a.",
+  "caption": "Each point is a published operating condition of welding or metal additive manufacturing, made dimensionless with the Rosenthal moving-point-source solution: processes, alloys and machines collapse onto one plane. Lines of constant aspect ratio A_r run diagonally; below the white curve the melt pool is narrower than the required half-width R̄. Select a point for its melt-pool shape.",
   "details": "How it is computed",
-  "provenance": "From the literature review behind Moda, Chiocca et al., Materials & Design 223 (2022) 110991 (updated dataset, revision 5): %n operating conditions of SLM and LMD with the thermophysical properties used. Ũ and P̃ follow Eqs. (20–21), with nominal power; the outline is the exact isotherm of Eq. (2); A_r isolines use Eq. (12) and the boundary Eq. (22). EBM rows are left out, as in the article.",
+  "provenance": "From the literature reviews behind Moda, Chiocca et al., Materials & Design 223 (2022) 110991 (updated datasets): %n operating conditions of arc and beam welding, LMD and SLM with the thermophysical properties used. Ũ and P̃ follow Eqs. (20–21), with nominal power; the outline is the exact isotherm of Eq. (2); A_r isolines use Eq. (12) and the boundary Eq. (22). EBM and friction stir welding, a solid-state process, are left out.",
   "data": "Data (JSON)",
   "code": "Generator script",
   "paper": "Article",

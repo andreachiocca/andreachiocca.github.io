@@ -8,6 +8,8 @@ S-N curve and its scatter. Nothing is recomputed except the checks below.
 
     python scripts/generate_spr_fatigue.py --outputs "<article folder>/fatigue_assessment_output"
 
+One raw row with inconsistent forces is corrected from its confirmed force amplitude (FA_CONFIRMED).
+
 Checks: every test appears once in both variants with the same force and life; the stored S-N
 intercept, slope and standard deviation reproduce a least-squares fit of log10(sigma) on log10(N)
 of the same points.
@@ -27,6 +29,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'assets/data/figures/spr-fatigue.json'
 VARIANTS = ('one_parameter', 'two_parameter')
+# Row 5 of Data/FATICA/LAP/2_15_NO_GLUE/2_15_NO.txt reads Fmax 2860, Fmin 286, Fa 1400, Fm 1573 N. The
+# author confirmed (2026-11-06) that Fa = 1400 N, used by the article, is correct: Fmax is 3111 N.
+FA_CONFIRMED = {'LAP_2_15_NO_FILTERED_5'}
 
 
 def rows(path):
@@ -77,10 +82,14 @@ def main():
             'band_ratio': 10 ** (2 * k * sd), 'R2': float(s['R2_loglog']),
             'weights': {w: float(s[w]) for w in ('SFs', 'SFz', 'SFb', 'WGn', 'WGs')},
         }
-    # Report rows whose force amplitude disagrees with Fmax and R (kept as in the article's outputs).
+    # Author-confirmed corrections of the raw data: the force amplitude is right, the other forces of
+    # the row are typos, so they are rebuilt from Fa and R.
+    for key in FA_CONFIRMED:
+        t = tests[key]
+        t['Fmax'] = round(2 * t['Fa'] / (1 - t['R']), 3)
     for t in tests.values():
-        if not math.isclose(t['Fa'], (1 - t['R']) * t['Fmax'] / 2, rel_tol=1e-9):
-            print(f'warning: {t["id"]}: Fa = {t["Fa"]} N but (1 - R) Fmax / 2 = {(1 - t["R"]) * t["Fmax"] / 2:g} N')
+        if not math.isclose(t['Fa'], (1 - t['R']) * t['Fmax'] / 2, rel_tol=1e-6):
+            raise SystemExit(f'{t["id"]}: Fa = {t["Fa"]} N but (1 - R) Fmax / 2 = {(1 - t["R"]) * t["Fmax"] / 2:g} N')
     missing = [t for t in tests.values() if set(t['sigma']) != set(VARIANTS)]
     if missing:
         raise SystemExit(f'Tests missing a variant: {[t["id"] for t in missing]}')

@@ -20,9 +20,11 @@
 }
 .rosenthal-map .rm-chip[aria-pressed="false"] { opacity: .45; }
 .rosenthal-map .rm-chip i { width: 10px; height: 10px; border-radius: 50%; }
-.rosenthal-map .rm-glyph-slm, .rosenthal-map .rm-glyph-lmd { width: 9px; height: 9px; background: #d1e6ef; }
+.rosenthal-map .rm-glyph { width: 9px; height: 9px; background: #d1e6ef; }
 .rosenthal-map .rm-glyph-slm { border-radius: 50%; }
 .rosenthal-map .rm-glyph-lmd { transform: rotate(45deg) scale(.85); }
+.rosenthal-map .rm-glyph-aw { width: 10px; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.rosenthal-map .rm-glyph-bw { width: 8px; height: 8px; }
 .rosenthal-map .rm-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 280px); gap: 1.4rem; align-items: start; }
 .rosenthal-map .rm-stage { position: relative; min-width: 0; }
 .rosenthal-map .rm-stage svg { display: block; width: 100%; height: auto; overflow: visible; }
