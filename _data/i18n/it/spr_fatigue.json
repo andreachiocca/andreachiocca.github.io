@@ -1,0 +1,29 @@
+{
+  "title": "Giunti SPR ibridi a fatica",
+  "heading": "Una sola tensione strutturale per giunti lap-shear e coach-peel",
+  "views": {
+    "force": "Ampiezza di forza",
+    "one_parameter": "Tensione strutturale · rivetto",
+    "two_parameter": "Tensione strutturale · rivetto + adesivo"
+  },
+  "ylabel_force": "Ampiezza di forza F_a [N]",
+  "ylabel_stress": "Tensione strutturale σ_s [MPa]",
+  "xlabel": "Cicli a rottura N_f",
+  "lap": "Lap-shear",
+  "peel": "Coach-peel",
+  "hybrid": "SPR + adesivo",
+  "spr": "Solo SPR",
+  "stack": "Spessore Al / acciaio",
+  "band": "Banda ±2s, superiore / inferiore",
+  "points": "Prove",
+  "label": "Vite a fatica di %n giunti alluminio–acciaio rivettati SPR in funzione di %v; la banda di dispersione ±2s copre un fattore %b.",
+  "caption": "Ogni punto è una prova di fatica a R = 0,1 su un giunto alluminio–acciaio. In funzione della forza applicata, giunti lap-shear e coach-peel cadono su curve diverse. La tensione strutturale di tipo Rupp al rivetto, da modelli agli elementi finiti calibrati, porta tutte le combinazioni di spessore ed entrambe le geometrie su un'unica curva S–N. Cambia vista per confrontare.",
+  "details": "Come è calcolata",
+  "provenance": "Prove statiche e di fatica di A. Chiocca su giunti Al 5005 / Fe P05 con e senza adesivo Terokal 4497, nell'ambito di un progetto PRIN; articolo in preparazione. La tensione strutturale, i suoi pesi e le curve S–N sono i risultati degli script di valutazione dell'articolo.",
+  "data": "Dati (JSON)",
+  "code": "Script di generazione",
+  "error": "Non è stato possibile caricare i dati precalcolati.",
+  "noscript": "Questa figura interattiva richiede JavaScript.",
+  "no_fit": "nessuna curva unica: due popolazioni",
+  "label_force": "Vite a fatica di %n giunti alluminio–acciaio rivettati SPR in funzione dell’ampiezza di forza: i giunti lap-shear e coach-peel formano due popolazioni distinte."
+}

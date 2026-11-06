@@ -66,6 +66,7 @@ Pipeline: `scripts/generate_code_figures.py` installa ciascun pacchetto **a un c
 | **5e Hero** | stesso motore di 5a | La FIG. 01 attuale resta. In seconda fase le onde $\sigma$/$\tau$ possono venire da un caso reale di 5a, con stessi valori e stessa didascalia. | Invariata. |
 
 - Effort: 5a L, poi M per ciascuna delle altre.
+- Figure dei capitoli 03 e 04: FIG. R04.1 (mappa di Rosenthal, dal workbook di Moda et al. 2022) e FIG. R05.1 (fatica dei giunti SPR ibridi, dagli output dell'articolo in preparazione).
 - Aggiornamento automatico: `scripts/refresh_figures.py` e `.github/workflows/refresh-figures.yml` rigenerano ogni settimana le figure il cui repository sorgente ha nuovi commit e aprono una PR con anteprima.
 - Da confermare con l'autore prima di pubblicare: quali materiali e casi mostrare, e che i risultati del repo siano quelli "ufficiali" (non *pre-audit*).
 

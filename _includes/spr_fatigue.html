@@ -1,0 +1,43 @@
+{% comment %} FIG. R05.1: hybrid SPR joints in fatigue (data collected from the article's assessment outputs). {% endcomment %}
+{% assign sp_lang = page.lang | default: 'en' %}
+{% assign sp = site.data.i18n[sp_lang].spr_fatigue | default: site.data.i18n.en.spr_fatigue %}
+{% assign sp_data = '/assets/data/figures/spr-fatigue.json' %}
+<figure id="spr-fatigue" class="spr-fatigue" data-spr-fatigue data-src="{{ sp_data | relative_url }}"
+  data-label="{{ sp.label | escape }}" data-xlabel="{{ sp.xlabel | escape }}"
+  data-ylabel-force="{{ sp.ylabel_force | escape }}" data-ylabel-stress="{{ sp.ylabel_stress | escape }}"
+  data-view-force="{{ sp.views.force | escape }}" data-view-one="{{ sp.views.one_parameter | escape }}" data-view-two="{{ sp.views.two_parameter | escape }}"
+  data-lap="{{ sp.lap | escape }}" data-peel="{{ sp.peel | escape }}" data-hybrid="{{ sp.hybrid | escape }}" data-spr="{{ sp.spr | escape }}"
+  data-no-fit="{{ sp.no_fit | escape }}" data-label-force="{{ sp.label_force | escape }}">
+  <div class="sp-panel">
+    <p class="sp-heading"><span>FIG. R05.1</span><span>{{ sp.title }}</span></p>
+    <p class="sp-title">{{ sp.heading }}</p>
+    <div class="sp-controls" data-sp-controls hidden>
+      <div class="sp-tabs" role="group" aria-label="{{ sp.title | escape }}">
+        <button type="button" data-sp-view="force" aria-pressed="false">{{ sp.views.force }}</button>
+        <button type="button" data-sp-view="one_parameter" aria-pressed="false">{{ sp.views.one_parameter }}</button>
+        <button type="button" data-sp-view="two_parameter" aria-pressed="true">{{ sp.views.two_parameter }}</button>
+      </div>
+    </div>
+    <div class="sp-stage">
+      <svg viewBox="0 0 640 420" role="img" aria-label="{{ sp.title | escape }}" aria-describedby="sp-caption"></svg>
+      <p class="sp-tip" data-sp-tip hidden></p>
+    </div>
+    <div class="sp-legend" aria-hidden="true">
+      <span><i class="sp-key sp-key-lap"></i>{{ sp.lap }}</span>
+      <span><i class="sp-key sp-key-peel"></i>{{ sp.peel }}</span>
+      <span><i class="sp-key sp-key-hybrid"></i>{{ sp.hybrid }}</span>
+      <span><i class="sp-key sp-key-spr"></i>{{ sp.spr }}</span>
+      <span class="sp-shapes">{{ sp.stack }}: <b>●</b> 1.5/1.5 <b>■</b> 1.5/1.8 <b>▲</b> 2.0/1.5 <b>◆</b> 2.0/1.8 mm</span>
+    </div>
+    <dl class="sp-readout" aria-live="polite">
+      <div><dt>{{ sp.points }}</dt><dd data-sp-n>–</dd></div>
+      <div><dt>{{ sp.band }}</dt><dd data-sp-band>–</dd></div>
+    </dl>
+    <p class="sp-error" data-sp-error hidden>{{ sp.error }}</p>
+    <noscript><p class="sp-error">{{ sp.noscript }}</p></noscript>
+  </div>
+  <figcaption id="sp-caption">{{ sp.caption }}
+    <details><summary>{{ sp.details }}</summary><p>{{ sp.provenance }}</p>
+    <p><a href="{{ sp_data | relative_url }}">{{ sp.data }}</a> · <a href="https://github.com/andreachiocca/andreachiocca.github.io/blob/master/scripts/generate_spr_fatigue.py">{{ sp.code }}</a></p></details></figcaption>
+</figure>
+<script defer src="{{ '/assets/js/spr-fatigue.js' | relative_url | bust_file_cache }}"></script>

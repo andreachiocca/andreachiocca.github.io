@@ -1,0 +1,29 @@
+{
+  "title": "Hybrid SPR joints in fatigue",
+  "heading": "One structural stress for lap-shear and coach-peel joints",
+  "views": {
+    "force": "Force amplitude",
+    "one_parameter": "Structural stress · rivet",
+    "two_parameter": "Structural stress · rivet + adhesive"
+  },
+  "ylabel_force": "Force amplitude F_a [N]",
+  "ylabel_stress": "Structural stress σ_s [MPa]",
+  "xlabel": "Cycles to failure N_f",
+  "lap": "Lap-shear",
+  "peel": "Coach-peel",
+  "hybrid": "SPR + adhesive",
+  "spr": "SPR only",
+  "stack": "Al / steel thickness",
+  "band": "±2s band, upper / lower",
+  "points": "Tests",
+  "label": "Fatigue lives of %n self-piercing-riveted aluminium–steel joints against %v; the ±2s scatter band spans a factor of %b.",
+  "caption": "Each point is one fatigue test at R = 0.1 on an aluminium–steel joint. Plotted against the applied force, lap-shear and coach-peel joints fall on different curves. The Rupp-type structural stress at the rivet, from calibrated finite element models, brings all thickness combinations and both geometries onto one S–N curve. Switch views to compare.",
+  "details": "How it is computed",
+  "provenance": "Static and fatigue tests by A. Chiocca on Al 5005 / Fe P05 joints with and without Terokal 4497 adhesive, within a PRIN project; manuscript in preparation. The structural stress, its weights and the S–N curves are the outputs of the article's assessment scripts.",
+  "data": "Data (JSON)",
+  "code": "Generator script",
+  "error": "The precomputed data could not be loaded.",
+  "noscript": "This interactive figure needs JavaScript.",
+  "no_fit": "no single curve: two populations",
+  "label_force": "Fatigue lives of %n self-piercing-riveted aluminium–steel joints against the force amplitude: lap-shear and coach-peel joints form two separate populations."
+}
