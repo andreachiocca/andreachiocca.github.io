@@ -5,6 +5,7 @@ layout: page
 permalink: /publications/
 title: Publications
 description: Journal articles, conference papers and PhD thesis by Andrea Chiocca on multiaxial fatigue, welded joints and residual stresses.
+seo_title: Fatigue & Structural Integrity Publications
 nav: true
 nav_order: 2
 ---

@@ -5,6 +5,7 @@ layout: page
 title: Laboratory & Experimental Capabilities
 permalink: /laboratory/
 description: Fatigue and multiaxial testing, material and component characterisation and numerical–experimental research at the University of Pisa.
+seo_title: Fatigue Testing & Experimental Mechanics
 ---
 
 <div class="laboratory-editorial">

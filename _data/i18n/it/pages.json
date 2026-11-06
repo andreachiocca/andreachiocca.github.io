@@ -7,31 +7,38 @@
   },
   "research": {
     "title": "Ricerca",
-    "description": "Analisi a fatica, metodi del piano critico, strutture saldate, manifattura additiva e prove su componenti all’Università di Pisa."
+    "description": "Analisi a fatica, metodi del piano critico, strutture saldate, manifattura additiva e prove su componenti all’Università di Pisa.",
+    "seo_title": "Fatica multiassiale e strutture saldate"
   },
   "publications": {
     "title": "Pubblicazioni",
-    "description": "Articoli su rivista, contributi a conferenze e tesi di dottorato di Andrea Chiocca su fatica multiassiale, giunti saldati e tensioni residue."
+    "description": "Articoli su rivista, contributi a conferenze e tesi di dottorato di Andrea Chiocca su fatica multiassiale, giunti saldati e tensioni residue.",
+    "seo_title": "Pubblicazioni su fatica e integrità strutturale"
   },
   "repositories": {
     "title": "Repository e prodotti della ricerca",
-    "description": "Software open source per la fatica (Python, MATLAB), strumenti per il piano critico e dataset di ricerca di Andrea Chiocca, Università di Pisa."
+    "description": "Software open source per la fatica (Python, MATLAB), strumenti per il piano critico e dataset di ricerca di Andrea Chiocca, Università di Pisa.",
+    "seo_title": "Software per la fatica e dati di ricerca"
   },
   "laboratory": {
     "title": "Laboratorio e attrezzature sperimentali",
-    "description": "Prove di fatica anche multiassiale, caratterizzazione di materiali e componenti e ricerca numerico-sperimentale all’Università di Pisa."
+    "description": "Prove di fatica anche multiassiale, caratterizzazione di materiali e componenti e ricerca numerico-sperimentale all’Università di Pisa.",
+    "seo_title": "Prove a fatica e meccanica sperimentale"
   },
   "teaching": {
     "title": "Didattica",
-    "description": "Corsi all’Università di Pisa di costruzione di macchine e metodo degli elementi finiti, con materiali didattici pubblici."
+    "description": "Corsi all’Università di Pisa di costruzione di macchine e metodo degli elementi finiti, con materiali didattici pubblici.",
+    "seo_title": "Corsi di costruzione di macchine e materiali didattici"
   },
   "thesis": {
     "title": "Opportunità di tesi",
-    "description": "Tesi di laurea triennale e magistrale su fatica, meccanica computazionale e prove sperimentali all’Università di Pisa."
+    "description": "Tesi di laurea triennale e magistrale su fatica, meccanica computazionale e prove sperimentali all’Università di Pisa.",
+    "seo_title": "Tesi di ingegneria meccanica e analisi a fatica"
   },
   "cv": {
     "title": "Curriculum",
-    "description": "CV accademico di Andrea Chiocca: posizioni, formazione, progetti di ricerca e riconoscimenti. Disponibile in PDF."
+    "description": "CV accademico di Andrea Chiocca: posizioni, formazione, progetti di ricerca e riconoscimenti. Disponibile in PDF.",
+    "seo_title": "Curriculum accademico e attività di ricerca"
   },
   "course-1": {
     "description": "Progettazione meccanica col metodo degli elementi finiti (Ingegneria Energetica, Università di Pisa, 2021–2024): slide ed esercitazioni con Ansys Workbench."

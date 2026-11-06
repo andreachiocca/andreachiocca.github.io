@@ -5,6 +5,7 @@ layout: research_atlas
 title: Research
 permalink: /research/
 description: Fatigue assessment, critical plane methods, welded structures, additive manufacturing and component testing at the University of Pisa.
+seo_title: Multiaxial Fatigue & Welded Structures
 nav: true
 nav_order: 1
 ---

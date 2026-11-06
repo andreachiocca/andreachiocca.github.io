@@ -5,6 +5,7 @@ layout: page
 permalink: /teaching/
 title: Teaching
 description: Courses at the University of Pisa on machine design and finite element methods, with public teaching materials (in Italian).
+seo_title: Machine Design Courses & Teaching Materials
 nav: true
 nav_order: 4
 ---

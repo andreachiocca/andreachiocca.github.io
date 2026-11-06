@@ -6,6 +6,7 @@ permalink: /repositories/
 title: Repositories & Research Outputs
 nav_title: Repositories
 description: Open-source fatigue software (Python, MATLAB), critical plane tools and research datasets by Andrea Chiocca, University of Pisa.
+seo_title: Fatigue Software & Research Datasets
 nav: true
 nav_order: 3.5
 catalogue: true

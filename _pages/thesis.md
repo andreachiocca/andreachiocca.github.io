@@ -5,6 +5,7 @@ layout: page
 title: Thesis Opportunities
 permalink: /thesis/
 description: Bachelor’s and master’s thesis projects in fatigue, computational mechanics and experimental testing at the University of Pisa.
+seo_title: Mechanical Engineering Thesis Opportunities
 section: teaching
 ---
 
