@@ -1,0 +1,49 @@
+{% comment %} FIG. R04.1: Rosenthal map of metal AM (data precomputed from the Moda et al. 2022 review workbook). {% endcomment %}
+{% assign rm_lang = page.lang | default: 'en' %}
+{% assign rm = site.data.i18n[rm_lang].rosenthal_map | default: site.data.i18n.en.rosenthal_map %}
+{% assign rm_data = '/assets/data/figures/rosenthal-process-map.json' %}
+<figure id="rosenthal-map" class="rosenthal-map" data-rosenthal-map data-src="{{ rm_data | relative_url }}"
+  data-label="{{ rm.label | escape }}" data-xlabel="{{ rm.xlabel | escape }}" data-ylabel="{{ rm.ylabel | escape }}"
+  data-boundary="{{ rm.boundary | escape }}" data-feasible="{{ rm.feasible | escape }}"
+  data-proc-slm="{{ rm.processes.SLM | escape }}" data-proc-lmd="{{ rm.processes.LMD | escape }}"
+  data-fam-steel="{{ rm.families.steel | escape }}" data-fam-al="{{ rm.families.al | escape }}" data-fam-ti="{{ rm.families.ti | escape }}"
+  data-fam-ni="{{ rm.families.ni | escape }}" data-fam-cu="{{ rm.families.cu | escape }}" data-fam-co="{{ rm.families.co | escape }}">
+  <div class="rm-panel">
+    <p class="rm-heading"><span>FIG. R04.1</span><span>{{ rm.title }}</span></p>
+    <p class="rm-title">{{ rm.heading }}</p>
+    <div class="rm-controls" data-rm-controls hidden>
+      <div class="rm-chips" role="group" aria-label="{{ rm.material | escape }}">
+        {% for f in rm.families %}<button type="button" class="rm-chip" data-rm-family="{{ f[0] }}" aria-pressed="true"><i aria-hidden="true"></i>{{ f[1] }}</button>{% endfor %}
+      </div>
+      <div class="rm-chips" role="group" aria-label="{{ rm.process | escape }}">
+        <button type="button" class="rm-chip rm-proc" data-rm-process="SLM" aria-pressed="true"><b class="rm-glyph-slm" aria-hidden="true"></b>SLM</button>
+        <button type="button" class="rm-chip rm-proc" data-rm-process="LMD" aria-pressed="true"><b class="rm-glyph-lmd" aria-hidden="true"></b>LMD</button>
+      </div>
+    </div>
+    <div class="rm-body">
+      <div class="rm-stage">
+        <svg viewBox="0 0 640 460" role="img" tabindex="0" aria-label="{{ rm.title | escape }}" aria-describedby="rm-caption"></svg>
+        <p class="rm-tip" data-rm-tip hidden></p>
+      </div>
+      <div class="rm-side">
+        <p class="rm-side-title">{{ rm.pool }}</p>
+        <svg class="rm-pool" viewBox="0 0 280 150" aria-hidden="true" data-rm-pool></svg>
+        <dl class="rm-readout" aria-live="polite">
+          <div><dt>{{ rm.material }}</dt><dd data-rm-material>–</dd></div>
+          <div><dt>{{ rm.process }}</dt><dd data-rm-process-out>–</dd></div>
+          <div><dt>{{ rm.operating }}</dt><dd data-rm-up>–</dd></div>
+          <div><dt>{{ rm.rbar }}</dt><dd data-rm-rbar>–</dd></div>
+          <div><dt>{{ rm.ry }}</dt><dd data-rm-ry>–</dd></div>
+          <div><dt>{{ rm.ar | replace: 'A_r', 'A<sub>r</sub>' }}</dt><dd data-rm-ar>–</dd></div>
+          <div><dt>{{ rm.source }}</dt><dd><a data-rm-source href="#rosenthal-map">–</a></dd></div>
+        </dl>
+      </div>
+    </div>
+    <p class="rm-error" data-rm-error hidden>{{ rm.error }}</p>
+    <noscript><p class="rm-error">{{ rm.noscript }}</p></noscript>
+  </div>
+  <figcaption id="rm-caption">{{ rm.caption | replace: 'A_r', 'A<sub>r</sub>' }}
+    <details><summary>{{ rm.details }}</summary><p data-rm-provenance data-template="{{ rm.provenance | replace: 'A_r', 'A<sub>r</sub>' | escape }}">{{ rm.provenance | replace: 'A_r', 'A<sub>r</sub>' | replace: '%n ', '' }}</p>
+    <p><a href="{{ rm_data | relative_url }}">{{ rm.data }}</a> · <a href="https://github.com/andreachiocca/andreachiocca.github.io/blob/master/scripts/generate_rosenthal_map.py">{{ rm.code }}</a> · <a href="https://doi.org/10.1016/j.matdes.2022.110991">{{ rm.paper }}</a></p></details></figcaption>
+</figure>
+<script defer src="{{ '/assets/js/rosenthal-map.js' | relative_url | bust_file_cache }}"></script>

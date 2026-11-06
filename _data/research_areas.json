@@ -96,7 +96,8 @@
         "url": "/publications/#Chiocca2022a"
       }
     ],
-    "icon": "fa-clone"
+    "icon": "fa-clone",
+    "figures": ["rosenthal_map.html"]
   },
   {
     "id": "component-testing-and-industrial-applications",
@@ -131,6 +132,7 @@
         "url": "/cv/"
       }
     ],
-    "icon": "fa-compass"
+    "icon": "fa-compass",
+    "figures": ["spr_fatigue.html"]
   }
 ]

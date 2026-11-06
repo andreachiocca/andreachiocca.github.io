@@ -1,0 +1,38 @@
+{
+  "title": "Mappa di Rosenthal dell'AM metallica",
+  "heading": "Centinaia di finestre di processo, due numeri adimensionali",
+  "xlabel": "Velocità adimensionale Ũ = U R̄ / 2α",
+  "ylabel": "Potenza adimensionale P̃ = P / 2πλR̄ΔT_m",
+  "processes": {
+    "SLM": "Selective laser melting",
+    "LMD": "Laser metal deposition"
+  },
+  "families": {
+    "steel": "Acciai",
+    "al": "Leghe di Al",
+    "ti": "Leghe di Ti",
+    "ni": "Leghe di Ni",
+    "cu": "Leghe di Cu",
+    "co": "Leghe Co–Cr"
+  },
+  "boundary": "R = R̄: bagno fuso largo quanto richiesto",
+  "isoline": "A_r",
+  "feasible": "regione ammissibile",
+  "pool": "Bagno fuso visto dall'alto, isoterma di Rosenthal",
+  "material": "Materiale",
+  "process": "Processo",
+  "source": "Fonte",
+  "operating": "U, P",
+  "rbar": "Semilarghezza richiesta R̄",
+  "ry": "Numero di Rykalin Ry",
+  "ar": "Rapporto d'aspetto A_r = L / 2R",
+  "label": "Mappa log–log di %n condizioni operative di letteratura per la manifattura additiva metallica, in velocità e potenza adimensionali. Selezionato: %m di %p, rapporto d'aspetto %a.",
+  "caption": "Ogni punto è una condizione operativa pubblicata, resa adimensionale con la soluzione di Rosenthal per sorgente puntiforme in moto: leghe e macchine ricadono su un unico piano. Le linee a rapporto d'aspetto A_r costante corrono in diagonale; sotto la curva bianca il bagno fuso è più stretto della semilarghezza richiesta R̄. Seleziona un punto per la forma del suo bagno fuso.",
+  "details": "Come è calcolata",
+  "provenance": "Dalla rassegna di letteratura di Moda, Chiocca et al., Materials & Design 223 (2022) 110991 (dataset aggiornato, revisione 5): %n condizioni operative di SLM e LMD con le proprietà termofisiche usate. Ũ e P̃ seguono le Eq. (20–21), con la potenza nominale; il contorno è l'isoterma esatta dell'Eq. (2); le isolinee di A_r usano l'Eq. (12) e il confine l'Eq. (22). Le righe EBM sono escluse, come nell'articolo.",
+  "data": "Dati (JSON)",
+  "code": "Script di generazione",
+  "paper": "Articolo",
+  "error": "Non è stato possibile caricare i dati precalcolati.",
+  "noscript": "Questa figura interattiva richiede JavaScript."
+}

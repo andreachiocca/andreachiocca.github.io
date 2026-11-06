@@ -1,0 +1,724 @@
+{
+ "figure": "FIG. R05.1",
+ "source": {
+  "manuscript": "Fatigue resistance of hybrid self-piercing-riveted aluminium-steel joints (in preparation)",
+  "outputs": "fatigue_assessment_output",
+  "generated": "2026-11-06",
+  "materials": {
+   "aluminium": "Al 5005",
+   "steel": "Fe P05",
+   "adhesive": "Terokal 4497"
+  }
+ },
+ "models": {
+  "one_parameter": {
+   "intercept": 2.569898108652148,
+   "slope": -0.12836470654029955,
+   "sd_log10": 0.09181066058534025,
+   "n_std": 2.0,
+   "n": 45,
+   "band_ratio": 2.3293923364742333,
+   "R2": 0.46273816534371215,
+   "weights": {
+    "SFs": 1.0,
+    "SFz": 0.6640065155757959,
+    "SFb": 3.4178987323914825e-17,
+    "WGn": 1.0,
+    "WGs": 1.0
+   }
+  },
+  "two_parameter": {
+   "intercept": 2.4212029215034145,
+   "slope": -0.1210131470324936,
+   "sd_log10": 0.07731923135322089,
+   "n_std": 2.0,
+   "n": 45,
+   "band_ratio": 2.0383414002404003,
+   "R2": 0.5190644148477934,
+   "weights": {
+    "SFs": 1.0,
+    "SFz": 0.5121083698675599,
+    "SFb": 0.0003924091022100964,
+    "WGn": 0.18337898887957566,
+    "WGs": 25.7679461064541
+   }
+  }
+ },
+ "tests": [
+  {
+   "id": "LAP_15_18_NO_FILTERED_2",
+   "geometry": "LAP",
+   "adhesive": false,
+   "t_al": 1.5,
+   "t_steel": 1.8,
+   "Fa": 1125.0,
+   "Fmax": 2500.0,
+   "R": 0.1,
+   "N": 269832.0,
+   "sigma": {
+    "one_parameter": 54.6917,
+    "two_parameter": 50.5348
+   }
+  },
+  {
+   "id": "LAP_15_18_NO_FILTERED_1",
+   "geometry": "LAP",
+   "adhesive": false,
+   "t_al": 1.5,
+   "t_steel": 1.8,
+   "Fa": 1035.0,
+   "Fmax": 2300.0,
+   "R": 0.1,
+   "N": 1078480.0,
+   "sigma": {
+    "one_parameter": 50.3164,
+    "two_parameter": 46.492
+   }
+  },
+  {
+   "id": "LAP_2_15_NO_FILTERED_5",
+   "geometry": "LAP",
+   "adhesive": false,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 1400.0,
+   "Fmax": 2860.0,
+   "R": 0.1,
+   "N": 154980.0,
+   "sigma": {
+    "one_parameter": 67.1622,
+    "two_parameter": 61.5828
+   }
+  },
+  {
+   "id": "LAP_2_15_NO_FILTERED_2",
+   "geometry": "LAP",
+   "adhesive": false,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 1395.0,
+   "Fmax": 3100.0,
+   "R": 0.1,
+   "N": 414840.0,
+   "sigma": {
+    "one_parameter": 66.9224,
+    "two_parameter": 61.3629
+   }
+  },
+  {
+   "id": "LAP_2_15_NO_FILTERED_1",
+   "geometry": "LAP",
+   "adhesive": false,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 1350.0,
+   "Fmax": 3000.0,
+   "R": 0.1,
+   "N": 513089.0,
+   "sigma": {
+    "one_parameter": 64.7636,
+    "two_parameter": 59.3834
+   }
+  },
+  {
+   "id": "LAP_2_15_NO_FILTERED_3",
+   "geometry": "LAP",
+   "adhesive": false,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 1125.0,
+   "Fmax": 2500.0,
+   "R": 0.1,
+   "N": 738727.0,
+   "sigma": {
+    "one_parameter": 53.9696,
+    "two_parameter": 49.4862
+   }
+  },
+  {
+   "id": "LAP_2_15_NO_FILTERED_4",
+   "geometry": "LAP",
+   "adhesive": false,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 1197.0,
+   "Fmax": 2660.0,
+   "R": 0.1,
+   "N": 768827.0,
+   "sigma": {
+    "one_parameter": 57.4237,
+    "two_parameter": 52.6533
+   }
+  },
+  {
+   "id": "LAP_2_18_NO_FILTERED_1",
+   "geometry": "LAP",
+   "adhesive": false,
+   "t_al": 2.0,
+   "t_steel": 1.8,
+   "Fa": 1575.0,
+   "Fmax": 3500.0,
+   "R": 0.1,
+   "N": 101285.0,
+   "sigma": {
+    "one_parameter": 67.8843,
+    "two_parameter": 62.4952
+   }
+  },
+  {
+   "id": "LAP_15_15_YES_FILTERED_2",
+   "geometry": "LAP",
+   "adhesive": true,
+   "t_al": 1.5,
+   "t_steel": 1.5,
+   "Fa": 1890.0,
+   "Fmax": 4200.0,
+   "R": 0.1,
+   "N": 132491.0,
+   "sigma": {
+    "one_parameter": 106.0635,
+    "two_parameter": 68.1416
+   }
+  },
+  {
+   "id": "LAP_15_15_YES_FILTERED_1",
+   "geometry": "LAP",
+   "adhesive": true,
+   "t_al": 1.5,
+   "t_steel": 1.5,
+   "Fa": 1800.0,
+   "Fmax": 4000.0,
+   "R": 0.1,
+   "N": 773273.0,
+   "sigma": {
+    "one_parameter": 101.0129,
+    "two_parameter": 64.8968
+   }
+  },
+  {
+   "id": "LAP_15_18_YES_FILTERED_3",
+   "geometry": "LAP",
+   "adhesive": true,
+   "t_al": 1.5,
+   "t_steel": 1.8,
+   "Fa": 2025.0,
+   "Fmax": 4500.0,
+   "R": 0.1,
+   "N": 63599.0,
+   "sigma": {
+    "one_parameter": 97.8288,
+    "two_parameter": 69.7095
+   }
+  },
+  {
+   "id": "LAP_15_18_YES_FILTERED_2",
+   "geometry": "LAP",
+   "adhesive": true,
+   "t_al": 1.5,
+   "t_steel": 1.8,
+   "Fa": 2070.0,
+   "Fmax": 4600.0,
+   "R": 0.1,
+   "N": 106751.0,
+   "sigma": {
+    "one_parameter": 100.0028,
+    "two_parameter": 71.2586
+   }
+  },
+  {
+   "id": "LAP_15_18_YES_FILTERED_5",
+   "geometry": "LAP",
+   "adhesive": true,
+   "t_al": 1.5,
+   "t_steel": 1.8,
+   "Fa": 1980.0,
+   "Fmax": 4400.0,
+   "R": 0.1,
+   "N": 536042.0,
+   "sigma": {
+    "one_parameter": 95.6549,
+    "two_parameter": 68.1604
+   }
+  },
+  {
+   "id": "LAP_15_18_YES_FILTERED_1",
+   "geometry": "LAP",
+   "adhesive": true,
+   "t_al": 1.5,
+   "t_steel": 1.8,
+   "Fa": 1935.0,
+   "Fmax": 4300.0,
+   "R": 0.1,
+   "N": 1383687.0,
+   "sigma": {
+    "one_parameter": 93.4809,
+    "two_parameter": 66.6113
+   }
+  },
+  {
+   "id": "LAP_15_18_YES_FILTERED_4",
+   "geometry": "LAP",
+   "adhesive": true,
+   "t_al": 1.5,
+   "t_steel": 1.8,
+   "Fa": 1980.0,
+   "Fmax": 4400.0,
+   "R": 0.1,
+   "N": 1684898.0,
+   "sigma": {
+    "one_parameter": 95.6549,
+    "two_parameter": 68.1604
+   }
+  },
+  {
+   "id": "LAP_2_15_YES_FILTERED_7",
+   "geometry": "LAP",
+   "adhesive": true,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 2025.0,
+   "Fmax": 4500.0,
+   "R": 0.1,
+   "N": 37400.0,
+   "sigma": {
+    "one_parameter": 97.1535,
+    "two_parameter": 70.417
+   }
+  },
+  {
+   "id": "LAP_2_15_YES_FILTERED_6",
+   "geometry": "LAP",
+   "adhesive": true,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 1800.0,
+   "Fmax": 4000.0,
+   "R": 0.1,
+   "N": 49900.0,
+   "sigma": {
+    "one_parameter": 86.3586,
+    "two_parameter": 62.5928
+   }
+  },
+  {
+   "id": "LAP_2_15_YES_FILTERED_4",
+   "geometry": "LAP",
+   "adhesive": true,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 1800.0,
+   "Fmax": 4000.0,
+   "R": 0.1,
+   "N": 63000.0,
+   "sigma": {
+    "one_parameter": 86.3586,
+    "two_parameter": 62.5928
+   }
+  },
+  {
+   "id": "LAP_2_15_YES_FILTERED_5",
+   "geometry": "LAP",
+   "adhesive": true,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 1575.0,
+   "Fmax": 3500.0,
+   "R": 0.1,
+   "N": 125000.0,
+   "sigma": {
+    "one_parameter": 75.5638,
+    "two_parameter": 54.7687
+   }
+  },
+  {
+   "id": "LAP_2_15_YES_FILTERED_1",
+   "geometry": "LAP",
+   "adhesive": true,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 1575.0,
+   "Fmax": 3500.0,
+   "R": 0.1,
+   "N": 145000.0,
+   "sigma": {
+    "one_parameter": 75.5638,
+    "two_parameter": 54.7687
+   }
+  },
+  {
+   "id": "LAP_2_15_YES_FILTERED_3",
+   "geometry": "LAP",
+   "adhesive": true,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 1485.0,
+   "Fmax": 3300.0,
+   "R": 0.1,
+   "N": 163000.0,
+   "sigma": {
+    "one_parameter": 71.2459,
+    "two_parameter": 51.6391
+   }
+  },
+  {
+   "id": "LAP_2_15_YES_FILTERED_2",
+   "geometry": "LAP",
+   "adhesive": true,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 1530.0,
+   "Fmax": 3400.0,
+   "R": 0.1,
+   "N": 201000.0,
+   "sigma": {
+    "one_parameter": 73.4048,
+    "two_parameter": 53.2039
+   }
+  },
+  {
+   "id": "LAP_2_15_YES_FILTERED_8",
+   "geometry": "LAP",
+   "adhesive": true,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 1395.0,
+   "Fmax": 3100.0,
+   "R": 0.1,
+   "N": 366000.0,
+   "sigma": {
+    "one_parameter": 66.9279,
+    "two_parameter": 48.5095
+   }
+  },
+  {
+   "id": "LAP_2_18_YES_FILTERED_1",
+   "geometry": "LAP",
+   "adhesive": true,
+   "t_al": 2.0,
+   "t_steel": 1.8,
+   "Fa": 2025.0,
+   "Fmax": 4500.0,
+   "R": 0.1,
+   "N": 3500.0,
+   "sigma": {
+    "one_parameter": 87.1231,
+    "two_parameter": 69.311
+   }
+  },
+  {
+   "id": "PEEL_15_15_NO_FILTERED_1",
+   "geometry": "PEEL",
+   "adhesive": false,
+   "t_al": 1.5,
+   "t_steel": 1.5,
+   "Fa": 135.0,
+   "Fmax": 300.0,
+   "R": 0.1,
+   "N": 96204.0,
+   "sigma": {
+    "one_parameter": 85.3735,
+    "two_parameter": 65.8071
+   }
+  },
+  {
+   "id": "PEEL_15_18_NO_FILTERED_2",
+   "geometry": "PEEL",
+   "adhesive": false,
+   "t_al": 1.5,
+   "t_steel": 1.8,
+   "Fa": 157.5,
+   "Fmax": 350.0,
+   "R": 0.1,
+   "N": 26571.0,
+   "sigma": {
+    "one_parameter": 86.4362,
+    "two_parameter": 66.6646
+   }
+  },
+  {
+   "id": "PEEL_15_18_NO_FILTERED_1",
+   "geometry": "PEEL",
+   "adhesive": false,
+   "t_al": 1.5,
+   "t_steel": 1.8,
+   "Fa": 90.0,
+   "Fmax": 200.0,
+   "R": 0.1,
+   "N": 388459.0,
+   "sigma": {
+    "one_parameter": 49.3921,
+    "two_parameter": 38.094
+   }
+  },
+  {
+   "id": "PEEL_2_18_NO_FILTERED_2",
+   "geometry": "PEEL",
+   "adhesive": false,
+   "t_al": 2.0,
+   "t_steel": 1.8,
+   "Fa": 247.5,
+   "Fmax": 550.0,
+   "R": 0.1,
+   "N": 43920.0,
+   "sigma": {
+    "one_parameter": 109.8245,
+    "two_parameter": 84.6598
+   }
+  },
+  {
+   "id": "PEEL_2_18_NO_FILTERED_1",
+   "geometry": "PEEL",
+   "adhesive": false,
+   "t_al": 2.0,
+   "t_steel": 1.8,
+   "Fa": 135.0,
+   "Fmax": 300.0,
+   "R": 0.1,
+   "N": 460483.0,
+   "sigma": {
+    "one_parameter": 59.9043,
+    "two_parameter": 46.1781
+   }
+  },
+  {
+   "id": "PEEL_15_15_YES_FILTERED_1",
+   "geometry": "PEEL",
+   "adhesive": true,
+   "t_al": 1.5,
+   "t_steel": 1.5,
+   "Fa": 270.0,
+   "Fmax": 600.0,
+   "R": 0.1,
+   "N": 2474.0,
+   "sigma": {
+    "one_parameter": 170.8917,
+    "two_parameter": 131.7843
+   }
+  },
+  {
+   "id": "PEEL_15_15_YES_FILTERED_2",
+   "geometry": "PEEL",
+   "adhesive": true,
+   "t_al": 1.5,
+   "t_steel": 1.5,
+   "Fa": 180.0,
+   "Fmax": 400.0,
+   "R": 0.1,
+   "N": 20833.0,
+   "sigma": {
+    "one_parameter": 113.9278,
+    "two_parameter": 87.8562
+   }
+  },
+  {
+   "id": "PEEL_15_15_YES_FILTERED_4",
+   "geometry": "PEEL",
+   "adhesive": true,
+   "t_al": 1.5,
+   "t_steel": 1.5,
+   "Fa": 135.0,
+   "Fmax": 300.0,
+   "R": 0.1,
+   "N": 45733.0,
+   "sigma": {
+    "one_parameter": 85.4459,
+    "two_parameter": 65.8922
+   }
+  },
+  {
+   "id": "PEEL_15_15_YES_FILTERED_3",
+   "geometry": "PEEL",
+   "adhesive": true,
+   "t_al": 1.5,
+   "t_steel": 1.5,
+   "Fa": 90.0,
+   "Fmax": 200.0,
+   "R": 0.1,
+   "N": 829964.0,
+   "sigma": {
+    "one_parameter": 56.9639,
+    "two_parameter": 43.9281
+   }
+  },
+  {
+   "id": "PEEL_15_18_YES_FILTERED_2",
+   "geometry": "PEEL",
+   "adhesive": true,
+   "t_al": 1.5,
+   "t_steel": 1.8,
+   "Fa": 180.0,
+   "Fmax": 400.0,
+   "R": 0.1,
+   "N": 25968.0,
+   "sigma": {
+    "one_parameter": 98.9486,
+    "two_parameter": 76.3807
+   }
+  },
+  {
+   "id": "PEEL_15_18_YES_FILTERED_3",
+   "geometry": "PEEL",
+   "adhesive": true,
+   "t_al": 1.5,
+   "t_steel": 1.8,
+   "Fa": 135.0,
+   "Fmax": 300.0,
+   "R": 0.1,
+   "N": 63408.0,
+   "sigma": {
+    "one_parameter": 74.2114,
+    "two_parameter": 57.2855
+   }
+  },
+  {
+   "id": "PEEL_15_18_YES_FILTERED_1",
+   "geometry": "PEEL",
+   "adhesive": true,
+   "t_al": 1.5,
+   "t_steel": 1.8,
+   "Fa": 112.5,
+   "Fmax": 250.0,
+   "R": 0.1,
+   "N": 142903.0,
+   "sigma": {
+    "one_parameter": 61.8429,
+    "two_parameter": 47.7379
+   }
+  },
+  {
+   "id": "PEEL_2_15_YES_FILTERED_1",
+   "geometry": "PEEL",
+   "adhesive": true,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 360.0,
+   "Fmax": 800.0,
+   "R": 0.1,
+   "N": 5672.0,
+   "sigma": {
+    "one_parameter": 180.2652,
+    "two_parameter": 138.8845
+   }
+  },
+  {
+   "id": "PEEL_2_15_YES_FILTERED_2",
+   "geometry": "PEEL",
+   "adhesive": true,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 270.0,
+   "Fmax": 600.0,
+   "R": 0.1,
+   "N": 25171.0,
+   "sigma": {
+    "one_parameter": 135.1989,
+    "two_parameter": 104.1634
+   }
+  },
+  {
+   "id": "PEEL_2_15_YES_FILTERED_4",
+   "geometry": "PEEL",
+   "adhesive": true,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 225.0,
+   "Fmax": 500.0,
+   "R": 0.1,
+   "N": 26432.0,
+   "sigma": {
+    "one_parameter": 112.6657,
+    "two_parameter": 86.8028
+   }
+  },
+  {
+   "id": "PEEL_2_15_YES_FILTERED_5",
+   "geometry": "PEEL",
+   "adhesive": true,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 180.0,
+   "Fmax": 400.0,
+   "R": 0.1,
+   "N": 77456.0,
+   "sigma": {
+    "one_parameter": 90.1326,
+    "two_parameter": 69.4423
+   }
+  },
+  {
+   "id": "PEEL_2_15_YES_FILTERED_3",
+   "geometry": "PEEL",
+   "adhesive": true,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 180.0,
+   "Fmax": 400.0,
+   "R": 0.1,
+   "N": 101652.0,
+   "sigma": {
+    "one_parameter": 90.1326,
+    "two_parameter": 69.4423
+   }
+  },
+  {
+   "id": "PEEL_2_15_YES_FILTERED_7",
+   "geometry": "PEEL",
+   "adhesive": true,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 157.5,
+   "Fmax": 350.0,
+   "R": 0.1,
+   "N": 199618.0,
+   "sigma": {
+    "one_parameter": 78.866,
+    "two_parameter": 60.762
+   }
+  },
+  {
+   "id": "PEEL_2_15_YES_FILTERED_6",
+   "geometry": "PEEL",
+   "adhesive": true,
+   "t_al": 2.0,
+   "t_steel": 1.5,
+   "Fa": 135.0,
+   "Fmax": 300.0,
+   "R": 0.1,
+   "N": 577462.0,
+   "sigma": {
+    "one_parameter": 67.5994,
+    "two_parameter": 52.0817
+   }
+  },
+  {
+   "id": "PEEL_2_18_YES_FILTERED_2",
+   "geometry": "PEEL",
+   "adhesive": true,
+   "t_al": 2.0,
+   "t_steel": 1.8,
+   "Fa": 202.5,
+   "Fmax": 450.0,
+   "R": 0.1,
+   "N": 71012.0,
+   "sigma": {
+    "one_parameter": 89.8368,
+    "two_parameter": 69.2445
+   }
+  },
+  {
+   "id": "PEEL_2_18_YES_FILTERED_1",
+   "geometry": "PEEL",
+   "adhesive": true,
+   "t_al": 2.0,
+   "t_steel": 1.8,
+   "Fa": 157.5,
+   "Fmax": 350.0,
+   "R": 0.1,
+   "N": 459655.0,
+   "sigma": {
+    "one_parameter": 69.8731,
+    "two_parameter": 53.8568
+   }
+  }
+ ]
+}
