@@ -2,7 +2,7 @@
 {% assign ds_lang = page.lang | default: 'en' %}
 {% assign ds = site.data.i18n[ds_lang].damage_sphere | default: site.data.i18n.en.damage_sphere %}
 {% assign ds_data = '/assets/data/figures/damage-sphere-findley.json' %}
-{% assign ds_commit = '5cd5124' %}
+{% assign ds_source = site.data.figure_sources.damage_sphere %}{% assign ds_commit = ds_source.commit | slice: 0, 7 %}
 <figure id="critical-plane-explorer" class="damage-sphere" data-damage-sphere data-src="{{ ds_data | relative_url }}" data-label-template="{{ ds.label | escape }}">
   <div class="ds-panel">
     <p class="ds-heading"><span>FIG. T01</span><span>{{ ds.title }}</span></p>
@@ -29,6 +29,6 @@
   </div>
   <figcaption id="ds-caption">{{ ds.caption }}
     <details><summary>{{ ds.details }}</summary><p>{{ ds.provenance | replace: '%commit%', ds_commit | replace: '%step%', '3' | replace: '%k%', '0.3' }}</p>
-    <p><a href="{{ ds_data | relative_url }}">{{ ds.data }}</a> · <a href="https://github.com/andreachiocca/andreachiocca.github.io/blob/master/scripts/generate_damage_sphere.py">{{ ds.code }}</a> · <a href="https://github.com/andreachiocca/multiaxial-fatigue/tree/5cd5124362c02fe83ec40ffa8bf93e4d12ccc782">multifat@{{ ds_commit }}</a></p></details></figcaption>
+    <p><a href="{{ ds_data | relative_url }}">{{ ds.data }}</a> · <a href="https://github.com/andreachiocca/andreachiocca.github.io/blob/master/scripts/generate_damage_sphere.py">{{ ds.code }}</a> · <a href="https://github.com/{{ ds_source.repository }}/tree/{{ ds_source.commit }}">multifat@{{ ds_commit }}</a></p></details></figcaption>
 </figure>
 <script defer src="{{ '/assets/js/damage-sphere.js' | relative_url | bust_file_cache }}"></script>

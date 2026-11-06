@@ -37,7 +37,7 @@
       }
     ],
     "icon": "fa-chart-bar",
-    "figure": "seancp_sphere.html"
+    "figures": ["seancp_sphere.html", "multifat_comparison.html"]
   },
   {
     "id": "residual-stresses-and-welded-structures",
@@ -69,7 +69,7 @@
       }
     ],
     "icon": "fa-object-group",
-    "figure": "sharcp_figure.html"
+    "figures": ["sharcp_figure.html"]
   },
   {
     "id": "additive-manufacturing-and-material-behaviour",

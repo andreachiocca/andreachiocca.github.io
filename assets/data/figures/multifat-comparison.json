@@ -1,0 +1,2368 @@
+{
+ "figure": "multifat_comparison",
+ "source": {
+  "repository": "andreachiocca/multiaxial-fatigue",
+  "commit": "67f06ea6ac11e011058b721020320b6558231bd9",
+  "command": "multifat-pipeline --all",
+  "table": "Results/current/Comparison/summary_error_stats_by_role.csv",
+  "pipeline_exit_code": null,
+  "generated": "2026-11-05"
+ },
+ "metric": {
+  "name": "Error_load",
+  "role": "assessment",
+  "definition": "e_L = ln(1/s*)",
+  "within": "|1/s* - 1| <= 0.10 or 0.20"
+ },
+ "families": [
+  "cp_methods",
+  "invariant_methods",
+  "integral_methods",
+  "energy_based_methods"
+ ],
+ "materials": [
+  {
+   "id": "Al7075_T6",
+   "assessment_tests": 76
+  },
+  {
+   "id": "Ti6Al4V_Berto",
+   "assessment_tests": 40
+  },
+  {
+   "id": "42CrMo4_QT",
+   "assessment_tests": 36
+  },
+  {
+   "id": "AISI316L",
+   "assessment_tests": 32
+  },
+  {
+   "id": "42CrMo4_Reis",
+   "assessment_tests": 20
+  },
+  {
+   "id": "Ti6Al4V",
+   "assessment_tests": 6
+  }
+ ],
+ "methods": [
+  {
+   "id": "FIN",
+   "family": "cp_methods",
+   "citation": "Findley (1959), A theory for the effect of mean stress on fatigue of metals under combined torsion and axial load or bending",
+   "url": "https://doi.org/10.1115/1.4008327",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "k_FI"
+   ],
+   "optional_constants": []
+  },
+  {
+   "id": "SWT",
+   "family": "cp_methods",
+   "citation": "Smith, Watson & Topper (1970), A stress-strain function for the fatigue of metals, Journal of Materials 5(4), 767–778",
+   "url": "",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [],
+   "optional_constants": []
+  },
+  {
+   "id": "NINIC",
+   "family": "cp_methods",
+   "citation": "Ninic (2006), A stress-based multiaxial high-cycle fatigue damage criterion, Eqs. (1)-(4)",
+   "url": "https://doi.org/10.1016/j.ijfatigue.2005.04.014",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": [
+    "k_NIN"
+   ]
+  },
+  {
+   "id": "MWCM",
+   "family": "cp_methods",
+   "citation": "Susmel & Lazzarin (2002), A bi-parametric Wöhler curve for high cycle multiaxial fatigue assessment, Eqs. (5), (8)-(13)",
+   "url": "https://doi.org/10.1046/j.1460-2695.2002.00462.x",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": []
+  },
+  {
+   "id": "LI",
+   "family": "cp_methods",
+   "citation": "Li et al. (2021), Multiaxial fatigue life prediction for metals by means of an improved strain energy density-based critical plane criterion",
+   "url": "https://doi.org/10.1016/j.euromechsol.2021.104353",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [],
+   "optional_constants": [
+    "L_LI"
+   ]
+  },
+  {
+   "id": "MATAKE",
+   "family": "cp_methods",
+   "citation": "Matake (1977), An explanation on fatigue limit under combined stress",
+   "url": "https://doi.org/10.1299/jsme1958.20.257",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": []
+  },
+  {
+   "id": "MDC",
+   "family": "cp_methods",
+   "citation": "Margetin, Ďurka & Chmelko (2016), Multiaxial fatigue criterion based on parameters from torsion and axial S-N curve, Eqs. (4)-(8)",
+   "url": "https://doi.org/10.3221/IGF-ESIS.37.20",
+   "inputs": "stress",
+   "life_law": "native",
+   "constants": [
+    "b0",
+    "b_fat",
+    "sigma_f",
+    "tau_f"
+   ],
+   "optional_constants": []
+  },
+  {
+   "id": "MGSE_ZHU",
+   "family": "cp_methods",
+   "citation": "Zhu et al. (2018), Evaluation and comparison of critical plane criteria for multiaxial fatigue analysis of ductile and brittle materials",
+   "url": "https://doi.org/10.1016/j.ijfatigue.2018.03.028",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [],
+   "optional_constants": [
+    "k_MGSE"
+   ]
+  },
+  {
+   "id": "MMCCM",
+   "family": "cp_methods",
+   "citation": "Wang & Susmel (2016), The Modified Manson-Coffin Curve Method to estimate fatigue lifetime under complex constant and variable amplitude multiaxial fatigue loading, Eqs. (1)-(8)",
+   "url": "https://doi.org/10.1016/j.ijfatigue.2015.10.005",
+   "inputs": "stress_strain",
+   "life_law": "native",
+   "constants": [
+    "E",
+    "b0",
+    "b_fat",
+    "c0",
+    "c_fat",
+    "epsilon_f",
+    "gamma_f",
+    "nu",
+    "sigma_f",
+    "tau_f"
+   ],
+   "optional_constants": [
+    "nu_p"
+   ]
+  },
+  {
+   "id": "MSWT",
+   "family": "cp_methods",
+   "citation": "Modified SWT form reported by Zhu et al. (2018), Evaluation and comparison of critical plane criteria for multiaxial fatigue analysis of ductile and brittle materials",
+   "url": "https://doi.org/10.1016/j.ijfatigue.2018.03.028",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [],
+   "optional_constants": [
+    "a_MSWT"
+   ]
+  },
+  {
+   "id": "DANGVAN",
+   "family": "cp_methods",
+   "citation": "Dang Van (1973), Sur la résistance à la fatigue des métaux, Sciences et Technique de l'Armement 47, 647–722",
+   "url": "",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": []
+  },
+  {
+   "id": "MKBM",
+   "family": "cp_methods",
+   "citation": "Li et al. (2011), Multiaxial fatigue life prediction for various metallic materials based on the critical plane approach",
+   "url": "https://doi.org/10.1016/j.ijfatigue.2010.07.003",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [
+    "Sy"
+   ],
+   "optional_constants": []
+  },
+  {
+   "id": "VSE",
+   "family": "cp_methods",
+   "citation": "Liu (1993), A method based on virtual strain-energy parameters for multiaxial fatigue life prediction, ASTM STP 1191, Eqs. (7)-(11)",
+   "url": "https://doi.org/10.1520/STP24796S",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [],
+   "optional_constants": [
+    "vse_mode"
+   ]
+  },
+  {
+   "id": "MCD",
+   "family": "cp_methods",
+   "citation": "McDiarmid (1991), A general criterion for high cycle multiaxial fatigue failure",
+   "url": "https://doi.org/10.1111/j.1460-2695.1991.tb00673.x",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Su",
+    "Taum1"
+   ],
+   "optional_constants": []
+  },
+  {
+   "id": "MWHS",
+   "family": "cp_methods",
+   "citation": "Wu, Li, Fang & Song (2017), Evaluation of multiaxial fatigue life prediction criteria for Ni-based superalloy GH4169, Eq. (19)",
+   "url": "https://doi.org/10.1177/0954406217708214",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [
+    "E",
+    "Sy"
+   ],
+   "optional_constants": []
+  },
+  {
+   "id": "FS",
+   "family": "cp_methods",
+   "citation": "Fatemi & Socie (1988), A critical plane approach to multiaxial fatigue damage including out-of-phase loading",
+   "url": "https://doi.org/10.1111/j.1460-2695.1988.tb01169.x",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [
+    "Sy",
+    "k_FS"
+   ],
+   "optional_constants": []
+  },
+  {
+   "id": "LIU2021",
+   "family": "cp_methods",
+   "citation": "Liu, Ran, Wei & Zhang (2021), A critical plane-based multiaxial fatigue life prediction method considering the material sensitivity and the shear stress",
+   "url": "https://doi.org/10.1016/j.ijpvp.2021.104532",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [
+    "E",
+    "Su",
+    "nu"
+   ],
+   "optional_constants": [
+    "tau_f"
+   ]
+  },
+  {
+   "id": "GSE",
+   "family": "cp_methods",
+   "citation": "Ince & Glinka (2014), A generalized fatigue damage parameter for multiaxial fatigue life prediction under proportional and non-proportional loadings",
+   "url": "https://doi.org/10.1016/j.ijfatigue.2013.10.007",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [
+    "E",
+    "nu"
+   ],
+   "optional_constants": []
+  },
+  {
+   "id": "MGSE_YU",
+   "family": "cp_methods",
+   "citation": "Yu, Zhu, Liu & Liu (2017), Multiaxial fatigue damage parameter and life prediction without any additional material constants, Eq. (11)",
+   "url": "https://doi.org/10.3390/ma10080923",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [],
+   "optional_constants": []
+  },
+  {
+   "id": "GSA",
+   "family": "cp_methods",
+   "citation": "Ince & Glinka (2014), A generalized fatigue damage parameter for multiaxial fatigue life prediction under proportional and non-proportional loadings",
+   "url": "https://doi.org/10.1016/j.ijfatigue.2013.10.007",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [
+    "E",
+    "nu"
+   ],
+   "optional_constants": [
+    "Su",
+    "sigma_f",
+    "tau_f"
+   ]
+  },
+  {
+   "id": "LIU2025",
+   "family": "cp_methods",
+   "citation": "Liu, Xie & Hao (2025), A multiaxial high-cycle fatigue life evaluation model based on the critical plane method, Eqs. (21)-(27)",
+   "url": "https://doi.org/10.1007/s11665-025-11163-z",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Su"
+   ],
+   "optional_constants": [
+    "Tu"
+   ]
+  },
+  {
+   "id": "MMMH",
+   "family": "invariant_methods",
+   "citation": "Mertens & Liebich (2017), A time dependent equivalent stress function for proportional and non-proportional transient loaded and notched metallic components, Eqs. (1), (4), (20)-(25), smooth surface; endurance-limit Haigh line with M of Dubbel (2004) E1",
+   "url": "https://doi.org/10.1016/j.ijfatigue.2017.06.003",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": [
+    "M_MMMH",
+    "Sig0",
+    "Su"
+   ]
+  },
+  {
+   "id": "VHN",
+   "family": "invariant_methods",
+   "citation": "Vu, Halm & Nadot (2010), Multiaxial fatigue criterion for complex loading based on stress invariants, Eqs. (6)-(21)",
+   "url": "https://doi.org/10.1016/j.ijfatigue.2009.11.006",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Su",
+    "Taum1"
+   ],
+   "optional_constants": []
+  },
+  {
+   "id": "GAM",
+   "family": "invariant_methods",
+   "citation": "Goncalves, Araujo & Mamiya (2005), Multiaxial fatigue: a stress based criterion for hard metals, Eqs. (11)-(13), (A.17)",
+   "url": "https://doi.org/10.1016/j.ijfatigue.2004.05.006",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": []
+  },
+  {
+   "id": "COIN",
+   "family": "invariant_methods",
+   "citation": "Schmidt & Kraft (2023), A new equivalent stress approach based on complex invariants: The COIN LiWI method, Eqs. (21)-(32)",
+   "url": "https://doi.org/10.1016/j.ijfatigue.2022.107474",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": [
+    "k_phi"
+   ]
+  },
+  {
+   "id": "CROSSLAND",
+   "family": "invariant_methods",
+   "citation": "Crossland (1956), Effect of large hydrostatic pressures on the torsional fatigue strength of an alloy steel; as restated by Papadopoulos et al. (1997), A comparative study of multiaxial high-cycle fatigue criteria for metals, Eqs. (44), (65)-(66)",
+   "url": "https://doi.org/10.1016/S0142-1123(96)00064-3",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": []
+  },
+  {
+   "id": "PBP",
+   "family": "invariant_methods",
+   "citation": "Cristofori, Susmel & Tovo (2008), A stress invariant based criterion to estimate fatigue damage under multiaxial loading, Eqs. (4)-(13)",
+   "url": "https://doi.org/10.1016/j.ijfatigue.2007.11.006",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": []
+  },
+  {
+   "id": "SINES",
+   "family": "invariant_methods",
+   "citation": "Sines (1959), Behavior of metals under complex static and alternating stresses; as restated by Papadopoulos et al. (1997), A comparative study of multiaxial high-cycle fatigue criteria for metals, Eqs. (44), (62)-(64)",
+   "url": "https://doi.org/10.1016/S0142-1123(96)00064-3",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Su",
+    "Taum1"
+   ],
+   "optional_constants": []
+  },
+  {
+   "id": "OTT",
+   "family": "invariant_methods",
+   "citation": "Tveit et al. (2024), A continuum approach to multiaxial high-cycle fatigue modeling for ductile metallic materials",
+   "url": "https://doi.org/10.1016/j.rineng.2024.102171",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": [
+    "A_OTT",
+    "Sig0",
+    "Su",
+    "m_OTT"
+   ]
+  },
+  {
+   "id": "CAIM",
+   "family": "integral_methods",
+   "citation": "Boehme, Papuga & Lange (2026), Decoupling amplitude and mean stress effects in multiaxial fatigue: A critical–integral approach",
+   "url": "https://doi.org/10.1111/ffe.70244",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": [
+    "Sig0",
+    "Su",
+    "Tau0"
+   ]
+  },
+  {
+   "id": "BP",
+   "family": "integral_methods",
+   "citation": "Boehme & Papuga (2024), Advancements in stress-based multiaxial fatigue prediction: A data-driven approach and a new criterion",
+   "url": "https://doi.org/10.1111/ffe.14281",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": [
+    "Sig0",
+    "Su",
+    "Tau0"
+   ]
+  },
+  {
+   "id": "PCR",
+   "family": "integral_methods",
+   "citation": "Papuga & Růžička (2008), Two new multiaxial criteria for high cycle fatigue computation, Eq. (17), Appendix B",
+   "url": "https://doi.org/10.1016/j.ijfatigue.2007.02.015",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": [
+    "Sig0",
+    "Su"
+   ]
+  },
+  {
+   "id": "MOREL",
+   "family": "integral_methods",
+   "citation": "Morel (1998), A fatigue life prediction method based on a mesoscopic approach in constant amplitude multiaxial loading, Eqs. (9)-(11), (33)-(38)",
+   "url": "https://doi.org/10.1046/j.1460-2695.1998.00452.x",
+   "inputs": "stress",
+   "life_law": "native",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": []
+  },
+  {
+   "id": "PI",
+   "family": "integral_methods",
+   "citation": "Papuga & Růžička (2008), Two new multiaxial criteria for high cycle fatigue computation, Eq. (16), Appendix A",
+   "url": "https://doi.org/10.1016/j.ijfatigue.2007.02.015",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": []
+  },
+  {
+   "id": "PAPADOPOULOS",
+   "family": "integral_methods",
+   "citation": "Papadopoulos (2001), Long life fatigue under multiaxial loading, Eqs. (10), (25), (41)",
+   "url": "https://doi.org/10.1016/S0142-1123(01)00059-7",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": []
+  },
+  {
+   "id": "RFB",
+   "family": "integral_methods",
+   "citation": "Robert, Fogue & Bahuaud (1994), Fatigue life prediction under periodical or random multiaxial stress states, ASTM STP 1231, Eqs. (8), (15)-(25), Appendix",
+   "url": "https://doi.org/10.1520/STP13959S",
+   "inputs": "stress",
+   "life_law": "master_curve",
+   "constants": [
+    "Sigm1",
+    "Taum1"
+   ],
+   "optional_constants": [
+    "Sig0",
+    "Su"
+   ]
+  },
+  {
+   "id": "EK",
+   "family": "energy_based_methods",
+   "citation": "Ellyin & Kujawski (1993), A multiaxial fatigue criterion including mean-stress effect, ASTM STP 1191, Eqs. (5b), (11)-(18), high-cycle elastic form",
+   "url": "https://doi.org/10.1520/STP24795S",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [
+    "E",
+    "nu"
+   ],
+   "optional_constants": [
+    "K_prime",
+    "alpha_EK",
+    "n_EK",
+    "n_prime"
+   ]
+  },
+  {
+   "id": "SWTD",
+   "family": "energy_based_methods",
+   "citation": "Kujawski (2014), A deviatoric version of the SWT parameter",
+   "url": "https://doi.org/10.1016/j.ijfatigue.2013.12.002",
+   "inputs": "stress_strain",
+   "life_law": "master_curve",
+   "constants": [],
+   "optional_constants": []
+  }
+ ],
+ "cells": [
+  {
+   "material": "Al7075_T6",
+   "method": "FIN",
+   "n": 64,
+   "mean": 0.019904480788437047,
+   "sd": 0.07559602574366561,
+   "within10": 0.796875,
+   "within20": 0.984375
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "SWT",
+   "n": 76,
+   "mean": -0.11857690130801939,
+   "sd": 0.1356162444332297,
+   "within10": 0.4868421052631579,
+   "within20": 0.7631578947368421
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "NINIC",
+   "n": 76,
+   "mean": 0.12388019586968362,
+   "sd": 0.18333147196491698,
+   "within10": 0.4473684210526316,
+   "within20": 0.5921052631578947
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "MWCM",
+   "n": 76,
+   "mean": 0.03480934779376339,
+   "sd": 0.13265512048149875,
+   "within10": 0.5263157894736842,
+   "within20": 0.8421052631578947
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "LI",
+   "n": 64,
+   "mean": 0.112726196691591,
+   "sd": 0.19207818674977897,
+   "within10": 0.46875,
+   "within20": 0.578125
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "MATAKE",
+   "n": 76,
+   "mean": -0.03916779189857405,
+   "sd": 0.09489419994335073,
+   "within10": 0.6973684210526315,
+   "within20": 0.9605263157894737
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "MDC",
+   "n": 64,
+   "mean": -0.14360886680536566,
+   "sd": 0.1774249364303005,
+   "within10": 0.40625,
+   "within20": 0.671875
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "MGSE_ZHU",
+   "n": 64,
+   "mean": 0.08037173710472842,
+   "sd": 0.15783178749370996,
+   "within10": 0.671875,
+   "within20": 0.8125
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "MMCCM",
+   "n": 64,
+   "mean": 0.10362558439342918,
+   "sd": 0.2892417337402676,
+   "within10": 0.296875,
+   "within20": 0.59375
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "MSWT",
+   "n": 64,
+   "mean": -0.030617629609279405,
+   "sd": 0.09112625139131308,
+   "within10": 0.78125,
+   "within20": 0.953125
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "DANGVAN",
+   "n": 76,
+   "mean": -0.08614515299540793,
+   "sd": 0.10846295141488006,
+   "within10": 0.5657894736842105,
+   "within20": 0.868421052631579
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "MKBM",
+   "n": 76,
+   "mean": -0.05143085942826474,
+   "sd": 0.1919793260892056,
+   "within10": 0.47368421052631576,
+   "within20": 0.7105263157894737
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "VSE",
+   "n": 76,
+   "mean": -0.26147513860548993,
+   "sd": 0.18933048855583362,
+   "within10": 0.23684210526315788,
+   "within20": 0.47368421052631576
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "MCD",
+   "n": 76,
+   "mean": 0.004339548830953972,
+   "sd": 0.18839126747884608,
+   "within10": 0.3157894736842105,
+   "within20": 0.6710526315789473
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "MWHS",
+   "n": 75,
+   "mean": -0.11737869450019277,
+   "sd": 0.12979140409638928,
+   "within10": 0.4266666666666667,
+   "within20": 0.7866666666666666
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "FS",
+   "n": 64,
+   "mean": -0.06837586897681916,
+   "sd": 0.10607934858802245,
+   "within10": 0.484375,
+   "within20": 0.9375
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "LIU2021",
+   "n": 76,
+   "mean": 0.011543276864043989,
+   "sd": 0.19231573047006398,
+   "within10": 0.27631578947368424,
+   "within20": 0.6842105263157895
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "GSE",
+   "n": 76,
+   "mean": 0.08048057939534503,
+   "sd": 0.14686599448146004,
+   "within10": 0.631578947368421,
+   "within20": 0.8289473684210527
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "MGSE_YU",
+   "n": 76,
+   "mean": 0.08048057939534525,
+   "sd": 0.14686599448146007,
+   "within10": 0.631578947368421,
+   "within20": 0.8289473684210527
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "GSA",
+   "n": 76,
+   "mean": 0.14307287420802156,
+   "sd": 0.17509266174790405,
+   "within10": 0.4868421052631579,
+   "within20": 0.6973684210526315
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "LIU2025",
+   "n": 76,
+   "mean": 0.018212273679754188,
+   "sd": 0.15196650581168095,
+   "within10": 0.34210526315789475,
+   "within20": 0.8157894736842105
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "MMMH",
+   "n": 76,
+   "mean": -0.1402495744930044,
+   "sd": 0.15743605529114318,
+   "within10": 0.4868421052631579,
+   "within20": 0.6710526315789473
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "VHN",
+   "n": 76,
+   "mean": -0.10408530352961161,
+   "sd": 0.1376165536147195,
+   "within10": 0.5394736842105263,
+   "within20": 0.7763157894736842
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "GAM",
+   "n": 76,
+   "mean": -0.009368538961084395,
+   "sd": 0.09852285542485964,
+   "within10": 0.6447368421052632,
+   "within20": 0.9868421052631579
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "COIN",
+   "n": 76,
+   "mean": -0.13708412924227267,
+   "sd": 0.18480389223473287,
+   "within10": 0.5263157894736842,
+   "within20": 0.6973684210526315
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "CROSSLAND",
+   "n": 76,
+   "mean": -0.14423569927158386,
+   "sd": 0.14825948824239257,
+   "within10": 0.4473684210526316,
+   "within20": 0.6973684210526315
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "PBP",
+   "n": 76,
+   "mean": -0.07933324039337897,
+   "sd": 0.1276138673887867,
+   "within10": 0.5394736842105263,
+   "within20": 0.8421052631578947
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "SINES",
+   "n": 76,
+   "mean": -0.052242820335066366,
+   "sd": 0.1625792980807227,
+   "within10": 0.4473684210526316,
+   "within20": 0.7631578947368421
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "OTT",
+   "n": 76,
+   "mean": -0.08805420072193082,
+   "sd": 0.18472717829444962,
+   "within10": 0.39473684210526316,
+   "within20": 0.631578947368421
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "CAIM",
+   "n": 76,
+   "mean": -0.09094243125463415,
+   "sd": 0.13824754015355462,
+   "within10": 0.5921052631578947,
+   "within20": 0.7631578947368421
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "BP",
+   "n": 76,
+   "mean": -0.10065406018241031,
+   "sd": 0.13770962710123003,
+   "within10": 0.5657894736842105,
+   "within20": 0.7763157894736842
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "PCR",
+   "n": 76,
+   "mean": -0.0584141333255967,
+   "sd": 0.13454912460219573,
+   "within10": 0.6052631578947368,
+   "within20": 0.8289473684210527
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "MOREL",
+   "n": 76,
+   "mean": 0.022518709753442074,
+   "sd": 0.15627501402884053,
+   "within10": 0.47368421052631576,
+   "within20": 0.8289473684210527
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "PI",
+   "n": 76,
+   "mean": -0.037369706435771866,
+   "sd": 0.14029207705529814,
+   "within10": 0.5657894736842105,
+   "within20": 0.8289473684210527
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "PAPADOPOULOS",
+   "n": 76,
+   "mean": -0.05184446282810085,
+   "sd": 0.09399855684870276,
+   "within10": 0.6842105263157895,
+   "within20": 0.9473684210526315
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "RFB",
+   "n": 76,
+   "mean": -0.10772099800430214,
+   "sd": 0.13813754963625263,
+   "within10": 0.5394736842105263,
+   "within20": 0.7631578947368421
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "EK",
+   "n": 76,
+   "mean": -0.1235647920155204,
+   "sd": 0.1372151075027535,
+   "within10": 0.4605263157894737,
+   "within20": 0.7763157894736842
+  },
+  {
+   "material": "Al7075_T6",
+   "method": "SWTD",
+   "n": 76,
+   "mean": 0.0023372771273479117,
+   "sd": 0.17323803364270096,
+   "within10": 0.5789473684210527,
+   "within20": 0.7631578947368421
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "FIN",
+   "n": 31,
+   "mean": -0.0389384686273996,
+   "sd": 0.12825906826666564,
+   "within10": 0.5806451612903226,
+   "within20": 0.8064516129032258
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "SWT",
+   "n": 39,
+   "mean": -0.16708568494568737,
+   "sd": 0.13348071617211413,
+   "within10": 0.3076923076923077,
+   "within20": 0.6923076923076923
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "NINIC",
+   "n": 39,
+   "mean": 0.06907017126085134,
+   "sd": 0.17497388305773828,
+   "within10": 0.46153846153846156,
+   "within20": 0.6410256410256411
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "MWCM",
+   "n": 39,
+   "mean": -0.4141179928149052,
+   "sd": 0.31962445100024206,
+   "within10": 0.1794871794871795,
+   "within20": 0.3333333333333333
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "LI",
+   "n": 31,
+   "mean": 0.06067437384822851,
+   "sd": 0.1348221824617497,
+   "within10": 0.5483870967741935,
+   "within20": 0.8064516129032258
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "MATAKE",
+   "n": 39,
+   "mean": -0.41411799210160427,
+   "sd": 0.31962445116465493,
+   "within10": 0.1794871794871795,
+   "within20": 0.3333333333333333
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "MDC",
+   "n": 31,
+   "mean": -0.3257777600337103,
+   "sd": 0.30855652631716707,
+   "within10": 0.3548387096774194,
+   "within20": 0.41935483870967744
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "MGSE_ZHU",
+   "n": 31,
+   "mean": 0.0010405580053625004,
+   "sd": 0.13482218246174968,
+   "within10": 0.5483870967741935,
+   "within20": 0.8387096774193549
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "MMCCM",
+   "n": 31,
+   "mean": -0.35489616435369664,
+   "sd": 0.30738208800953265,
+   "within10": 0.3225806451612903,
+   "within20": 0.3548387096774194
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "MSWT",
+   "n": 31,
+   "mean": -0.13829404900378228,
+   "sd": 0.14942422808629893,
+   "within10": 0.3225806451612903,
+   "within20": 0.7096774193548387
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "DANGVAN",
+   "n": 39,
+   "mean": -0.414117990973312,
+   "sd": 0.31962445142472246,
+   "within10": 0.1794871794871795,
+   "within20": 0.3333333333333333
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "MKBM",
+   "n": 39,
+   "mean": -0.23730569039225996,
+   "sd": 0.323228623143994,
+   "within10": 0.3076923076923077,
+   "within20": 0.48717948717948717
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "VSE",
+   "n": 39,
+   "mean": -0.4861578832231318,
+   "sd": 0.3196244514247224,
+   "within10": 0.07692307692307693,
+   "within20": 0.2564102564102564
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "MCD",
+   "n": 39,
+   "mean": -0.10525678508435277,
+   "sd": 0.31962445131351985,
+   "within10": 0.2564102564102564,
+   "within20": 0.48717948717948717
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "MWHS",
+   "n": 40,
+   "mean": -0.2736774908055029,
+   "sd": 0.2921790711219109,
+   "within10": 0.35,
+   "within20": 0.525
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "FS",
+   "n": 31,
+   "mean": -0.3412366048935391,
+   "sd": 0.33461967570142304,
+   "within10": 0.16129032258064516,
+   "within20": 0.3870967741935484
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "LIU2021",
+   "n": 39,
+   "mean": -0.03226308124037429,
+   "sd": 0.3248643696697106,
+   "within10": 0.1794871794871795,
+   "within20": 0.46153846153846156
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "GSE",
+   "n": 39,
+   "mean": 0.1709080951928719,
+   "sd": 0.13348071617211404,
+   "within10": 0.2564102564102564,
+   "within20": 0.5641025641025641
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "MGSE_YU",
+   "n": 39,
+   "mean": 0.17090809519287165,
+   "sd": 0.13348071617211416,
+   "within10": 0.2564102564102564,
+   "within20": 0.5641025641025641
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "GSA",
+   "n": 39,
+   "mean": 0.293506364845964,
+   "sd": 0.13348071617211432,
+   "within10": 0.07692307692307693,
+   "within20": 0.15384615384615385
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "MMMH",
+   "n": 39,
+   "mean": -0.22447560482555262,
+   "sd": 0.17036015220329545,
+   "within10": 0.2564102564102564,
+   "within20": 0.5384615384615384
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "VHN",
+   "n": 39,
+   "mean": -0.3447139438709315,
+   "sd": 0.3111187633613817,
+   "within10": 0.28205128205128205,
+   "within20": 0.46153846153846156
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "GAM",
+   "n": 39,
+   "mean": 0.018614943950365788,
+   "sd": 0.1327309290271808,
+   "within10": 0.5384615384615384,
+   "within20": 0.8461538461538461
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "COIN",
+   "n": 39,
+   "mean": -0.41411799097331153,
+   "sd": 0.31962445142472234,
+   "within10": 0.1794871794871795,
+   "within20": 0.3333333333333333
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "CROSSLAND",
+   "n": 39,
+   "mean": -0.4141179909733114,
+   "sd": 0.3196244514247224,
+   "within10": 0.1794871794871795,
+   "within20": 0.3333333333333333
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "PBP",
+   "n": 39,
+   "mean": -0.4141179909733114,
+   "sd": 0.3196244514247224,
+   "within10": 0.1794871794871795,
+   "within20": 0.3333333333333333
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "SINES",
+   "n": 39,
+   "mean": -0.06803387112282297,
+   "sd": 0.3196244514247224,
+   "within10": 0.23076923076923078,
+   "within20": 0.4358974358974359
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "OTT",
+   "n": 39,
+   "mean": -0.08160114973533718,
+   "sd": 0.31962445142472246,
+   "within10": 0.20512820512820512,
+   "within20": 0.4358974358974359
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "CAIM",
+   "n": 39,
+   "mean": -0.29602771399918926,
+   "sd": 0.2248591191053837,
+   "within10": 0.20512820512820512,
+   "within20": 0.48717948717948717
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "BP",
+   "n": 39,
+   "mean": -0.2960277139991893,
+   "sd": 0.2248591191053838,
+   "within10": 0.20512820512820512,
+   "within20": 0.48717948717948717
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "PCR",
+   "n": 39,
+   "mean": -0.13669314548604525,
+   "sd": 0.13629662618399507,
+   "within10": 0.48717948717948717,
+   "within20": 0.717948717948718
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "MOREL",
+   "n": 39,
+   "mean": -0.6678251544283577,
+   "sd": 0.4776922988955401,
+   "within10": 0.15384615384615385,
+   "within20": 0.20512820512820512
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "PI",
+   "n": 39,
+   "mean": -0.14007329787779257,
+   "sd": 0.31710880772688266,
+   "within10": 0.23076923076923078,
+   "within20": 0.5384615384615384
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "PAPADOPOULOS",
+   "n": 39,
+   "mean": -0.41411799097331153,
+   "sd": 0.3196244514247224,
+   "within10": 0.1794871794871795,
+   "within20": 0.3333333333333333
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "RFB",
+   "n": 39,
+   "mean": -0.35832443775724776,
+   "sd": 0.2520217151332466,
+   "within10": 0.1794871794871795,
+   "within20": 0.3333333333333333
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "EK",
+   "n": 39,
+   "mean": -0.19921600335656825,
+   "sd": 0.3196244514247225,
+   "within10": 0.28205128205128205,
+   "within20": 0.48717948717948717
+  },
+  {
+   "material": "Ti6Al4V_Berto",
+   "method": "SWTD",
+   "n": 39,
+   "mean": 0.10719729092873113,
+   "sd": 0.13348071617211413,
+   "within10": 0.38461538461538464,
+   "within20": 0.717948717948718
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "FIN",
+   "n": 9,
+   "mean": 0.28528289746657465,
+   "sd": 0.0228459021691328,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "SWT",
+   "n": 18,
+   "mean": 0.051587721344427476,
+   "sd": 0.09991802701752434,
+   "within10": 0.4444444444444444,
+   "within20": 1.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "NINIC",
+   "n": 18,
+   "mean": 0.23470960119106443,
+   "sd": 0.17109571758839437,
+   "within10": 0.2777777777777778,
+   "within20": 0.5
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "MWCM",
+   "n": 18,
+   "mean": -0.060532604277353554,
+   "sd": 0.12394103228254559,
+   "within10": 0.3888888888888889,
+   "within20": 1.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "LI",
+   "n": 9,
+   "mean": 0.1777563311023034,
+   "sd": 0.022845902613577603,
+   "within10": 0.0,
+   "within20": 0.5555555555555556
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "MATAKE",
+   "n": 18,
+   "mean": -0.060532603877211016,
+   "sd": 0.12394103226402654,
+   "within10": 0.3888888888888889,
+   "within20": 1.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "MDC",
+   "n": 9,
+   "mean": -0.2476228688820053,
+   "sd": 0.011057379818536996,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "MGSE_ZHU",
+   "n": 9,
+   "mean": 0.1386799471977098,
+   "sd": 0.022845902169132758,
+   "within10": 0.0,
+   "within20": 1.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "MMCCM",
+   "n": 9,
+   "mean": -0.31337271327455113,
+   "sd": 0.029311526341155733,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "MSWT",
+   "n": 9,
+   "mean": 0.13867994719771007,
+   "sd": 0.022845902169132796,
+   "within10": 0.0,
+   "within20": 1.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "DANGVAN",
+   "n": 18,
+   "mean": -0.06053260319775523,
+   "sd": 0.12394103223258057,
+   "within10": 0.3888888888888889,
+   "within20": 1.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "MKBM",
+   "n": 18,
+   "mean": 0.11863796662541308,
+   "sd": 0.12481725213988865,
+   "within10": 0.5555555555555556,
+   "within20": 0.5555555555555556
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "VSE",
+   "n": 18,
+   "mean": -0.14803920271001517,
+   "sd": 0.12394103223258053,
+   "within10": 0.4444444444444444,
+   "within20": 0.5
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "MCD",
+   "n": 18,
+   "mean": 0.2230581819190211,
+   "sd": 0.12394103224651841,
+   "within10": 0.16666666666666666,
+   "within20": 0.5
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "MWHS",
+   "n": 36,
+   "mean": -0.25565634864293496,
+   "sd": 0.06803405830187365,
+   "within10": 0.027777777777777776,
+   "within20": 0.16666666666666666
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "FS",
+   "n": 9,
+   "mean": -0.18453888838815094,
+   "sd": 0.0473510793994431,
+   "within10": 0.0,
+   "within20": 0.6666666666666666
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "LIU2021",
+   "n": 18,
+   "mean": 0.3216802094874189,
+   "sd": 0.12523720264649496,
+   "within10": 0.0,
+   "within20": 0.05555555555555555
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "GSE",
+   "n": 18,
+   "mean": 0.38802969572356694,
+   "sd": 0.09991802701752425,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "MGSE_YU",
+   "n": 18,
+   "mean": 0.3880296957235668,
+   "sd": 0.09991802701752425,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "GSA",
+   "n": 18,
+   "mean": 0.506153194503463,
+   "sd": 0.09991802701752418,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "LIU2025",
+   "n": 18,
+   "mean": 0.3803808712575624,
+   "sd": 0.04310151740499257,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "MMMH",
+   "n": 18,
+   "mean": 0.047125482679066216,
+   "sd": 0.044469729214217754,
+   "within10": 0.8888888888888888,
+   "within20": 1.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "VHN",
+   "n": 18,
+   "mean": -0.05877133949713764,
+   "sd": 0.12508105407008935,
+   "within10": 0.4444444444444444,
+   "within20": 1.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "GAM",
+   "n": 18,
+   "mean": 0.18309191713986822,
+   "sd": 0.14194285263457626,
+   "within10": 0.3888888888888889,
+   "within20": 0.5
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "COIN",
+   "n": 18,
+   "mean": -0.06053260319775547,
+   "sd": 0.1239410322325805,
+   "within10": 0.3888888888888889,
+   "within20": 1.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "CROSSLAND",
+   "n": 18,
+   "mean": -0.06053260319775543,
+   "sd": 0.12394103223258059,
+   "within10": 0.3888888888888889,
+   "within20": 1.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "PBP",
+   "n": 18,
+   "mean": -0.06053260319775539,
+   "sd": 0.1239410322325806,
+   "within10": 0.3888888888888889,
+   "within20": 1.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "SINES",
+   "n": 18,
+   "mean": 0.258677470507208,
+   "sd": 0.12394103223258059,
+   "within10": 0.0,
+   "within20": 0.5
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "OTT",
+   "n": 18,
+   "mean": 0.2451101918946924,
+   "sd": 0.12394103223258046,
+   "within10": 0.0,
+   "within20": 0.5
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "CAIM",
+   "n": 18,
+   "mean": 0.009087188867275275,
+   "sd": 0.062469195540426334,
+   "within10": 0.8888888888888888,
+   "within20": 1.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "BP",
+   "n": 18,
+   "mean": 0.00908718886727546,
+   "sd": 0.062469195540426355,
+   "within10": 0.8888888888888888,
+   "within20": 1.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "PCR",
+   "n": 18,
+   "mean": 0.05960996548729966,
+   "sd": 0.025222548931680015,
+   "within10": 0.9444444444444444,
+   "within20": 1.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "MOREL",
+   "n": 18,
+   "mean": -0.1557076895407363,
+   "sd": 0.17662657685237482,
+   "within10": 0.4444444444444444,
+   "within20": 0.7777777777777778
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "PI",
+   "n": 18,
+   "mean": 0.17637970810743792,
+   "sd": 0.12391983670534452,
+   "within10": 0.5,
+   "within20": 0.5
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "PAPADOPOULOS",
+   "n": 18,
+   "mean": -0.06053260319775543,
+   "sd": 0.12394103223258059,
+   "within10": 0.3888888888888889,
+   "within20": 1.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "RFB",
+   "n": 18,
+   "mean": -0.04176836447135922,
+   "sd": 0.10602543315073523,
+   "within10": 0.3888888888888889,
+   "within20": 1.0
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "EK",
+   "n": 18,
+   "mean": 0.11608799939037688,
+   "sd": 0.12394103223258056,
+   "within10": 0.5,
+   "within20": 0.5555555555555556
+  },
+  {
+   "material": "42CrMo4_QT",
+   "method": "SWTD",
+   "n": 18,
+   "mean": 0.31446335833576045,
+   "sd": 0.09991802701752432,
+   "within10": 0.0,
+   "within20": 0.05555555555555555
+  },
+  {
+   "material": "AISI316L",
+   "method": "FIN",
+   "n": 21,
+   "mean": -0.03163974563561247,
+   "sd": 0.10163304852260259,
+   "within10": 0.5714285714285714,
+   "within20": 1.0
+  },
+  {
+   "material": "AISI316L",
+   "method": "SWT",
+   "n": 28,
+   "mean": -0.08106125189794143,
+   "sd": 0.2775600321137853,
+   "within10": 0.07142857142857142,
+   "within20": 0.6071428571428571
+  },
+  {
+   "material": "AISI316L",
+   "method": "NINIC",
+   "n": 28,
+   "mean": -0.008210260320870386,
+   "sd": 0.08629812089700589,
+   "within10": 0.7142857142857143,
+   "within20": 1.0
+  },
+  {
+   "material": "AISI316L",
+   "method": "MWCM",
+   "n": 28,
+   "mean": -0.10133777337004125,
+   "sd": 0.09124036490760587,
+   "within10": 0.4642857142857143,
+   "within20": 0.9642857142857143
+  },
+  {
+   "material": "AISI316L",
+   "method": "LI",
+   "n": 21,
+   "mean": 0.10892045944794605,
+   "sd": 0.08260973497602965,
+   "within10": 0.38095238095238093,
+   "within20": 0.8571428571428571
+  },
+  {
+   "material": "AISI316L",
+   "method": "MATAKE",
+   "n": 28,
+   "mean": -0.05033193035294477,
+   "sd": 0.12325626695884533,
+   "within10": 0.35714285714285715,
+   "within20": 0.9642857142857143
+  },
+  {
+   "material": "AISI316L",
+   "method": "MDC",
+   "n": 21,
+   "mean": -0.09828009991576134,
+   "sd": 0.14554321882649937,
+   "within10": 0.14285714285714285,
+   "within20": 0.8571428571428571
+  },
+  {
+   "material": "AISI316L",
+   "method": "MGSE_ZHU",
+   "n": 21,
+   "mean": 0.09383513542609774,
+   "sd": 0.10081411715526488,
+   "within10": 0.3333333333333333,
+   "within20": 0.8571428571428571
+  },
+  {
+   "material": "AISI316L",
+   "method": "MMCCM",
+   "n": 7,
+   "mean": 0.2134714196101478,
+   "sd": 0.22982798727038148,
+   "within10": 0.42857142857142855,
+   "within20": 0.5714285714285714
+  },
+  {
+   "material": "AISI316L",
+   "method": "MSWT",
+   "n": 21,
+   "mean": 0.024315760091934195,
+   "sd": 0.07662014711430343,
+   "within10": 0.6666666666666666,
+   "within20": 1.0
+  },
+  {
+   "material": "AISI316L",
+   "method": "DANGVAN",
+   "n": 28,
+   "mean": -0.1060155177236602,
+   "sd": 0.09281431364253358,
+   "within10": 0.32142857142857145,
+   "within20": 0.9285714285714286
+  },
+  {
+   "material": "AISI316L",
+   "method": "MKBM",
+   "n": 28,
+   "mean": -0.08615316771812502,
+   "sd": 0.16745537262879542,
+   "within10": 0.25,
+   "within20": 0.6785714285714286
+  },
+  {
+   "material": "AISI316L",
+   "method": "VSE",
+   "n": 28,
+   "mean": -0.2192342240487532,
+   "sd": 0.19071580709443242,
+   "within10": 0.2857142857142857,
+   "within20": 0.6428571428571429
+  },
+  {
+   "material": "AISI316L",
+   "method": "MCD",
+   "n": 28,
+   "mean": -0.03519638359577392,
+   "sd": 0.08863953067542107,
+   "within10": 0.6428571428571429,
+   "within20": 1.0
+  },
+  {
+   "material": "AISI316L",
+   "method": "MWHS",
+   "n": 32,
+   "mean": 0.23747359747503563,
+   "sd": 0.07496652203027125,
+   "within10": 0.03125,
+   "within20": 0.25
+  },
+  {
+   "material": "AISI316L",
+   "method": "FS",
+   "n": 21,
+   "mean": -0.10887825724059604,
+   "sd": 0.050709433784971565,
+   "within10": 0.47619047619047616,
+   "within20": 0.9523809523809523
+  },
+  {
+   "material": "AISI316L",
+   "method": "LIU2021",
+   "n": 28,
+   "mean": -0.05528201669283992,
+   "sd": 0.055171356996438436,
+   "within10": 0.8571428571428571,
+   "within20": 1.0
+  },
+  {
+   "material": "AISI316L",
+   "method": "GSE",
+   "n": 28,
+   "mean": 0.0637883804134133,
+   "sd": 0.1420148436025865,
+   "within10": 0.10714285714285714,
+   "within20": 0.8571428571428571
+  },
+  {
+   "material": "AISI316L",
+   "method": "MGSE_YU",
+   "n": 28,
+   "mean": 0.06378838041341342,
+   "sd": 0.1420148436025865,
+   "within10": 0.10714285714285714,
+   "within20": 0.8571428571428571
+  },
+  {
+   "material": "AISI316L",
+   "method": "GSA",
+   "n": 28,
+   "mean": 0.08806308238826145,
+   "sd": 0.09319207088257275,
+   "within10": 0.35714285714285715,
+   "within20": 0.8928571428571429
+  },
+  {
+   "material": "AISI316L",
+   "method": "LIU2025",
+   "n": 28,
+   "mean": -0.025273454597316593,
+   "sd": 0.057956539912336874,
+   "within10": 0.8571428571428571,
+   "within20": 1.0
+  },
+  {
+   "material": "AISI316L",
+   "method": "MMMH",
+   "n": 28,
+   "mean": -0.015479995439727851,
+   "sd": 0.08348488792805255,
+   "within10": 0.75,
+   "within20": 0.9642857142857143
+  },
+  {
+   "material": "AISI316L",
+   "method": "VHN",
+   "n": 28,
+   "mean": -0.12885546325990238,
+   "sd": 0.17939410345043835,
+   "within10": 0.4642857142857143,
+   "within20": 0.5357142857142857
+  },
+  {
+   "material": "AISI316L",
+   "method": "GAM",
+   "n": 28,
+   "mean": -0.1975457532026051,
+   "sd": 0.3336157213489487,
+   "within10": 0.25,
+   "within20": 0.2857142857142857
+  },
+  {
+   "material": "AISI316L",
+   "method": "COIN",
+   "n": 28,
+   "mean": -0.03984511502293061,
+   "sd": 0.1733791381292462,
+   "within10": 0.2857142857142857,
+   "within20": 0.7142857142857143
+  },
+  {
+   "material": "AISI316L",
+   "method": "CROSSLAND",
+   "n": 28,
+   "mean": -0.18423746533941462,
+   "sd": 0.15402925577403642,
+   "within10": 0.2857142857142857,
+   "within20": 0.5
+  },
+  {
+   "material": "AISI316L",
+   "method": "PBP",
+   "n": 28,
+   "mean": -0.09562021855596023,
+   "sd": 0.21172875309528286,
+   "within10": 0.2857142857142857,
+   "within20": 0.35714285714285715
+  },
+  {
+   "material": "AISI316L",
+   "method": "SINES",
+   "n": 28,
+   "mean": 0.04487398116458797,
+   "sd": 0.16284555855961694,
+   "within10": 0.2857142857142857,
+   "within20": 0.6071428571428571
+  },
+  {
+   "material": "AISI316L",
+   "method": "OTT",
+   "n": 28,
+   "mean": -0.015479995439726944,
+   "sd": 0.08348488792805263,
+   "within10": 0.75,
+   "within20": 0.9642857142857143
+  },
+  {
+   "material": "AISI316L",
+   "method": "CAIM",
+   "n": 28,
+   "mean": 0.004774199672658371,
+   "sd": 0.057666412960816274,
+   "within10": 0.9285714285714286,
+   "within20": 1.0
+  },
+  {
+   "material": "AISI316L",
+   "method": "BP",
+   "n": 28,
+   "mean": 0.04246050070171337,
+   "sd": 0.05780006132453499,
+   "within10": 0.7857142857142857,
+   "within20": 1.0
+  },
+  {
+   "material": "AISI316L",
+   "method": "PCR",
+   "n": 28,
+   "mean": -0.10901176173303273,
+   "sd": 0.09944206617506068,
+   "within10": 0.4642857142857143,
+   "within20": 0.8928571428571429
+  },
+  {
+   "material": "AISI316L",
+   "method": "MOREL",
+   "n": 28,
+   "mean": -0.04168126650604011,
+   "sd": 0.11768414703120698,
+   "within10": 0.4642857142857143,
+   "within20": 0.9642857142857143
+  },
+  {
+   "material": "AISI316L",
+   "method": "PI",
+   "n": 28,
+   "mean": -0.19342443421399122,
+   "sd": 0.21552430072575143,
+   "within10": 0.42857142857142855,
+   "within20": 0.5
+  },
+  {
+   "material": "AISI316L",
+   "method": "PAPADOPOULOS",
+   "n": 28,
+   "mean": -0.05156577490884588,
+   "sd": 0.12088287691200476,
+   "within10": 0.35714285714285715,
+   "within20": 0.9642857142857143
+  },
+  {
+   "material": "AISI316L",
+   "method": "EK",
+   "n": 28,
+   "mean": -0.08124630004424553,
+   "sd": 0.10832494865300052,
+   "within10": 0.5,
+   "within20": 0.8928571428571429
+  },
+  {
+   "material": "AISI316L",
+   "method": "SWTD",
+   "n": 28,
+   "mean": -0.01249050792933681,
+   "sd": 0.17919821307665673,
+   "within10": 0.07142857142857142,
+   "within20": 0.7142857142857143
+  },
+  {
+   "material": "42CrMo4_Reis",
+   "method": "FIN",
+   "n": 14,
+   "mean": 0.20939683396288622,
+   "sd": 0.05313331413528265,
+   "within10": 0.0,
+   "within20": 0.35714285714285715
+  },
+  {
+   "material": "42CrMo4_Reis",
+   "method": "SWT",
+   "n": 19,
+   "mean": 0.021449905926617375,
+   "sd": 0.12781642799717072,
+   "within10": 0.47368421052631576,
+   "within20": 0.9473684210526315
+  },
+  {
+   "material": "42CrMo4_Reis",
+   "method": "LI",
+   "n": 14,
+   "mean": 0.3378793799865129,
+   "sd": 0.2792607303546371,
+   "within10": 0.2857142857142857,
+   "within20": 0.5714285714285714
+  },
+  {
+   "material": "42CrMo4_Reis",
+   "method": "MDC",
+   "n": 14,
+   "mean": 0.1277276865574777,
+   "sd": 0.06855661734343625,
+   "within10": 0.5,
+   "within20": 0.7142857142857143
+  },
+  {
+   "material": "42CrMo4_Reis",
+   "method": "MGSE_ZHU",
+   "n": 14,
+   "mean": 0.1463976725407898,
+   "sd": 0.04123233585178514,
+   "within10": 0.07142857142857142,
+   "within20": 0.8571428571428571
+  },
+  {
+   "material": "42CrMo4_Reis",
+   "method": "MMCCM",
+   "n": 8,
+   "mean": -0.05942771910491729,
+   "sd": 0.12092017675963194,
+   "within10": 0.75,
+   "within20": 0.875
+  },
+  {
+   "material": "42CrMo4_Reis",
+   "method": "MSWT",
+   "n": 14,
+   "mean": 0.1650727419392926,
+   "sd": 0.04233932425194469,
+   "within10": 0.0,
+   "within20": 0.7142857142857143
+  },
+  {
+   "material": "42CrMo4_Reis",
+   "method": "MKBM",
+   "n": 19,
+   "mean": 0.26647777571614945,
+   "sd": 0.13566754970961037,
+   "within10": 0.05263157894736842,
+   "within20": 0.3157894736842105
+  },
+  {
+   "material": "42CrMo4_Reis",
+   "method": "VSE",
+   "n": 19,
+   "mean": 0.07828902737979761,
+   "sd": 0.12887142528748644,
+   "within10": 0.21052631578947367,
+   "within20": 0.8947368421052632
+  },
+  {
+   "material": "42CrMo4_Reis",
+   "method": "MWHS",
+   "n": 20,
+   "mean": -0.0049703216739241125,
+   "sd": 0.13402959701731773,
+   "within10": 0.45,
+   "within20": 0.95
+  },
+  {
+   "material": "42CrMo4_Reis",
+   "method": "FS",
+   "n": 14,
+   "mean": 0.23214539336583687,
+   "sd": 0.047985397375786595,
+   "within10": 0.0,
+   "within20": 0.14285714285714285
+  },
+  {
+   "material": "42CrMo4_Reis",
+   "method": "LIU2021",
+   "n": 19,
+   "mean": 0.28232532737105487,
+   "sd": 0.057197324127565494,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "42CrMo4_Reis",
+   "method": "GSE",
+   "n": 19,
+   "mean": 0.22461133086703775,
+   "sd": 0.052267140018833154,
+   "within10": 0.0,
+   "within20": 0.2631578947368421
+  },
+  {
+   "material": "42CrMo4_Reis",
+   "method": "MGSE_YU",
+   "n": 19,
+   "mean": 0.2246113308670379,
+   "sd": 0.05226714001883305,
+   "within10": 0.0,
+   "within20": 0.2631578947368421
+  },
+  {
+   "material": "42CrMo4_Reis",
+   "method": "GSA",
+   "n": 19,
+   "mean": 0.2803765875036045,
+   "sd": 0.056839725400260895,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "42CrMo4_Reis",
+   "method": "LIU2025",
+   "n": 19,
+   "mean": 0.27549500144946104,
+   "sd": 0.05516924268003512,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "42CrMo4_Reis",
+   "method": "EK",
+   "n": 19,
+   "mean": 0.11875779827992243,
+   "sd": 0.11847867777718242,
+   "within10": 0.3684210526315789,
+   "within20": 0.5263157894736842
+  },
+  {
+   "material": "42CrMo4_Reis",
+   "method": "SWTD",
+   "n": 19,
+   "mean": 0.12263828689174394,
+   "sd": 0.12321501771699418,
+   "within10": 0.3684210526315789,
+   "within20": 0.47368421052631576
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "SWT",
+   "n": 4,
+   "mean": 0.09692648205963177,
+   "sd": 0.06128709965016082,
+   "within10": 0.5,
+   "within20": 1.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "NINIC",
+   "n": 4,
+   "mean": 0.2903730366877558,
+   "sd": 0.06128709965016063,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "MWCM",
+   "n": 4,
+   "mean": 0.2893654888908741,
+   "sd": 0.0612870996501607,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "MATAKE",
+   "n": 4,
+   "mean": 0.2893654888908703,
+   "sd": 0.06128709965016049,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "DANGVAN",
+   "n": 4,
+   "mean": 0.28936548889087377,
+   "sd": 0.06128709965016071,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "MKBM",
+   "n": 4,
+   "mean": 0.3626065212729055,
+   "sd": 0.061197063010671085,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "VSE",
+   "n": 4,
+   "mean": 0.09692648205963122,
+   "sd": 0.061287099650161124,
+   "within10": 0.5,
+   "within20": 1.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "MCD",
+   "n": 4,
+   "mean": 0.47546350061272025,
+   "sd": 0.06128709965016079,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "MWHS",
+   "n": 6,
+   "mean": -0.4144287998726069,
+   "sd": 0.027684474557155343,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "LIU2021",
+   "n": 4,
+   "mean": 0.5747076696006194,
+   "sd": 0.061157700581835936,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "GSE",
+   "n": 4,
+   "mean": 0.43492026219819047,
+   "sd": 0.061287099650160735,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "MGSE_YU",
+   "n": 4,
+   "mean": 0.4349202621981906,
+   "sd": 0.06128709965016084,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "GSA",
+   "n": 4,
+   "mean": 0.5575185318512864,
+   "sd": 0.061287099650159986,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "LIU2025",
+   "n": 4,
+   "mean": 0.5150504926687693,
+   "sd": 0.06128710013594784,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "MMMH",
+   "n": 4,
+   "mean": 0.2893654888908741,
+   "sd": 0.06128709965016063,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "VHN",
+   "n": 4,
+   "mean": 0.274611192307433,
+   "sd": 0.06161180524618808,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "GAM",
+   "n": 4,
+   "mean": 0.289365488890874,
+   "sd": 0.06128709965016058,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "COIN",
+   "n": 4,
+   "mean": 0.2893654888908741,
+   "sd": 0.06128709965016063,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "CROSSLAND",
+   "n": 4,
+   "mean": 0.2893654888908741,
+   "sd": 0.06128709965016063,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "PBP",
+   "n": 4,
+   "mean": 0.2893654888908741,
+   "sd": 0.06128709965016063,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "SINES",
+   "n": 4,
+   "mean": 0.5150504941599412,
+   "sd": 0.06128709965016073,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "OTT",
+   "n": 4,
+   "mean": 0.5014832155474226,
+   "sd": 0.061287099650160555,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "CAIM",
+   "n": 4,
+   "mean": 0.2893654888908741,
+   "sd": 0.06128709965016063,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "BP",
+   "n": 4,
+   "mean": 0.28936548889087405,
+   "sd": 0.061287099650160576,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "PCR",
+   "n": 4,
+   "mean": 0.26825924919526356,
+   "sd": 0.06175472263278068,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "PI",
+   "n": 4,
+   "mean": 0.4520507386164001,
+   "sd": 0.06137681634155843,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "PAPADOPOULOS",
+   "n": 4,
+   "mean": 0.2893654888908739,
+   "sd": 0.06128709965016071,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "RFB",
+   "n": 4,
+   "mean": 0.28924565576758565,
+   "sd": 0.061287099650160756,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "EK",
+   "n": 4,
+   "mean": 0.383868361926195,
+   "sd": 0.06128709965016089,
+   "within10": 0.0,
+   "within20": 0.0
+  },
+  {
+   "material": "Ti6Al4V",
+   "method": "SWTD",
+   "n": 4,
+   "mean": 0.3712094579340504,
+   "sd": 0.06128709965016073,
+   "within10": 0.0,
+   "within20": 0.0
+  }
+ ]
+}

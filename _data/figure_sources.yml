@@ -1,0 +1,18 @@
+# Pinned source commit of every figure generated from the owner's research code.
+# Written by scripts/refresh_figures.py together with the matching data file; tests check they agree.
+damage_sphere:
+  repository: andreachiocca/multiaxial-fatigue
+  commit: 67f06ea6ac11e011058b721020320b6558231bd9
+  data: /assets/data/figures/damage-sphere-findley.json
+sharcp_figure:
+  repository: andreachiocca/sharCP
+  commit: e87d01d70aec5992720df584dae82d7d224bc616
+  data: /assets/data/figures/sharcp-ecp-validation.json
+seancp_sphere:
+  repository: andreachiocca/SeAn-CP
+  commit: a3ade97b47d3c98734f7da34c4d76fc9c112d7ae
+  data: /assets/data/figures/seancp-paths-fs-ext.json
+multifat_comparison:
+  repository: andreachiocca/multiaxial-fatigue
+  commit: 67f06ea6ac11e011058b721020320b6558231bd9
+  data: /assets/data/figures/multifat-comparison.json

@@ -2,7 +2,7 @@
 {% assign sc_lang = page.lang | default: 'en' %}
 {% assign sc = site.data.i18n[sc_lang].seancp_sphere | default: site.data.i18n.en.seancp_sphere %}
 {% assign sc_data = '/assets/data/figures/seancp-paths-fs-ext.json' %}
-{% assign sc_commit = 'a3ade97' %}
+{% assign sc_source = site.data.figure_sources.seancp_sphere %}{% assign sc_commit = sc_source.commit | slice: 0, 7 %}
 <figure id="seancp-paths" class="seancp-sphere" data-seancp-sphere data-src="{{ sc_data | relative_url }}" data-initial-case="5" data-label-template="{{ sc.label | escape }}" data-coincide="{{ sc.coincide | escape }}" data-distinct="{{ sc.distinct | escape }}">
   <div class="sc-panel">
     <p class="sc-heading"><span>FIG. R02.1</span><span>{{ sc.title }}</span></p>
@@ -35,6 +35,6 @@
   </div>
   <figcaption id="sc-caption">{{ sc.caption }}
     <details><summary>{{ sc.details }}</summary><p>{{ sc.provenance | replace: '%commit%', sc_commit }}</p>
-    <p><a href="{{ sc_data | relative_url }}">{{ sc.data }}</a> · <a href="https://github.com/andreachiocca/andreachiocca.github.io/blob/master/scripts/generate_seancp_sphere.py">{{ sc.code }}</a> · <a href="https://github.com/andreachiocca/SeAn-CP/tree/a3ade97b47d3c98734f7da34c4d76fc9c112d7ae">SeAn-CP@{{ sc_commit }}</a></p></details></figcaption>
+    <p><a href="{{ sc_data | relative_url }}">{{ sc.data }}</a> · <a href="https://github.com/andreachiocca/andreachiocca.github.io/blob/master/scripts/generate_seancp_sphere.py">{{ sc.code }}</a> · <a href="https://github.com/{{ sc_source.repository }}/tree/{{ sc_source.commit }}">SeAn-CP@{{ sc_commit }}</a></p></details></figcaption>
 </figure>
 <script defer src="{{ '/assets/js/seancp-sphere.js' | relative_url | bust_file_cache }}"></script>
