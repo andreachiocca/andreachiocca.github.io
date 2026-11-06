@@ -31,9 +31,13 @@ class RosenthalMapTests(unittest.TestCase):
     def test_provenance(self):
         src = DATA['source']
         self.assertEqual(src['doi'], '10.1016/j.matdes.2022.110991')
-        self.assertRegex(src['workbook_sha256'], r'^[0-9a-f]{64}$')
+        self.assertEqual(len(src['workbooks']), 2)
+        for digest in src['workbooks'].values():
+            self.assertRegex(digest, r'^[0-9a-f]{64}$')
         self.assertGreater(len(DATA['points']), 100)
-        self.assertEqual({p['process'] for p in DATA['points']}, {'SLM', 'LMD'})
+        # Melting processes only: friction stir welding (solid state) and EBM are left out.
+        self.assertEqual({p['process'] for p in DATA['points']}, {'AW', 'BW', 'LMD', 'SLM'})
+        self.assertNotIn('FSW', {p['process_label'] for p in DATA['points']})
         self.assertLessEqual({p['family'] for p in DATA['points']}, {'steel', 'al', 'ti', 'ni', 'cu', 'co'})
 
     def test_rykalin_number_is_the_product_of_the_dimensionless_controls(self):
@@ -89,6 +93,8 @@ class RosenthalMapTests(unittest.TestCase):
         it = json.loads((ROOT / '_data/i18n/it/rosenthal_map.json').read_text(encoding='utf8'))
         self.assertEqual(set(en), set(it))
         self.assertEqual(set(en['families']), set(it['families']))
+        self.assertEqual(set(en['processes']), {'AW', 'BW', 'LMD', 'SLM'})
+        self.assertEqual(set(en['processes']), set(it['processes']))
 
 
 if __name__ == '__main__':

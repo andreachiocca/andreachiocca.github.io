@@ -1,4 +1,4 @@
-"""Precompute FIG. R04.1 (Rosenthal map of metal additive manufacturing) from the literature dataset.
+"""Precompute FIG. R04.1 (Rosenthal map of welding and metal AM) from the literature datasets.
 
 The website only draws the result. Equations are those of Moda, Chiocca, Macoretta, Monelli and
 Bertini, Materials & Design 223 (2022) 110991 (doi:10.1016/j.matdes.2022.110991), cited by number:
@@ -10,19 +10,24 @@ Bertini, Materials & Design 223 (2022) 110991 (doi:10.1016/j.matdes.2022.110991)
     A_r ~ [1 + (e Ry / 8)^(eta/2)]^(1/eta),  eta = 1.904                 (12)
     R = R_ boundary:  U~ = 2 / (e P~) (P~^-beta - 1)^(-2/beta), beta = -1.7312   (22, 24)
 
-Input: the review workbook (sheet "Parametri"), whose rows hold the nominal operating conditions
-of each cited paper with the thermophysical properties used. U~ and P~ are recomputed here from the
+Inputs: the two review workbooks (sheet "Parametri"), one for metal additive manufacturing and one for
+welding, whose rows hold the nominal operating conditions of each cited paper with the thermophysical
+properties used. U~ and P~ are recomputed here from the
 raw columns and checked against the workbook's own values. The melt-pool outline of each point is
 the exact isotherm of Eq. (2) in its polar Lambert-W form; A_r is reported exact and from Eq. (12).
 
-    python scripts/generate_rosenthal_map.py --workbook Parametri_letteratura_rev_5.xlsx
+    python scripts/generate_rosenthal_map.py --workbook Parametri_letteratura_rev_5.xlsx --welding CHIOCCA.xlsx
 
 Repository choices:
-  - processes: SLM and LMD (LMwD, wire-fed, is kept and labelled as such). EBM rows are left out,
-    as in the article, because few of them have complete parameters;
+  - processes: SLM and LMD (LMwD, wire-fed, is kept and labelled as such), arc welding (AW) and beam
+    welding (BW, laser and electron beam; hybrid laser-arc rows are grouped here and keep their own
+    label). EBM rows are left out, as in the article, because few of them have complete parameters;
+  - welding rows are those the workbook marks "Da tenere = SI"; friction stir welding is left out
+    because it is a solid-state process, outside the Rosenthal melting model, and so is a row whose
+    process ("Filler wire") cannot be assigned to arc or beam welding;
   - rows without a process, a material or complete inputs are dropped and counted, and so are rows
     the workbook itself leaves without U*, P* (not part of its analysed selection);
-  - power is the nominal power (the workbook's absorptivity column is 1 throughout), so P~ is an
+  - power is the nominal power (absorptivity is not applied in either workbook), so P~ is an
     upper bound of the absorbed power, as for the markers of the article's Fig. 5.
 """
 import argparse
@@ -41,14 +46,21 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'assets/data/figures/rosenthal-process-map.json'
 BETA, ETA = -1.7312, 1.904
 PROCESSES = {'SLM': 'SLM', 'LMD': 'LMD', 'LMwD': 'LMD'}
+ARC = ('GMAW', 'DC P-GMAW', 'DC GMAW', 'Pulsed GMAW', 'Narrow-Gap GMAW', 'MIG', 'GTAW', 'TIG', 'FCAW', 'SAW',
+       'EGW', 'SRA EGW', 'Tandem EGW', 'CMT', 'PAW', 'PTAW', 'Buried-arc welding', 'ESW')
+BEAM = ('Laser', 'LBW', 'CO2 LBW', 'Co2 CW Laser', 'Autogenous laser', 'Nd-YAG Laser', 'Nd:YAG laser welding',
+        'Pulsed Nd-YAG Laser-beam', 'Powder feeding-based laser welding', 'EBW', 'EBW-HV', 'M-EBW',
+        'Hybrid laser', 'Lase-MIG', 'Laser-MIG')
+WELDING = {**{k: 'AW' for k in ARC}, **{k: 'BW' for k in BEAM}}
 # Material families of the article's Fig. 5, assigned from the alloy names used in the workbook.
 FAMILIES = [
-    ('ni', ('inconel', 'hastelloy', 'waspalloy')),
+    ('ni', ('inconel', 'hastelloy', 'waspalloy', 'in939')),
     ('ti', ('ti6al4v', 'ti ', 'ti-')),
-    ('co', ('co-cr', 'cocr', 'stellite')),
+    ('co', ('co-cr', 'co_cr', 'cocr', 'stellite')),
     ('cu', ('cu', 'bronze', 'cusn')),
-    ('al', ('al', 'aa', 'scalmalloy')),
-    ('steel', ('aisi', 'h13', 'maraging', '17-4', 'steel', '316', '304')),
+    ('al', ('al', 'aa', 'scalmalloy', 'a7n01')),
+    ('steel', ('aisi', 'h13', 'maraging', '17-4', 'steel', '316', '304', 's355', 's460', 's700', 'q235', 'eh3',
+               'eh4', 'dh3', 'eq70', 'a516', 'sa440', 's32101', 'c-mn', 'clf-1', 'sus')),
 ]
 
 
@@ -101,16 +113,13 @@ def ar_isoline_ry(a):
     return 8 / math.e * (a ** ETA - 1) ** (2 / ETA)
 
 
-def main():
-    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('--workbook', type=Path, required=True)
-    args = ap.parse_args()
-    raw = args.workbook.read_bytes()
-    df = pd.read_excel(args.workbook, sheet_name='Parametri').iloc[:, :28]
+def read_workbook(path, welding, dropped):
+    """Points of one review workbook; drops are counted by reason."""
+    df = pd.read_excel(path, sheet_name='Parametri')
     df.columns = [str(c).strip() for c in df.columns]
     col = {k: next(c for c in df.columns if c.startswith(k)) for k in
            ('Autore', 'Anno', 'DOI', 'Processo', 'Materiale', 'U [m/s]', 'P [W]', 'T_prerisc', 'R_', 'k', 'α', 'Τ_m', 'P*', 'U*')}
-    dropped = {'no process': 0, 'EBM': 0, 'incomplete': 0, 'not selected in the workbook': 0}
+    keep = next((c for c in df.columns if c.startswith('Da tenere')), None)
     points = []
     for _, r in df.iterrows():
         proc = r[col['Processo']]
@@ -121,8 +130,21 @@ def main():
         if proc.upper().startswith('EBM'):
             dropped['EBM'] += 1
             continue
-        if proc not in PROCESSES:
-            continue
+        if welding:
+            if keep is None or r[keep] != 'SI':
+                dropped['welding row not kept in the workbook'] += 1
+                continue
+            if proc == 'FSW':
+                dropped['friction stir welding (solid state)'] += 1
+                continue
+            if proc not in WELDING:
+                dropped['process not assignable to AW or BW'] += 1
+                continue
+            group = WELDING[proc]
+        else:
+            if proc not in PROCESSES:
+                continue
+            group = PROCESSES[proc]
         vals = [r[col[k]] for k in ('U [m/s]', 'P [W]', 'T_prerisc', 'R_', 'k', 'α', 'Τ_m')]
         if any(not isinstance(v, (int, float)) or not np.isfinite(v) or v <= 0 for v in vals):
             dropped['incomplete'] += 1
@@ -145,7 +167,7 @@ def main():
         year = r[col['Anno']]
         doi = r[col['DOI']]
         points.append({
-            'process': PROCESSES[proc], 'process_label': proc, 'material': r[col['Materiale']].strip(),
+            'process': group, 'process_label': proc, 'material': r[col['Materiale']].strip(),
             'family': family(r[col['Materiale']]), 'author': str(r[col['Autore']]).strip(),
             'year': int(year) if isinstance(year, (int, float)) and np.isfinite(year) else None,
             'doi': doi.strip() if isinstance(doi, str) and doi.strip() else None,
@@ -156,6 +178,18 @@ def main():
             # Outline normalised by the half-width R: x from tail (x-) to front (x+).
             'outline': [[round(float(x / R), 3), round(float(y / R), 3)] for x, y in zip(xs, rho)],
         })
+    return points
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument('--workbook', type=Path, required=True, help='additive manufacturing review workbook')
+    ap.add_argument('--welding', type=Path, required=True, help='welding review workbook')
+    args = ap.parse_args()
+    dropped = {k: 0 for k in ('no process', 'EBM', 'incomplete', 'not selected in the workbook',
+                              'welding row not kept in the workbook', 'friction stir welding (solid state)',
+                              'process not assignable to AW or BW')}
+    points = read_workbook(args.workbook, False, dropped) + read_workbook(args.welding, True, dropped)
     if not points:
         raise SystemExit('No usable rows')
     data = {
@@ -163,13 +197,13 @@ def main():
         'source': {
             'article': 'Moda, Chiocca, Macoretta, Monelli, Bertini, Materials & Design 223 (2022) 110991',
             'doi': '10.1016/j.matdes.2022.110991', 'dataset_doi': '10.17632/b2437352ky.2',
-            'workbook': args.workbook.name, 'workbook_sha256': hashlib.sha256(raw).hexdigest(),
+            'workbooks': {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in (args.workbook, args.welding)},
             'generated': date.today().isoformat(), 'dropped_rows': dropped,
         },
         'constants': {'beta': BETA, 'eta': ETA},
         'boundary': boundary(),
         'ar_isolines': [{'Ar': a, 'Ry': round(ar_isoline_ry(a), 6)} for a in (1.5, 2, 3, 5, 8)],
-        'points': sorted(points, key=lambda p: (p['process'], p['family'], p['U_t'])),
+        'points': sorted(points, key=lambda p: (['AW', 'BW', 'LMD', 'SLM'].index(p['process']), p['family'], p['U_t'])),
     }
     OUT.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf8')
     print(f'Wrote {OUT.relative_to(ROOT)}: {len(points)} points, dropped {dropped}, {OUT.stat().st_size // 1024} kB')

@@ -1,4 +1,4 @@
-// FIG. R04.1: Rosenthal map of metal AM, drawn from precomputed data
+// FIG. R04.1: Rosenthal map of welding and metal AM, drawn from precomputed data
 // (assets/data/figures/rosenthal-process-map.json). Points, isolines, the R = R_ boundary and every
 // melt-pool outline come from scripts/generate_rosenthal_map.py; nothing is solved in the browser.
 (function () {
@@ -12,7 +12,7 @@
   var COLOURS = { steel: '#ef8a7a', al: '#86d39a', ti: '#7fb2e5', ni: '#c3a6ff', cu: '#d9a36d', co: '#f0b65a' };
   var W = 640, H = 460, M = { l: 58, r: 14, t: 14, b: 46 };
   var X = [-1.6, 1.25], Y = [Math.log10(1.5), Math.log10(32)];
-  var data, nodes = [], visible = [], current = 0, families = {}, processes = { SLM: true, LMD: true };
+  var data, nodes = [], visible = [], current = 0, families = {}, processes = {};
 
   function el(name, attrs, parent) {
     var n = document.createElementNS(NS, name);
@@ -85,8 +85,11 @@
     var gp = el('g', {}, plot);
     data.points.forEach(function (p, i) {
       var x = sx(p.U_t), y = sy(p.P_t), n;
+      // Marker per process: SLM circle, LMD diamond, arc welding triangle, beam welding square.
       if (p.process === 'SLM') n = el('circle', { cx: x, cy: y, r: 3.6 }, gp);
-      else n = el('path', { d: 'M' + x + ' ' + (y - 4.6) + 'l4.6 4.6l-4.6 4.6l-4.6 -4.6z' }, gp);
+      else if (p.process === 'LMD') n = el('path', { d: 'M' + x + ' ' + (y - 4.6) + 'l4.6 4.6l-4.6 4.6l-4.6 -4.6z' }, gp);
+      else if (p.process === 'AW') n = el('path', { d: 'M' + x + ' ' + (y - 4.8) + 'l4.4 7.8h-8.8z' }, gp);
+      else n = el('path', { d: 'M' + (x - 3.4) + ' ' + (y - 3.4) + 'h6.8v6.8h-6.8z' }, gp);
       n.setAttribute('class', 'rm-pt');
       n.style.fill = COLOURS[p.family];
       n.addEventListener('pointerenter', function () { hover(i, x, y); });
@@ -170,9 +173,11 @@
       });
     });
     root.querySelectorAll('[data-rm-process]').forEach(function (b) {
+      processes[b.dataset.rmProcess] = true;
       b.addEventListener('click', function () {
         var key = b.dataset.rmProcess, on = !processes[key];
-        if (!on && !processes[key === 'SLM' ? 'LMD' : 'SLM']) return;
+        // Never hide every process: the last active chip stays on.
+        if (!on && Object.keys(processes).filter(function (k) { return processes[k]; }).length === 1) return;
         processes[key] = on; b.setAttribute('aria-pressed', String(on)); filter();
       });
     });
