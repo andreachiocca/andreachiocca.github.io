@@ -23,8 +23,8 @@ Repository choices:
     welding (BW, laser and electron beam; hybrid laser-arc rows are grouped here and keep their own
     label). EBM rows are left out, as in the article, because few of them have complete parameters;
   - welding rows are those the workbook marks "Da tenere = SI"; friction stir welding is left out
-    because it is a solid-state process, outside the Rosenthal melting model, and so is a row whose
-    process ("Filler wire") cannot be assigned to arc or beam welding;
+    because it is a solid-state process, outside the Rosenthal melting model, and so are rows with no
+    process. The "Filler wire" row (Zhang 1997) is GMAW, as confirmed by the author;
   - rows without a process, a material or complete inputs are dropped and counted, and so are rows
     the workbook itself leaves without U*, P* (not part of its analysed selection);
   - power is the nominal power (absorptivity is not applied in either workbook), so P~ is an
@@ -47,11 +47,14 @@ OUT = ROOT / 'assets/data/figures/rosenthal-process-map.json'
 BETA, ETA = -1.7312, 1.904
 PROCESSES = {'SLM': 'SLM', 'LMD': 'LMD', 'LMwD': 'LMD'}
 ARC = ('GMAW', 'DC P-GMAW', 'DC GMAW', 'Pulsed GMAW', 'Narrow-Gap GMAW', 'MIG', 'GTAW', 'TIG', 'FCAW', 'SAW',
-       'EGW', 'SRA EGW', 'Tandem EGW', 'CMT', 'PAW', 'PTAW', 'Buried-arc welding', 'ESW')
+       'EGW', 'SRA EGW', 'Tandem EGW', 'CMT', 'PAW', 'PTAW', 'Buried-arc welding', 'ESW',
+       'Filler wire')  # Zhang 1997, Ti6Al4V: GMAW, as confirmed by the author (2026-11-06)
 BEAM = ('Laser', 'LBW', 'CO2 LBW', 'Co2 CW Laser', 'Autogenous laser', 'Nd-YAG Laser', 'Nd:YAG laser welding',
         'Pulsed Nd-YAG Laser-beam', 'Powder feeding-based laser welding', 'EBW', 'EBW-HV', 'M-EBW',
         'Hybrid laser', 'Lase-MIG', 'Laser-MIG')
 WELDING = {**{k: 'AW' for k in ARC}, **{k: 'BW' for k in BEAM}}
+# Display names for workbook process labels that do not name the process.
+LABELS = {'Filler wire': 'GMAW (filler wire)'}
 # Material families of the article's Fig. 5, assigned from the alloy names used in the workbook.
 FAMILIES = [
     ('ni', ('inconel', 'hastelloy', 'waspalloy', 'in939')),
@@ -167,7 +170,7 @@ def read_workbook(path, welding, dropped):
         year = r[col['Anno']]
         doi = r[col['DOI']]
         points.append({
-            'process': group, 'process_label': proc, 'material': r[col['Materiale']].strip(),
+            'process': group, 'process_label': LABELS.get(proc, proc), 'material': r[col['Materiale']].strip(),
             'family': family(r[col['Materiale']]), 'author': str(r[col['Autore']]).strip(),
             'year': int(year) if isinstance(year, (int, float)) and np.isfinite(year) else None,
             'doi': doi.strip() if isinstance(doi, str) and doi.strip() else None,
