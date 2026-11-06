@@ -15,8 +15,6 @@ nav_order: 1
 {% endfor %}
 </div>
 
-{% include sharcp_figure.html %}
-
 <section id="projects" class="research-projects" aria-labelledby="selected-collaborative-projects">
   <h2 id="selected-collaborative-projects">{{ "Research projects" | t }}</h2>
   <div class="research-featured-project">

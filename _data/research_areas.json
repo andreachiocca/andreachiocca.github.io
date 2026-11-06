@@ -36,7 +36,8 @@
         "url": "/repositories/#zenodo-14198237"
       }
     ],
-    "icon": "fa-chart-bar"
+    "icon": "fa-chart-bar",
+    "figure": "seancp_sphere.html"
   },
   {
     "id": "residual-stresses-and-welded-structures",
@@ -67,7 +68,8 @@
         "url": "/publications/#Chiocca2026WeldedECP"
       }
     ],
-    "icon": "fa-object-group"
+    "icon": "fa-object-group",
+    "figure": "sharcp_figure.html"
   },
   {
     "id": "additive-manufacturing-and-material-behaviour",

@@ -1,11 +1,11 @@
-{% comment %} FIG. R02: interactive Findley damage sphere (data precomputed with multifat). {% endcomment %}
+{% comment %} FIG. T01: interactive Findley damage sphere (data precomputed with multifat). {% endcomment %}
 {% assign ds_lang = page.lang | default: 'en' %}
 {% assign ds = site.data.i18n[ds_lang].damage_sphere | default: site.data.i18n.en.damage_sphere %}
 {% assign ds_data = '/assets/data/figures/damage-sphere-findley.json' %}
 {% assign ds_commit = '5cd5124' %}
 <figure id="critical-plane-explorer" class="damage-sphere" data-damage-sphere data-src="{{ ds_data | relative_url }}" data-label-template="{{ ds.label | escape }}">
   <div class="ds-panel">
-    <p class="ds-heading"><span>FIG. R02</span><span>{{ ds.title }}</span></p>
+    <p class="ds-heading"><span>FIG. T01</span><span>{{ ds.title }}</span></p>
     <div class="ds-stage">
       <canvas tabindex="0" role="img" aria-label="{{ ds.title | escape }}" aria-describedby="ds-caption"></canvas>
     </div>

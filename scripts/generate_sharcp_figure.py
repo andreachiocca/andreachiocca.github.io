@@ -1,4 +1,4 @@
-"""Precompute FIG. R03 (ECP for sharp notches) by running the original sharCP scripts.
+"""Precompute FIG. R03.1 (ECP for sharp notches) by running the original sharCP scripts.
 
 The website only draws the result. This script runs sharCP's own calibration and
 prediction programs for Findley (FI), Fatemi-Socie (FS) and Smith-Watson-Topper (SWT),
@@ -71,7 +71,7 @@ def main():
     ap.add_argument('--commit', required=True)
     args = ap.parse_args()
     repo = args.sharcp.resolve()
-    figure = {'figure': 'FIG. R03', 'nsigma': NSIGMA,
+    figure = {'figure': 'FIG. R03.1', 'nsigma': NSIGMA,
               'source': {'repository': 'https://github.com/andreachiocca/sharCP', 'commit': args.commit,
                          'settings': 'README illustrative commands, global plane strain for Mode I, nsigma = 2'},
               'generated_on': date.today().isoformat(), 'criteria': {}}

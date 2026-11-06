@@ -1,4 +1,4 @@
-// FIG. R03: ECP master curves for sharp notches, drawn from sharCP outputs
+// FIG. R03.1: ECP master curves for sharp notches, drawn from sharCP outputs
 // (assets/data/figures/sharcp-ecp-validation.json). No criterion is evaluated here.
 (function () {
   'use strict';
