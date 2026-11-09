@@ -2,7 +2,7 @@
  "figure": "multifat_comparison",
  "source": {
   "repository": "andreachiocca/multiaxial-fatigue",
-  "commit": "0cf9091bd3d5474376bf82739199dec503e1a7aa",
+  "commit": "baee2f4f52f32b46bc49f07bd7299b03b5d563eb",
   "command": "multifat-pipeline --all",
   "table": "Results/current/Comparison/summary_error_stats_by_role.csv",
   "pipeline_exit_code": 1,
