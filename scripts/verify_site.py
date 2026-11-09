@@ -158,9 +158,12 @@ if output_page:
     if any(service in catalogue_html for service in ("github-readme-stats", "github-profile-trophy", "<iframe", "<img")):
         errors.append("The catalogue still depends on image previews or embeds")
 
-restricted = next(item for item in outputs if item["id"] == "zenodo-21875885")
-if restricted["access_right"] != "restricted":
-    errors.append("Restricted Zenodo record is incorrectly classified")
+# Every Zenodo card must state the access of its current version: restricted or closed files are
+# never advertised as open (the sharp-notch dataset became open at v1.0.1).
+ACCESS_LABELS = {"open": "Open files", "restricted": "Restricted files", "closed": "Closed files", "embargoed": "Embargoed files"}
+for item in outputs:
+    if item.get("source") == "Zenodo" and item.get("access_label") != ACCESS_LABELS.get(item.get("access_right")):
+        errors.append(f"Zenodo record {item['id']} has an access label that does not match its access right")
 # Required navigation and source-grounded content must survive rendering.
 expected_navigation = [('Home', '/'), ('Research', '/research/'), ('Publications', '/publications/'), ('Repositories', '/repositories/'), ('Laboratory', '/laboratory/'), ('Teaching', '/teaching/'), ('CV', '/cv/')]
 for label, url in expected_navigation:

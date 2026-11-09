@@ -10,7 +10,7 @@
     "topic": "Confronto di metodi di previsione a fatica"
   },
   "zenodo-21875885": {
-    "description": "Dati di ricerca relativi alla fatica di componenti con intagli acuti sotto carichi di Modo I e Modo III. I file sono ad accesso limitato. Consulta la pagina del record per le condizioni di accesso.",
+    "description": "Risultati di calibrazione dell'approccio Effective Critical Plane basato sul volume di processo per intagli acuti in giunti saldati in acciaio strutturale, con carichi di Modo I e Modo III, e dati alla base delle master curve dell'articolo.",
     "topic": "Fatica multiassiale"
   },
   "zenodo-18416255": {
@@ -63,5 +63,9 @@
     "description": "Implementazione Python dell’approccio Effective Critical Plane (ECP) per piedi e radici di saldatura a intaglio acuto, tramite un raggio di intaglio equivalente dipendente dal criterio. Calibrazione e previsione indipendente della vita a fatica in Modo I e Modo III con i parametri di Fatemi–Socie, Findley e Smith–Watson–Topper.",
     "scope_note": "Sono inclusi input ridotti, numerici agli elementi finiti e sperimentali. Le mesh complete e le impostazioni di calibrazione originali non sono incluse: la riproduzione di tutti i risultati pubblicati non è stata quindi verificata in modo indipendente. L’articolo associato sarà collegato dopo la pubblicazione; il dataset relativo agli intagli acuti è un record Zenodo ad accesso limitato.",
     "topic": "Fatica multiassiale"
+  },
+  "zenodo-23083493": {
+    "description": "Dati sperimentali di fatica multiassiale raccolti dalla letteratura e curati nell'ambito della COST Action CA23109 (FABER), Working Group 4.3, per il confronto e la verifica dei criteri di fatica multiassiale.",
+    "topic": "Confronto di metodi di previsione a fatica"
   }
 }

@@ -24,7 +24,7 @@
     "featured": true,
     "topic": "Multiaxial fatigue",
     "development_note": "In development; independent scientific validation remains outstanding.",
-    "research_anchor": "international-collaborations",
+    "research_anchor": "multifat-comparison",
     "license": "MIT"
   },
   {
@@ -40,14 +40,26 @@
       "Gkantou, Michaela"
     ],
     "year": "2026",
-    "date": "2026-07-24",
-    "doi": "10.5281/zenodo.21534682",
-    "url": "https://zenodo.org/records/21534682",
+    "date": "2026-10-21",
+    "doi": "10.5281/zenodo.23532147",
+    "url": "https://zenodo.org/records/23532147",
     "access_right": "open",
     "access_label": "Open files",
     "description": "Participant package for blind fatigue-life prediction of 42CrMo4+QT steel under multiaxial high-cycle loading. It includes rules, calibration data, load cases, specimen information and submission templates.",
     "related_publications": [],
     "earlier_versions": [
+      {
+        "record_id": "23497306",
+        "version": "v2.1.1",
+        "doi": "10.5281/zenodo.23497306",
+        "url": "https://zenodo.org/records/23497306"
+      },
+      {
+        "record_id": "21534682",
+        "version": "v2.1.0",
+        "doi": "10.5281/zenodo.21534682",
+        "url": "https://zenodo.org/records/21534682"
+      },
       {
         "record_id": "21166758",
         "version": "v2.0.0",
@@ -69,11 +81,39 @@
     ],
     "source": "Zenodo",
     "zenodo_concept_id": "20934797",
-    "zenodo_record_id": "21534682",
+    "zenodo_record_id": "23532147",
     "concept_doi": "10.5281/zenodo.20934797",
-    "version": "v2.1.0",
     "display_title": "FABEST: blind fatigue-life prediction",
     "featured": true,
+    "topic": "Fatigue benchmarking",
+    "research_anchor": "international-collaborations",
+    "version": "v2.1.2"
+  },
+  {
+    "id": "zenodo-23083493",
+    "kind": "data",
+    "type_label": "Benchmark dataset",
+    "schema_type": "Dataset",
+    "description": "Curated experimental multiaxial fatigue data from the literature, compiled within COST Action CA23109 (FABER), Working Group 4.3, to benchmark and verify multiaxial fatigue criteria.",
+    "title": "Multiaxial Fatigue Dataset for Benchmark and Verification of Multiaxial Criteria (COST Action CA23109 - WG4.3 - Fatigue Estimation. Load Multiaxiality Effect)",
+    "source": "Zenodo",
+    "zenodo_concept_id": "23083492",
+    "zenodo_record_id": "23083493",
+    "concept_doi": "10.5281/zenodo.23083492",
+    "url": "https://zenodo.org/records/23083493",
+    "doi": "10.5281/zenodo.23083493",
+    "creators": [
+      "Morettini, Giulia",
+      "Chiocca, Andrea",
+      "Janssens, Koenraad"
+    ],
+    "date": "2026-10-30",
+    "year": "2026",
+    "registry_type": "Dataset",
+    "access_right": "open",
+    "access_label": "Open files",
+    "earlier_versions": [],
+    "display_title": "Multiaxial fatigue benchmark dataset",
     "topic": "Fatigue benchmarking",
     "research_anchor": "international-collaborations"
   },
@@ -138,25 +178,34 @@
     "schema_type": "Dataset",
     "registry_type": "Dataset",
     "creators": [
-      "Chiocca, Andrea"
+      "Chiocca, Andrea",
+      "Sgamma, Michele",
+      "Frendo, Francesco"
     ],
     "year": "2026",
-    "date": "2026-08-10",
-    "doi": "10.5281/zenodo.21875885",
-    "url": "https://zenodo.org/records/21875885",
-    "access_right": "restricted",
-    "access_label": "Restricted files",
-    "description": "Research data associated with sharp-notch fatigue under Mode I and Mode III loading. The record has restricted files; consult the landing page for access information.",
+    "date": "2026-10-20",
+    "doi": "10.5281/zenodo.23501052",
+    "url": "https://zenodo.org/records/23501052",
+    "access_right": "open",
+    "access_label": "Open files",
+    "description": "Calibration results of the process-volume-based Effective Critical Plane approach for sharp notches in structural-steel welded joints under Mode I and Mode III loading, with the data behind the article's master curves.",
     "related_publications": [],
     "source": "Zenodo",
     "zenodo_concept_id": "21875884",
-    "zenodo_record_id": "21875885",
+    "zenodo_record_id": "23501052",
     "concept_doi": "10.5281/zenodo.21875884",
-    "version": "v1.0.0",
-    "earlier_versions": [],
+    "earlier_versions": [
+      {
+        "record_id": "21875885",
+        "version": "v1.0.0",
+        "doi": "10.5281/zenodo.21875885",
+        "url": "https://zenodo.org/records/21875885"
+      }
+    ],
     "display_title": "Sharp-notch fatigue: Mode I and Mode III",
     "topic": "Multiaxial fatigue",
-    "research_anchor": "sharcp-ecp"
+    "research_anchor": "sharcp-ecp",
+    "version": "v1.0.1"
   },
   {
     "id": "zenodo-18416255",

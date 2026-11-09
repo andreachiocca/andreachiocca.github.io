@@ -10,6 +10,8 @@ nav: true
 nav_order: 1
 ---
 
+{% include research_glance.html %}
+
 <div id="research-areas" class="research-areas">
 {% for canonical_area in site.data.research_areas %}{% assign area = canonical_area | localized_record: 'research_areas' %}
 {% include research_area_panel.html area=area canonical_id=canonical_area.id ordinal=forloop.index %}

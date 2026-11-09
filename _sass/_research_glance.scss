@@ -1,0 +1,18 @@
+// Results at a glance: a strip of compact cards above the Research chapters, one per data figure.
+.research-glance { margin: 2.2rem 0 2.8rem; }
+.research-glance-title { margin: 0 0 .9rem; font: 500 .72rem/1.4 var(--font-mono, monospace); letter-spacing: .1em; text-transform: uppercase; color: var(--global-text-color-light); }
+.research-glance-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .8rem; margin: 0; padding: 0; list-style: none; }
+.research-glance-list li { display: flex; min-width: 0; }
+.research-glance-card {
+  position: relative; display: flex; flex-direction: column; gap: .45rem; width: 100%; min-height: 44px; padding: .9rem 1rem 1.6rem;
+  color: var(--global-text-color); text-decoration: none; background: var(--global-card-bg-color, transparent);
+  border: 1px solid var(--global-divider-color); border-top: 3px solid var(--global-theme-color);
+  transition: border-color 200ms ease, background-color 200ms ease;
+}
+.research-glance-card:hover, .research-glance-card:focus-visible { border-color: var(--global-theme-color); text-decoration: none; }
+.research-glance-card :where(span) { color: inherit; }
+.research-glance-fig { font: 600 .74rem/1.3 var(--font-mono, monospace); letter-spacing: .06em; color: var(--global-theme-color); }
+.research-glance-chapter { font: 500 .68rem/1.35 var(--font-mono, monospace); letter-spacing: .04em; text-transform: uppercase; color: var(--global-text-color-light); }
+.research-glance-text { font: .9rem/1.45 var(--font-sans, sans-serif); }
+.research-glance-go { position: absolute; right: .8rem; bottom: .45rem; font-size: .85rem; color: var(--global-theme-color); }
+@media (prefers-reduced-motion: reduce) { .research-glance-card { transition: none; } }
