@@ -2,21 +2,16 @@
   url: /research/
   section: research
   pages: [research, publications, repositories, laboratory]
+  # Only separate pages: sections of the Research page are reached from its own quick links.
   children:
     - title: Research overview
       url: /research/
-    - title: Research areas
-      url: /research/#research-areas
     - title: Publications
       url: /publications/
-    - title: Research projects
-      url: /research/#projects
     - title: Software and research data
       url: /repositories/
     - title: Laboratory
       url: /laboratory/
-    - title: International collaborations
-      url: /research/#international-collaborations
 - title: Teaching
   url: /teaching/
   section: teaching
