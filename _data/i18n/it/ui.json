@@ -329,5 +329,6 @@
   "Course materials": "Materiali del corso",
   "Analytical": "Analitico",
   "Numerical": "Numerico",
-  "Experimental": "Sperimentale"
+  "Experimental": "Sperimentale",
+  "Benchmark dataset": "Dati di riferimento per il benchmark"
 }

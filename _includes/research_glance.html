@@ -1,0 +1,16 @@
+{% comment %} Results at a glance: one card per Research data figure, linking to it. Text in _data/i18n/{en,it}/research_glance.json. {% endcomment %}
+{% assign rg_lang = page.lang | default: 'en' %}
+{% assign rg = site.data.i18n[rg_lang].research_glance | default: site.data.i18n.en.research_glance %}
+<section id="results-at-a-glance" class="research-glance" aria-labelledby="research-glance-title">
+  <h2 id="research-glance-title" class="research-glance-title">{{ rg.title }}</h2>
+  <ol class="research-glance-list">
+    {% for item in rg.items %}<li>
+      <a class="research-glance-card" href="#{{ item.anchor }}">
+        <span class="research-glance-fig">FIG. {{ item.fig }}</span>
+        <span class="research-glance-chapter">{{ item.chapter }}</span>
+        <span class="research-glance-text">{{ item.text }}</span>
+        <span class="research-glance-go" aria-hidden="true">↓</span>
+      </a>
+    </li>{% endfor %}
+  </ol>
+</section>

@@ -1,0 +1,35 @@
+{
+  "title": "Risultati in sintesi",
+  "items": [
+    {
+      "fig": "R02.1",
+      "chapter": "01 · Analisi a fatica",
+      "anchor": "seancp-paths",
+      "text": "SeAn-CP esamina tre famiglie di piani e resta entro il 3,8 % della ricerca completa del piano critico."
+    },
+    {
+      "fig": "R02.2",
+      "chapter": "01 · Analisi a fatica",
+      "anchor": "multifat-comparison",
+      "text": "Tutti i criteri di multifat sulla stessa scala di errore in carico, su sei materiali."
+    },
+    {
+      "fig": "R03.1",
+      "chapter": "02 · Strutture saldate",
+      "anchor": "sharcp-ecp",
+      "text": "Una sola master curve ECP: con Findley e Fatemi–Socie tutte le 55 prove di validazione cadono entro ±2σ."
+    },
+    {
+      "fig": "R04.1",
+      "chapter": "03 · Manifattura additiva",
+      "anchor": "rosenthal-map",
+      "text": "Le finestre di processo di saldatura e AM metallica ricadono su un unico piano adimensionale potenza–velocità."
+    },
+    {
+      "fig": "R05.1",
+      "chapter": "04 · Prove su materiali e componenti",
+      "anchor": "spr-fatigue",
+      "text": "Una tensione strutturale al rivetto porta giunti lap-shear e coach-peel su un'unica curva S–N, con banda di dispersione ×2."
+    }
+  ]
+}

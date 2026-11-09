@@ -1,0 +1,35 @@
+{
+  "title": "Results at a glance",
+  "items": [
+    {
+      "fig": "R02.1",
+      "chapter": "01 · Fatigue assessment",
+      "anchor": "seancp-paths",
+      "text": "SeAn-CP searches three families of planes and stays within 3.8 % of a full critical-plane scan."
+    },
+    {
+      "fig": "R02.2",
+      "chapter": "01 · Fatigue assessment",
+      "anchor": "multifat-comparison",
+      "text": "Every multifat criterion on one load-equivalent error scale, across six materials."
+    },
+    {
+      "fig": "R03.1",
+      "chapter": "02 · Welded structures",
+      "anchor": "sharcp-ecp",
+      "text": "One ECP master curve: with Findley and Fatemi–Socie, all 55 validation tests fall within ±2σ."
+    },
+    {
+      "fig": "R04.1",
+      "chapter": "03 · Additive manufacturing",
+      "anchor": "rosenthal-map",
+      "text": "Welding and metal AM process windows collapse onto one dimensionless power–velocity plane."
+    },
+    {
+      "fig": "R05.1",
+      "chapter": "04 · Materials and component testing",
+      "anchor": "spr-fatigue",
+      "text": "A structural stress at the rivet brings lap-shear and coach-peel joints onto one S–N curve, scatter band ×2."
+    }
+  ]
+}

@@ -34,6 +34,7 @@ $max-content-width: {{ site.max_width }};
 @import "multifat_comparison";
 @import "rosenthal_map";
 @import "spr_fatigue";
+@import "research_glance";
 
 // Tokens, typefaces and motion; must stay last.
 @import "design_system";

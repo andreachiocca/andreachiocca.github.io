@@ -1,24 +1,31 @@
 {
-  "verified_on": "2026-10-15",
+  "verified_on": "2026-11-09",
   "github_accounts": [
     "achiocca1",
     "andreachiocca"
   ],
   "github_full_names": [
-    "andreachiocca/andreachiocca.github.io",
     "andreachiocca/APDL-WB-ssr-v1.0",
     "andreachiocca/Awesome-CV",
     "andreachiocca/CPOpt-v1.0",
     "andreachiocca/ECP",
-    "andreachiocca/FatPy",
     "andreachiocca/FI-Sol",
     "andreachiocca/FS-Sol",
+    "andreachiocca/FatPy",
+    "andreachiocca/SeAn-CP",
+    "andreachiocca/andreachiocca.github.io",
     "andreachiocca/moloch",
     "andreachiocca/multiaxial-fatigue",
-    "andreachiocca/SeAn-CP",
     "andreachiocca/sharCP"
   ],
   "github_repositories": 12,
+  "github_repositories_included": 8,
+  "excluded_github_full_names": [
+    "andreachiocca/Awesome-CV",
+    "andreachiocca/FatPy",
+    "andreachiocca/andreachiocca.github.io",
+    "andreachiocca/moloch"
+  ],
   "zenodo_record_ids": [
     "12721131",
     "12734069",
@@ -29,10 +36,14 @@
     "21010662",
     "21166758",
     "21534682",
-    "21875885"
+    "21875885",
+    "23083493",
+    "23497306",
+    "23501052",
+    "23532147"
   ],
-  "zenodo_records": 10,
-  "zenodo_resources": 6,
+  "zenodo_records": 14,
+  "zenodo_resources": 7,
   "excluded_zenodo_ids": [
     "14302835",
     "14323405",
@@ -41,12 +52,5 @@
     "2608559",
     "8214402"
   ],
-  "total_cards": 15,
-  "excluded_github_full_names": [
-    "andreachiocca/andreachiocca.github.io",
-    "andreachiocca/Awesome-CV",
-    "andreachiocca/FatPy",
-    "andreachiocca/moloch"
-  ],
-  "github_repositories_included": 8
+  "total_cards": 16
 }
