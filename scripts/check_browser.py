@@ -215,8 +215,9 @@ def check_browser(root):
                         command('Input.dispatchKeyEvent', {'type': 'keyUp', 'key': 'Escape', 'code': 'Escape', 'windowsVirtualKeyCode': 27})
                         expect(evaluate("document.querySelector('.navbar-toggler').getAttribute('aria-expanded') === 'false' && !document.querySelector('main').inert && document.activeElement.matches('.navbar-toggler')"), 'Escape closes menu and restores focus')
                     if canonical_route == '/research/' and width >= 992:
-                        evaluate("document.getElementById('nav-research-toggle').click(); document.querySelector('#nav-research a[href$=\"#projects\"]').click()")
-                        expect(evaluate("location.hash === '#projects' && document.getElementById('nav-research').hidden && document.getElementById('nav-research-toggle').getAttribute('aria-expanded') === 'false'"), 'same-page destination closes desktop submenu')
+                        # The Research submenu lists separate pages only; page sections use the hero quick links.
+                        expect(evaluate("[...document.querySelectorAll('#nav-research a')].map(a => new URL(a.href).pathname.replace(/^\\/it/, '')).join('|') === '/research/|/publications/|/repositories/|/laboratory/' && ![...document.querySelectorAll('#nav-research a')].some(a => a.hash)"), 'research submenu lists only separate pages')
+                        expect(evaluate("[...document.querySelectorAll('.research-quick-links a')].map(a => a.hash).join('|') === '#research-areas|#projects|#international-collaborations'"), 'research sections stay reachable from the quick links')
                     if canonical_route == '/' and evaluate("document.querySelectorAll('.nav-section-toggle').length === 2"):
                         if width < 992:
                             evaluate("document.querySelector('.navbar-toggler').click()")

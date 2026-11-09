@@ -67,7 +67,7 @@ These are deliberate owner decisions, encoded in `scripts/verify_site.py`, `scri
 - **Thesis page.** It must keep the placement qualifications "project availability", "host-institution acceptance", "funding and mobility" and "suitable datasets".
 - **Laboratory page.** It must keep "departmental", "laboratory staff", "technical feasibility" and "institutional procedures".
 - **Home page.** The group appears as "Gruppo di Costruzione di Macchine" with "DICI" in `#research-environment`.
-- **Navigation.** The Teaching submenu lists only the Teaching overview and Thesis opportunities. Courses are reached from `/teaching/`.
+- **Navigation.** The Teaching submenu lists only the Teaching overview and Thesis opportunities. Courses are reached from `/teaching/`. The Research submenu lists only separate pages (Research overview, Publications, Software and research data, Laboratory); sections of the Research page are reached from its quick links.
 
 Owner preferences: concise text (one sentence per idea), visuals generated from the original research code, minimal design with light motion, the blue accent, and scientific accuracy over embellishment. Italian is the working language with the owner. Code comments are in English.
 
