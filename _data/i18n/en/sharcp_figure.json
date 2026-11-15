@@ -17,5 +17,8 @@
   "data": "Data (JSON)",
   "code": "Generator script",
   "error": "The precomputed data could not be loaded.",
-  "noscript": "This interactive figure needs JavaScript."
+  "noscript": "This interactive figure needs JavaScript.",
+  "mode_i": "Mode I (opening)",
+  "mode_iii": "Mode III (out-of-plane shear)",
+  "legend_fill": "hollow: calibration · filled: validation"
 }

@@ -118,8 +118,11 @@
 
   function showTip(node) {
     var p = node.__p, box = svg.getBoundingClientRect(), s = box.width / W;
-    tip.textContent = (p.set === 'val' ? root.dataset.val : root.dataset.cal) + ' · ' + p.source + ' · ' + (p.mode === 'MIII' ? 'Mode III' : 'Mode I') + ' · N = ' + fmt(p.N);
-    tip.style.left = (node.__xy[0] * s) + 'px'; tip.style.top = (node.__xy[1] * s) + 'px'; tip.hidden = false;
+    tip.textContent = (p.set === 'val' ? root.dataset.val : root.dataset.cal) + ' · ' + p.source + ' · ' + (p.mode === 'MIII' ? root.dataset.modeIii : root.dataset.modeI) + ' · N = ' + fmt(p.N);
+    tip.hidden = false;
+    // Keep the tooltip inside the plot: clamp its centre so neither edge leaves the stage.
+    var half = tip.offsetWidth / 2, x = node.__xy[0] * s;
+    tip.style.left = Math.max(half, Math.min(box.width - half, x)) + 'px'; tip.style.top = (node.__xy[1] * s) + 'px';
   }
   function hideTip() { tip.hidden = true; }
 
