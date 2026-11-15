@@ -42,7 +42,7 @@
 .rosenthal-map .rm-pt.rm-off { opacity: 0; pointer-events: none; }
 .rosenthal-map .rm-pt.rm-sel { stroke: #ffffff; stroke-width: 2; opacity: 1; }
 .rosenthal-map .rm-tip {
-  position: absolute; transform: translate(-50%, calc(-100% - 10px)); margin: 0; padding: .3rem .5rem; white-space: nowrap;
+  position: absolute; transform: translate(-50%, -100%) translateY(-10px); margin: 0; padding: .3rem .5rem; width: max-content; max-width: min(320px, 90%);
   background: #0b2339; border: 1px solid rgba(179, 217, 234, .4); font: .72rem/1.3 var(--font-mono, monospace); color: #ecf5f7; pointer-events: none;
 }
 .rosenthal-map .rm-side { display: grid; gap: .6rem; min-width: 0; }

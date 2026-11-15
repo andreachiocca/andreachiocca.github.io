@@ -5,7 +5,7 @@
 {% assign sf_source = site.data.figure_sources.sharcp_figure %}{% assign sf_commit = sf_source.commit | slice: 0, 7 %}
 <figure id="sharcp-ecp" class="sharcp-figure" data-sharcp-figure data-src="{{ sf_data | relative_url }}"
   data-xlabel="{{ sf.xlabel | escape }}" data-ylabel-f-i="{{ sf.ylabel_FI | escape }}" data-ylabel-f-s="{{ sf.ylabel_FS | escape }}" data-ylabel-s-w-t="{{ sf.ylabel_SWT | escape }}"
-  data-cal="{{ sf.cal | escape }}" data-val="{{ sf.val | escape }}" data-label="{{ sf.label | escape }}">
+  data-mode-i="{{ sf.mode_i | escape }}" data-mode-iii="{{ sf.mode_iii | escape }}" data-cal="{{ sf.cal | escape }}" data-val="{{ sf.val | escape }}" data-label="{{ sf.label | escape }}">
   <div class="sf-panel">
     <p class="sf-heading"><span>FIG. R03.1</span><span>{{ sf.title }}</span></p>
     <p class="sf-title">{{ sf.heading }}</p>
@@ -22,6 +22,7 @@
       <svg viewBox="0 0 640 420" role="img" aria-label="{{ sf.title | escape }}" aria-describedby="sf-caption"></svg>
       <p class="sf-tip" data-sf-tip hidden></p>
     </div>
+    <p class="sf-legend" aria-hidden="true"><span><svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4" /></svg>{{ sf.mode_i }}</span><span><svg viewBox="0 0 12 12"><rect x="2" y="2" width="8" height="8" /></svg>{{ sf.mode_iii }}</span><span class="sf-legend-fill">{{ sf.legend_fill }}</span></p>
     <dl class="sf-readout" aria-live="polite">
       <div><dt>{{ sf.rc | replace: 'r_c', 'r<sub>c</sub>' }}</dt><dd data-sf-rc>–</dd></div>
       <div><dt>{{ sf.t }}</dt><dd data-sf-t>–</dd></div>

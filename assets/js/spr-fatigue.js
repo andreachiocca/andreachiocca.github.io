@@ -122,7 +122,10 @@
     var unit = view === 'force' ? ' N' : ' MPa';
     tip.textContent = (t.geometry === 'LAP' ? root.dataset.lap : root.dataset.peel) + ' · ' + (t.adhesive ? root.dataset.hybrid : root.dataset.spr) +
       ' · ' + t.t_al + '/' + t.t_steel + ' mm · N = ' + Math.round(t.N).toLocaleString('en-US') + ' · ' + Number(value(t).toPrecision(3)) + unit;
-    tip.style.left = (sx(t.N) * s) + 'px'; tip.style.top = (sy(value(t)) * s) + 'px'; tip.hidden = false;
+    tip.hidden = false;
+    // Keep the tooltip inside the plot: clamp its centre so neither edge leaves the stage.
+    var half = tip.offsetWidth / 2, box = svg.getBoundingClientRect();
+    tip.style.left = Math.max(half, Math.min(box.width - half, sx(t.N) * s)) + 'px'; tip.style.top = (sy(value(t)) * s) + 'px';
   }
 
   fetch(root.dataset.src).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (json) {

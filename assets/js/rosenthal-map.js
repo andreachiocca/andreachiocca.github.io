@@ -103,7 +103,10 @@
   function hover(i, x, y) {
     var p = data.points[i], s = svg.getBoundingClientRect().width / W;
     tip.textContent = p.material + ' · ' + p.process_label + ' · ' + p.author + (p.year ? ' ' + p.year : '');
-    tip.style.left = (x * s) + 'px'; tip.style.top = (y * s) + 'px'; tip.hidden = false;
+    tip.hidden = false;
+    // Keep the tooltip inside the plot: clamp its centre so neither edge leaves the stage.
+    var half = tip.offsetWidth / 2, box = svg.getBoundingClientRect();
+    tip.style.left = Math.max(half, Math.min(box.width - half, x * s)) + 'px'; tip.style.top = (y * s) + 'px';
   }
 
   function filter() {

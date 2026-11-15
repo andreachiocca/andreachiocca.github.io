@@ -17,5 +17,8 @@
   "data": "Dati (JSON)",
   "code": "Script di generazione",
   "error": "Non è stato possibile caricare i dati precalcolati.",
-  "noscript": "Questa figura interattiva richiede JavaScript."
+  "noscript": "Questa figura interattiva richiede JavaScript.",
+  "mode_i": "Modo I (apertura)",
+  "mode_iii": "Modo III (taglio fuori piano)",
+  "legend_fill": "vuoti: calibrazione · pieni: validazione"
 }
