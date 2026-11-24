@@ -69,7 +69,7 @@ These are deliberate owner decisions, encoded in `scripts/verify_site.py`, `scri
 - **Home page.** The group appears as "Gruppo di Costruzione di Macchine" with "DICI" in `#research-environment`.
 - **Navigation.** The Teaching submenu lists only the Teaching overview and Thesis opportunities. Courses are reached from `/teaching/`. The Research submenu lists only separate pages (Research overview, Publications, Software and research data, Laboratory); sections of the Research page are reached from its quick links.
 
-Owner preferences: concise text (one sentence per idea), visuals generated from the original research code, minimal design, the blue accent, and scientific accuracy over embellishment. Avoid generic "AI template" patterns: no decorative arrows on links, no "·" separators in running text, no eyebrow labels or numbered section prefixes ("01 /"), no visible figure numbers (internal ids live in `data-fig`), no scroll fade-ins. Italian is the working language with the owner. Code comments are in English.
+Owner preferences: concise text (one sentence per idea), visuals generated from the original research code, minimal design, the blue accent, and scientific accuracy over embellishment. Avoid generic "AI template" patterns: no decorative arrows on links, no "·" separators in running text, no eyebrow labels or numbered section prefixes ("01 /"), no visible figure numbers (internal ids live in `data-fig`), no scroll fade-ins, no coloured left borders, no decorative heading icons, no card boxes where an open list with hairlines will do. Italian is the working language with the owner. Code comments are in English.
 
 ## Keeping this file current
 

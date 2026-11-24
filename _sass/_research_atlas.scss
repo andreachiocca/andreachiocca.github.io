@@ -70,7 +70,7 @@ main#main-content:has(> .research-atlas) { max-width: 1160px; }
 .research-atlas .research-chapter h2 { border: 0; padding: 0; margin: 0; font-size: clamp(1.3rem, 2vw, 1.9rem); line-height: 1.3; }
 .research-atlas .research-chapter h2::before { content: none; }
 .research-atlas .research-summary { max-width: 65ch; line-height: 1.75; }
-.research-atlas .research-methods { border-left: 2px solid var(--global-theme-color); padding: .45rem 0 .45rem 1rem; font-size: .9rem; }
+.research-atlas .research-methods { font-size: .9rem; }
 .research-atlas .research-chapter .inline-links { display: flex; flex-wrap: wrap; gap: .5rem .85rem; }
 .research-atlas .research-chapter .inline-links a { display: inline-flex; align-items: center; min-height: 44px; }
 /* Preserve native summary list-item behaviour for keyboard disclosure activation. */
@@ -150,9 +150,9 @@ main#main-content:has(> .research-atlas) { max-width: 1160px; }
 .research-atlas .research-collaborations .inline-links a { display: inline-flex; align-items: center; min-height: 44px; }
 .research-atlas .previous-projects { margin-top: 1rem; border-bottom: 1px solid var(--atlas-rule); }
 .research-atlas .previous-projects > summary { min-height: 44px; font-weight: 600; }
-.research-atlas .international-experiences { border-left: 2px solid var(--global-theme-color); padding-left: 1.4rem; }
+.research-atlas .international-experiences { padding-left: 0; }
 .research-atlas .international-experiences > li { padding: .45rem .3rem; }
-.research-atlas .research-contact { border-left: 3px solid var(--global-theme-color); padding: .6rem 0 .5rem 1.4rem; }
+.research-atlas .research-contact { padding: 0; }
 .research-atlas .research-contact h2 { border: 0; padding: 0; margin: 0 0 .7rem; }
 @media (max-width: 575px) {
   .research-atlas .research-featured-project { padding: 1.2rem; }

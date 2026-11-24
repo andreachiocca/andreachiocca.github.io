@@ -1,7 +1,6 @@
 {% assign resource = include.resource %}{% if include.group %}{% assign resource = resource | localized_record: include.group %}{% endif %}
 <section class="feature-card {{ include.kind }}" id="{{ resource.id | escape }}">
   {% if resource.image %}<img class="resource-image" src="{{ resource.image | local_url | relative_url }}" alt="{{ resource.image_alt | escape }}" loading="lazy" width="{{ resource.image_width }}" height="{{ resource.image_height }}">{% endif %}
-  {% if resource.icon %}<i class="fas {{ resource.icon | escape }} resource-icon" aria-hidden="true"></i>{% endif %}
   {% if resource.mode %}<p class="resource-mode">{{ resource.mode }}</p>{% endif %}
   <h3>{{ resource.title }}</h3>{% include translation_notice.html record=resource %}
   <p{% if resource._translation_missing %} lang="en"{% endif %}>{{ resource.description }}</p>

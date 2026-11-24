@@ -196,7 +196,6 @@ def check_browser(root):
                         expect(evaluate("document.querySelector('#research-environment')?.textContent.includes('Gruppo di Costruzione di Macchine') && document.querySelector('#research-environment').textContent.includes('DICI')"), 'verified homepage group affiliation')
                         expect(evaluate("document.querySelector('.office-contact')?.tagName === 'ADDRESS' && !document.querySelector('.office-contact').closest('details') && document.querySelector('.office-contact a[href^=mailto]').getBoundingClientRect().height >= 44"), 'office contact must remain visible')
                         expect(evaluate("document.querySelectorAll('.recent-publications ol.bibliography > li').length === 5"), 'five recent publications on homepage')
-                        expect(evaluate("[...document.querySelectorAll('.section-icon')].every(i => i.getAttribute('aria-hidden') === 'true' && getComputedStyle(i,'::before').content !== 'none')"), 'decorative icon accessibility and glyphs')
                     if canonical_route == '/' and width == 390:
                         evaluate("document.querySelector('.skip-link').focus()")
                         command('Input.dispatchKeyEvent', {'type': 'keyDown', 'key': 'Enter', 'code': 'Enter', 'windowsVirtualKeyCode': 13, 'text': '\r', 'unmodifiedText': '\r'})

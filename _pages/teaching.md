@@ -20,7 +20,7 @@ nav_order: 4
 </nav>
 </section>
 
-<section class="collaboration-panel teaching-editorial" aria-labelledby="teaching-thesis-title"><h2 id="teaching-thesis-title"><i class="far fa-lightbulb section-icon" aria-hidden="true"></i>{{ "Looking for a thesis topic?" | t }}</h2>{% locale teaching.thesis %}<p>Three thesis projects: open-source multiaxial fatigue methods, vibration testing of capacitors on circuit boards, and fatigue of coated lattice structures.</p>{% endlocale %}<a class="contact-link" href="{{ '/thesis/' | local_url | relative_url }}">{{ "Explore thesis opportunities" | t }}</a></section>
+<section class="collaboration-panel teaching-editorial" aria-labelledby="teaching-thesis-title"><h2 id="teaching-thesis-title">{{ "Looking for a thesis topic?" | t }}</h2>{% locale teaching.thesis %}<p>Three thesis projects: open-source multiaxial fatigue methods, vibration testing of capacitors on circuit boards, and fatigue of coated lattice structures.</p>{% endlocale %}<a class="contact-link" href="{{ '/thesis/' | local_url | relative_url }}">{{ "Explore thesis opportunities" | t }}</a></section>
 
 <h2 id="recent-teaching">{{ "Recent teaching" | t }}</h2>
 

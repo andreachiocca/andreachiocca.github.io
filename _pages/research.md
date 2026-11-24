@@ -28,7 +28,7 @@ nav_order: 1
 </section>
 
 <section class="research-collaborations" aria-labelledby="international-collaborations">
-  <h2 id="international-collaborations"><i class="far fa-handshake section-icon" aria-hidden="true"></i>{{ "International collaborations" | t }}</h2>
+  <h2 id="international-collaborations">{{ "International collaborations" | t }}</h2>
   {% include international_experiences.html %}
   <ul class="inline-links"><li><a href="{{ '/laboratory/' | local_url | relative_url }}">{{ "Laboratory and experimental capabilities" | t }}</a></li><li><a href="{{ '/thesis/' | local_url | relative_url }}">{{ "Thesis opportunities for students" | t }}</a></li></ul>
 </section>
