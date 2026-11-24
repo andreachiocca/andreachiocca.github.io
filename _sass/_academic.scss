@@ -195,7 +195,7 @@ html { scrollbar-gutter: stable; }
 }
 .home-project { border-top: 1px solid var(--global-divider-color); padding-top: .25rem; }
 .home-project h3 { font-size: 1.1rem; }
-.collaboration-panel { border-left: 3px solid var(--global-theme-color); padding: .25rem 0 .25rem 1rem; margin: 1.5rem 0; }
+.collaboration-panel { margin: 1.5rem 0; }
 .collaboration-panel h2 { margin-top: .5rem; }
 .course-summary { padding: 1rem 0; border-bottom: 1px solid var(--global-divider-color); }
 .course-summary h3 { margin: 0 0 .5rem; }
@@ -211,16 +211,15 @@ html { scrollbar-gutter: stable; }
 .page-paths { margin-bottom: 1.5rem; }
 .feature-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; align-items: start; margin: 1rem 0 1.5rem; }
 @media (min-width: 700px) { .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.feature-card { min-width: 0; padding: 1.2rem; border: 1px solid var(--global-divider-color); border-radius: .5rem; line-height: 1.6; word-break: normal; overflow-wrap: break-word; }
+.feature-card { min-width: 0; padding: 1.2rem 0; border: 0; border-top: 1px solid var(--global-divider-color); border-radius: 0; background: transparent; line-height: 1.6; word-break: normal; overflow-wrap: break-word; }
 .feature-card h3 { margin: .35rem 0 .75rem; font-size: 1.15rem; line-height: 1.4; }
 .feature-card p { margin-bottom: .75rem; }
 .feature-card > :last-child { margin-bottom: 0; }
 .feature-card .inline-links { gap: .15rem .85rem; font-size: .9rem; }
-.resource-icon { color: var(--global-theme-color); font-size: 1.15rem; margin-bottom: .5rem; }
 .resource-mode { font-size: .8rem; font-weight: 500; color: var(--global-theme-color); line-height: 1.5; }
 .resource-activities { font-size: .9rem; }
 .resource-image { display: block; max-width: 100%; height: auto; border-radius: .25rem; margin-bottom: .9rem; }
-.capability-card { border-top: 3px solid var(--global-theme-color); }
+.capability-card { border-top: 1px solid var(--global-divider-color); }
 .approach-list { border-top: 1px solid var(--global-divider-color); margin-top: 1rem; }
 .approach { padding: 1rem 0; border-bottom: 1px solid var(--global-divider-color); }
 .approach h3 { margin: 0 0 .4rem; }
@@ -235,7 +234,6 @@ html { scrollbar-gutter: stable; }
 .equipment-specifications { font-size: .9rem; }
 .equipment-specifications dt { font-weight: 500; }
 .equipment-specifications dd { margin-bottom: .5rem; }
-.section-icon { color: var(--global-theme-color); font-size: .85em; margin-right: .55em; width: 1.15em; text-align: center; }
 .project-roles { list-style: none; padding: 0; margin: .5rem 0; font-size: .9rem; }
 .project-roles li { margin: .2rem 0; }
 .project-roles a { display: inline-block; min-height: 44px; padding: .5rem 0; }

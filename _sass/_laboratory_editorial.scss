@@ -86,7 +86,6 @@ main#main-content:has(> .laboratory-editorial) { max-width: 1160px; }
   color: var(--editorial-navy); overflow-wrap: anywhere;
 }
 .laboratory-editorial .laboratory-machine-note {
-  padding-left: .75rem; border-left: 2px solid var(--editorial-teal);
   color: var(--global-text-color-light); font-size: .83rem !important; line-height: 1.7;
 }
 .laboratory-editorial .laboratory-supporting-machines .laboratory-machine {
@@ -103,8 +102,7 @@ main#main-content:has(> .laboratory-editorial) { max-width: 1160px; }
   border-radius: 0; background: transparent;
 }
 .laboratory-editorial .laboratory-research-domains .feature-card h3 { margin: 0 0 .55rem; }
-.laboratory-editorial .laboratory-research-domains .resource-icon { display: none; }
-.laboratory-editorial .laboratory-collaboration { padding: 1.7rem 1.5rem 1.7rem 1.8rem; margin: 3.1rem 0 2rem; background: var(--editorial-surface); border-left: 3px solid var(--editorial-teal); }
+.laboratory-editorial .laboratory-collaboration { padding: 0; margin: 3.1rem 0 2rem; background: transparent; border: 0; }
 .laboratory-editorial .laboratory-collaboration h2 { border: 0; margin-top: .4rem; }
 .laboratory-editorial .laboratory-collaboration .contact-link { display: inline-flex; align-items: center; min-height: 44px; }
 .laboratory-editorial .laboratory-related { padding: 1rem 0 2.1rem; border-top: 1px solid var(--global-divider-color); }

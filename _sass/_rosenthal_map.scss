@@ -5,8 +5,8 @@
   background:
     linear-gradient(rgba(166, 196, 225, .07) 1px, transparent 1px) 0 0 / 32px 32px,
     linear-gradient(90deg, rgba(166, 196, 225, .07) 1px, transparent 1px) 0 0 / 32px 32px,
-    linear-gradient(160deg, #123a5e, #0e2a49);
-  border-bottom: 3px solid #2e9aa0;
+    #0f2f4c;
+  border-bottom: 0;
 }
 .rosenthal-map .rm-panel :where(span, div, p, label, i, b) { color: inherit; }
 .rosenthal-map .rm-heading { display: flex; justify-content: space-between; gap: 1rem; margin: 0; font: 500 .68rem/1.4 var(--font-mono, monospace); letter-spacing: .08em; text-transform: uppercase; color: #b3d9e8; }
