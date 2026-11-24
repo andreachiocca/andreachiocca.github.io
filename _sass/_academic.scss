@@ -219,7 +219,7 @@ html { scrollbar-gutter: stable; }
 .resource-mode { font-size: .8rem; font-weight: 500; color: var(--global-theme-color); line-height: 1.5; }
 .resource-activities { font-size: .9rem; }
 .resource-image { display: block; max-width: 100%; height: auto; border-radius: .25rem; margin-bottom: .9rem; }
-.capability-card { border-top: 3px solid var(--global-theme-color); }
+.capability-card { border-top: 1px solid var(--global-divider-color); }
 .approach-list { border-top: 1px solid var(--global-divider-color); margin-top: 1rem; }
 .approach { padding: 1rem 0; border-bottom: 1px solid var(--global-divider-color); }
 .approach h3 { margin: 0 0 .4rem; }

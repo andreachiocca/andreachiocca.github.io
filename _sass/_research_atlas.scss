@@ -33,7 +33,10 @@ main#main-content:has(> .research-atlas) { max-width: 1160px; }
 .research-atlas .research-quick-links a:focus-visible { outline-offset: 3px; text-decoration: underline; border-color: var(--global-theme-color); }
 .research-atlas .research-hero-panel {
   margin: 0; min-width: 0; overflow: hidden;
-  background: linear-gradient(155deg, #0a2a45, #174b70 65%, #0e304d);
+  background:
+    linear-gradient(rgba(166, 196, 225, .07) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, rgba(166, 196, 225, .07) 1px, transparent 1px) 0 0 / 32px 32px,
+    #0f2f4c;
   border: 1px solid #275b79; color: #d5e8f3;
 }
 .research-atlas .research-figure-index { display: flex; gap: 1rem; justify-content: space-between; padding: 1rem 1.2rem 0; }
@@ -118,7 +121,7 @@ main#main-content:has(> .research-atlas) { max-width: 1160px; }
   color: var(--global-theme-color); font: 500 .75rem/1 var(--font-mono);
 }
 .research-atlas .research-featured-project {
-  padding: clamp(1.35rem, 3vw, 2.4rem); background: linear-gradient(140deg, #0c304e, #1b5473);
+  padding: clamp(1.35rem, 3vw, 2.4rem); background: #0f2f4c;
   border: 1px solid #235a7c; color: #e7f1f4;
 }
 .research-atlas .research-featured-project-head {

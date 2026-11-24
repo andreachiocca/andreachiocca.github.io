@@ -100,18 +100,14 @@ body.academic-home-v2 main#main-content {
 .home-page--editorial .home-hero-aside { min-width: 0; display: grid; gap: 1rem; }
 .home-page--editorial .home-hero-art {
   overflow: hidden;
-  background: linear-gradient(155deg, #0a2a45, #174b70 65%, #0e304d);
+  background:
+    linear-gradient(rgba(166, 196, 225, .07) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, rgba(166, 196, 225, .07) 1px, transparent 1px) 0 0 / 32px 32px,
+    #0f2f4c;
   border: 1px solid #275b79;
   color: #d5e8f3;
   min-width: 0;
   position: relative;
-}
-.home-page--editorial .home-hero-art::after {
-  position: absolute;
-  content: "";
-  inset: auto 0 0;
-  height: 4px;
-  background: linear-gradient(90deg, #80d8d8, #619acf 55%, #174b70);
 }
 .home-page--editorial .home-art-heading,
 .home-page--editorial .home-art-footer {
@@ -194,19 +190,10 @@ body.academic-home-v2 main#main-content {
 .home-page--editorial .home-project {
   position: relative;
   padding: clamp(1.5rem, 3vw, 2.5rem);
-  background: linear-gradient(135deg,#0d304f,#1c5575);
+  background: #0f2f4c;
   border-top: 0;
   color: #f0f7fa;
   overflow: hidden;
-}
-.home-page--editorial .home-project::after {
-  content: "FABER";
-  position: absolute;
-  right: -.08em;
-  bottom: -.16em;
-  font: 700 clamp(5rem,12vw,10rem)/1 var(--font-mono);
-  color: rgba(202,237,238,.065);
-  pointer-events: none;
 }
 .home-page--editorial .home-project > * { position: relative; z-index: 1; }
 .home-page--editorial .home-project h2,
