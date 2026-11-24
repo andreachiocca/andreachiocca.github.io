@@ -6,10 +6,8 @@
   <ol class="research-glance-list">
     {% for item in rg.items %}<li>
       <a class="research-glance-card" href="#{{ item.anchor }}">
-        <span class="research-glance-fig">FIG. {{ item.fig }}</span>
         <span class="research-glance-chapter">{{ item.chapter }}</span>
         <span class="research-glance-text">{{ item.text }}</span>
-        <span class="research-glance-go" aria-hidden="true">↓</span>
       </a>
     </li>{% endfor %}
   </ol>

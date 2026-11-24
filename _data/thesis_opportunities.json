@@ -64,7 +64,7 @@
       "id": "ai-structural-integrity",
       "title": "AI for structural integrity",
       "icon": "fa-brain",
-      "mode": "Numerical / computational · exploratory",
+      "mode": "Numerical / computational, exploratory",
       "description": "Whether data-driven methods can support fatigue prediction. Exploratory: depends on suitable datasets and collaborators; no validated tool is implied.",
       "activities": "Machine-learning benchmarks; physics-based and data-driven models; surrogate modelling; interpretation of experimental data against reference results.",
       "links": [
@@ -120,7 +120,7 @@
     {
       "id": "open-multiaxial-fatigue",
       "title": "Open-source multiaxial fatigue methods",
-      "mode": "Computational research · Python",
+      "mode": "Computational research, Python",
       "description": "Contribute to the public FABER WG4.3 multiaxial-fatigue repository. Study fatigue assessment criteria from the scientific literature, implement the selected methods in Python and compare their results on documented loading cases.",
       "activities": "Literature review; formulation and implementation of fatigue methods; unit tests and numerical examples; documented code contributions; comparison with available experimental data.",
       "image": "/assets/img/thesis/multiaxial-phase-comparison.webp",
@@ -161,7 +161,7 @@
     {
       "id": "pcb-capacitor-vibration-fatigue",
       "title": "Experimental fatigue of capacitors on electronic boards",
-      "mode": "Experimental research · Vibration testing",
+      "mode": "Experimental research, Vibration testing",
       "description": "Investigate the fatigue resistance of capacitors mounted on printed circuit board assemblies (PCBAs). Design and prepare a capacitor test circuit, perform vibration tests using laboratory shakers and interpret the observed response and failure mechanisms.",
       "activities": "Circuit and specimen design; shaker-test planning and instrumentation; experimental measurements; analysis of capacitor fatigue and comparison with available prediction methods for electronic components.",
       "image": "/assets/img/thesis/pcb-bending-setup.webp",
@@ -196,7 +196,7 @@
     {
       "id": "coated-lattice-fatigue",
       "title": "Fatigue of lattice structures and effects of surface coating",
-      "mode": "Experimental and computational research · Thermal imaging",
+      "mode": "Experimental and computational research, Thermal imaging",
       "description": "Investigate the fatigue resistance of additively manufactured lattice structures and the effect of surface coating. The project combines experimental tests on coated and uncoated specimens with infrared thermography and the assessment of fatigue behaviour using available methods.",
       "activities": "Design or selection of lattice specimens; coating and specimen preparation; static and cyclic tests; infrared thermal measurements; comparison of fatigue results and failure mechanisms.",
       "image": "/assets/img/thesis/lattice-thermal-imaging.webp",

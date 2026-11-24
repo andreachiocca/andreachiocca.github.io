@@ -108,7 +108,7 @@
     var link = root.querySelector('[data-mc-method]');
     link.textContent = m.id; link.title = m.citation;
     if (m.url) link.href = m.url; else link.removeAttribute('href');
-    root.querySelector('[data-mc-family]').textContent = ' · ' + (root.dataset[FAMILY_KEY[m.family]] || m.family);
+    root.querySelector('[data-mc-family]').textContent = ', ' + (root.dataset[FAMILY_KEY[m.family]] || m.family);
     root.querySelector('[data-mc-material]').textContent = pretty(mat.id);
     root.querySelector('[data-mc-inputs]').textContent = m.inputs === 'stress' ? root.dataset.inputsStress : root.dataset.inputsStrain;
     root.querySelector('[data-mc-life]').textContent = m.life_law === 'native' ? root.dataset.lifeNative : m.life_law === 'master_curve' ? root.dataset.lifeMaster : '–';

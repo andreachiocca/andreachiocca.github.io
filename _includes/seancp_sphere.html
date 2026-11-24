@@ -3,9 +3,9 @@
 {% assign sc = site.data.i18n[sc_lang].seancp_sphere | default: site.data.i18n.en.seancp_sphere %}
 {% assign sc_data = '/assets/data/figures/seancp-paths-fs-ext.json' %}
 {% assign sc_source = site.data.figure_sources.seancp_sphere %}{% assign sc_commit = sc_source.commit | slice: 0, 7 %}
-<figure id="seancp-paths" class="seancp-sphere" data-seancp-sphere data-src="{{ sc_data | relative_url }}" data-initial-case="5" data-label-template="{{ sc.label | escape }}" data-coincide="{{ sc.coincide | escape }}" data-distinct="{{ sc.distinct | escape }}">
+<figure id="seancp-paths" data-fig="R02.1" class="seancp-sphere" data-seancp-sphere data-src="{{ sc_data | relative_url }}" data-initial-case="5" data-label-template="{{ sc.label | escape }}" data-coincide="{{ sc.coincide | escape }}" data-distinct="{{ sc.distinct | escape }}">
   <div class="sc-panel">
-    <p class="sc-heading"><span>FIG. R02.1</span><span>{{ sc.title }}</span></p>
+    <p class="sc-heading"><span>{{ sc.title }}</span></p>
     <p class="sc-title">{{ sc.heading }}</p>
     <div class="sc-controls" data-sc-controls hidden>
       <div class="sc-cases" role="group" aria-label="{{ sc.title | escape }}">
@@ -35,6 +35,6 @@
   </div>
   <figcaption id="sc-caption">{{ sc.caption }}
     <details><summary>{{ sc.details }}</summary><p>{{ sc.provenance | replace: '%commit%', sc_commit }}</p>
-    <p><a href="{{ sc_data | relative_url }}">{{ sc.data }}</a> · <a href="https://github.com/andreachiocca/andreachiocca.github.io/blob/master/scripts/generate_seancp_sphere.py">{{ sc.code }}</a> · <a href="https://github.com/{{ sc_source.repository }}/tree/{{ sc_source.commit }}">SeAn-CP@{{ sc_commit }}</a></p></details></figcaption>
+    <p><a href="{{ sc_data | relative_url }}">{{ sc.data }}</a>, <a href="https://github.com/andreachiocca/andreachiocca.github.io/blob/master/scripts/generate_seancp_sphere.py">{{ sc.code }}</a>, <a href="https://github.com/{{ sc_source.repository }}/tree/{{ sc_source.commit }}">SeAn-CP@{{ sc_commit }}</a></p></details></figcaption>
 </figure>
 <script defer src="{{ '/assets/js/seancp-sphere.js' | relative_url | bust_file_cache }}"></script>

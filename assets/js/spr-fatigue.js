@@ -120,8 +120,8 @@
   function showTip(i) {
     var t = data.tests[i], s = svg.getBoundingClientRect().width / W;
     var unit = view === 'force' ? ' N' : ' MPa';
-    tip.textContent = (t.geometry === 'LAP' ? root.dataset.lap : root.dataset.peel) + ' · ' + (t.adhesive ? root.dataset.hybrid : root.dataset.spr) +
-      ' · ' + t.t_al + '/' + t.t_steel + ' mm · N = ' + Math.round(t.N).toLocaleString('en-US') + ' · ' + Number(value(t).toPrecision(3)) + unit;
+    tip.textContent = (t.geometry === 'LAP' ? root.dataset.lap : root.dataset.peel) + ', ' + (t.adhesive ? root.dataset.hybrid : root.dataset.spr) +
+      ', ' + t.t_al + '/' + t.t_steel + ' mm, N = ' + Math.round(t.N).toLocaleString('en-US') + ', ' + Number(value(t).toPrecision(3)) + unit;
     tip.hidden = false;
     // Keep the tooltip inside the plot: clamp its centre so neither edge leaves the stage.
     var half = tip.offsetWidth / 2, box = svg.getBoundingClientRect();

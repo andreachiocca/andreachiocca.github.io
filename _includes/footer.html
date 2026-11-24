@@ -28,8 +28,8 @@
             {%- if site.linkedin_username %}<li><a href="https://www.linkedin.com/in/{{ site.linkedin_username }}">LinkedIn</a></li>{% endif -%}
           </ul>
         </nav>
-        <p class="site-footer-meta">&copy; {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.last_name }} · {{ "Last updated" | t }} <time datetime="{{ site.time | date: '%Y-%m-%d' }}">{{ site.time | date: '%Y-%m-%d' }}</time>{% if site.footer_text != blank %} · {{ site.footer_text }}{% endif %}
-        {%- if site.impressum_path %} · <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>{% endif %}</p>
+        <p class="site-footer-meta">&copy; {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.last_name }}. {{ "Last updated" | t }} <time datetime="{{ site.time | date: '%Y-%m-%d' }}">{{ site.time | date: '%Y-%m-%d' }}</time>{% if site.footer_text != blank %}. {{ site.footer_text }}{% endif %}
+        {%- if site.impressum_path %}. <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>{% endif %}</p>
       </div>
     </footer>
     {%- endif %}

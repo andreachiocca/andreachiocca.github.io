@@ -19,11 +19,10 @@ catalogue: true
   {% assign dataset_total = benchmark_outputs.size | plus: data_outputs.size %}
   <section class="output-atlas-hero" aria-label="{{ 'Catalogue overview' | t }}">
     <div class="output-atlas-intro">
-      <p class="output-atlas-index">01 / {{ 'Scientific software and research data' | t }}</p>
       {% locale repositories.intro %}<p>Code and data behind my <a href="{{ '/research/' | local_url | relative_url }}">research</a> and <a href="{{ '/publications/' | local_url | relative_url }}">publications</a>.</p>{% endlocale %}
       <nav class="output-atlas-jump" aria-label="{{ 'Explore resources' | t }}">
-        <a href="#selected-outputs">{{ 'Jump to selected outputs' | t }} <span aria-hidden="true">↘</span></a>
-        <a href="#complete-catalogue">{{ 'Jump to full catalogue' | t }} <span aria-hidden="true">↓</span></a>
+        <a href="#selected-outputs">{{ 'Jump to selected outputs' | t }}</a>
+        <a href="#complete-catalogue">{{ 'Jump to full catalogue' | t }}</a>
       </nav>
     </div>
     <dl class="output-atlas-numbers">
@@ -33,7 +32,6 @@ catalogue: true
     </dl>
   </section>
   <section class="output-atlas-selected" id="selected-outputs" aria-labelledby="selected-outputs-title">
-    <p class="output-atlas-index">02 / {{ 'Selected research' | t }}</p>
     <h2 id="selected-outputs-title">{{ 'Selected outputs' | t }}</h2>
     <div class="output-atlas-featured-grid">
       {% for spotlight_id in site.data.research_output_spotlight %}
@@ -44,16 +42,15 @@ catalogue: true
             <p class="output-atlas-feature-kind">{{ feature.type_label | t | escape }} / {{ feature.source | escape }}</p>
             <h3><a href="#{{ canonical_feature.id | escape }}">{{ feature.display_title | default: feature.title | escape }}</a></h3>
             <p class="output-atlas-feature-description">{{ feature.description | truncatewords: 28 | escape }}</p>
-            <a class="output-atlas-feature-link" href="#{{ canonical_feature.id | escape }}">{{ 'View in catalogue' | t }} <span aria-hidden="true">↗</span></a>
+            <a class="output-atlas-feature-link" href="#{{ canonical_feature.id | escape }}">{{ 'View in catalogue' | t }}</a>
           </article>
         {% endif %}
       {% endfor %}
     </div>
   </section>
   <section class="output-atlas-full" id="complete-catalogue" aria-labelledby="complete-catalogue-title">
-    <p class="output-atlas-index">03 / {{ 'Research outputs' | t }}</p>
     <h2 id="complete-catalogue-title">{{ 'Complete catalogue' | t }}</h2>
-    {% locale repositories.coverage %}<p class="catalogue-coverage">{{ site.data.catalogue_status.github_repositories_included }} GitHub repositories · {{ site.data.catalogue_status.zenodo_resources }} Zenodo resources · 1 additional dataset</p>{% endlocale %}
+    {% locale repositories.coverage %}<p class="catalogue-coverage">{{ site.data.catalogue_status.github_repositories_included }} GitHub repositories, {{ site.data.catalogue_status.zenodo_resources }} Zenodo resources and 1 additional dataset</p>{% endlocale %}
     <div class="output-atlas-search" hidden>
       <label for="output-search">{{ 'Search by title, method, material or DOI' | t }}</label>
       <input id="output-search" type="search" autocomplete="off" aria-controls="output-grid" placeholder="{{ 'e.g. fatigue, ECP, Zenodo' | t }}" hidden>
@@ -64,7 +61,7 @@ catalogue: true
       <button type="button" data-filter="data" aria-pressed="false" aria-controls="output-grid" aria-label="{{ 'Datasets and benchmarks' | t }}">{{ 'Datasets' | t }}</button>
       <button type="button" data-filter="other" aria-pressed="false" aria-controls="output-grid">{{ 'Other outputs' | t }}</button>
     </div>
-    <p id="output-count" class="catalogue-count" data-count-template="{{ '%visible% of %total% resources shown.' | t }}" role="status" aria-live="polite" aria-atomic="true">{{ site.data.research_outputs.size }} {{ 'resources · Selected research first.' | t }}</p>
+    <p id="output-count" class="catalogue-count" data-count-template="{{ '%visible% of %total% resources shown.' | t }}" role="status" aria-live="polite" aria-atomic="true">{{ site.data.research_outputs.size }} {{ 'resources. Selected research first.' | t }}</p>
     <p id="output-empty" class="output-atlas-empty" hidden>{{ 'No research outputs match the selected filters.' | t }}</p>
     <button type="button" id="output-reset" class="output-atlas-reset" hidden>{{ 'Clear catalogue filters' | t }}</button>
     <div id="output-grid" class="output-grid">

@@ -26,12 +26,11 @@ class DesignSystemTests(unittest.TestCase):
         self.assertIn('U+03A3-03FF', SCSS)
         self.assertGreaterEqual(SCSS.count('greek-wght-normal.woff2'), 3)
 
-    def test_motion_is_opacity_only_and_respects_reduced_motion(self):
-        motion = (ROOT / 'assets/js/motion.js').read_text(encoding='utf8')
-        self.assertIn('prefers-reduced-motion: reduce', motion)
-        self.assertIn('prefers-reduced-motion: reduce', SCSS)
-        reveal = SCSS[SCSS.index('html.motion-ready [data-reveal] {'):]
-        self.assertNotIn('transform', reveal.split('}')[0], 'reveal must not move layout or hit areas')
+    def test_no_scroll_reveal(self):
+        # Owner decision (2026-11): content is not faded in on scroll; figures keep their own entry motion.
+        self.assertFalse((ROOT / 'assets/js/motion.js').exists())
+        self.assertNotIn('data-reveal', SCSS)
+        self.assertNotIn('motion.js', (ROOT / '_layouts/default.html').read_text(encoding='utf8'))
 
     def test_design_system_is_imported_last(self):
         imports = re.findall(r'@import "([a-z_]+)";', (ROOT / 'assets/css/main.scss').read_text(encoding='utf8'))

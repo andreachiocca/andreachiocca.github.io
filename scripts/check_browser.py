@@ -120,7 +120,6 @@ def check_browser(root):
                         else:
                             expect(evaluate("document.querySelector('#toc-sidebar').getBoundingClientRect().right <= document.querySelector('h1').getBoundingClientRect().left"), 'CV sidebar overlaps main column')
                     if canonical_route == '/research/':
-                        expect(evaluate("[...document.querySelectorAll('.research-figure-index span')].length === 2 && [...document.querySelectorAll('.research-figure-index span')].every(el => {const rgb = getComputedStyle(el).color.match(/\\d+/g)?.map(Number); return rgb && rgb.slice(0, 3).every(value => value >= 170);})"), 'Research figure labels remain light on the blue background on ' + route)
                         expect(evaluate("document.querySelectorAll('.research-chapter').length === 4"), 'four Research chapters on ' + route)
                         expect(evaluate("document.querySelectorAll('.research-chapter .research-technical-figure svg').length === 4"), 'four Research SVGs on ' + route)
                         expect(evaluate("[...document.querySelectorAll('.research-chapter, .research-technical-figure')].every(el => {const r=el.getBoundingClientRect(); return r.left >= -2 && r.right <= innerWidth+2;})"), 'Research figures/content overflow on ' + route)

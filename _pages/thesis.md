@@ -11,13 +11,12 @@ section: teaching
 
 <section class="thesis-editorial thesis-editorial-banner">
 <div class="thesis-editorial-banner-copy">
-<p class="editorial-index">01 / {{ 'Thesis topics and projects' | t }}</p>
 <h2>{{ 'Research-led thesis opportunities' | t }}</h2>
 {% capture thesis_intro %}{% locale thesis.intro %}Bachelor’s and master’s students in mechanical engineering and related fields can work on why materials and structures fail and how to predict it, through **mechanics, simulation, programming or laboratory work**.{% endlocale %}
 
 {% locale thesis.scope %}Three computational and experimental thesis projects are available, plus open research directions. We agree the objectives together, based on your background and interests.{% endlocale %}{% endcapture %}
 <div class="thesis-editorial-banner-text">{{ thesis_intro | strip | markdownify }}</div>
-<a href="#specific-projects">{{ 'See available thesis projects' | t }} <span aria-hidden="true">↗</span></a>
+<a href="#specific-projects">{{ 'See available thesis projects' | t }}</a>
 </div>
 <div class="thesis-editorial-banner-illustration">{% include damage_sphere.html %}</div>
 </section>
@@ -26,7 +25,6 @@ section: teaching
 
 {% if site.data.thesis_opportunities.projects.size > 0 %}
 <section class="thesis-editorial thesis-editorial-projects" id="specific-projects" aria-labelledby="thesis-projects-title">
-  <p class="editorial-index">02 / {{ 'Student projects' | t }}</p>
   <h2 id="thesis-projects-title">{{ 'Available thesis projects' | t }}</h2>
   <div class="thesis-editorial-project-list">
     {% for canonical_project in site.data.thesis_opportunities.projects %}
@@ -36,7 +34,6 @@ section: teaching
 </section>
 {% endif %}
 
-<p class="editorial-index">03 / {{ "Research topics" | t }}</p>
 <h2 id="research-directions">{{ "Explore a research direction" | t }}</h2>
 <div class="feature-grid thesis-topics">{% for canonical_resource in site.data.thesis_opportunities.directions %}{% include resource_card.html resource=canonical_resource group="thesis" kind="thesis-topic" %}{% endfor %}</div>
 
@@ -51,7 +48,7 @@ section: teaching
   <h2 id="italy-and-abroad">{{ "Thesis activities in Italy and abroad" | t }}</h2>
   {% locale thesis.italy %}<p>Projects run at the <a href="https://www.dici.unipi.it/">Department of Civil and Industrial Engineering, University of Pisa</a>, with companies, or with international research institutions.</p>{% endlocale %}
   {% locale thesis.abroad %}<p>Research contacts from previous exchanges, to discuss a thesis abroad:</p>{% endlocale %}
-  <ul class="institution-list">{% for institution in site.data.thesis_opportunities.international_contacts %}<li><a href="{{ institution.url }}">{{ institution.name }}</a><span>{{ institution.location | t }}{% if institution.detail %} · {{ institution.detail }}{% endif %}</span></li>{% endfor %}</ul>
+  <ul class="institution-list">{% for institution in site.data.thesis_opportunities.international_contacts %}<li><a href="{{ institution.url }}">{{ institution.name }}</a><span>{{ institution.location | t }}{% if institution.detail %}, {{ institution.detail }}{% endif %}</span></li>{% endfor %}</ul>
   {% locale thesis.conditions %}<p class="scope-note">Placements abroad are not guaranteed: they depend on project availability, supervisors, host-institution acceptance, academic rules, and funding and mobility arrangements.</p>{% endlocale %}
 </section>
 

@@ -102,7 +102,7 @@
 
   function hover(i, x, y) {
     var p = data.points[i], s = svg.getBoundingClientRect().width / W;
-    tip.textContent = p.material + ' · ' + p.process_label + ' · ' + p.author + (p.year ? ' ' + p.year : '');
+    tip.textContent = p.material + ', ' + p.process_label + ', ' + p.author + (p.year ? ' ' + p.year : '');
     tip.hidden = false;
     // Keep the tooltip inside the plot: clamp its centre so neither edge leaves the stage.
     var half = tip.offsetWidth / 2, box = svg.getBoundingClientRect();
@@ -151,7 +151,7 @@
     drawPool(p);
     root.querySelector('[data-rm-material]').textContent = p.material;
     root.querySelector('[data-rm-process-out]').textContent = p.process_label;
-    root.querySelector('[data-rm-up]').textContent = fmt(p.U, 3) + ' m/s · ' + fmt(p.P, 3) + ' W';
+    root.querySelector('[data-rm-up]').textContent = fmt(p.U, 3) + ' m/s, ' + fmt(p.P, 3) + ' W';
     root.querySelector('[data-rm-rbar]').textContent = fmt(p.R_bar_um, 3) + ' µm';
     root.querySelector('[data-rm-ry]').textContent = fmt(p.Ry, 3);
     root.querySelector('[data-rm-ar]').textContent = p.Ar.toFixed(2);

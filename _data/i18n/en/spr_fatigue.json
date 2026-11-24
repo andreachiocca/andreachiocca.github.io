@@ -3,8 +3,8 @@
   "heading": "One structural stress for lap-shear and coach-peel joints",
   "views": {
     "force": "Force amplitude",
-    "one_parameter": "Structural stress · rivet",
-    "two_parameter": "Structural stress · rivet + adhesive"
+    "one_parameter": "Structural stress, rivet",
+    "two_parameter": "Structural stress, rivet + adhesive"
   },
   "ylabel_force": "Force amplitude F_a [N]",
   "ylabel_stress": "Structural stress σ_s [MPa]",
