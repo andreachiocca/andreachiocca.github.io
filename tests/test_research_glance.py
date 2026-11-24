@@ -19,7 +19,7 @@ class ResearchGlanceTests(unittest.TestCase):
             for name in area.get('figures', []):
                 text = (ROOT / '_includes' / name).read_text(encoding='utf8')
                 fig_id = re.search(r'<figure id="([\w-]+)"', text).group(1)
-                fig_no = re.search(r'FIG\. (R\d{2}\.\d)', text).group(1)
+                fig_no = re.search(r'data-fig="(R\d{2}\.\d)"', text).group(1)
                 ids[fig_id] = fig_no
         items = load('en')['items']
         self.assertEqual({i['anchor'] for i in items}, set(ids), 'one card per Research data figure')

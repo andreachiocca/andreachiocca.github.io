@@ -35,7 +35,7 @@
     "Only failures not used to calibrate the criterion or its S–N curve are counted; run-outs give bounds only and are excluded. Independence from constants supplied with the data, such as fatigue limits, is not yet traced (multifat issue #14).",
     "Complexity is shown beside the score, not folded into it: whether the criterion needs strains (E, ν) besides stresses, whether it uses its own life law instead of a calibrated master curve DP = A·Nᵇ, and which material constants it requires (* optional)."
   ],
-  "legend_facet": "ε: needs strain · N: native life law",
+  "legend_facet": "ε: needs strain; N: native life law",
   "inputs": "Inputs",
   "inputs_stress": "stress",
   "inputs_strain": "stress + strain (E, ν)",

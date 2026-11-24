@@ -3,8 +3,8 @@
   "heading": "Una sola tensione strutturale per giunti lap-shear e coach-peel",
   "views": {
     "force": "Ampiezza di forza",
-    "one_parameter": "Tensione strutturale · rivetto",
-    "two_parameter": "Tensione strutturale · rivetto + adesivo"
+    "one_parameter": "Tensione strutturale, rivetto",
+    "two_parameter": "Tensione strutturale, rivetto + adesivo"
   },
   "ylabel_force": "Ampiezza di forza F_a [N]",
   "ylabel_stress": "Tensione strutturale σ_s [MPa]",

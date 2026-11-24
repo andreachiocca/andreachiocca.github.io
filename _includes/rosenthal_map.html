@@ -2,13 +2,13 @@
 {% assign rm_lang = page.lang | default: 'en' %}
 {% assign rm = site.data.i18n[rm_lang].rosenthal_map | default: site.data.i18n.en.rosenthal_map %}
 {% assign rm_data = '/assets/data/figures/rosenthal-process-map.json' %}
-<figure id="rosenthal-map" class="rosenthal-map" data-rosenthal-map data-src="{{ rm_data | relative_url }}"
+<figure id="rosenthal-map" data-fig="R04.1" class="rosenthal-map" data-rosenthal-map data-src="{{ rm_data | relative_url }}"
   data-label="{{ rm.label | escape }}" data-xlabel="{{ rm.xlabel | escape }}" data-ylabel="{{ rm.ylabel | escape }}"
   data-boundary="{{ rm.boundary | escape }}" data-feasible="{{ rm.feasible | escape }}"
   data-fam-steel="{{ rm.families.steel | escape }}" data-fam-al="{{ rm.families.al | escape }}" data-fam-ti="{{ rm.families.ti | escape }}"
   data-fam-ni="{{ rm.families.ni | escape }}" data-fam-cu="{{ rm.families.cu | escape }}" data-fam-co="{{ rm.families.co | escape }}">
   <div class="rm-panel">
-    <p class="rm-heading"><span>FIG. R04.1</span><span>{{ rm.title }}</span></p>
+    <p class="rm-heading"><span>{{ rm.title }}</span></p>
     <p class="rm-title">{{ rm.heading }}</p>
     <div class="rm-controls" data-rm-controls hidden>
       <div class="rm-chips" role="group" aria-label="{{ rm.material | escape }}">
@@ -42,6 +42,6 @@
   </div>
   <figcaption id="rm-caption">{{ rm.caption | replace: 'A_r', 'A<sub>r</sub>' }}
     <details><summary>{{ rm.details }}</summary><p data-rm-provenance data-template="{{ rm.provenance | replace: 'A_r', 'A<sub>r</sub>' | escape }}">{{ rm.provenance | replace: 'A_r', 'A<sub>r</sub>' | replace: '%n ', '' }}</p>
-    <p><a href="{{ rm_data | relative_url }}">{{ rm.data }}</a> · <a href="https://github.com/andreachiocca/andreachiocca.github.io/blob/master/scripts/generate_rosenthal_map.py">{{ rm.code }}</a> · <a href="https://doi.org/10.1016/j.matdes.2022.110991">{{ rm.paper }}</a></p></details></figcaption>
+    <p><a href="{{ rm_data | relative_url }}">{{ rm.data }}</a>, <a href="https://github.com/andreachiocca/andreachiocca.github.io/blob/master/scripts/generate_rosenthal_map.py">{{ rm.code }}</a>, <a href="https://doi.org/10.1016/j.matdes.2022.110991">{{ rm.paper }}</a></p></details></figcaption>
 </figure>
 <script defer src="{{ '/assets/js/rosenthal-map.js' | relative_url | bust_file_cache }}"></script>

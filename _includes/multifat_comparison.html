@@ -3,14 +3,14 @@
 {% assign mc = site.data.i18n[mc_lang].multifat_comparison | default: site.data.i18n.en.multifat_comparison %}
 {% assign mc_data = '/assets/data/figures/multifat-comparison.json' %}
 {% assign mc_source = site.data.figure_sources.multifat_comparison %}{% assign mc_commit = mc_source.commit | slice: 0, 7 %}
-<figure id="multifat-comparison" class="multifat-comparison" data-multifat-comparison data-src="{{ mc_data | relative_url }}"
+<figure id="multifat-comparison" data-fig="R02.2" class="multifat-comparison" data-multifat-comparison data-src="{{ mc_data | relative_url }}"
   data-label="{{ mc.label | escape }}" data-view-within="{{ mc.view_within | escape }}" data-view-bias="{{ mc.view_bias | escape }}"
   data-fam-cp="{{ mc.families.cp_methods | escape }}" data-fam-invariant="{{ mc.families.invariant_methods | escape }}"
   data-fam-integral="{{ mc.families.integral_methods | escape }}" data-fam-energy="{{ mc.families.energy_based_methods | escape }}"
   data-inputs-stress="{{ mc.inputs_stress | escape }}" data-inputs-strain="{{ mc.inputs_strain | escape }}"
   data-life-master="{{ mc.life_master | escape }}" data-life-native="{{ mc.life_native | escape }}">
   <div class="mc-panel">
-    <p class="mc-heading"><span>FIG. R02.2</span><span>{{ mc.title }}</span></p>
+    <p class="mc-heading"><span>{{ mc.title }}</span></p>
     <p class="mc-title">{{ mc.heading }}</p>
     <div class="mc-controls" data-mc-controls hidden>
       <div class="mc-tabs" role="group" aria-label="{{ mc.title | escape }}">
@@ -50,6 +50,6 @@
     <details class="mc-metric"><summary>{{ mc.metric_title | replace: 'e_L', 'e<sub>L</sub>' }}</summary>
       <ul>{% for item in mc.metric_items %}<li>{{ item | replace: 'e_L', 'e<sub>L</sub>' | replace: 's*', 's<sup>*</sup>' }}</li>{% endfor %}</ul></details>
     <details><summary>{{ mc.details }}</summary><p>{{ mc.provenance | replace: '%commit%', mc_commit | replace: 'e_L', 'e<sub>L</sub>' }}</p>
-    <p><a href="{{ mc_data | relative_url }}">{{ mc.data }}</a> · <a href="https://github.com/andreachiocca/andreachiocca.github.io/blob/master/scripts/generate_multifat_comparison.py">{{ mc.code }}</a> · <a href="https://github.com/{{ mc_source.repository }}/tree/{{ mc_source.commit }}">multifat@{{ mc_commit }}</a></p></details></figcaption>
+    <p><a href="{{ mc_data | relative_url }}">{{ mc.data }}</a>, <a href="https://github.com/andreachiocca/andreachiocca.github.io/blob/master/scripts/generate_multifat_comparison.py">{{ mc.code }}</a>, <a href="https://github.com/{{ mc_source.repository }}/tree/{{ mc_source.commit }}">multifat@{{ mc_commit }}</a></p></details></figcaption>
 </figure>
 <script defer src="{{ '/assets/js/multifat-comparison.js' | relative_url | bust_file_cache }}"></script>

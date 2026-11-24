@@ -4,18 +4,16 @@ layout: default
 <div class="post research-atlas">
   <header class="research-hero">
     <div class="research-hero-copy">
-      <p class="research-kicker">01 / {{ "Research overview" | t }}</p>
       <h1 class="post-title">{{ page.title }}</h1>
       <p class="research-subtitle">{{ page.description }}</p>
       <div class="research-introduction">{% locale research.intro %}How materials and components respond to repeated loads, studied with analytical models, finite element analysis and experiments.{% endlocale %}</div>
       <nav class="research-quick-links" aria-label="{{ 'On this page' | t }}">
-        <a href="#research-areas">{{ "Research areas" | t }} <span aria-hidden="true">↗</span></a>
-        <a href="#projects">{{ "Research projects" | t }} <span aria-hidden="true">↗</span></a>
-        <a href="#international-collaborations">{{ "International collaborations" | t }} <span aria-hidden="true">↗</span></a>
+        <a href="#research-areas">{{ "Research areas" | t }}</a>
+        <a href="#projects">{{ "Research projects" | t }}</a>
+        <a href="#international-collaborations">{{ "International collaborations" | t }}</a>
       </nav>
     </div>
     <figure class="research-hero-panel">
-      <div class="research-figure-index"><span>FIG. R01</span><span>{{ "Research overview" | t }}</span></div>
       {% include research_overview_visual.html %}
       <figcaption>{{ "Research overview" | t }}</figcaption>
     </figure>

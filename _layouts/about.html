@@ -4,7 +4,6 @@ layout: default
 <div class="post home-page home-page--editorial">
   <section class="home-hero" aria-label="{{ 'Research overview' | t }}">
     <div class="home-hero-copy">
-      <p class="home-eyebrow"><span class="home-eyebrow-index" aria-hidden="true">01 /</span> {{ "Research expertise" | t }}</p>
       <header class="post-header home-hero-header">
         <h1 class="post-title"><span class="font-weight-bold">{{ site.first_name }}</span> <span class="home-surname">{{ site.last_name }}</span></h1>
         <p class="desc">{{ page.subtitle }}</p>
@@ -13,7 +12,7 @@ layout: default
     </div>
     <div class="home-hero-aside">
       <div class="home-hero-art">
-        <div class="home-art-heading"><span>FIG. 01</span><span>{{ "Fatigue research" | t }}</span></div>
+        <div class="home-art-heading"><span>{{ "Fatigue research" | t }}</span></div>
         {% include home_visual.html %}
         <div class="home-art-footer"><span>σ / τ</span><span>{{ "Research areas" | t }}</span></div>
       </div>
@@ -24,7 +23,6 @@ layout: default
           {% include figure.html path=profile_image_path class="img-fluid rounded-circle" alt=page.profile.image_alt loading="eager" fetchpriority="high" sizes="(min-width: 700px) 96px, 80px" cache_bust=true %}
         </div>
         <div class="home-identity-details">
-          <p class="home-identity-label">{{ "Office contact" | t }}</p>
           <address class="office-contact" aria-label="{{ "Office contact" | t }}">
             <p><i class="far fa-envelope" aria-hidden="true"></i><a href="mailto:{{ site.data.resume.basics.email }}">{{ site.data.resume.basics.email }}</a></p>{{ page.profile.more_info }}
           </address>
@@ -37,13 +35,12 @@ layout: default
     <div class="home-audiences-heading">
       <h2 id="home-pathways-title">{{ "Students and research partners" | t }}</h2>
       <div class="home-pathway-figure" aria-hidden="true">
-        <span class="home-pathway-caption">FIG. 02</span>
         {% include home_pathways_visual.html %}
       </div>
     </div>
     <div class="feature-grid">
-{% locale home.students %}<section class="feature-card audience-card"><h3><i class="far fa-lightbulb section-icon" aria-hidden="true"></i>{{ "For students" | t }}</h3><p>Thesis projects in fatigue, computational mechanics and experimental testing, in Pisa or abroad.</p><a class="contact-link" href="{{ '/thesis/' | local_url | relative_url }}">{{ "Explore thesis opportunities" | t }} <span aria-hidden="true">→</span></a></section>{% endlocale %}
-{% locale home.partners %}<section class="feature-card audience-card"><h3><i class="far fa-handshake section-icon" aria-hidden="true"></i>{{ "For researchers &amp; industry" | t }}</h3><p>Experimental and numerical–experimental capabilities for joint research.</p><a class="contact-link" href="{{ '/laboratory/' | local_url | relative_url }}">{{ "Laboratory capabilities" | t }} <span aria-hidden="true">→</span></a></section>{% endlocale %}
+{% locale home.students %}<section class="feature-card audience-card"><h3><i class="far fa-lightbulb section-icon" aria-hidden="true"></i>{{ "For students" | t }}</h3><p>Thesis projects in fatigue, computational mechanics and experimental testing, in Pisa or abroad.</p><a class="contact-link" href="{{ '/thesis/' | local_url | relative_url }}">{{ "Explore thesis opportunities" | t }}</a></section>{% endlocale %}
+{% locale home.partners %}<section class="feature-card audience-card"><h3><i class="far fa-handshake section-icon" aria-hidden="true"></i>{{ "For researchers &amp; industry" | t }}</h3><p>Experimental and numerical–experimental capabilities for joint research.</p><a class="contact-link" href="{{ '/laboratory/' | local_url | relative_url }}">{{ "Laboratory capabilities" | t }}</a></section>{% endlocale %}
     </div>
   </section>
   <section class="home-project" aria-labelledby="home-project-title">

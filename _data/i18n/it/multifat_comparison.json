@@ -35,7 +35,7 @@
     "Sono contate solo le rotture non usate per calibrare il criterio o la sua curva S–N; i run-out danno solo limiti e sono esclusi. L'indipendenza dalle costanti fornite con i dati, come i limiti di fatica, non è ancora tracciata (issue #14 di multifat).",
     "La complessità è mostrata accanto al punteggio, non inclusa in esso: se il criterio richiede deformazioni (E, ν) oltre alle tensioni, se usa una propria legge di vita invece di una master curve calibrata DP = A·Nᵇ e quali costanti di materiale richiede (* opzionali)."
   ],
-  "legend_facet": "ε: richiede deformazioni · N: legge di vita propria",
+  "legend_facet": "ε: richiede deformazioni; N: legge di vita propria",
   "inputs": "Input",
   "inputs_stress": "tensioni",
   "inputs_strain": "tensioni + deformazioni (E, ν)",

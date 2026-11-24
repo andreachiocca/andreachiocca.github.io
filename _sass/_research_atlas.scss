@@ -112,9 +112,6 @@ main#main-content:has(> .research-atlas) { max-width: 1160px; }
   padding: 0 0 .9rem; margin: 0 0 1.35rem; border-bottom: 1px solid var(--atlas-rule);
   font-size: clamp(1.45rem, 2.3vw, 1.85rem);
 }
-.research-atlas .research-projects > h2::before { content: "05 / "; }
-.research-atlas .research-collaborations > h2::before { content: "06 / "; }
-.research-atlas .research-contact > h2::before { content: "07 / "; }
 .research-atlas .research-projects > h2::before,
 .research-atlas .research-collaborations > h2::before,
 .research-atlas .research-contact > h2::before {

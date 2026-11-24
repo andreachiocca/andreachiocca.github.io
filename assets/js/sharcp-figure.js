@@ -118,7 +118,7 @@
 
   function showTip(node) {
     var p = node.__p, box = svg.getBoundingClientRect(), s = box.width / W;
-    tip.textContent = (p.set === 'val' ? root.dataset.val : root.dataset.cal) + ' · ' + p.source + ' · ' + (p.mode === 'MIII' ? root.dataset.modeIii : root.dataset.modeI) + ' · N = ' + fmt(p.N);
+    tip.textContent = (p.set === 'val' ? root.dataset.val : root.dataset.cal) + ', ' + p.source + ', ' + (p.mode === 'MIII' ? root.dataset.modeIii : root.dataset.modeI) + ', N = ' + fmt(p.N);
     tip.hidden = false;
     // Keep the tooltip inside the plot: clamp its centre so neither edge leaves the stage.
     var half = tip.offsetWidth / 2, x = node.__xy[0] * s;

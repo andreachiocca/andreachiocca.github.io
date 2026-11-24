@@ -169,11 +169,6 @@ body.academic-home-v2 main#main-content {
   border-bottom: 1px solid var(--home-hairline);
 }
 .home-page--editorial .home-audiences { padding-top: 2.5rem; }
-.home-page--editorial .home-audiences h2::before { content: "02 / "; }
-.home-page--editorial .home-project h2::before { content: "03 / "; }
-.home-page--editorial .home-publications-section h2::before { content: "04 / "; }
-.home-page--editorial .home-open-science h2::before { content: "05 / "; }
-.home-page--editorial .collaboration-panel h2::before { content: "06 / "; }
 .home-page--editorial .home-audiences h2::before,
 .home-page--editorial .home-project h2::before,
 .home-page--editorial .home-publications-section h2::before,

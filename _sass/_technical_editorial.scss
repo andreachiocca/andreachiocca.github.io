@@ -38,7 +38,7 @@ body { font-feature-settings: "kern"; }
   border-bottom: 1px solid var(--global-divider-color);
 }
 .post h2:not(.bibliography)::before {
-  content: "/ ";
+  content: none;
   color: var(--editorial-teal);
   font-family: var(--font-mono);
   font-weight: 400;

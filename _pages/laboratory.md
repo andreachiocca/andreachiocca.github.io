@@ -12,7 +12,6 @@ seo_title: Fatigue Testing & Experimental Mechanics
 
 <section class="laboratory-hero" aria-label="{{ 'Research facilities' | t }}">
   <div class="laboratory-hero-copy">
-    <p class="laboratory-kicker">01 / {{ "Research facilities" | t }}</p>
     {% capture laboratory_intro %}{% locale laboratory.intro %}Experimental and computational research on fatigue, structural integrity and material behaviour at the **Department of Civil and Industrial Engineering, University of Pisa**: metals, polymers, composites and additively manufactured materials.{% endlocale %}{% endcapture %}
     {{ laboratory_intro | strip | markdownify }}
     {% capture laboratory_scope %}{% locale laboratory.scope %}The departmental facilities used by our group. Access and new tests are agreed with the laboratory staff.{% endlocale %}{% endcapture %}
@@ -36,7 +35,6 @@ seo_title: Fatigue Testing & Experimental Mechanics
 </section>
 
 <section class="laboratory-section laboratory-testing-systems" aria-labelledby="equipment">
-  <p class="laboratory-section-index">02 / {{ "Featured equipment" | t }}</p>
   <h2 id="equipment">{{ "Experimental facilities" | t }}</h2>
   <div class="laboratory-machines">
     {% for canonical_resource in site.data.laboratory.equipment %}
@@ -49,7 +47,6 @@ seo_title: Fatigue Testing & Experimental Mechanics
 </section>
 
 <section class="laboratory-section laboratory-support" aria-labelledby="instrumentation">
-  <p class="laboratory-section-index">03 / {{ "Experimental measurement" | t }}</p>
   <h2 id="instrumentation">{{ "Instrumentation and experimental methods" | t }}</h2>
   {% locale laboratory.methods %}<p>Further equipment for structural, vibration and thermal testing and specimen preparation.</p>{% endlocale %}
   <div class="laboratory-machines laboratory-supporting-machines">
@@ -68,7 +65,6 @@ seo_title: Fatigue Testing & Experimental Mechanics
 </section>
 
 <section class="laboratory-section laboratory-research" aria-labelledby="research-expertise">
-  <p class="laboratory-section-index">04 / {{ "Research facilities" | t }}</p>
   <h2 id="research-expertise">{{ "What we can investigate" | t }}</h2>
   {% locale laboratory.evidence %}<p>Previous studies and datasets. New materials or loading cases need a specific feasibility check.</p>{% endlocale %}
   <div class="laboratory-research-domains">
@@ -79,7 +75,6 @@ seo_title: Fatigue Testing & Experimental Mechanics
 </section>
 
 <section id="laboratory-collaboration" class="collaboration-panel laboratory-collaboration" aria-labelledby="laboratory-contact-title">
-  <p class="laboratory-section-index">05 / {{ "Discuss a collaboration" | t }}</p>
   <h2 id="laboratory-contact-title">{{ "Discuss an investigation or research collaboration" | t }}</h2>
   {% locale laboratory.contact %}<p>University groups and industrial R&amp;D teams are welcome to propose joint research, test campaigns or method development.</p><p>Please describe the question, material or component, loading and measurements, and timing. Activities depend on technical feasibility and institutional procedures.</p>{% endlocale %}
   <a class="contact-link" href="mailto:andrea.chiocca@unipi.it?subject=Experimental%20Investigation%20and%20Research%20Collaboration">andrea.chiocca@unipi.it</a>

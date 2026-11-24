@@ -25,7 +25,7 @@
   },
   "ai-structural-integrity": {
     "title": "Intelligenza artificiale e integrità strutturale",
-    "mode": "Numerica / computazionale · esplorativa",
+    "mode": "Numerica / computazionale, esplorativa",
     "description": "Se i metodi basati sui dati possono supportare la previsione a fatica. Esplorativo: dipende da dataset e collaborazioni adeguati; non si presuppone alcuno strumento validato.",
     "activities": "Confronto di metodi di apprendimento automatico, integrazione di modelli fisici e basati sui dati, modelli surrogati e interpretazione di dati sperimentali rispetto a risultati di riferimento."
   },
@@ -43,7 +43,7 @@
   },
   "open-multiaxial-fatigue": {
     "title": "Sviluppo open source di metodi per la fatica multiassiale",
-    "mode": "Attività numerica · Python",
+    "mode": "Attività numerica, Python",
     "description": "La tesi prevede un contributo al repository pubblico multiaxial-fatigue sviluppato nell'ambito di FABER WG4.3. Lo studente studierà criteri di analisi a fatica presenti nella letteratura scientifica, ne implementerà una selezione in Python e confronterà i risultati su condizioni di carico documentate.",
     "activities": "Analisi della letteratura scientifica; formulazione e implementazione dei metodi; test unitari ed esempi numerici; documentazione del codice; confronto con dati sperimentali disponibili.",
     "image_alt": "Confronto tra storie di tensione armoniche normali e tangenziali con sfasamento di zero e novanta gradi, e percorsi rettilinei ed ellittici nello spazio delle tensioni.",
@@ -56,7 +56,7 @@
   },
   "pcb-capacitor-vibration-fatigue": {
     "title": "Analisi sperimentale della resistenza a fatica di condensatori su schede elettroniche",
-    "mode": "Attività sperimentale · Prove vibrazionali",
+    "mode": "Attività sperimentale, Prove vibrazionali",
     "description": "La tesi riguarda la resistenza a fatica dei condensatori montati su schede elettroniche assemblate (PCBA). Lo studente progetterà e preparerà un circuito di prova con condensatori, eseguirà prove vibrazionali con shaker di laboratorio e analizzerà la risposta e gli eventuali meccanismi di cedimento.",
     "activities": "Progettazione del circuito e dei provini; pianificazione delle prove con shaker e della strumentazione; acquisizione di misure sperimentali; analisi della fatica dei condensatori e confronto con i metodi di previsione disponibili per componenti elettronici.",
     "image_alt": "Attrezzatura di laboratorio per prove di flessione, con provino sottile curvato, due appoggi e puntale sferico centrale.",
@@ -69,7 +69,7 @@
   },
   "coated-lattice-fatigue": {
     "title": "Resistenza a fatica di strutture reticolari ed effetto dei rivestimenti superficiali",
-    "mode": "Attività sperimentale e numerica · Termografia",
+    "mode": "Attività sperimentale e numerica, Termografia",
     "description": "La tesi riguarda la resistenza a fatica di strutture reticolari prodotte mediante manifattura additiva e l'effetto di un rivestimento superficiale. Il progetto combina prove sperimentali su provini rivestiti e non rivestiti, misure termografiche e valutazioni del comportamento a fatica con i metodi disponibili.",
     "activities": "Progettazione o scelta dei provini reticolari; preparazione dei rivestimenti e dei provini; prove statiche e cicliche; misure termografiche; confronto della resistenza a fatica e analisi dei meccanismi di cedimento.",
     "image_alt": "Immagine termografica di un provino reticolare montato su un banco di prova, con scala cromatica delle temperature.",
