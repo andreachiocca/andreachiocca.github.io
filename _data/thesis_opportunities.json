@@ -114,6 +114,12 @@
       "location": "Norway",
       "detail": "Norwegian University of Science and Technology",
       "url": "https://www.ntnu.edu/"
+    },
+    {
+      "name": "TU Delft",
+      "location": "Delft, Netherlands",
+      "detail": "Delft University of Technology",
+      "url": "https://www.tudelft.nl/en/"
     }
   ],
   "projects": [
