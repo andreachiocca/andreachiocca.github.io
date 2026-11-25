@@ -96,28 +96,33 @@
     {
       "name": "Aarhus University",
       "location": "Denmark",
+      "topics": "Fatigue of welded high-strength steels and post-weld treatments",
       "url": "https://www.au.dk/en/"
     },
     {
       "name": "Fraunhofer LBF",
       "location": "Darmstadt, Germany",
+      "topics": "Fatigue design of welded joints: residual stresses, thin sheets, multiaxial loading",
       "detail": "Institute for Structural Durability and System Reliability",
       "url": "https://www.lbf.fraunhofer.de/"
     },
     {
       "name": "Czech Technical University in Prague",
       "location": "Czech Republic",
+      "topics": "Multiaxial fatigue criteria and computational fatigue analysis",
       "url": "https://www.cvut.cz/en"
     },
     {
       "name": "NTNU",
       "location": "Norway",
+      "topics": "Fatigue and fracture of additively manufactured metals and lattice structures",
       "detail": "Norwegian University of Science and Technology",
       "url": "https://www.ntnu.edu/"
     },
     {
       "name": "TU Delft",
       "location": "Delft, Netherlands",
+      "topics": "Fatigue of steel structures, bolted connections and structural reuse",
       "detail": "Delft University of Technology",
       "url": "https://www.tudelft.nl/en/"
     }

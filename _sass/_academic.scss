@@ -229,6 +229,7 @@ html { scrollbar-gutter: stable; }
 .institution-list li { padding: .5rem 0; border-bottom: 1px solid var(--global-divider-color); }
 .institution-list a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 500; }
 .institution-list span { display: block; color: var(--global-text-color-light); font-size: .85rem; }
+.institution-list span.institution-topics { color: var(--global-text-color); font-size: .92rem; margin-top: .2rem; }
 .scope-note { font-size: .9rem; color: var(--global-text-color-light); line-height: 1.65; }
 .audience-card .contact-link { gap: .5rem; }
 .equipment-specifications { font-size: .9rem; }

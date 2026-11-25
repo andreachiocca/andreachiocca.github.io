@@ -48,8 +48,7 @@ section: teaching
   <h2 id="italy-and-abroad">{{ "Thesis activities in Italy and abroad" | t }}</h2>
   {% locale thesis.italy %}<p>Projects run at the <a href="https://www.dici.unipi.it/">Department of Civil and Industrial Engineering, University of Pisa</a>, with companies, or with international research institutions.</p>{% endlocale %}
   {% locale thesis.abroad %}<p>Research contacts from previous exchanges, to discuss a thesis abroad:</p>{% endlocale %}
-  <ul class="institution-list">{% for institution in site.data.thesis_opportunities.international_contacts %}<li><a href="{{ institution.url }}">{{ institution.name }}</a><span>{{ institution.location | t }}{% if institution.detail %}, {{ institution.detail }}{% endif %}</span></li>{% endfor %}</ul>
-  {% locale thesis.delft %}<p>TU Delft can host master’s theses in fatigue of steel structures, for example in its tests on the reuse of steel bridges. Stays of up to three months are free of charge; longer stays may involve tuition fees, and each visit needs the host department’s approval.</p>{% endlocale %}
+  <ul class="institution-list">{% for institution in site.data.thesis_opportunities.international_contacts %}<li><a href="{{ institution.url }}">{{ institution.name }}</a><span>{{ institution.location | t }}{% if institution.detail %}, {{ institution.detail }}{% endif %}</span>{% if institution.topics %}<span class="institution-topics">{{ institution.topics | t }}</span>{% endif %}</li>{% endfor %}</ul>
   {% locale thesis.conditions %}<p class="scope-note">Placements abroad are not guaranteed: they depend on project availability, supervisors, host-institution acceptance, academic rules, and funding and mobility arrangements.</p>{% endlocale %}
 </section>
 

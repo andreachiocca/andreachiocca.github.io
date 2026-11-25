@@ -24,6 +24,8 @@ class TeachingThesisEditorialTests(unittest.TestCase):
         self.assertEqual(len(self.data["approaches"]), 3)
         self.assertEqual(len(self.data["international_contacts"]), 5)
         self.assertIn("TU Delft", [c["name"] for c in self.data["international_contacts"]])
+        for contact in self.data["international_contacts"]:
+            self.assertTrue(contact.get("topics"), contact["name"])
         for project in projects:
             record_id = project["id"]
             self.assertIn(record_id, self.italian)
